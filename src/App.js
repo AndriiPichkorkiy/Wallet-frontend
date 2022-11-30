@@ -1,3 +1,5 @@
+// require('dotenv').config()
+console.log(process.env)
 const testPicture = require('./assets/images/authImg/login-desk.png')
 
 function App() {
