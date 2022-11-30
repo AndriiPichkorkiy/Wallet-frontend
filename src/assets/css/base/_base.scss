@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+// * {
+//   transition-duration: 250ms;
+// }
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: $font-size-body;
+
+  @include tablet {
+    // font-size: calc($font-size-body / 4 * 2);
+  }
+  @include desktop1024 {
+    // font-size: calc($font-size-body / 3 * 2);
+  }
+  @include desktop1280 {
+    // font-size: calc($font-size-body / 4 * 3);
+  }
+}
+
+body {
+  font-style: normal;
+  font-weight: 400;
+
+  line-height: 150%;
+  color: $main-text;
+  margin: 0;
+
+  background-color: $background-body;
+}
+
+.ul {
+  list-style: none;
+}

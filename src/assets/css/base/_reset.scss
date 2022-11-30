@@ -1,0 +1,41 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+// то что написано ниже, это костыль для
+// google chrome, а именно: при загрузке
+// страницы все элементы с transition
+// начинают "дергатся".
+
+// рецепт взял с сайта:
+// https://css-tricks.com/transitions-only-after-page-load/
+
+// js дописан в конце index.html
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}

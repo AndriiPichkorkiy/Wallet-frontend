@@ -1,0 +1,48 @@
+:root {
+  --font-size-body: 24px;
+
+  --duration: 250ms;
+  --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --accent-color-green: #24cca7;
+  --accent-color-violet: #4a56e2;
+  --accent-color-violet-light: #6e78e8;
+  --accent-color-pink: #ff6596;
+  --btn-color: #24cca7;
+  --background: #ffffff;
+  --background-body: #e7eaf2;
+  --main-text: #000000;
+  --accent-text-green: #24cca7;
+  --accent-text-pink: #ff6596;
+  --text-placeholder: #bdbdbd;
+  --text-header: #bdbdbd;
+  --btn-border-radius: 20px;
+  --modal-border-radius: 20px;
+  --component-border-radius: 30px;
+  --overlay: rgba(0, 0, 0, 0.25);
+}
+
+//font
+$font-size-body: 24px;
+
+// transition
+$duration: 250ms;
+$timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
+
+// colors
+$accent-color-green: #24cca7;
+$accent-color-violet: #4a56e2;
+$accent-color-violet-light: #6e78e8;
+$accent-color-pink: #ff6596;
+$btn-color: #24cca7;
+$background: #ffffff;
+$background-body: #e7eaf2;
+$main-text: #000000;
+$accent-text-green: #24cca7;
+$accent-text-pink: #ff6596;
+$text-placeholder: #bdbdbd;
+$text-header: #bdbdbd;
+$btn-border-radius: 20px;
+$modal-border-radius: 20px;
+$component-border-radius: 30px;
+$overlay: rgba(0, 0, 0, 0.25);

@@ -1,0 +1,78 @@
+:root {
+  --font-size-body: 24px;
+  --duration: 250ms;
+  --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
+  --accent-color-green: #24cca7;
+  --accent-color-violet: #4a56e2;
+  --accent-color-violet-light: #6e78e8;
+  --accent-color-pink: #ff6596;
+  --btn-color: #24cca7;
+  --background: #ffffff;
+  --background-body: #e7eaf2;
+  --main-text: #000000;
+  --accent-text-green: #24cca7;
+  --accent-text-pink: #ff6596;
+  --text-placeholder: #bdbdbd;
+  --text-header: #bdbdbd;
+  --btn-border-radius: 20px;
+  --modal-border-radius: 20px;
+  --component-border-radius: 30px;
+  --overlay: rgba(0, 0, 0, 0.25);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  font-size: 24px;
+}
+body {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  color: #000000;
+  margin: 0;
+  background-color: #e7eaf2;
+}
+
+.ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+img {
+  display: block;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}/*# sourceMappingURL=main.css.map */

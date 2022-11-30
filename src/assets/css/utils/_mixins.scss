@@ -1,0 +1,38 @@
+@mixin tel {
+  @media screen and (min-width: 480px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop1024 {
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop1280 {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin bg2x {
+  @media (min-device-pixel-ratio: 2),
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    @content;
+  }
+}
