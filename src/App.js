@@ -1,5 +1,6 @@
-import Chart from './components/Chart'
-// require('dotenv').config()
+import React from 'react'
+import Chart from './components/Chart/Chart'
+
 console.log(process.env)
 const testPicture = require('./assets/images/authImg/login-desk.png')
 
