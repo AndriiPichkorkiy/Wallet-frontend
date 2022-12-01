@@ -1,18 +1,14 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import DashboardPage from './pages/DashboardPage'
-
-// require('dotenv').config()
-console.log(process.env)
-const testPicture = require('./assets/images/authImg/login-desk.png')
 
 function App() {
   return (
     <>
-      <div className='App'>
-        <h1>Hello React</h1>
-        <img src={testPicture} alt='selling img' />
-      </div>
-      <DashboardPage />
+      <Routes>
+        <Route path='/home' element={<DashboardPage />} />
+        <Route path='*' element={<div>Not found 404</div>} />
+      </Routes>
     </>
   )
 }
