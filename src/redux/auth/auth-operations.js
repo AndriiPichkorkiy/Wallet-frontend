@@ -1,17 +1,17 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {signup, signin, logout, getCurrent} from '../../api/auth.js';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const signUp = createAsyncThunk(
     'auth/signup',
     async (data, { rejectWithValue }) => {
         try {
             const result = await signup(data);
-            Notify.success("You are sign up!")
+            // Notify.success("You are sign up!")
             return result;
         }
         catch (error) {
-            Notify.failure(error.message)
+            // Notify.failure(error.message)
             return rejectWithValue(error);
         }
     }
@@ -22,11 +22,11 @@ export const signIn = createAsyncThunk(
     async (data, { rejectWithValue }) => {
         try {
             const result = await signin(data);
-            Notify.success("You are logged in!")
+            // Notify.success("You are logged in!")
             return result;
         }
         catch (error) {
-             Notify.failure(error.message)
+            //  Notify.failure(error.message)
             return rejectWithValue(error);
         }
     }
