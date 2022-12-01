@@ -4,7 +4,7 @@ import { DataGrid } from '@mui/x-data-grid'
 import { useState } from 'react'
 
 const HomeTabl = ({ data }) => {
-  const [pageSize, setPageSize] = useState(10)
+  const [pageSize, setPageSize] = useState(5)
   const columns = [
     {
       field: 'date',
@@ -56,7 +56,7 @@ const HomeTabl = ({ data }) => {
     <Box m='20px'>
       <Box
         m='30px 0 0 0'
-        height='60vh'
+        height='80vh'
         sx={{
           '& .MuiDataGrid-root': {
             border: 'none',
