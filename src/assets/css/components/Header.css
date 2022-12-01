@@ -1,0 +1,93 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 15px 20px;
+  background-color: white;
+}
+@media screen and (min-width: 480px) {
+  .Header {
+    padding: 20px 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .Header {
+    padding: 16px 20px;
+  }
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logoIcon {
+  margin-right: 15px;
+  width: 30px;
+}
+@media screen and (min-width: 480px) {
+  .logoIcon {
+    width: 40px;
+    margin-right: 20px;
+  }
+}
+
+.logoText {
+  font-size: 22px;
+}
+@media screen and (min-width: 480px) {
+  .logoText {
+    font-size: 36px;
+  }
+}
+
+.btnlogoutName {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #BDBDBD;
+}
+
+.name {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+.icon {
+  background-color: white;
+}
+
+.btnLogout {
+  padding: 0;
+  margin-left: 8px;
+  background-color: white;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (min-width: 480px) {
+  .btnLogout {
+    border-left: 1px #BDBDBD solid;
+    padding-left: 12px;
+  }
+}
+
+.logoutBtn_text {
+  position: absolute;
+  color: transparent;
+}
+@media screen and (min-width: 480px) {
+  .logoutBtn_text {
+    color: #BDBDBD;
+    padding-top: 3px;
+    margin-left: 8px;
+    position: relative;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+  }
+}/*# sourceMappingURL=Header.css.map */
