@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { ModalCont, ModalLogoutButtonNo, ModalLogoutButtonYes, ModalLogoutText, Overlay, } from "./ModalLogoutComponents";
 
 const portal = document.querySelector('#portal')
 
@@ -30,17 +31,15 @@ const ModalLogout = ({ toExit}) => {
     }
 
     return createPortal(
-        <div className={"modalLogoutOverlay"}
-            onClick={onBackClick}
-        >
-            <div className={"modalLogout"}>
-                <p className="modalLogoutText">Are you sure that you want to log out?</p>
-                <div className="modalLogoutButtons">
-                    <button className="modalLogoutButtonYes modalLogoutButton">YES</button>
-                    <button onClick={toExit} className="modalLogoutButtonNo modalLogoutButton">NO</button>
+        <Overlay onClick={onBackClick}>
+            <ModalCont className={"modalLogout"}>
+                <ModalLogoutText className="modalLogoutText">Are you sure that you want to log out?</ModalLogoutText>
+                <div>
+                    <ModalLogoutButtonYes>YES</ModalLogoutButtonYes>
+                    <ModalLogoutButtonNo onClick={toExit}>NO</ModalLogoutButtonNo>
                 </div>
-            </div>
-        </div>, portal   
+            </ModalCont>
+        </Overlay>, portal   
     );
 }
 

@@ -1,24 +1,24 @@
 .modalLogoutOverlay {
-    background-color: rgba(0, 0, 0, 0.25);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1200;
+    // background-color: rgba(0, 0, 0, 0.25);
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // width: 100vw;
+    // height: 100vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    // z-index: 1200;
 
 }
 
 .modalLogout {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 15px;
-    border-radius: 20px;
+    // background-color: white;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // padding: 20px 15px;
+    // border-radius: 20px;
     @media screen and (min-width: 768px) {
         padding: 20px 80px;
     }   
