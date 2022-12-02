@@ -1,4 +1,6 @@
 import React from 'react'
+
+import PrivateHeader from './components/PrivateHeader/PrivateHeader'
 import Chart from './components/Chart/Chart'
 
 console.log(process.env)
@@ -20,9 +22,11 @@ const statistics = [
 ]
 
 function App() {
+
   return (
     <div className='App'>
-      <h1>Hello React</h1>
+      <PrivateHeader/>
+
       <img src={testPicture} alt='selling img' />
       <Chart statistics={statistics} totalBalance={totalBalance} />
     </div>
