@@ -13,7 +13,7 @@ const DashbordBtns = () => {
                     {/* <img src={stat} alt="" /> */}
                     <SvgIcon name={'statisticsicon'} width={"44px"} height={"44px"}/>
                 </LinkBtn>
-                <LinkBtn to=''>
+                <LinkBtn to='/currency'>
                     <SvgIcon name={'currencyicon'} width={"44px"} height={"44px"}/>
                 </LinkBtn>
             </BtnsCont>
