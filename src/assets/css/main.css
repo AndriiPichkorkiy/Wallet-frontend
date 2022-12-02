@@ -1,5 +1,5 @@
 :root {
-  --font-size-body: 24px;
+  --font-size-body: 16px;
   --duration: 250ms;
   --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
   --accent-color-green: #24cca7;
@@ -30,7 +30,7 @@ html,
 body {
   overflow-x: hidden;
   scroll-behavior: smooth;
-  font-size: 24px;
+  font-size: 16px;
 }
 body {
   font-style: normal;
@@ -75,4 +75,5 @@ img {
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */
+
