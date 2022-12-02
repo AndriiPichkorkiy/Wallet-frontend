@@ -1,4 +1,4 @@
-import {  NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import SVGIcon from '../SVGIcon/SVGIcon.jsx'
 
@@ -17,18 +17,18 @@ export const Container = styled.div`
 `
 
 export const LinkBtn = styled(NavLink)`
+    fill: #6e78e8;
     :not(:last-child) {
         margin-right: 32px;
     }
-    :hover {
-        stroke: black;
+    &.active {
+        fill: #4A56E2;
     }
 `
 
 export const SvgBtnDashbord = styled(SVGIcon)`
     width: 44px;
     height: 44px;
-    fill: #6e78e8;
     :hover {
         stroke: black;
     }
