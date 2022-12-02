@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { useState } from 'react'
 
@@ -20,6 +20,7 @@ const HomeTabl = ({ data }) => {
       align: 'center',
       flex: 1,
     },
+
     {
       field: 'category',
       headerName: 'Category',
@@ -42,6 +43,11 @@ const HomeTabl = ({ data }) => {
       headerAlign: 'center',
       align: 'center',
       flex: 1,
+      renderCell: ({ row: { sum, type } }) => (
+        <Typography color={type === '+' ? '#ff6596' : '#24cca7'}>
+          {sum}
+        </Typography>
+      ),
     },
     {
       field: 'balance',
@@ -53,16 +59,15 @@ const HomeTabl = ({ data }) => {
   ]
 
   return (
-    <Box m='20px'>
+    <Box m='46px 16px 0 70px'>
       <Box
-        m='30px 0 0 0'
         height='80vh'
         sx={{
           '& .MuiDataGrid-root': {
             border: 'none',
             fontFamily: 'Circe',
             fontSize: '18px',
-            width: '705px',
+            // width: '705px',
             color: '#000000',
           },
           '& .MuiDataGrid-cell': {
@@ -70,9 +75,9 @@ const HomeTabl = ({ data }) => {
             paddingLeft: '30px',
             borderBottom: '1px solid #DCDCDF',
             boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
-            fontWeight: '400',
             fontSize: '16px',
           },
+          '& .MuiDataGrid-cellContent': { whiteSpace: 'normal' },
           '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
           '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
             color: 'transparent',
@@ -90,20 +95,11 @@ const HomeTabl = ({ data }) => {
             backgroundColor: 'rgba(255, 255, 255, 0.6)',
             borderRadius: '30px',
           },
-          '& .MuiTablePagination-selectLabel': {
-            fontFamily: 'Circe',
-            fontWeight: '400',
-            fontSize: '16px',
+          '& .MuiIconButton-root': {
+            color: 'rgba(255, 0, 0, 0.6)',
           },
-          '& .MuiTablePagination-displayedRows': {
-            fontFamily: 'Circe',
-            fontWeight: '400',
-            fontSize: '16px',
-          },
-          '& .MuiInputBase-root': {
-            fontFamily: 'Circe',
-            fontWeight: '400',
-            fontSize: '16px',
+          '& .MuiIconButton-root:hover': {
+            backgroundColor: 'rgba(255, 255, 0, 0.6)',
           },
         }}
       >
@@ -115,6 +111,7 @@ const HomeTabl = ({ data }) => {
           rowsPerPageOptions={[5, 10, 20]}
           pagination
           {...data}
+          //   scrollbarSize={2}
         />
       </Box>
     </Box>

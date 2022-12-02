@@ -7,8 +7,16 @@ function createData(id, date, type, category, comment, sum, balance) {
 }
 
 const data = [
-  createData('1', '01.05.2020', '-', 'Other', 'eat', 300.0, 6900.0),
-  createData('2', '02.05.2020', '+', 'Other', 'salary', 900.0, 6900.0),
+  createData('1', '01.05.2020', '-', 'Regular Income', 'eat', 300.0, 6900.0),
+  createData(
+    '2',
+    '02.05.2020',
+    '+',
+    'Other',
+    'Gift for you wife hohoho',
+    900.0,
+    6900.0
+  ),
   createData('3', '03.05.2020', '-', 'Other', 'food', 1500.0, 6900.0),
   createData('4', '04.05.2020', '+', 'Other', 'sport', 250.0, 6900.0),
   createData('5', '05.05.2020', '-', 'Other', 'gift', 3000.0, 6900.0),
