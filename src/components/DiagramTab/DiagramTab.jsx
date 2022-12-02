@@ -15,7 +15,7 @@ const DiagramTab = () => {
   return (
     <div className={s.diagramTab}>
       {statsData || totalData !== false ? (
-        <Chart statistics={statsData} totalData={totalData} />
+        <Chart statistics={statsData ?? []} totalData={totalData ?? []} />
       ) : (
         <p>loading...</p>
       )}

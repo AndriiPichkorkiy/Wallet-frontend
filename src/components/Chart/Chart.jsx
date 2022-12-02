@@ -20,8 +20,8 @@ const Chart = ({ statistics, totalData }) => {
   // ChartJS.register(ArcElement);
   ChartJS.register(ArcElement, Tooltip)
 
-  const names = statistics?.map(obj => obj.name)
-  const quantities = statistics?.map(obj => obj.quantity)
+  const names = statistics.map(obj => obj.name)
+  const quantities = statistics.map(obj => obj.quantity)
 
   const options = {
     animation: {
