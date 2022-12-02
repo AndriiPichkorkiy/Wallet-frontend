@@ -1,4 +1,6 @@
 import React from 'react'
+import { Routes, Route } from 'react-router-dom'
+import DashboardPage from './pages/DashboardPage'
 
 import PrivateHeader from './components/PrivateHeader/PrivateHeader'
 import Chart from './components/Chart/Chart'
@@ -22,14 +24,26 @@ const statistics = [
 ]
 
 function App() {
-
   return (
-    <div className='App'>
-      <PrivateHeader/>
+    <>
+      <Routes>
+        <Route path='/home' element={<DashboardPage />} />
+        <Route
+          path='/statistic'
+          element={
+            <Chart statistics={statistics} totalBalance={totalBalance} />
+          }
+        />
+        <Route path='*' element={<div>Not found 404</div>} />
+      </Routes>
 
-      <img src={testPicture} alt='selling img' />
-      <Chart statistics={statistics} totalBalance={totalBalance} />
-    </div>
+      <div className='App'>
+        <PrivateHeader />
+
+        <img src={testPicture} alt='selling img' />
+        <Chart statistics={statistics} totalBalance={totalBalance} />
+      </div>
+    </>
   )
 }
 
