@@ -5,10 +5,13 @@ import {Routes, Route} from "react-router-dom";
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
 
-const DashboardPage = lazy(()=> import('../../../pages/DashboardPage/DashboardPage'));
+const DashboardPage = lazy(()=> import('../../../pages/DashboardPage/index'));
 const RegistrationPage = lazy(()=> import('../../../pages/RegistrationPage/RegistrationPage'));
 const LoginPage = lazy(()=> import('../../../pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() => import ("../../../pages/NotFoundPage/NotFoundPage"));
+
+const Chart = lazy(()=> import('../../Chart/Chart'));
+// const Currency = lazy(()=> import('../../Currency/Currency'));
 
 const UserRouters = () => {
     return (
@@ -20,7 +23,10 @@ const UserRouters = () => {
                     <Route path="/login" element={<LoginPage />} />
                 {/* </Route> */}
                 {/* <Route element={<PrivateRoute/>}> */}
-                    <Route path="/" element={<DashboardPage />} />
+                    <Route path="/" element={<DashboardPage />}>
+                        <Route path="chart" element={<Chart/>}/>
+                        {/* <Route path="currency" element={<Currency/>}/> */}
+                    </Route>
                 {/* </Route> */}
                 <Route path="*"  element={<NotFoundPage/>}/>
             </Routes>
