@@ -2,8 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import {Container, Header,FormContainer, LabelContainer, UserInput, StyledBtn } from './RegisterForm.styled';
 import useForm from '../../helpers/useForm';
-import { Formik, Field, Form } from 'formik';
- import * as Yup from 'yup';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import {
+    Container, ContainerLogo, Header, FormContainer, FieldStyled,
+    FieldContainer, StyledIconMail, StyledImg,
+    StyledIconPass, StyledIconUser, FieldLastStyled,
+    StyledBtnMain, StyledBtn
+} from './RegistrationForm.styled';
+
+import icon from '../../assets/images/icons/logo.svg';
+// const icon = require('./assets/images/icons/wallet30x30.svg')
 const SignupSchema = Yup.object().shape({
    name: Yup.string()
      .min(2, 'Too Short!')
@@ -24,15 +33,15 @@ const RegistrationForm = ({ onSubmit }) => {
     const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
     const { name, email, password } = state;
     return (
-        <div>
-            <div className="logo">
-                <span>
-                    <svg>
-                        <use href='~/assets/images/icons/wallet30x30.svg'></use>
+        <FormContainer>
+            <ContainerLogo>
+                <StyledImg src={icon} alt="wallet" className='' />
+                {/* <span>
+                    <svg width='30' height='30'>
+                        <use href='../../assets/images/icons/wallet30x30.svg'></use>
                     </svg>
-                </span>
-                <p className=''>Wallet</p>
-            </div>
+                </span> */}
+            </ContainerLogo>
             <Formik
                 validationSchema={SignupSchema}
                 onSubmit={handleSubmit}
@@ -41,8 +50,10 @@ const RegistrationForm = ({ onSubmit }) => {
                 email: '',
                 password: '',
             }}>
-                  <Form>
-                        <Field
+                <Form>
+                    <FieldContainer>
+                        <StyledIconMail />
+                        <FieldStyled
                             type="email"
                             name="email"
                             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -51,8 +62,10 @@ const RegistrationForm = ({ onSubmit }) => {
                             required
                             value={email}
                             onChange={handleChange} />
-
-                        <Field
+                    </FieldContainer>
+                       <FieldContainer>
+                        <StyledIconPass />
+                         <FieldStyled
                             type="password"
                             name="password"
                             placeholder="Password"
@@ -61,8 +74,10 @@ const RegistrationForm = ({ onSubmit }) => {
                             required
                             value={password}
                             onChange={handleChange} />
-                        
-                            <Field
+                    </FieldContainer>
+                       <FieldContainer>
+                        <StyledIconPass />
+                            <FieldStyled
                             type="password"
                             name="confirmPassword"
                             placeholder="Confirm password"
@@ -71,8 +86,10 @@ const RegistrationForm = ({ onSubmit }) => {
                             required
                             value={password}
                             onChange={handleChange} />
-                    
-                           <Field
+                    </FieldContainer>
+                       <FieldContainer>
+                        <StyledIconUser />
+                       <FieldLastStyled
                                 type="text"
                                 name="name"
                                 placeholder="First name"
@@ -81,11 +98,13 @@ const RegistrationForm = ({ onSubmit }) => {
                                 required
                                 value={name}
                                 onChange={handleChange} />
-                    <button type='submit' className=''>Register</button>
-                    <button className=''>Login</button>
+                    </FieldContainer>
+                          
+                    <StyledBtnMain type='submit'>Register</StyledBtnMain>
+                    <StyledBtn >Login</StyledBtn>
                         </Form>
             </Formik>
-            </div>
+            </FormContainer>
         )
 }
     
