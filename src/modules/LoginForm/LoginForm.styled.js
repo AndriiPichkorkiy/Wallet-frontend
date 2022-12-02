@@ -1,6 +1,7 @@
 import styled from "styled-components";
 // import  '../../assets/css/utils/_vars.scss'
 import { Field } from 'formik';
+// import {Link } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
@@ -21,7 +22,10 @@ export const FieldStyled = styled(Field)`
     padding: 8px 10px 8px 56px;
     border-bottom: 1px solid #E0E0E0; 
 
-
+&:hover, &:focus{
+        border: 1px solid #24CCA7;
+        border-radius: 20px;
+}
     &::placeholder{
          color:#bdbdbd;
     }
@@ -88,6 +92,9 @@ export const StyledBtnMain = styled.button`
         letter-spacing: 0.1em;
         text-transform: uppercase;
         margin-bottom: 20px;
+        &:hover, &:focus{
+                background:#3b9b86;
+        }
 `
 export const StyledBtn= styled.button`
         display: inline-block;
@@ -103,4 +110,8 @@ export const StyledBtn= styled.button`
         text-align: center;
         letter-spacing: 0.1em;
         text-transform: uppercase;
+           &:hover, &:focus{
+                background:#4A56E2;
+                color:#fff;
+        }
 `
