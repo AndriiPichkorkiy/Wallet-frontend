@@ -1,6 +1,6 @@
 // require('dotenv').config()
 import React from "react";
-import UserRouters from "./components/routers/UserRouters/UserRouters";
+import UserRoutes from "./components/routes/UserRoutes/UserRoutes";
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { currentUser } from "redux/auth/auth-operations";
@@ -17,7 +17,7 @@ function App() {
   // }, [dispatch])
   return (
     <div>
-      <UserRouters/>
+      <UserRoutes/>
     </div>
     )
 }
