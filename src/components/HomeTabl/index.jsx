@@ -2,6 +2,7 @@ import React from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { useState } from 'react'
+import { ContainerTabl } from './HomeTabl.styled'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(5)
@@ -10,6 +11,7 @@ const HomeTabl = ({ data }) => {
       field: 'date',
       headerName: 'Date',
       headerAlign: 'center',
+      type: 'date',
       align: 'center',
       flex: 1,
     },
@@ -32,7 +34,6 @@ const HomeTabl = ({ data }) => {
     {
       field: 'comment',
       headerName: 'Comment',
-      type: 'number',
       headerAlign: 'left',
       align: 'left',
       flex: 1,
@@ -41,6 +42,7 @@ const HomeTabl = ({ data }) => {
       field: 'sum',
       headerName: 'Sum',
       headerAlign: 'center',
+      //   type: 'number',
       align: 'center',
       flex: 1,
       renderCell: ({ row: { sum, type } }) => (
@@ -52,14 +54,23 @@ const HomeTabl = ({ data }) => {
     {
       field: 'balance',
       headerName: 'Balance',
+      //   type: 'number',
       headerAlign: 'center',
       align: 'center',
       flex: 1,
     },
   ]
 
+  //   function CustomNoRowsOverlay() {
+  //     return (
+  //       <StyledGridOverlay>
+  //         <Box sx={{ mt: 1 }}>No Rows</Box>
+  //       </StyledGridOverlay>
+  //     )
+  //   }
+
   return (
-    <Box m='46px 16px 0 70px'>
+    <ContainerTabl>
       <Box
         height='80vh'
         sx={{
@@ -67,15 +78,15 @@ const HomeTabl = ({ data }) => {
             border: 'none',
             fontFamily: 'Circe',
             fontSize: '18px',
-            // width: '705px',
+            lineHeight: '1.474',
             color: '#000000',
           },
           '& .MuiDataGrid-cell': {
             borderTop: 'none',
-            paddingLeft: '30px',
             borderBottom: '1px solid #DCDCDF',
             boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
             fontSize: '16px',
+            lineHeight: '1.125',
           },
           '& .MuiDataGrid-cellContent': { whiteSpace: 'normal' },
           '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
@@ -91,7 +102,7 @@ const HomeTabl = ({ data }) => {
             backgroundColor: 'transparent',
           },
           '& .MuiDataGrid-footerContainer': {
-            borderTop: 'none',
+            border: 'none',
             backgroundColor: 'rgba(255, 255, 255, 0.6)',
             borderRadius: '30px',
           },
@@ -104,6 +115,10 @@ const HomeTabl = ({ data }) => {
         }}
       >
         <DataGrid
+          //   components={{
+          //     NoRowsOverlay: CustomNoRowsOverlay,
+          //   }}
+          //   rows={[]}
           rows={data}
           columns={columns}
           pageSize={pageSize}
@@ -111,10 +126,9 @@ const HomeTabl = ({ data }) => {
           rowsPerPageOptions={[5, 10, 20]}
           pagination
           {...data}
-          //   scrollbarSize={2}
         />
       </Box>
-    </Box>
+    </ContainerTabl>
   )
 }
 
