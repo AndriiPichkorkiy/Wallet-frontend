@@ -7,13 +7,13 @@ import * as Yup from 'yup';
 import {
     ContainerLogo, FormContainer, FieldStyled,
     FieldContainer, StyledIconMail, StyledImg,
-    StyledIconPass, StyledIconUser, FieldLastStyled,
+    StyledIconPass, 
     StyledBtnMain, StyledBtn
-} from './RegistrationForm.styled';
+} from './LoginForm.styled';
 
 import icon from '../../assets/images/icons/logo.svg';
 // const icon = require('./assets/images/icons/wallet30x30.svg')
-const SignupSchema = Yup.object().shape({
+const SigninSchema = Yup.object().shape({
    name: Yup.string()
      .min(2, 'Too Short!')
      .max(50, 'Too Long!')
@@ -24,14 +24,13 @@ const SignupSchema = Yup.object().shape({
      .required('Required'),
    password: Yup.string().email('Invalid email').required('Required'),
  });
-const RegistrationForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit }) => {
     const initialState = {
-        name: '',
         email: '',
         password:''
     }
     const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
-    const { name, email, password } = state;
+    const {  email, password } = state;
     return (
         <FormContainer>
             <ContainerLogo>
@@ -43,10 +42,9 @@ const RegistrationForm = ({ onSubmit }) => {
                 </span> */}
             </ContainerLogo>
             <Formik
-                validationSchema={SignupSchema}
+                validationSchema={SigninSchema}
                 onSubmit={handleSubmit}
                 initialValues={{
-                name: '',
                 email: '',
                 password: '',
             }}>
@@ -75,31 +73,6 @@ const RegistrationForm = ({ onSubmit }) => {
                             value={password}
                             onChange={handleChange} />
                     </FieldContainer>
-                       <FieldContainer>
-                        <StyledIconPass />
-                            <FieldStyled
-                            type="password"
-                            name="confirmPassword"
-                            placeholder="Confirm password"
-                            pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                            title="Minimum eight characters, at least one letter and one number"
-                            required
-                            value={password}
-                            onChange={handleChange} />
-                    </FieldContainer>
-                       <FieldContainer>
-                        <StyledIconUser />
-                       <FieldLastStyled
-                                type="text"
-                                name="name"
-                                placeholder="First name"
-                                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-                                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                                required
-                                value={name}
-                                onChange={handleChange} />
-                    </FieldContainer>
-                          
                     <StyledBtnMain type='submit'>Register</StyledBtnMain>
                     <StyledBtn >Login</StyledBtn>
                         </Form>
@@ -108,10 +81,10 @@ const RegistrationForm = ({ onSubmit }) => {
         )
 }
     
-    RegistrationForm.propTypes = {
+    LoginForm.propTypes = {
         onSubmit: PropTypes.func.isRequired,
     };
-export default RegistrationForm;
+export default LoginForm;
 
 //   <Formik
 //       initialValues={{
