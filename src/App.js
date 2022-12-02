@@ -28,6 +28,12 @@ function App() {
     <>
       <Routes>
         <Route path='/home' element={<DashboardPage />} />
+        <Route
+          path='/statistic'
+          element={
+            <Chart statistics={statistics} totalBalance={totalBalance} />
+          }
+        />
         <Route path='*' element={<div>Not found 404</div>} />
       </Routes>
 
