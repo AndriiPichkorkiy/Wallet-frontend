@@ -21,6 +21,9 @@ const HomeTabl = ({ data }) => {
       headerAlign: 'center',
       align: 'center',
       flex: 1,
+      renderCell: ({ row: { type } }) => (
+        <Typography>{type === 'true' ? '+' : '-'}</Typography>
+      ),
     },
 
     {
@@ -46,7 +49,7 @@ const HomeTabl = ({ data }) => {
       align: 'center',
       flex: 1,
       renderCell: ({ row: { sum, type } }) => (
-        <Typography color={type === '+' ? '#ff6596' : '#24cca7'}>
+        <Typography color={type === 'true' ? '#ff6596' : '#24cca7'}>
           {sum}
         </Typography>
       ),
@@ -74,6 +77,29 @@ const HomeTabl = ({ data }) => {
       <Box
         height='80vh'
         sx={{
+          '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
+            backgroundColor: 'transparent',
+            width: '6px',
+          },
+          '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
+            borderRadius: 8,
+            backgroundColor: '#24CCA7',
+          },
+          //   '&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus':
+          //     {
+          //       backgroundColor: '#959595',
+          //     },
+          //   '&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active':
+          //     {
+          //       backgroundColor: '#959595',
+          //     },
+          '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
+            {
+              backgroundColor: '#959595',
+            },
+          //   '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
+          //     backgroundColor: '#24CCA7',
+          //   },
           '& .MuiDataGrid-root': {
             border: 'none',
             fontFamily: 'Circe',

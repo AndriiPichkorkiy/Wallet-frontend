@@ -2,7 +2,6 @@ import React from 'react'
 import Media from 'react-media'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
-// import style from './Dashboard.scss'
 
 function createData(id, date, type, category, comment, sum, balance) {
   return { id, date, type, category, comment, sum, balance }
@@ -11,30 +10,46 @@ function createData(id, date, type, category, comment, sum, balance) {
 const data = [
   //   createData([]),
   //   createData([]),
-  createData('1', '01.05.2020', '-', 'Other', 'food', 1500.0, 6900.0),
+  createData('1', '01.12.2022', 'true', 'Other', 'food', 1500.0, 6900.0),
   createData(
     '2',
-    '02.05.2020',
-    '+',
+    '02.12.2022',
+    'true',
     'Other',
-    'Gift for your wife hohoho',
+    'Gift for your wife',
     250.0,
     6900.0
   ),
-  createData('3', '03.05.2020', '-', 'Other', 'food', 1500.0, 6900.0),
-  createData('4', '04.05.2020', '+', 'Regular Income', 'sport', 250.0, 6900.0),
-  createData('5', '05.05.2020', '-', 'Other', 'gift', 3000.0, 6900.0),
-  createData('6', '06.05.2020', '-', 'Other', 'eat', 300.0, 6900.0),
-  createData('7', '07.05.2020', '+', 'Other', 'salary', 900.0, 6900.0),
-  createData('8', '08.05.2020', '-', 'Other', 'food', 1500.0, 6900.0),
-  createData('9', '09.05.2020', '+', 'Other', 'sport', 250.0, 6900.0),
-  createData('10', '10.05.2020', '-', 'Other', 'gift', 3000.0, 6900.0),
-  createData('11', '11.05.2020', '-', 'Other', 'gift', 3000.0, 6900.0),
-  createData('12', '12.05.2020', '-', 'Other', 'eat', 300.0, 6900.0),
-  createData('13', '12.05.2020', '+', 'Other', 'salary', 900.0, 6900.0),
-  createData('14', '13.05.2020', '-', 'Other', 'food', 1500.0, 6900.0),
-  createData('15', '14.05.2020', '+', 'Other', 'sport', 250.0, 6900.0),
-  createData('16', '15.05.2020', '-', 'Other', 'gift', 3000.0, 6900.0),
+  createData('3', '03.12.2022', 'false', 'Other', 'food', 1500.0, 6900.0),
+  createData(
+    '4',
+    '04.12.2022',
+    'true',
+    'Regular Income',
+    'sport',
+    250.0,
+    6900.0
+  ),
+  createData('5', '05.12.2022', 'false', 'Other', 'gift', 3000.0, 6900.0),
+  createData('6', '06.12.2022', 'false', 'Other', 'eat', 300.0, 6900.0),
+  createData(
+    '7',
+    '07.12.2022',
+    'true',
+    'Regular Income',
+    'salary',
+    900.0,
+    6900.0
+  ),
+  createData('8', '08.12.2022', 'true', 'Other', 'food', 1500.0, 6900.0),
+  createData('9', '09.12.2022', 'false', 'Other', 'sport', 250.0, 6900.0),
+  createData('10', '10.12.2022', 'false', 'Other', 'gift', 3000.0, 6900.0),
+  createData('11', '11.12.2022', 'true', 'Other', 'gift', 3000.0, 6900.0),
+  createData('12', '12.12.2022', 'true', 'Other', 'eat', 300.0, 6900.0),
+  createData('13', '12.12.2022', 'false', 'Other', 'salary', 900.0, 6900.0),
+  createData('14', '13.12.2022', 'true', 'Other', 'food', 1500.0, 6900.0),
+  createData('15', '14.12.2022', 'false', 'Other', 'sport', 250.0, 6900.0),
+  createData('16', '15.12.2022', 'true', 'Other', 'gift', 3000.0, 6900.0),
 ]
 
 const DashboardPage = () => {
@@ -50,7 +65,8 @@ const DashboardPage = () => {
             )
           }
         </Media>
-      ) : null}
+		  ) : null}
+		  
     </>
   )
 }
