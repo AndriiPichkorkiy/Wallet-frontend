@@ -26,10 +26,10 @@ export const LinkBtn = styled(NavLink)`
     }
 `
 
-export const SvgBtnDashbord = styled(SVGIcon)`
-    width: 44px;
-    height: 44px;
-    :hover {
-        stroke: black;
-    }
-`
+// export const SvgBtnDashbord = styled(SVGIcon)`
+//     width: 44px;
+//     height: 44px;
+//     :hover {
+//         stroke: black;
+//     }
+// `

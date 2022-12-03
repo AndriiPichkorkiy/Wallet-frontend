@@ -1,5 +1,5 @@
 import React from 'react'
-import { BtnsCont, Container, LinkBtn, SvgBtnDashbord } from './DBtnsComponents';
+import { BtnsCont, Container, LinkBtn } from './DBtnsComponents';
 import SvgIcon from '../SVGIcon/SVGIcon'
 const DashbordBtns = () => {
     return (
