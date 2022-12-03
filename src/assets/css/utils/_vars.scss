@@ -1,29 +1,38 @@
 :root {
-  --font-size-body: 24px;
+  --font-size-body: 16px;
 
   --duration: 250ms;
   --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --accent-color-green: #24cca7;
-  --accent-color-violet: #4a56e2;
-  --accent-color-violet-light: #6e78e8;
-  --accent-color-pink: #ff6596;
-  --btn-color: #24cca7;
+  --accentPrimary: #24CCA7
+  --accentSecondary: #FF6596
+  --activeColor: #4A56E2
+  --paleActiveColor: #6E78E8
   --background: #ffffff;
   --background-body: #e7eaf2;
   --main-text: #000000;
-  --accent-text-green: #24cca7;
-  --accent-text-pink: #ff6596;
-  --text-placeholder: #bdbdbd;
   --text-header: #bdbdbd;
+  --text-placeholder: var(--text-header);
+  --overlay: rgba(0, 0, 0, 0.25);
+
+  --accent-color-green: var(--accentPrimary);
+  --accent-color-violet: var(--activeColor);
+  --accent-color-violet-light:  var(--paleActiveColor);;
+  --accent-color-pink: var(--accentSecondary);
+  --btn-color: var(--accentPrimary);
+  --accent-text-green: var(--accentPrimary);
+  --accent-text-pink: var(--accentSecondary);
+  
   --btn-border-radius: 20px;
   --modal-border-radius: 20px;
   --component-border-radius: 30px;
-  --overlay: rgba(0, 0, 0, 0.25);
+  
+
+
 }
 
 //font
-$font-size-body: 24px;
+$font-size-body: 16px;
 
 // transition
 $duration: 250ms;
@@ -34,11 +43,11 @@ $accent-color-green: #24cca7;
 $accent-color-violet: #4a56e2;
 $accent-color-violet-light: #6e78e8;
 $accent-color-pink: #ff6596;
-$btn-color: #24cca7;
+$btn-color: $accent-color-green;
 $background: #ffffff;
 $background-body: #e7eaf2;
 $main-text: #000000;
-$accent-text-green: #24cca7;
+$accent-text-green: $accent-color-green;
 $accent-text-pink: #ff6596;
 $text-placeholder: #bdbdbd;
 $text-header: #bdbdbd;
