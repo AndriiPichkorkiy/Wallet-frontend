@@ -80,10 +80,11 @@ const HomeTabl = ({ data }) => {
           '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
             backgroundColor: 'transparent',
             width: '6px',
+            height: '6px',
           },
           '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
             borderRadius: 8,
-            backgroundColor: '#24CCA7',
+            backgroundColor: 'rgba(36,204,167, 0.6)',
           },
           //   '&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus':
           //     {
@@ -95,7 +96,7 @@ const HomeTabl = ({ data }) => {
           //     },
           '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
             {
-              backgroundColor: '#959595',
+              backgroundColor: '#24cca7',
             },
           //   '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
           //     backgroundColor: '#24CCA7',
