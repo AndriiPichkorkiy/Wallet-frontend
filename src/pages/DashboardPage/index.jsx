@@ -1,5 +1,7 @@
 import React from 'react'
 import Media from 'react-media'
+import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
+import Header from '../../components/Header/Header'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
 // import style from './Dashboard.scss'
@@ -40,6 +42,8 @@ const data = [
 const DashboardPage = () => {
   return (
     <>
+      <Header />
+      <DashbordBtns/>
       {data ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>

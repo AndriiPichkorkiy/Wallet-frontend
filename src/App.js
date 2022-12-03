@@ -8,9 +8,9 @@ import UserRoutes from './components/routes/UserRoutes/UserRoutes'
 import { Routes, Route } from 'react-router-dom'
 import DashboardPage from './pages/DashboardPage'
 
-import PrivateHeader from './components/PrivateHeader/PrivateHeader'
-import DiagramTab from './components/DiagramTab'
 import NavBarTemp from './components/temp/NavBarTemp'
+import DashbordBtns from './components/DashbordBtns/DashbordBtns'
+import DiagramTab from './components/DiagramTab/DiagramTab'
 
 console.log(process.env)
 const testPicture = require('./assets/images/authImg/login-desk.png')
@@ -26,8 +26,16 @@ function App() {
       <NavBarTemp />
       <Routes>
         <Route path='/home' element={<DashboardPage />} />
-        <Route path='/statistic' element={<DiagramTab />} />
-        <Route path='*' element={<div>Not found 404</div>} />
+        <Route path='/statistics' element={<DiagramTab />} />
+        <Route
+          path='*'
+          element={
+            <div>
+              <DashbordBtns />
+              <p>Not found 404</p>
+            </div>
+          }
+        />
       </Routes>
 
       <div>
@@ -35,10 +43,7 @@ function App() {
       </div>
 
       <div className='App'>
-        <PrivateHeader />
-
         <img src={testPicture} alt='selling img' />
-        <DiagramTab />
       </div>
     </>
   )
