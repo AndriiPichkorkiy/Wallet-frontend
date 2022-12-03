@@ -5,42 +5,13 @@ import { Field } from 'formik';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-// import { css } from 'styled-components';
-// import { breakpoints } from './_variables';
+import { respondTo } from '../../helpers/respondTo'
 
-// export const respondTo = Object.keys(breakpoints).reduce(
-//   (accumulator, label) => {
-//     accumulator[label] = (...args) => css`
-//       @media (min-width: ${breakpoints[label]}) {
-//         ${css(...args)};
-//       }
-//     `;
-//     return accumulator;
-//   },
-//   {}
-// );
-// export const breakpoints = {
-//   xs: '480px',
-//   sm: '768px',
-//   md: '992px',
-//   lg: '1200px'
-// };
-
-// // Create mixin
-// @mixin respond-to($breakpoint) {
-//   @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
-//     @content;
-//   }
-// }
-
-// // Example usage
-// html {
-//   background-color: lime;
-
-//   @include respond-to(sm) {
-//     background-color: aqua;
-//   }
-// }
+// export const ContainerTabl = styled.div`
+//   /* margin: 32px 0 0 0; */
+//   ${respondTo.sm`margin: 20px 32px 0 32px`}
+//   ${respondTo.lg`margin: 46px 16px 0 70px`};
+// `
 export const ContainerLogo = styled.div`
     display:flex;
     align-items:center;
@@ -49,6 +20,7 @@ export const ContainerLogo = styled.div`
 export const FormContainer = styled.div`
     padding:36px 20px;
     background-color:#fff;
+    
 `
 export const FieldStyled = styled(Field)`
         width:100%;
@@ -61,12 +33,15 @@ export const FieldStyled = styled(Field)`
             &::placeholder{
          color:#bdbdbd;
     }
-&:hover, &:focus{
+&:hover, &:focus,&:focus-visible{
         border: 1px solid #24CCA7;
         border-radius: 10px;
-
+        outline: none;
          &::placeholder{
-         color:#24CCA7;}      
+         color:#24CCA7;}    
+         &:hover (StyledIconMail) {
+
+         } 
 }
 `
 export const FieldLastStyled = styled(Field)`
@@ -76,13 +51,14 @@ export const FieldLastStyled = styled(Field)`
     border:none;
     padding: 8px 10px 8px 40px;
     border-bottom: 1px solid #E0E0E0; 
+    border: 1px solid transparent;
    &::placeholder{
          color:#bdbdbd;
     }
-&:hover, &:focus{
+&:hover, &:focus, &:focus-visible{
         border: 1px solid #24CCA7;
         border-radius: 10px;
-
+        outline: none;
          &::placeholder{
          color:#24CCA7;}      
 }

@@ -21,7 +21,7 @@ export const FieldStyled = styled(Field)`
     border:none;
     padding: 8px 10px 8px 56px;
     border-bottom: 1px solid #E0E0E0; 
-
+    border: 1px solid transparent;
 &:hover, &:focus{
         border: 1px solid #24CCA7;
         border-radius: 20px;
