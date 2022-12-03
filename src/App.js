@@ -38,13 +38,13 @@ function App() {
         />
       </Routes>
 
-      <div>
+      {/* <div>
         <UserRoutes />
-      </div>
+      </div> */}
 
-      <div className='App'>
+      {/* <div className='App'>
         <img src={testPicture} alt='selling img' />
-      </div>
+      </div> */}
     </>
   )
 }

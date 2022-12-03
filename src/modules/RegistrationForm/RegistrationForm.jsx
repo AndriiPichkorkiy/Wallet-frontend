@@ -8,10 +8,11 @@ import {
     ContainerLogo, FormContainer, FieldStyled,
     FieldContainer, StyledIconMail, StyledImg,
     StyledIconPass, StyledIconUser, FieldLastStyled,
-    StyledBtnMain, StyledBtn
+    StyledBtnMain, StyledBtn, StyledLargeImg
 } from './RegistrationForm.styled';
 
 import icon from '../../assets/images/icons/logo.svg';
+import icon_large from '../../assets/images/icons/logo-large.svg';
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SignupSchema = Yup.object().shape({
    password: Yup.string()
@@ -39,6 +40,7 @@ const RegistrationForm = ({ onSubmit }) => {
         <FormContainer>
             <ContainerLogo>
                 <StyledImg src={icon} alt="wallet" className='' />
+                 <StyledLargeImg src={icon_large} alt="wallet" className='' />
                 {/* <span>
                     <svg width='30' height='30'>
                         <use href='../../assets/images/icons/wallet30x30.svg'></use>

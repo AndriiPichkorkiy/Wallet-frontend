@@ -13,14 +13,24 @@ import { respondTo } from '../../helpers/respondTo'
 //   ${respondTo.lg`margin: 46px 16px 0 70px`};
 // `
 export const ContainerLogo = styled.div`
-    display:flex;
-    align-items:center;
-    justify-content:center;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        margin-bottom:60px;
 `
 export const FormContainer = styled.div`
-    padding:36px 20px;
-    background-color:#fff;
-    
+        padding:36px 20px;
+        background-color:#fff;
+        ${respondTo.sm`
+        max-width:533px;
+        padding:40px 60px 66px 65px;
+        border-radius:20px;
+        margin-left:auto;
+        margin-right:auto;
+        `}
+        ${respondTo.lg`
+        // margin: 46px 16px 0 70px
+        `};
 `
 export const FieldStyled = styled(Field)`
         width:100%;
@@ -30,37 +40,35 @@ export const FieldStyled = styled(Field)`
         padding: 8px 10px 8px 56px;
         border-bottom: 1px solid #E0E0E0; 
         border: 1px solid transparent;
-            &::placeholder{
-         color:#bdbdbd;
-    }
+        &::placeholder{
+                color:#bdbdbd;
+}
 &:hover, &:focus,&:focus-visible{
         border: 1px solid #24CCA7;
         border-radius: 10px;
         outline: none;
-         &::placeholder{
-         color:#24CCA7;}    
-         &:hover (StyledIconMail) {
+        &::placeholder{
+        color:#24CCA7;}    
 
-         } 
 }
 `
 export const FieldLastStyled = styled(Field)`
-    width:100%;
-    font-size: 18px;
-   
-    border:none;
-    padding: 8px 10px 8px 40px;
-    border-bottom: 1px solid #E0E0E0; 
-    border: 1px solid transparent;
-   &::placeholder{
-         color:#bdbdbd;
-    }
+        width:100%;
+        font-size: 18px;
+        
+        border:none;
+        padding: 8px 10px 8px 40px;
+        border-bottom: 1px solid #E0E0E0; 
+        border: 1px solid transparent;
+        &::placeholder{
+                color:#bdbdbd;
+        }
 &:hover, &:focus, &:focus-visible{
         border: 1px solid #24CCA7;
         border-radius: 10px;
         outline: none;
-         &::placeholder{
-         color:#24CCA7;}      
+        &::placeholder{
+        color:#24CCA7;}      
 }
 `
 export const FieldContainer = styled.div`
@@ -77,8 +85,17 @@ export const StyledIconMail = styled(EmailIcon)`
         color:#bdbdbd;
 `
 export const StyledImg = styled.img`
-        margin-bottom:60px;
+        ${respondTo.sm`
+                display:none;
+        `}
 `
+export const StyledLargeImg = styled.img`
+        display:none;
+        ${respondTo.sm`
+                display:inline-block;
+        `}
+`
+
 export const StyledIconPass= styled(LockIcon)`
         position:absolute;
         top:calc(50% - 12px);
@@ -98,6 +115,7 @@ export const StyledIconUser = styled(AccountBoxIcon)`
 export const StyledBtnMain = styled.button`
         display: inline-block;
         width: 100%;
+        max-height: 50px;
         padding:13px 61px;
         background: #24CCA7;
         border-radius: 20px;
@@ -112,13 +130,14 @@ export const StyledBtnMain = styled.button`
         letter-spacing: 0.1em;
         text-transform: uppercase;
         margin-bottom: 20px;
-           &:hover, &:focus{
+        &:hover, &:focus{
                 background:#3b9b86;
         }
 `
 export const StyledBtn= styled.button`
         display: inline-block;
         width: 100%;
+        max-height: 50px;
         padding:13px 61px;
         background: transparent;
         color: #4A56E2;

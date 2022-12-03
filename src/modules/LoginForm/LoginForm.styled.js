@@ -5,14 +5,21 @@ import { Field } from 'formik';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import { respondTo } from '../../helpers/respondTo'
 export const ContainerLogo = styled.div`
     display:flex;
     align-items:center;
     justify-content:center;
 `
 export const FormContainer = styled.div`
-    padding:36px 20px;
+    padding:107px 20px;
     background-color:#fff;
+      ${respondTo.sm`
+        // margin: 20px 32px 0 32px
+        `}
+        ${respondTo.lg`
+        // margin: 46px 16px 0 70px
+        `};
 `
 export const FieldStyled = styled(Field)`
     width:100%;
@@ -78,6 +85,7 @@ export const StyledIconUser = styled(AccountBoxIcon)`
 export const StyledBtnMain = styled.button`
         display: inline-block;
         width: 100%;
+        max-height: 50px;
         padding:13px 61px;
         background: #24CCA7;
         border-radius: 20px;
@@ -99,6 +107,7 @@ export const StyledBtnMain = styled.button`
 export const StyledBtn= styled.button`
         display: inline-block;
         width: 100%;
+        max-height: 50px;
         padding:13px 61px;
         background: transparent;
         color: #4A56E2;
