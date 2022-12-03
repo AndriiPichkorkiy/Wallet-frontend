@@ -10,7 +10,7 @@ const RegistrationPage = lazy(()=> import('../../../pages/RegistrationPage/Regis
 const LoginPage = lazy(()=> import('../../../pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() => import ("../../../pages/NotFoundPage/NotFoundPage"));
 
-const Chart = lazy(()=> import('../../Chart/Chart'));
+const DiagramTab = lazy(()=> import('../../DiagramTab/DiagramTab'));
 // const Currency = lazy(()=> import('../../Currency/Currency'));
 
 const UserRouters = () => {
@@ -23,10 +23,9 @@ const UserRouters = () => {
                     <Route path="/login" element={<LoginPage />} />
                 {/* </Route> */}
                 {/* <Route element={<PrivateRoute/>}> */}
-                    <Route path="/" element={<DashboardPage />}>
-                        <Route path="chart" element={<Chart/>}/>
-                        {/* <Route path="currency" element={<Currency/>}/> */}
-                    </Route>
+                    <Route path="/home" element={<DashboardPage />}/>
+                    <Route path="/statistics" element={<DiagramTab />} />
+                    {/* <Route path="/currency" element={<Currency/>}/> */}
                 {/* </Route> */}
                 <Route path="*"  element={<NotFoundPage/>}/>
             </Routes>
