@@ -23,9 +23,11 @@ const UserRouters = () => {
                     <Route path="/login" element={<LoginPage />} />
                 {/* </Route> */}
                 {/* <Route element={<PrivateRoute/>}> */}
-                    <Route path="/home" element={<DashboardPage />}/>
-                    <Route path="/statistics" element={<DiagramTab />} />
-                    {/* <Route path="/currency" element={<Currency/>}/> */}
+                    <Route path="/cabinet" element={<DashboardPage />}>
+                        <Route path="statistics" element={<DiagramTab />} />
+                        {/* <Route path="/currency" element={<Currency/>}/> */}
+                    </Route>
+                    
                 {/* </Route> */}
                 <Route path="*"  element={<NotFoundPage/>}/>
             </Routes>
