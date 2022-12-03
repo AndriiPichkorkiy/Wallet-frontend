@@ -1,16 +1,27 @@
-import React from 'react';
-import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js';
-import { Doughnut } from 'react-chartjs-2';
+import React from 'react'
+import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'
+import { Doughnut } from 'react-chartjs-2'
 
-import s from './Chart.module.css';
+import s from './Chart.module.css'
 
-const Chart = ({ statistics, totalBalance }) => {
+const colors = [
+  'rgba(254, 208, 87, 1)',
+  'rgba(255, 216, 208, 1)',
+  'rgba(253, 148, 152, 1)',
+  'rgba(197, 186, 255, 1)',
+  'rgba(110, 120, 232, 1)',
+  'rgba(74, 86, 226, 1)',
+  'rgba(129, 225, 255, 1)',
+  'rgba(36, 204, 167, 1)',
+  'rgba(0, 173, 132, 1)',
+]
+
+const Chart = ({ statistics, totalData }) => {
   // ChartJS.register(ArcElement);
-  ChartJS.register(ArcElement, Tooltip);
+  ChartJS.register(ArcElement, Tooltip)
 
-  const names = statistics.map(obj => obj.name);
-  const colors = statistics.map(obj => obj.color);
-  const quantities = statistics.map(obj => obj.quantity);
+  const names = statistics.map(obj => obj.name)
+  const quantities = statistics.map(obj => obj.quantity)
 
   const options = {
     animation: {
@@ -30,12 +41,12 @@ const Chart = ({ statistics, totalBalance }) => {
         enabled: true,
         callbacks: {
           labelTextColor: function (context) {
-            return '#fff';
+            return '#fff'
           },
         },
       },
     },
-  };
+  }
 
   let doughnutData = {
     labels: names,
@@ -49,9 +60,9 @@ const Chart = ({ statistics, totalBalance }) => {
         hoverOffset: 15,
       },
     ],
-  };
+  }
 
-  if (!statistics.length) {
+  if (!statistics?.length) {
     doughnutData = {
       labels: ['--', '--'],
       datasets: [
@@ -63,7 +74,7 @@ const Chart = ({ statistics, totalBalance }) => {
           cutout: '70%',
         },
       ],
-    };
+    }
   }
 
   return (
@@ -71,12 +82,16 @@ const Chart = ({ statistics, totalBalance }) => {
       <h3 className={s.chart__title}>Statistics</h3>
       <div className={s.chart__container}>
         <div className={s.chart__balance}>
-          ₴ {totalBalance ? totalBalance : 0}
+          {totalData ? (
+            `₴ ${totalData.totalBalance ? totalData.totalBalance : 0}`
+          ) : (
+            <p>loading...</p>
+          )}
         </div>
         <Doughnut data={doughnutData} options={options} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Chart;
+export default Chart
