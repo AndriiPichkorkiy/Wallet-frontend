@@ -5,7 +5,7 @@ function NotFoundPage() {
     return (
         <div>
             <h2>Page not found</h2>
-            <Link to="/">We are waiting for connection</Link>
+            <Link to="/home">We are waiting for connection</Link>
         </div>
     )
     
