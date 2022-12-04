@@ -52,7 +52,7 @@ export const LinkBtn = styled(NavLink)`
             line-height: 27px;
         }
         &.active {
-            fill: #4A56E2;
+            fill: 4A56E2;
         }
     `}
 `
