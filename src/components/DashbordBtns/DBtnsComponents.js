@@ -30,8 +30,11 @@ export const LinkBtn = styled(NavLink)`
     position: relative;
     margin-right: 32px;
     text-decoration: none;
+    height: 44px;
     &.active {
-        color: #4A56E2;
+        &>svg {
+            background: #4A56E2;
+        }
     }
     ${respondTo.sm`
         display: flex;
@@ -39,6 +42,7 @@ export const LinkBtn = styled(NavLink)`
         align-items: center;
         margin-right: 0px;
         font-weight: 400;
+        height: 100%;
         font-size: 18px;
         line-height: 27px;
         &.active {
@@ -59,7 +63,11 @@ export const CurrLinkBtn = styled(NavLink)`
     width: 44px;
     height: 44px;
     &.active {
-        fill: #4A56E2;
+        &.active {
+        &>svg {
+            background: #4A56E2;
+        }
+    }
     }
     ${respondTo.sm`
         position: absolute;
