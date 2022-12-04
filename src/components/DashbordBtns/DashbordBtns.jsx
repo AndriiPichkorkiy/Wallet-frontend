@@ -3,8 +3,6 @@ import { BtnsCont, BtnText, Container, CurrLinkBtn, LinkBtn } from './DBtnsCompo
 import HomeSharpIcon from '@mui/icons-material/HomeSharp';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import styled from 'styled-components';
-import { respondTo } from '../../helpers/respondTo';
 import Media from 'react-media';
 
 const DashbordBtns = () => {
