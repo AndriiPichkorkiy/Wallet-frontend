@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { ContainerTabl, StyledGridOverlay } from './HomeTabl.styled'
 
 const HomeTabl = ({ data }) => {
-  const [pageSize, setPageSize] = useState(5)
+  const [pageSize, setPageSize] = useState(10)
   const columns = [
     {
       field: 'date',
@@ -32,7 +32,7 @@ const HomeTabl = ({ data }) => {
       flex: 1,
       headerAlign: 'left',
       align: 'left',
-      cellCalssName: 'name-column--cell',
+      //   cellCalssName: 'name-column--cell',
     },
     {
       field: 'comment',
@@ -49,13 +49,16 @@ const HomeTabl = ({ data }) => {
       align: 'center',
       flex: 1,
       renderCell: ({ row: { sum, type } }) => (
-        <Typography color={type ? '#24cca7' : '#ff6596'}>{sum}</Typography>
+        <Typography
+          color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
+        >
+          {sum}
+        </Typography>
       ),
     },
     {
       field: 'balance',
       headerName: 'Balance',
-      //   type: 'number',
       headerAlign: 'center',
       align: 'center',
       flex: 1,
@@ -65,7 +68,16 @@ const HomeTabl = ({ data }) => {
   function CustomNoRowsOverlay() {
     return (
       <StyledGridOverlay>
-        <Box sx={{ mt: 1, width: '500px' }}>
+        <Box
+          sx={{
+            mt: 1,
+            width: '500px',
+            textAlign: 'center',
+            fontFamily: 'Circe',
+            fontSize: '18px',
+            lineHeight: '1.474',
+          }}
+        >
           There are no recorded transactions. Click the green button in the
           lower right corner and make the first entry!
         </Box>
@@ -97,7 +109,7 @@ const HomeTabl = ({ data }) => {
           //     },
           '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
             {
-              backgroundColor: '#24cca7',
+              backgroundColor: 'var(--accentPrimary)',
             },
           //   '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
           //     backgroundColor: '#24CCA7',
@@ -107,7 +119,7 @@ const HomeTabl = ({ data }) => {
             fontFamily: 'Circe',
             fontSize: '18px',
             lineHeight: '1.474',
-            color: '#000000',
+            color: 'var(--main-text)',
           },
           '& .MuiDataGrid-cell': {
             borderTop: 'none',
@@ -123,7 +135,7 @@ const HomeTabl = ({ data }) => {
           },
 
           '& .MuiDataGrid-columnHeaders': {
-            backgroundColor: '#ffffff',
+            backgroundColor: 'var(--background)',
             borderRadius: '30px',
           },
           '& .MuiDataGrid-virtualScroller': {
@@ -135,11 +147,15 @@ const HomeTabl = ({ data }) => {
             borderRadius: '30px',
           },
           '& .MuiIconButton-root': {
-            color: 'rgba(255, 0, 0, 0.6)',
+            color: 'var(--paleActiveColor)',
           },
+          '& .Mui-disabled': { color: 'var(--text-header)' },
           '& .MuiIconButton-root:hover': {
-            backgroundColor: 'rgba(255, 255, 0, 0.6)',
+            color: 'var(--activeColor)',
           },
+          //   '& .MuiDataGrid-columnHeader:focus-within': {
+          //     borderColor: 'none',
+          //   },
         }}
       >
         <DataGrid

@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
 
-const DashboardPage = lazy(() => import('../../../pages/DashboardPage/index'))
+const DashboardPage = lazy(() => import('../../../pages/DashboardPage'))
 const RegistrationPage = lazy(() =>
   import('../../../pages/RegistrationPage/RegistrationPage')
 )
