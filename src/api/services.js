@@ -8,6 +8,5 @@ const instance = axios.create({
 
 export const getCurrency = async () => {
     const { data } = await instance.get();
-    console.log(data)
     return data
 };

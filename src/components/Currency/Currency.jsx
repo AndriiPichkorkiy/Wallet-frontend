@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getCurrency } from "../../api/services";
 import css from './Currency.module.css';
+import Loader from '../Loader/Loader';
 import currencyImg from "../../assets/images/authImg/CurrencyVector.png"
 
 
@@ -48,38 +49,49 @@ const Currency = () => {
         }
         fetchCurrency()
 
-    }, [])
+    }, [setState])
 
 
     const { items, loading, error } = state;
 
 
-    const element = items.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || currencyCodeA === 978 && currencyCodeB === 980 || currencyCodeA === 985)
+    const element = items.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
         .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
-            <tr>
-                <td className={css.tableBody}>{currencyCodeA}</td>
+            <tr key={currencyCodeA}>
+                {/* <td className={css.tableBody}>{currencyCodeA}</td>
                 <td className={css.tableBody}>{rateBuy || rateCross}</td>
-                <td className={css.tableBody}>{rateSell || rateCross}</td>
+                <td className={css.tableBody}>{rateSell || rateCross}</td> */}
             </tr>
         );
 
 
 
     return (
-        <div>
-            <table className={css.table}>
-                <thead>
+        <div className={css.tableWrapper}>
+            <table className={css.tableCurrency}>
+                <thead className={css.tableHeader}>
                     <tr>
                         <th className={css.tableHead}>Currency</th>
                         <th className={css.tableHead}>Purchase</th>
                         <th className={css.tableHead}>Sale</th>
                     </tr>
                 </thead>
-                <tbody>{element}</tbody>
-                <img className={css.img} src={currencyImg} alt="Ggg" />
-                {loading && <p>...loading</p>}
-                {/* {error && <p>Error</p>} */}
+                <tbody className={css.tableBody}>
+                    {/* {element} */}
+                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    </tr>
+                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    </tr>
+                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    </tr>
+
+                    <tr>
+                        <td><img className={css.currencyImg} src={currencyImg} alt="img" /></td>
+                    </tr>
+                    {/* <tr><td>{loading && <Loader />}</td></tr> */}
+                </tbody>
             </table >
+
         </div >
     )
 
