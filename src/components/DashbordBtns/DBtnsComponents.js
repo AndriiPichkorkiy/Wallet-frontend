@@ -7,7 +7,7 @@ export const BtnsCont = styled.div`
     max-width: 480px;
     flex-direction: row;
     align-items: center;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     ${respondTo.sm`
         // margin: 0;
         align-items: start;
@@ -30,10 +30,8 @@ export const LinkBtn = styled(NavLink)`
     position: relative;
     margin-right: 32px;
     text-decoration: none;
-    /* width: 44px;
-    height: 44px; */
     &.active {
-        fill: #4A56E2;
+        color: #4A56E2;
     }
     ${respondTo.sm`
         display: flex;
@@ -43,15 +41,14 @@ export const LinkBtn = styled(NavLink)`
         font-weight: 400;
         font-size: 18px;
         line-height: 27px;
-        height: 18px;
         &.active {
             filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
             font-weight: 700;
             font-size: 18px;
             line-height: 27px;
         }
-        &:not(:last-child) {
-            margin-bottom: 12px;
+        &.active {
+            fill: #4A56E2;
         }
     `}
 `
