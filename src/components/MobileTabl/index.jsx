@@ -13,13 +13,16 @@ const MobileTabl = ({ data }) => {
     data &&
     data.map(({ type, category, comment, sum, balance, date }) => {
       return (
-        <ContainerMobileTabl sx={{ minWidth: 280 }}>
+        <ContainerMobileTabl
+          sx={{ minWidth: 280 }}
+          isType={type === 'true' ? '+' : '-'}
+        >
           <CardBox key={unid}>
             <TypographyCard>
               Date <Span> {date}</Span>
             </TypographyCard>
             <TypographyCard>
-              Type <Span>{type}</Span>
+              Type <Span>{type === 'true' ? '+' : '-'}</Span>
             </TypographyCard>
             <TypographyCard>
               Category <Span>{category}</Span>
@@ -28,7 +31,7 @@ const MobileTabl = ({ data }) => {
               Comment <Span>{comment}</Span>
             </TypographyCard>
             <TypographyCard>
-              Sum <Span>{sum}</Span>
+              Sum <Span isType={type === 'true' ? '+' : '-'}>{sum}</Span>
             </TypographyCard>
             <TypographyCard>
               Balance <Span>{balance}</Span>
