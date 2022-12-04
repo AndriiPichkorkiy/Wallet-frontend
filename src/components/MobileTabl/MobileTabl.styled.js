@@ -10,13 +10,27 @@ export const ContainerMobileTabl = styled.div`
     ${p => {
       switch (p.isType) {
         case '+':
-          return '#FF6596'
+          return 'var(--accentPrimary)'
         case '-':
-          return '#24CCA7'
+          return 'var(--accentSecondary)'
         default:
           return ''
       }
     }};
+`
+export const ContainerEmpty = styled.div`
+  height: 280px;
+  max-width: 280px;
+  padding: 40px 20px 8px;
+  font-family: 'Circe';
+  font-size: 16px;
+  line-height: 1.474;
+  text-align: center;
+  background-color: var(--background);
+  margin: 0 auto 8px auto;
+  border-radius: 10px;
+  border-radius: 10px;
+  border-left: 5px solid var(--paleActiveColor);
 `
 
 export const CardBox = styled.div`
@@ -39,7 +53,7 @@ export const TypographyCard = styled.p`
     left: -25px;
     width: 100%;
     min-width: 280px;
-    border-bottom: 1px solid #dcdcdf;
+    border-bottom: 1px solid var(--text-header);
   }
   &:last-child {
     margin-bottom: 0;
@@ -55,9 +69,9 @@ export const Span = styled.span`
   color: ${p => {
     switch (p.isType) {
       case '+':
-        return '#FF6596'
+        return 'var(--accentPrimary)'
       case '-':
-        return '#24CCA7'
+        return 'var(--accentSecondary)'
       default:
         return ''
     }
