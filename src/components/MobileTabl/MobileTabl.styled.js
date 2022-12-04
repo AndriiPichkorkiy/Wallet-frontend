@@ -10,9 +10,9 @@ export const ContainerMobileTabl = styled.div`
     ${p => {
       switch (p.isType) {
         case '+':
-          return '#FF6596'
-        case '-':
           return '#24CCA7'
+        case '-':
+          return '#FF6596'
         default:
           return ''
       }
@@ -55,9 +55,9 @@ export const Span = styled.span`
   color: ${p => {
     switch (p.isType) {
       case '+':
-        return '#FF6596'
-      case '-':
         return '#24CCA7'
+      case '-':
+        return '#FF6596'
       default:
         return ''
     }
