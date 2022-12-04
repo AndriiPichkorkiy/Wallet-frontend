@@ -4,6 +4,7 @@ import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
+import Balance from '../../components/Balance/Balance'
 // import style from './Dashboard.scss'
 
 function createData(id, date, type, category, comment, sum, balance) {
@@ -44,6 +45,7 @@ const DashboardPage = () => {
     <>
       <Header />
       <DashbordBtns/>
+      <Balance/>
       {data ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
