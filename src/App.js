@@ -4,6 +4,7 @@ import UserRoutes from './components/routes/UserRoutes/UserRoutes'
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { currentUser } from "redux/auth/auth-operations";
+import Currency from "./components/Currency/Currency"
 
 import { Routes, Route } from 'react-router-dom'
 import DashboardPage from './pages/DashboardPage'
@@ -39,6 +40,8 @@ function App() {
   return (
     <>
       <NavBarTemp />
+      <Currency/>
+
       <Routes>
         <Route path='/home' element={<DashboardPage />} />
         <Route
