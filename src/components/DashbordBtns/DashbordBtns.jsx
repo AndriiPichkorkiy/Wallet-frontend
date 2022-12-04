@@ -81,12 +81,5 @@ const DashbordBtns = () => {
   )
 }
 
-const IconHome = styled(HomeSharpIcon)`
-    /* color: #fff;
-    background-color: #6e78e8; */
-    border-radius: 6px;
-    
-`
-
 
 export default DashbordBtns
