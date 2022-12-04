@@ -11,7 +11,7 @@ const DashbordBtns = () => {
     return (
         <Container>
             <BtnsCont>
-                <LinkBtn to='/home'>
+                <LinkBtn to='/cabinet'>
                     <Media queries={{ small: '(max-width: 767px)' }}>
                         {matches =>
                             matches.small ? (
