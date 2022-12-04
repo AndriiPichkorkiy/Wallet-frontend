@@ -2,22 +2,26 @@
   --font-size-body: 16px;
   --duration: 250ms;
   --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
-  --accent-color-green: #24cca7;
-  --accent-color-violet: #4a56e2;
-  --accent-color-violet-light: #6e78e8;
-  --accent-color-pink: #ff6596;
-  --btn-color: #24cca7;
+  --accentPrimary: #24cca7;
+  --accentSecondary: #ff6596;
+  --activeColor: #4a56e2;
+  --paleActiveColor: #6e78e8;
   --background: #ffffff;
   --background-body: #e7eaf2;
   --main-text: #000000;
-  --accent-text-green: #24cca7;
-  --accent-text-pink: #ff6596;
-  --text-placeholder: #bdbdbd;
   --text-header: #bdbdbd;
+  --text-placeholder: var(--text-header);
+  --overlay: rgba(0, 0, 0, 0.25);
+  --accent-color-green: var(--accentPrimary);
+  --accent-color-violet: var(--activeColor);
+  --accent-color-violet-light: var(--paleActiveColor);
+  --accent-color-pink: var(--accentSecondary);
+  --btn-color: var(--accentPrimary);
+  --accent-text-green: var(--accentPrimary);
+  --accent-text-pink: var(--accentSecondary);
   --btn-border-radius: 20px;
   --modal-border-radius: 20px;
   --component-border-radius: 30px;
-  --overlay: rgba(0, 0, 0, 0.25);
 }
 
 *,
@@ -75,5 +79,79 @@ img {
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-} /*# sourceMappingURL=main.css.map */
+}
 
+@media screen and (min-width: 480px) {
+  .Header {
+    padding: 20px 32px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .Header {
+    padding: 16px 20px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .logoIcon {
+    width: 40px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .logoText {
+    font-size: 36px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .btnLogout {
+    border-left: 1px #BDBDBD solid;
+    padding-left: 12px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .logoutBtn_text {
+    color: #BDBDBD;
+    padding-top: 3px;
+    margin-left: 8px;
+    position: relative;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modalLogout {
+    padding: 20px 80px;
+  }
+}
+
+.modalLogoutText {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.modalLogoutButton {
+  border-radius: 20px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  padding: 5px 20px;
+  box-sizing: border-box;
+  max-height: 37px;
+  align-items: center;
+}
+.modalLogoutButtonYes {
+  background-color: transparent;
+  color: #4A56E2;
+  border: 1px #4A56E2 solid;
+  margin-right: 10px;
+}
+.modalLogoutButtonNo {
+  background-color: #24CCA7;
+  color: white;
+}/*# sourceMappingURL=main.css.map */
