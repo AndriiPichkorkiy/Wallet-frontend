@@ -15,6 +15,7 @@ const NotFoundPage = lazy(() =>
 )
 
 const DiagramTab = lazy(() => import('../../DiagramTab/DiagramTab'))
+
 // const Currency = lazy(()=> import('../../Currency/Currency'));
 
 const UserRouters = () => {
@@ -27,6 +28,7 @@ const UserRouters = () => {
           <Route path='/login' element={<LoginPage />} />
           {/* </Route> */}
           {/* <Route element={<PrivateRoute/>}> */}
+
           <Route path='/cabinet' element={<DashboardPage />}>
             <Route path='statistics' element={<DiagramTab />} />
             {/* <Route path="/currency" element={<Currency/>}/> */}
