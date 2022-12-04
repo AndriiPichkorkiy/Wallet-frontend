@@ -9,4 +9,6 @@ function Icons({ name, width, height }) {
   )
 }
 
+
+
 export default Icons;

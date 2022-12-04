@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { respondTo } from "../../helpers/respondTo";
 
 export const Overlay = styled.div`
     background-color: rgba(0, 0, 0, 0.25);
@@ -20,6 +21,9 @@ export const ModalCont = styled.div`
     align-items: center;
     padding: 20px 15px;
     border-radius: 20px;
+    ${respondTo.sm`
+        padding: 20px 80px;
+    `}
 `
 
 export const ModalLogoutText = styled.p`
