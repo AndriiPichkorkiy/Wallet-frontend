@@ -30,3 +30,7 @@ export const BalanceH2 = styled.h2`
     font-size: 30px;
     line-height: 1.5;
 `
+export const Currenty = styled.span`
+    font-family: 'Poppins', system-ui;
+    font-weight: 400;
+`

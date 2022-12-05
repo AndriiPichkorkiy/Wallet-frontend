@@ -1,4 +1,4 @@
-import { Wrapp, Text, BalanceH2 } from "./Balance.styled";
+import { Wrapp, Text, BalanceH2, Currenty} from "./Balance.styled";
 
 const Balance = () =>{
     
@@ -6,7 +6,7 @@ const Balance = () =>{
     return (
         <Wrapp>
             <Text>Your balance</Text>
-            <BalanceH2>&#8372; 24 000.00</BalanceH2>
+            <BalanceH2><Currenty>&#8372;</Currenty> 24 000.00</BalanceH2>
         </Wrapp>
     )
 }
