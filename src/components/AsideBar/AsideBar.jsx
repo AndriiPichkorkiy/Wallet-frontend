@@ -1,5 +1,6 @@
 import React from 'react'
 import Media from 'react-media'
+import Currency from '../Currency/Currency'
 import DashbordBtns from '../DashbordBtns/DashbordBtns'
 import HomeTabl from '../HomeTabl'
 import MobileTabl from '../MobileTabl'
@@ -54,7 +55,6 @@ const data = [
 ]
 // }
 
-
 function AsideBar() {
   return (
     <>
@@ -65,7 +65,10 @@ function AsideBar() {
             matches.small ? (
               <MobileTabl data={data} />
             ) : (
-              <HomeTabl data={data} />
+              <>
+                <HomeTabl data={data} />
+                <Currency />
+              </>
             )
           }
         </Media>
