@@ -1,6 +1,6 @@
 import Loader from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom'
 
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
@@ -14,9 +14,8 @@ const NotFoundPage = lazy(() =>
   import('../../../pages/NotFoundPage/NotFoundPage')
 )
 
-const DiagramTab = lazy(() => import('../../DiagramTab/DiagramTab'))
-
-// const Currency = lazy(()=> import('../../Currency/Currency'));
+const DiagramTab = lazy(() => import('../../DiagramTab'))
+const Currency = lazy(() => import('../../Currency/Currency'))
 
 const UserRouters = () => {
   return (
@@ -28,10 +27,9 @@ const UserRouters = () => {
           <Route path='/login' element={<LoginPage />} />
           {/* </Route> */}
           {/* <Route element={<PrivateRoute/>}> */}
-
           <Route path='/cabinet' element={<DashboardPage />}>
             <Route path='statistics' element={<DiagramTab />} />
-            {/* <Route path="/currency" element={<Currency/>}/> */}
+            <Route path='currency' element={<Currency />} />
           </Route>
 
           {/* </Route> */}

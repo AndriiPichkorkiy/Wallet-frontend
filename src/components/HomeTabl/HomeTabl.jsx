@@ -128,6 +128,8 @@ const HomeTabl = ({ data }) => {
             fontSize: '16px',
             lineHeight: '1.125',
           },
+          '& MuiDataGrid-root .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
+            { outline: 'none' },
           '& .MuiDataGrid-cellContent': { whiteSpace: 'normal' },
           '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
           '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
@@ -153,9 +155,11 @@ const HomeTabl = ({ data }) => {
           '& .MuiIconButton-root:hover': {
             color: 'var(--activeColor)',
           },
-          //   '& .MuiDataGrid-columnHeader:focus-within': {
-          //     borderColor: 'none',
-          //   },
+          '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus':
+            {
+              outline: 'none',
+              outlineOffset: '0',
+            },
         }}
       >
         <DataGrid
