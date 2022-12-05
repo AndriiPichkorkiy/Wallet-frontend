@@ -13,7 +13,7 @@ const HomeTabl = ({ data }) => {
       headerAlign: 'center',
       type: 'date',
       align: 'center',
-      flex: 1,
+      flex: 1
     },
     {
       field: 'type',
@@ -23,7 +23,7 @@ const HomeTabl = ({ data }) => {
       flex: 1,
       renderCell: ({ row: { type } }) => (
         <Typography>{type ? '+' : '-'}</Typography>
-      ),
+      )
     },
 
     {
@@ -31,7 +31,7 @@ const HomeTabl = ({ data }) => {
       headerName: 'Category',
       flex: 1,
       headerAlign: 'left',
-      align: 'left',
+      align: 'left'
       //   cellCalssName: 'name-column--cell',
     },
     {
@@ -39,7 +39,7 @@ const HomeTabl = ({ data }) => {
       headerName: 'Comment',
       headerAlign: 'left',
       align: 'left',
-      flex: 1,
+      flex: 1
     },
     {
       field: 'sum',
@@ -54,15 +54,15 @@ const HomeTabl = ({ data }) => {
         >
           {sum}
         </Typography>
-      ),
+      )
     },
     {
       field: 'balance',
       headerName: 'Balance',
       headerAlign: 'center',
       align: 'center',
-      flex: 1,
-    },
+      flex: 1
+    }
   ]
 
   function CustomNoRowsOverlay() {
@@ -75,7 +75,7 @@ const HomeTabl = ({ data }) => {
             textAlign: 'center',
             fontFamily: 'Circe',
             fontSize: '18px',
-            lineHeight: '1.474',
+            lineHeight: '1.474'
           }}
         >
           There are no recorded transactions. Click the green button in the
@@ -88,16 +88,16 @@ const HomeTabl = ({ data }) => {
   return (
     <ContainerTabl>
       <Box
-        height='80vh'
+        height='60vh'
         sx={{
           '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
             backgroundColor: 'transparent',
             width: '6px',
-            height: '6px',
+            height: '6px'
           },
           '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
             borderRadius: 8,
-            backgroundColor: 'rgba(36,204,167, 0.6)',
+            backgroundColor: 'rgba(36,204,167, 0.6)'
           },
           //   '&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus':
           //     {
@@ -109,7 +109,7 @@ const HomeTabl = ({ data }) => {
           //     },
           '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
             {
-              backgroundColor: 'var(--accentPrimary)',
+              backgroundColor: 'var(--accentPrimary)'
             },
           //   '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
           //     backgroundColor: '#24CCA7',
@@ -119,52 +119,50 @@ const HomeTabl = ({ data }) => {
             fontFamily: 'Circe',
             fontSize: '18px',
             lineHeight: '1.474',
-            color: 'var(--main-text)',
+            color: 'var(--main-text)'
           },
           '& .MuiDataGrid-cell': {
             borderTop: 'none',
             borderBottom: '1px solid #DCDCDF',
             boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
             fontSize: '16px',
-            lineHeight: '1.125',
+            lineHeight: '1.125'
           },
-          '& MuiDataGrid-root .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-            { outline: 'none' },
           '& .MuiDataGrid-cellContent': { whiteSpace: 'normal' },
           '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
           '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
-            color: 'transparent',
+            color: 'transparent'
           },
 
           '& .MuiDataGrid-columnHeaders': {
             backgroundColor: 'var(--background)',
-            borderRadius: '30px',
+            borderRadius: '30px'
           },
           '& .MuiDataGrid-virtualScroller': {
-            backgroundColor: 'transparent',
+            backgroundColor: 'transparent'
           },
           '& .MuiDataGrid-footerContainer': {
             border: 'none',
             backgroundColor: 'rgba(255, 255, 255, 0.6)',
-            borderRadius: '30px',
+            borderRadius: '30px'
           },
           '& .MuiIconButton-root': {
-            color: 'var(--paleActiveColor)',
+            color: 'var(--paleActiveColor)'
           },
           '& .Mui-disabled': { color: 'var(--text-header)' },
           '& .MuiIconButton-root:hover': {
-            color: 'var(--activeColor)',
+            color: 'var(--activeColor)'
           },
-          '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus':
+          '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
             {
-              outline: 'none',
-              outlineOffset: '0',
-            },
+              outline: 'none !important',
+              outlineOffset: '0'
+            }
         }}
       >
         <DataGrid
           components={{
-            NoRowsOverlay: CustomNoRowsOverlay,
+            NoRowsOverlay: CustomNoRowsOverlay
           }}
           rows={data}
           columns={columns}

@@ -1,8 +1,8 @@
 import React from 'react'
 import Media from 'react-media'
-import DashbordBtns from '../DashbordBtns/DashbordBtns'
-import HomeTabl from '../HomeTabl'
-import MobileTabl from '../MobileTabl'
+import Currency from '../../components/Currency/Currency'
+import HomeTabl from '../../components/HomeTabl'
+import MobileTabl from '../../components/MobileTabl'
 
 function createData(id, date, type, category, comment, sum, balance) {
   return { id, date, type, category, comment, sum, balance }
@@ -54,18 +54,19 @@ const data = [
 ]
 // }
 
-
-function AsideBar() {
+function HomePage() {
   return (
     <>
-      <DashbordBtns />
       {data ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
             matches.small ? (
               <MobileTabl data={data} />
             ) : (
-              <HomeTabl data={data} />
+              <>
+                <HomeTabl data={data} />
+                <Currency />
+              </>
             )
           }
         </Media>
@@ -74,4 +75,4 @@ function AsideBar() {
   )
 }
 
-export default AsideBar
+export default HomePage
