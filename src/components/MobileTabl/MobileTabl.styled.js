@@ -27,7 +27,7 @@ export const ContainerEmpty = styled.div`
   line-height: 1.474;
   text-align: center;
   background-color: var(--background);
-  margin: 0 auto 8px auto;
+  margin-bottom: 8px;
   border-radius: 10px;
   border-radius: 10px;
   border-left: 5px solid var(--paleActiveColor);

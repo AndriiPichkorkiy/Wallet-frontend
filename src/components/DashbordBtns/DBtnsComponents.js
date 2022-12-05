@@ -1,14 +1,14 @@
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { respondTo } from "../../helpers/respondTo.js";
+import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
+import { respondTo } from '../../helpers/respondTo.js'
 
 export const BtnsCont = styled.div`
-    display: flex;
-    max-width: 480px;
-    flex-direction: row;
-    align-items: center;
-    margin: 0 auto;
-    ${respondTo.sm`
+  display: flex;
+  max-width: 480px;
+  flex-direction: row;
+  align-items: center;
+  margin: 0 auto;
+  ${respondTo.sm`
         // margin: 0;
         align-items: start;
         flex-direction: column;
@@ -16,27 +16,27 @@ export const BtnsCont = styled.div`
 `
 
 export const Container = styled.div`
-    padding: 12px 0;
-    width: 100%;
-    display: flex;
-    ${respondTo.sm` 
+  padding: 12px 0;
+  width: 100%;
+  display: flex;
+  ${respondTo.sm` 
         max-width: 125px;
-        padding: 40px 
+        // padding: 40px 
     `}
 `
 
 export const LinkBtn = styled(NavLink)`
-    fill: #6e78e8;
-    position: relative;
-    margin-right: 32px;
-    text-decoration: none;
-    height: 44px;
-    &.active {
-        &>svg {
-            background: #4A56E2;
-        }
+  fill: #6e78e8;
+  position: relative;
+  margin-right: 32px;
+  text-decoration: none;
+  height: 44px;
+  &.active {
+    & > svg {
+      background: #4a56e2;
     }
-    ${respondTo.sm`
+  }
+  ${respondTo.sm`
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -55,30 +55,30 @@ export const LinkBtn = styled(NavLink)`
 `
 
 export const CurrLinkBtn = styled(NavLink)`
-    fill: #6e78e8;
-    position: relative;
-    width: 44px;
-    height: 44px;
+  fill: #6e78e8;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  &.active {
     &.active {
-        &.active {
-        &>svg {
-            background: #4A56E2;
-        }
+      & > svg {
+        background: #4a56e2;
+      }
     }
-    }
-    ${respondTo.sm`
+  }
+  ${respondTo.sm`
         position: absolute;
         visibility: hidden;
     `}
 `
 
 export const BtnText = styled.span`
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    opacity: 0;
-    visibility: hidden;
-    ${respondTo.sm`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  visibility: hidden;
+  ${respondTo.sm`
         position: relative;
         width: 100%;
         height:100%;
@@ -89,5 +89,4 @@ export const BtnText = styled.span`
         color: black;
         
     `}
-    
 `
