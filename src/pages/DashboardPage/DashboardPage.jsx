@@ -9,8 +9,8 @@ const DashboardPage = () => {
   return (
     <>
       <Header />
-      <DashbordBtns />
       <MainContainer>
+        <DashbordBtns />
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
