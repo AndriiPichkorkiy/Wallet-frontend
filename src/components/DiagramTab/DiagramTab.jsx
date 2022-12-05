@@ -1,25 +1,35 @@
 import React from 'react'
 import Chart from '../Chart/Chart'
+// import StatsTable from '../StatsTable/StatsTable'
+
+import { StatsWrapper, StatsTitle } from './DiagramTab.styled'
 
 import {
   useGetStatsQuery,
-  useGetTotalStatsQuery,
+  useGetTotalStatsQuery
 } from '../../services/statsApi'
-
-import s from './DiagramTab.module.css'
 
 const DiagramTab = () => {
   const { data: statsData } = useGetStatsQuery()
   const { data: totalData } = useGetTotalStatsQuery()
 
+  // console.log(totalData)
+
   return (
-    <div className={s.diagramTab}>
+    <>
+      <StatsTitle>Statistics</StatsTitle>
+
       {statsData || totalData !== false ? (
         <Chart statistics={statsData ?? []} totalData={totalData ?? []} />
       ) : (
         <p>loading...</p>
       )}
-    </div>
+      {/* {statsData || totalData !== false ? (
+        <StatsTable statistics={statsData ?? []} totalData={totalData ?? []} />
+      ) : (
+        <p>loading...</p>
+      )} */}
+    </>
   )
 }
 export default DiagramTab

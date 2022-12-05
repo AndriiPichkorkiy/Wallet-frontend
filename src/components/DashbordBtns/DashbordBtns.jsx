@@ -42,7 +42,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Home</BtnText>
         </LinkBtn>
-        <LinkBtn to='/statistics'>
+        <LinkBtn to='statistics'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (

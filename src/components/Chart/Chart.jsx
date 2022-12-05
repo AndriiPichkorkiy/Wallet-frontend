@@ -13,7 +13,7 @@ const colors = [
   'rgba(74, 86, 226, 1)',
   'rgba(129, 225, 255, 1)',
   'rgba(36, 204, 167, 1)',
-  'rgba(0, 173, 132, 1)',
+  'rgba(0, 173, 132, 1)'
 ]
 
 const Chart = ({ statistics, totalData }) => {
@@ -27,12 +27,12 @@ const Chart = ({ statistics, totalData }) => {
     animation: {
       // animateScale: true,
       animateRotate: true,
-      duration: 800,
+      duration: 800
       // easing: 'easeOutBounce',
     },
     outerRadius: 100,
     layout: {
-      padding: 6,
+      padding: 6
     },
     responsive: true,
 
@@ -42,10 +42,10 @@ const Chart = ({ statistics, totalData }) => {
         callbacks: {
           labelTextColor: function (context) {
             return '#fff'
-          },
-        },
-      },
-    },
+          }
+        }
+      }
+    }
   }
 
   let doughnutData = {
@@ -57,9 +57,9 @@ const Chart = ({ statistics, totalData }) => {
         backgroundColor: colors,
         borderWidth: 0,
         cutout: '70%',
-        hoverOffset: 15,
-      },
-    ],
+        hoverOffset: 15
+      }
+    ]
   }
 
   if (!statistics?.length) {
@@ -71,15 +71,14 @@ const Chart = ({ statistics, totalData }) => {
           data: ['50', '50'],
           backgroundColor: ['#bdbdbd', '#e0e0e0'],
           borderWidth: 0,
-          cutout: '70%',
-        },
-      ],
+          cutout: '70%'
+        }
+      ]
     }
   }
 
   return (
     <div className={s.chart}>
-      <h3 className={s.chart__title}>Statistics</h3>
       <div className={s.chart__container}>
         <div className={s.chart__balance}>
           {totalData ? (
