@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom'
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
 
-const DashboardPage = lazy(() => import('../../../pages/DashboardPage'))
+const DashboardPage = lazy(() => import('../../../pages/DashboardPage/index'))
 const RegistrationPage = lazy(() =>
   import('../../../pages/RegistrationPage/RegistrationPage')
 )
@@ -15,7 +15,6 @@ const NotFoundPage = lazy(() =>
 )
 
 const DiagramTab = lazy(() => import('../../DiagramTab/DiagramTab'))
-
 // const Currency = lazy(()=> import('../../Currency/Currency'));
 
 const UserRouters = () => {
@@ -28,7 +27,6 @@ const UserRouters = () => {
           <Route path='/login' element={<LoginPage />} />
           {/* </Route> */}
           {/* <Route element={<PrivateRoute/>}> */}
-
           <Route path='/cabinet' element={<DashboardPage />}>
             <Route path='statistics' element={<DiagramTab />} />
             {/* <Route path="/currency" element={<Currency/>}/> */}
