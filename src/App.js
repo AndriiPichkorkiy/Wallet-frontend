@@ -4,7 +4,7 @@ import UserRoutes from './components/routes/UserRoutes/UserRoutes'
 // import { useEffect } from "react";
 // import { useDispatch } from "react-redux";
 // import { currentUser } from "redux/auth/auth-operations";
-import Currency from "./components/Currency/Currency"
+// import Currency from "./components/Currency/Currency"
 
 console.log(process.env)
 const testPicture = require('./assets/images/authImg/login-desk.png')

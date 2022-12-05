@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useSignUpMutation } from '../../services/authApi'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { isAuth } from '../../redux/auth/userSlice'
 
 // import RegistrationForm from "";
@@ -18,7 +18,7 @@ const RegistrationPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [signUp, { isLoading }] = useSignUpMutation()
-
+  console.log('isLoading', isLoading)
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':

@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { getCurrency } from "../../api/services";
 import css from './Currency.module.css';
-import Loader from '../Loader/Loader';
+// import Loader from '../Loader/Loader';
 import currencyImg from "../../assets/images/authImg/CurrencyVector.png"
 
 
@@ -49,20 +49,21 @@ const Currency = () => {
         }
         fetchCurrency()
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setState])
 
 
-    const { items, loading, error } = state;
+    // const { items, loading, error } = state;
 
 
-    const element = items.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
-        .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
-            <tr key={currencyCodeA}>
-                {/* <td className={css.tableBody}>{currencyCodeA}</td>
-                <td className={css.tableBody}>{rateBuy || rateCross}</td>
-                <td className={css.tableBody}>{rateSell || rateCross}</td> */}
-            </tr>
-        );
+    // const element = items.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
+    //     .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
+    //         <tr key={currencyCodeA}>
+    //             {/* <td className={css.tableBody}>{currencyCodeA}</td>
+    //             <td className={css.tableBody}>{rateBuy || rateCross}</td>
+    //             <td className={css.tableBody}>{rateSell || rateCross}</td> */}
+    //         </tr>
+    //     );
 
 
 

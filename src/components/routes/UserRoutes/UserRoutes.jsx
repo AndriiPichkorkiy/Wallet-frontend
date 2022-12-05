@@ -1,6 +1,6 @@
 import Loader from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
@@ -36,6 +36,7 @@ const UserRouters = () => {
 
           {/* </Route> */}
           <Route path='*' element={<NotFoundPage />} />
+          {/* <Route path='*' element={<Navigate to="/cabinet" />} /> */}
         </Routes>
       </Suspense>
     </>
