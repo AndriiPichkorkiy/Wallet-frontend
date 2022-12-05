@@ -1,6 +1,7 @@
 import Loader from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import HomePage from '../../../pages/HomePage'
 
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
@@ -28,6 +29,7 @@ const UserRouters = () => {
           {/* </Route> */}
           {/* <Route element={<PrivateRoute/>}> */}
           <Route path='/cabinet' element={<DashboardPage />}>
+            <Route index element={<HomePage />} />
             <Route path='statistics' element={<DiagramTab />} />
             <Route path='currency' element={<Currency />} />
           </Route>
