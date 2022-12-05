@@ -1,7 +1,6 @@
-import React, { Suspense } from 'react'
-import { Outlet } from 'react-router-dom'
-import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
-import Header from '../../components/Header/Header'
+import React from 'react'
+import Media from 'react-media'
+import Currency from '../../components/Currency/Currency'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
 
@@ -40,7 +39,7 @@ const data = [
   createData('9', '09.12.2022', false, 'Other', 'sport', 250.0, 6900.0),
   createData('10', '10.12.2022', false, 'Other', 'gift', 3000.0, 6900.0),
   createData('11', '11.12.2022', true, 'Other', 'gift', 3000.0, 6900.0),
-  createData('12', '12.12.2022', true, 'Other', 'eat', 300.0, 6900.0),
+  createData('12', '12.12.2022', true, 'Other', 'eat', 300.0, 6900.0)
   //   createData('13', '12.12.2022', false, 'Other', 'salary', 900.0, 6900.0),
   //   createData('14', '13.12.2022', true, 'Other', 'food', 1500.0, 6900.0),
   //   createData('15', '14.12.2022', false, 'Other', 'sport', 250.0, 6900.0),
@@ -55,18 +54,19 @@ const data = [
 ]
 // }
 
-const DashboardPage = () => {
+function HomePage() {
   return (
     <>
-      <Header />
-      <DashbordBtns />
       {data ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
             matches.small ? (
               <MobileTabl data={data} />
             ) : (
-              <HomeTabl data={data} />
+              <>
+                <HomeTabl data={data} />
+                <Currency />
+              </>
             )
           }
         </Media>
@@ -75,4 +75,4 @@ const DashboardPage = () => {
   )
 }
 
-export default DashboardPage
+export default HomePage
