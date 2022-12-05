@@ -1,11 +1,11 @@
 import  styled from "styled-components";
 // import  '../../assets/css/utils/_vars.scss'
 import { Field } from 'formik';
-// import {Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
-import { respondTo } from '../../helpers/respondTo'
+import { respondTo } from '../../helpers/respondTo';
 
 // export const ContainerTabl = styled.div`
 //   /* margin: 32px 0 0 0; */
@@ -20,9 +20,9 @@ export const ContainerLogo = styled.div`
 `
 export const FormContainer = styled.div`
         padding:36px 20px;
-        background-color:#fff;
+        background-color:var(--background);
         ${respondTo.sm`
-        max-width:533px;
+        min-width:533px;
         padding:40px 60px 66px 65px;
         border-radius:20px;
         margin-left:auto;
@@ -38,17 +38,21 @@ export const FieldStyled = styled(Field)`
         
         border:none;
         padding: 8px 10px 8px 56px;
-        border-bottom: 1px solid #E0E0E0; 
         border: 1px solid transparent;
+        border-bottom: 1px solid #E0E0E0; 
         &::placeholder{
-                color:#bdbdbd;
+                color:var(--text-header);
+                font-family: 'Circe';
 }
 &:hover, &:focus,&:focus-visible{
-        border: 1px solid #24CCA7;
+        border: 1px solid var(--accentPrimary);
         border-radius: 10px;
         outline: none;
         &::placeholder{
-        color:#24CCA7;}    
+        color:var(--accentPrimary);}   
+        & + svg{
+        color:var(--accentPrimary);
+        } 
 
 }
 `
@@ -58,18 +62,23 @@ export const FieldLastStyled = styled(Field)`
         
         border:none;
         padding: 8px 10px 8px 40px;
-        border-bottom: 1px solid #E0E0E0; 
         border: 1px solid transparent;
+        border-bottom: 1px solid #E0E0E0; 
         &::placeholder{
-                color:#bdbdbd;
+                color:var(--text-header);
+                font-family: 'Circe';
         }
 &:hover, &:focus, &:focus-visible{
-        border: 1px solid #24CCA7;
+        border: 1px solid var(--accentPrimary);
         border-radius: 10px;
         outline: none;
         &::placeholder{
-        color:#24CCA7;}      
+        color:(--accentPrimary);}    
+          & + svg{
+        color:var(--accentPrimary);
+        }
 }
+ 
 `
 export const FieldContainer = styled.div`
         width:100%;
@@ -82,7 +91,7 @@ export const StyledIconMail = styled(EmailIcon)`
         left:10px;
         width:24px !important;
         height:24px !important; 
-        color:#bdbdbd;
+        color:var(--text-header);
 `
 export const StyledImg = styled.img`
         ${respondTo.sm`
@@ -102,7 +111,7 @@ export const StyledIconPass= styled(LockIcon)`
         left:10px;
         width:24px !important;
         height:24px !important; 
-        color:#bdbdbd;
+        color:var(--text-header);
 `
 export const StyledIconUser = styled(AccountBoxIcon)`
         position:absolute;
@@ -110,17 +119,17 @@ export const StyledIconUser = styled(AccountBoxIcon)`
         left:10px;
         width:24px !important;
         height:24px !important; 
-        color:#bdbdbd;
+        color:var(--text-header);
 `
 export const StyledBtnMain = styled.button`
         display: inline-block;
         width: 100%;
         max-height: 50px;
         padding:13px 61px;
-        background: #24CCA7;
+        background: var(--accentPrimary);
         border-radius: 20px;
         text-transform: uppercase;
-        color:#fff;
+        color:var(--background);
         font-family: 'Circe';
         font-style: normal;
         font-weight: 400;
@@ -134,14 +143,14 @@ export const StyledBtnMain = styled.button`
                 background:#3b9b86;
         }
 `
-export const StyledBtn= styled.button`
+export const StyledBtn= styled(Link)`
         display: inline-block;
         width: 100%;
         max-height: 50px;
         padding:13px 61px;
         background: transparent;
-        color: #4A56E2;
-        border: 1px solid #4A56E2;
+        color: var(--activeColor);
+        border: 1px solid var(--activeColor);
         border-radius: 20px;
         text-transform: uppercase;
         font-family: 'Circe';
@@ -150,7 +159,12 @@ export const StyledBtn= styled.button`
         letter-spacing: 0.1em;
         text-transform: uppercase;
         &:hover, &:focus{
-                background:#4A56E2;
-                color:#fff;
+                background:var(--activeColor);
+                color:var(--background);
         }
+`
+export const StyledErrorMsg = styled.div`
+        position: absolute;
+        color:red;
+        font-size:16px;
 `
