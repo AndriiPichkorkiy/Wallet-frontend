@@ -17,6 +17,8 @@ export const MainContainer = styled.div`
     padding: 32px 32px;`}
 
   ${respondTo.lg`
+  flex-direction: row;
+align-items:flex-start;
     width: 1200px;
     padding: 0px 16px;`}
 `

@@ -1,7 +1,6 @@
 import React from 'react'
 import { BtnsCont, Container, LinkBtn } from './DBtnsComponents'
 import SvgIcon from '../SVGIcon/SVGIcon'
-import { Outlet } from 'react-router-dom'
 const DashbordBtns = () => {
   return (
     <Container>

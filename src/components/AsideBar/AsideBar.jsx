@@ -39,7 +39,7 @@ const data = [
   createData('9', '09.12.2022', false, 'Other', 'sport', 250.0, 6900.0),
   createData('10', '10.12.2022', false, 'Other', 'gift', 3000.0, 6900.0),
   createData('11', '11.12.2022', true, 'Other', 'gift', 3000.0, 6900.0),
-  createData('12', '12.12.2022', true, 'Other', 'eat', 300.0, 6900.0),
+  createData('12', '12.12.2022', true, 'Other', 'eat', 300.0, 6900.0)
   //   createData('13', '12.12.2022', false, 'Other', 'salary', 900.0, 6900.0),
   //   createData('14', '13.12.2022', true, 'Other', 'food', 1500.0, 6900.0),
   //   createData('15', '14.12.2022', false, 'Other', 'sport', 250.0, 6900.0),
@@ -53,6 +53,7 @@ const data = [
   //   createData('23', '15.12.2022', true, 'Other', 'gift', 3000.0, 6900.0),
 ]
 // }
+
 
 function AsideBar() {
   return (

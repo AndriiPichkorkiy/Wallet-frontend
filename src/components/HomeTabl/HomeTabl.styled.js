@@ -3,8 +3,8 @@ import { respondTo } from '../../helpers/respondTo'
 
 export const ContainerTabl = styled.div`
   /* margin: 32px 0 0 0; */
-  ${respondTo.sm`margin: 20px 0 0 0`}
-  ${respondTo.lg`margin: 46px 0 0 0; max-width: 715px`};
+  /* ${respondTo.sm`margin: 20px 0 0 0`} */
+  ${respondTo.lg`margin: 46px 0; width: 715px`}
 `
 export const StyledGridOverlay = styled.div`
   display: flex;
