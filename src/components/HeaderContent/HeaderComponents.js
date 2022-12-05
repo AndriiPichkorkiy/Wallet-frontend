@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { respondTo } from "../../helpers/respondTo";
+
 export const HeaderC = styled.header`
     display: flex;
     flex-direction: row;
@@ -52,15 +53,18 @@ export const BtnLogout = styled.button`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    &:hover, &:focus {
+        &>svg, &>span {
+            color: #4A56E2;
+        }
+    }
     ${respondTo.xs`
         border-left: 1px #BDBDBD solid;
         padding-left: 12px;
+        
     `}
 `
 
-export const LogoutExitIcon = styled.img`
-    background-color: white;
-`
 
 export const LogoutExitName = styled.h3`
     font-weight: 400;

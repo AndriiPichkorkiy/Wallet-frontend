@@ -1,7 +1,8 @@
 import React from 'react'
 import wallet from '../../assets/images/icons/wallet30x30.svg'
-import logout from '../../assets/images/icons/logout.svg'
-import { HeaderC, LogoCont, Logo, LogoText, BtnLogout, LogoutCont, LogoutExitName, LogoutExitIcon, LogoutExit } from './HeaderComponents'
+import { HeaderC, LogoCont, Logo, LogoText, BtnLogout, LogoutCont, LogoutExitName, LogoutExit } from './HeaderComponents'
+import LogoutIcon from '@mui/icons-material/Logout';
+
 export const HeaderContent = ({toExit}) => {
   return (
       <>
@@ -13,7 +14,11 @@ export const HeaderContent = ({toExit}) => {
           <LogoutCont>
             <LogoutExitName className={"name"}>Name</LogoutExitName>
             <BtnLogout onClick={toExit} type='btn'>
-              <LogoutExitIcon src={logout} alt="logout" />
+              <LogoutIcon sx={{
+                  color: "#BDBDBD"
+                }}
+                // src={logout} alt="logout"
+              />
               <LogoutExit >Exit</LogoutExit>
             </BtnLogout>
           </LogoutCont>
