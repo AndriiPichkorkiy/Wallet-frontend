@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { getCurrency } from "../../api/services";
-import css from './Currency.module.css';
+import { getMonoCurrency } from "../../api/services";
 // import Loader from '../Loader/Loader';
 import currencyImg from "../../assets/images/authImg/CurrencyVector.png"
+import { TableWrapper, TableCurrency, ImgCurrency, TableHeader, TableHeaderCell, TableBody } from './Currency.styled';
 
 
 
-const Currency = () => {
+const MonoCurrency = () => {
     const [state, setState] = useState({
         items: [],
         loading: false,
@@ -23,7 +23,7 @@ const Currency = () => {
                     error: null,
                 })
 
-                const result = await getCurrency();
+                const result = await getMonoCurrency();
                 setState(prevState => {
                     return {
                         items: result,
@@ -59,43 +59,43 @@ const Currency = () => {
     // const element = items.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
     //     .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
     //         <tr key={currencyCodeA}>
-    //             {/* <td className={css.tableBody}>{currencyCodeA}</td>
+    //             <td className={css.tableBody}>{currencyCodeA}</td>
     //             <td className={css.tableBody}>{rateBuy || rateCross}</td>
-    //             <td className={css.tableBody}>{rateSell || rateCross}</td> */}
+    //             <td className={css.tableBody}>{rateSell || rateCross}</td>
     //         </tr>
     //     );
 
 
 
     return (
-        <div className={css.tableWrapper}>
-            <table className={css.tableCurrency}>
-                <thead className={css.tableHeader}>
+        <TableWrapper>
+            <TableCurrency>
+                <TableHeader>
                     <tr>
-                        <th className={css.tableHead}>Currency</th>
-                        <th className={css.tableHead}>Purchase</th>
-                        <th className={css.tableHead}>Sale</th>
+                        <TableHeaderCell>Currency</TableHeaderCell>
+                        <TableHeaderCell>Purchase</TableHeaderCell>
+                        <TableHeaderCell>Sale</TableHeaderCell>
                     </tr>
-                </thead>
-                <tbody className={css.tableBody}>
+                </TableHeader>
+                <TableBody>
                     {/* {element} */}
-                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    <tr><td>EUR</td><td>42.20</td><td>42.50</td>
                     </tr>
-                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    <tr><td>EUR</td><td>42.20</td><td>42.50</td>
                     </tr>
-                    <tr><td className={css.tableBody}>EUR</td><td className={css.tableBody}>42.20</td><td className={css.tableBody}>42.50</td>
+                    <tr><td>EUR</td><td>42.20</td><td>42.50</td>
                     </tr>
 
                     <tr>
-                        <td><img className={css.currencyImg} src={currencyImg} alt="img" /></td>
+                        <td><ImgCurrency src={currencyImg} alt="img" /></td>
                     </tr>
-                    {/* <tr><td>{loading && <Loader />}</td></tr> */}
-                </tbody>
-            </table >
+                    {/* <tr><TableLoader>{loading && <Loader />}</TableLoader></tr> */}
+                </TableBody>
+            </TableCurrency >
 
-        </div >
+        </TableWrapper >
     )
 
 };
 
-export default Currency;
+export default MonoCurrency;

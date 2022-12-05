@@ -22,3 +22,12 @@ export const MainContainer = styled.div`
   	min-width: 1200px;
   	padding: 0px 16px;`}
 `
+export const ContainerLeft = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const ContainerTop = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`
