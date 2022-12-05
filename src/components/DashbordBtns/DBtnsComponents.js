@@ -51,9 +51,6 @@ export const LinkBtn = styled(NavLink)`
             font-size: 18px;
             line-height: 27px;
         }
-        &.active {
-            fill: 4A56E2;
-        }
     `}
 `
 
