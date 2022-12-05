@@ -15,26 +15,23 @@ import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SignupSchema = Yup.object().shape({
-   password: Yup.string()
-    .min(6, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Please enter a password'),
-    // .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/, "Must be min 6 characters long"),
-    confirmPassword: Yup.string()
-    .min(6, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Please confirm your password'),
-    // .matches(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,12}$/, "Must matches  the password above"),
-    email: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Please enter an email'),
-    // .matches(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/, "Must be like bjohnson@gmail.com"),
-    name: Yup.string()
+        name: Yup.string()
         .min(1, 'Too Short!')
         .max(12, 'Too Long!')
         .required('Please enter a name')
         .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, "Must be only letters"),
+        email: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Please enter an email'),
+        password: Yup.string()
+        .min(6, 'Too Short!')
+        .max(12, 'Too Long!')
+        .required('Please enter a password'),
+        confirmPassword: Yup.string()
+        .min(6, 'Too Short!')
+        .max(12, 'Too Long!')
+        .required('Please confirm your password'),
  });
 const RegistrationForm = ({ onSubmit }) => {
     const initialState = {
@@ -48,8 +45,8 @@ const RegistrationForm = ({ onSubmit }) => {
     return (
         <FormContainer>
             <ContainerLogo>
-                <StyledImg src={icon} alt="wallet" className='' />
-                 <StyledLargeImg src={icon_large} alt="wallet" className='' />
+                <StyledImg src={icon} alt="wallet"/>
+                 <StyledLargeImg src={icon_large} alt="wallet"/>
                 {/* <span>
                     <svg width='30' height='30'>
                         <use href='../../assets/images/icons/wallet30x30.svg'></use>
@@ -120,7 +117,7 @@ const RegistrationForm = ({ onSubmit }) => {
                                 onChange={handleChange} />
                             <StyledIconUser />
                                {errors.name && touched.name ? (
-                                    <div>{errors.name}</div>) : null}
+                                    <StyledErrorMsg>{errors.name}</StyledErrorMsg>) : null}
                         </FieldContainer>
                           
                         <StyledBtnMain type='submit'>Register</StyledBtnMain>
