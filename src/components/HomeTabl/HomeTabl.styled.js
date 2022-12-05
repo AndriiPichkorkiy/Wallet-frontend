@@ -4,7 +4,7 @@ import { respondTo } from '../../helpers/respondTo'
 export const ContainerTabl = styled.div`
   /* margin: 32px 0 0 0; */
   /* ${respondTo.sm`margin: 20px 0 0 0`} */
-  ${respondTo.lg`margin: 46px 0 0 70px; width: 715px`}
+  ${respondTo.lg`margin: 46px 0 0 70px; min-width: 715px`}
 `
 export const StyledGridOverlay = styled.div`
   display: flex;

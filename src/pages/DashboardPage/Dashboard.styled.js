@@ -13,12 +13,12 @@ export const MainContainer = styled.div`
 
   ${respondTo.sm`
    	align-items: normal;
-   	width: 768px;
+   	min-width: 768px;
    	padding: 32px 32px;`}
 
   ${respondTo.lg`
   	flex-direction: row;
   	align-items:flex-start;
-  	width: 1200px;
+  	min-width: 1200px;
   	padding: 0px 16px;`}
 `
