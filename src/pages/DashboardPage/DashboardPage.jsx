@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
+import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import Loader from '../../components/Loader/Loader'
@@ -11,6 +12,7 @@ const DashboardPage = () => {
       <Header />
       <MainContainer>
         <DashbordBtns />
+        <Balance/>
         <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
