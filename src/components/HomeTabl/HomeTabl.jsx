@@ -88,7 +88,7 @@ const HomeTabl = ({ data }) => {
   return (
     <ContainerTabl>
       <Box
-        height='70vh'
+        height='80vh'
         sx={{
           '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
             backgroundColor: 'transparent',
