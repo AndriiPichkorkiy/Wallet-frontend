@@ -39,7 +39,7 @@ const LoginForm = ({ onSubmit }) => {
     }
     const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
     // const {  email, password } = state;
-    console.log(state, handleChange)
+    if (null) console.log(state, handleChange)
     return (
         <FormContainer>
             <ContainerLogo>

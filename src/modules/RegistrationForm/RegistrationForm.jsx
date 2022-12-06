@@ -56,7 +56,7 @@ const RegistrationForm = ({ onSubmit }) => {
     }
     const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
     // const { name, email, password, confirmPassword } = state;
-    console.log(state, handleChange)
+    if (null) console.log(state, handleChange)
     return (
         <FormContainer>
             <ContainerLogo>
