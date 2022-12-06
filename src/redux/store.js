@@ -7,12 +7,13 @@ import {
   PAUSE,
   PERSIST,
   PURGE,
-  REGISTER,
+  REGISTER
 } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import { authApi } from '../services/authApi'
 import { statsApi } from '../services/statsApi'
+import { transactionsApi } from '../services/transactionsApi'
 
 import { currentUser } from './auth/userSlice'
 import { currentToken } from './auth/tokenSlice'
@@ -20,14 +21,15 @@ import { currentToken } from './auth/tokenSlice'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token']
 }
 
 const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [statsApi.reducerPath]: statsApi.reducer,
+  [transactionsApi.reducerPath]: transactionsApi.reducer,
   user: currentUser.reducer,
-  token: currentToken.reducer,
+  token: currentToken.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -37,11 +39,12 @@ export const store = configureStore({
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER]
+      }
     })
       .concat(authApi.middleware)
-      .concat(statsApi.middleware),
+      .concat(statsApi.middleware)
+      .concat(transactionsApi.middleware)
 })
 
 export const persistor = persistStore(store)
