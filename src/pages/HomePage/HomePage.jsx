@@ -1,6 +1,6 @@
 import React from 'react'
 import Media from 'react-media'
-import Currency from '../../components/Currency/Currency'
+import Currency from '../../components/Currency'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
 

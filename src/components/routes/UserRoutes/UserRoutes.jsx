@@ -16,7 +16,7 @@ const NotFoundPage = lazy(() =>
 )
 
 const DiagramTab = lazy(() => import('../../DiagramTab'))
-const Currency = lazy(() => import('../../Currency/Currency'))
+const Currency = lazy(() => import('../../Currency'))
 
 const UserRouters = () => {
   return (
