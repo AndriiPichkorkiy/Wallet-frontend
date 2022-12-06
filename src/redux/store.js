@@ -16,6 +16,7 @@ import { statsApi } from '../services/statsApi'
 
 import { currentUser } from './auth/userSlice'
 import { currentToken } from './auth/tokenSlice'
+import authSlice from './auth/auth-slice'
 
 const persistConfig = {
   key: 'root',
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   [statsApi.reducerPath]: statsApi.reducer,
   user: currentUser.reducer,
   token: currentToken.reducer,
+  userV2: authSlice,
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
