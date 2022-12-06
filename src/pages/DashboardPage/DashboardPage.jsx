@@ -15,31 +15,47 @@ const DashboardPage = () => {
       <MainContainer>
         {
           <Media
-            queries={{ medium: '(min-width: 600px) and (max-width: 1199px)' }}
+            queries={{
+              small: '(max-width: 767px)',
+              medium: '(min-width: 768px) and (max-width: 1199px)',
+              large: '(min-width: 1200px)'
+            }}
           >
-            {matches =>
-              matches.medium ? (
-                <>
-                  <ContainerTop>
+            {matches => (
+              <>
+                {matches.small && (
+                  <>
                     <ContainerLeft>
-                      fffff
+                      aaaaa
                       <DashbordBtns />
                       <Balance />
                     </ContainerLeft>
-                    <Currency />
-                  </ContainerTop>
-                </>
-              ) : (
-                <>
-                  <ContainerLeft>
-                    ddddd
-                    <DashbordBtns />
-                    <Balance />
-                    <Currency />
-                  </ContainerLeft>
-                </>
-              )
-            }
+                  </>
+                )}
+                {matches.medium && (
+                  <>
+                    <ContainerTop>
+                      <ContainerLeft>
+                        fffff
+                        <DashbordBtns />
+                        <Balance />
+                      </ContainerLeft>
+                      <Currency />
+                    </ContainerTop>
+                  </>
+                )}
+                {matches.large && (
+                  <>
+                    <ContainerLeft>
+                      ddddd
+                      <DashbordBtns />
+                      <Balance />
+                      <Currency />
+                    </ContainerLeft>
+                  </>
+                )}
+              </>
+            )}
           </Media>
         }
         <Suspense fallback={<Loader />}>
