@@ -1,22 +1,6 @@
 import React from 'react'
-// import { IconContext } from 'react-icons'
-import DropIcon from '../../assets/images/icons/dropDown.svg'
-
-import {
-  SelectWrapper,
-  Select,
-  Option,
-  Table,
-  Thead,
-  Tr,
-  Tbody,
-  Td,
-  TdSum,
-  ColorSquare,
-  Underline,
-  LineWrapper,
-  Svg
-} from './StatsTable.styled'
+import Selector from './Selector/Selector'
+import { Wrapper } from './StatsTable.styled'
 
 const colors = [
   'rgba(254, 208, 87, 1)',
@@ -57,7 +41,7 @@ const StatsTable = ({ statistics, totalData }) => {
   const [year, setYear] = React.useState('')
 
   const handleChange = ({ target: { name, value } }) => {
-    console.log(name, value)
+    // console.dir('name', name, 'value', value)
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -68,72 +52,21 @@ const StatsTable = ({ statistics, totalData }) => {
     }
   }
 
-  console.log('month', month, 'year', year)
-
   return (
-    <SelectWrapper>
-      <Svg>
-        <use href={DropIcon} />
-      </Svg>
-      <Select
-        onChange={e => handleChange(e)}
-        defaultValue={'Month'}
-        name='month'
-        id='month'
-      >
-        <Option value='hide'>Month</Option>
-        {months.map(month => (
-          <Option key={month.id} value={month.name}>
-            {month.name}
-          </Option>
-        ))}
-      </Select>
-      <Select
-        onChange={e => handleChange(e)}
-        defaultValue={'Year'}
-        name='year'
-        id='year'
-      >
-        <Option value='Year'>Year</Option>
-        {years.map(year => (
-          <Option key={year.id} value={year.name}>
-            {year.name}
-          </Option>
-        ))}
-      </Select>
-
-      <Table>
-        <Thead>
-          <Tr>
-            <LineWrapper>
-              <th>Category</th>
-              <th>Sum</th>
-            </LineWrapper>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {statistics.map(stat => (
-            <Tr key={stat.id}>
-              <LineWrapper>
-                <Td>
-                  <ColorSquare></ColorSquare>
-                  {stat.name}
-                </Td>
-                <TdSum>{stat.quantity}</TdSum>
-              </LineWrapper>
-              <Underline></Underline>
-            </Tr>
-          ))}
-          {/* <tr>
-            <td>
-              <span></span>
-              Total
-            </td>
-            <td>{totalData.totalBalance}</td>
-          </tr> */}
-        </Tbody>
-      </Table>
-    </SelectWrapper>
+    <Wrapper>
+      <Selector
+        list={months}
+        title={'Month'}
+        name={'month'}
+        onChange={handleChange}
+      />
+      {/* <Selector
+        list={years}
+        title={'Year'}
+        name={'year'}
+        onChange={handleChange}
+      /> */}
+    </Wrapper>
   )
 }
 

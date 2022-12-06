@@ -1,6 +1,5 @@
 import React from 'react'
 import Chart from '../Chart/Chart'
-// import StatsTable from '../StatsTable/StatsTable'
 
 import { StatsWrapper, StatsTitle } from './DiagramTab.styled'
 
@@ -8,6 +7,7 @@ import {
   useGetStatsQuery,
   useGetTotalStatsQuery
 } from '../../services/statsApi'
+import StatsTable from '../StatsTable/StatsTable'
 
 const DiagramTab = () => {
   const { data: statsData } = useGetStatsQuery()
@@ -29,6 +29,7 @@ const DiagramTab = () => {
       ) : (
         <p>loading...</p>
       )} */}
+      <StatsTable />
     </>
   )
 }
