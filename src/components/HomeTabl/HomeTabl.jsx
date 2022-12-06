@@ -68,7 +68,7 @@ const HomeTabl = ({ data }) => {
   function CustomNoRowsOverlay() {
     return (
       <StyledGridOverlay>
-        <Box
+        <Typography
           sx={{
             mt: 1,
             width: '500px',
@@ -80,7 +80,7 @@ const HomeTabl = ({ data }) => {
         >
           There are no recorded transactions. Click the green button in the
           lower right corner and make the first entry!
-        </Box>
+        </Typography>
       </StyledGridOverlay>
     )
   }
@@ -88,7 +88,7 @@ const HomeTabl = ({ data }) => {
   return (
     <ContainerTabl>
       <Box
-        height='60vh'
+        height='80vh'
         sx={{
           '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
             backgroundColor: 'transparent',

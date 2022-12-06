@@ -1,1 +1,1 @@
-export { default } from './MonoCurrency'
+export { default } from './Currency'
