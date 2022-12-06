@@ -8,31 +8,45 @@ import {
     ContainerLogo, FormContainer, FieldStyled,
     FieldContainer, StyledIconMail, StyledImg,
     StyledIconPass, StyledIconUser, FieldLastStyled,
-    StyledBtnMain, StyledBtn, StyledLargeImg, StyledErrorMsg
+    StyledBtnMain, StyledBtn, StyledLargeImg, StyledErrorMsg,
+    StyledProgressBar
 } from './RegistrationForm.styled';
-
 import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
-// const icon = require('./assets/images/icons/wallet30x30.svg')
 const SignupSchema = Yup.object().shape({
         name: Yup.string()
         .min(1, 'Too Short!')
         .max(12, 'Too Long!')
         .required('Please enter a name')
+        .strict()
+        .trim()
         .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, "Must be only letters"),
         email: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
+        .email('Invalid email')
+        .strict()
+        .trim()
         .required('Please enter an email'),
         password: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
+        .lowercase('Only lowercase letters are allowed')
+        .strict()
+        .trim()
+        .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character")
         .required('Please enter a password'),
         confirmPassword: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
-        .required('Please confirm your password'),
- });
+        .required('Please confirm your password')
+        .lowercase('Only lowercase letters are allowed')
+        .strict()
+        .trim()
+        .oneOf([Yup.ref('password'),null], 'Password must match')
+        .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character"),
+});
+
 const RegistrationForm = ({ onSubmit }) => {
     const initialState = {
         name: '',
@@ -41,7 +55,7 @@ const RegistrationForm = ({ onSubmit }) => {
         confirmPassword: '',
     }
     const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
-    const { name, email, password, confirmPassword } = state;
+    // const { name, email, password, confirmPassword } = state;
     return (
         <FormContainer>
             <ContainerLogo>
@@ -64,12 +78,9 @@ const RegistrationForm = ({ onSubmit }) => {
                             <FieldStyled
                                 type="email"
                                 name="email"
-                                // pattern=""
                                 title="Enter your email Please!"
                                 placeholder="E-mail"
-                                required
-                                value={email}
-                                onChange={handleChange} />
+                            />
                             <StyledIconMail />
                                {errors.email && touched.email ? (
                                     <StyledErrorMsg>{errors.email}</StyledErrorMsg>
@@ -80,11 +91,8 @@ const RegistrationForm = ({ onSubmit }) => {
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                // pattern="^"
-                                title="Minimum eight characters, at least one letter and one number"
-                                required
-                                value={password}
-                                onChange={handleChange} />
+                                title="Minimum six characters, at least one letter and one number"
+                            />
                             <StyledIconPass />
                                {errors.password && touched.password ? (
                                     <StyledErrorMsg>{errors.password}</StyledErrorMsg>
@@ -95,11 +103,9 @@ const RegistrationForm = ({ onSubmit }) => {
                                 type="password"
                                 name="confirmPassword"
                                 placeholder="Confirm password"
-                                // pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                                title="Minimum eight characters, at least one letter and one number"
-                                required
-                                value={confirmPassword}
-                                onChange={handleChange} />
+                                title="Minimum six characters, at least one letter and one number"
+                            />
+                            <StyledProgressBar value={30} variant="determinate" />
                             <StyledIconPass />
                                {errors.confirmPassword && touched.confirmPassword ? (
                                     <StyledErrorMsg>{errors.confirmPassword}</StyledErrorMsg>
@@ -110,11 +116,8 @@ const RegistrationForm = ({ onSubmit }) => {
                                 type="text"
                                 name="name"
                                 placeholder="First name"
-                                // pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-                                required
-                                value={name}
-                                onChange={handleChange} />
+                            />
                             <StyledIconUser />
                                {errors.name && touched.name ? (
                                     <StyledErrorMsg>{errors.name}</StyledErrorMsg>) : null}
@@ -132,6 +135,7 @@ const RegistrationForm = ({ onSubmit }) => {
     RegistrationForm.propTypes = {
         onSubmit: PropTypes.func.isRequired,
     };
+
 export default RegistrationForm;
 
 //   <Formik

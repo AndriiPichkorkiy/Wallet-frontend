@@ -1,17 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import {signup, signin, logout, getCurrent} from '../../api/auth.js';
-// import { Notify } from 'notiflix/build/notiflix-notify-aio';
+// import {useSignUpMutation, useLoginMutation, useLogOutMutation } from '../../services/authApi';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
+// const [signUp] = useSignUpMutation();
+// const [login] = useLoginMutation();
+// const [signUp] = useLogOutMutation();
 export const signUp = createAsyncThunk(
     'auth/signup',
     async (data, { rejectWithValue }) => {
         try {
             const result = await signup(data);
-            // Notify.success("You are sign up!")
+            Notify.success("You are sign up!")
             return result;
         }
         catch (error) {
-            // Notify.failure(error.message)
+            Notify.failure(error.message)
             return rejectWithValue(error);
         }
     }

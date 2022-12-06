@@ -12,8 +12,8 @@ const useForm = ({ initialState, onSubmit }) => {
         }))
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const handleSubmit = (data) => {
+        console.log(data)
         onSubmit({ ...state });
         setState({ ...initialState })
         console.log(state)

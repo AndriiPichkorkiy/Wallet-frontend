@@ -1,4 +1,7 @@
 import React from 'react';
+// import { useSignUpMutation } from '../../services/authApi';
+// import {isAuth} from '../../redux/auth/userSlice'
+import { signUp } from '../../redux/auth/auth-operations';
 import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm';
 import {
     StyledImg, StyledLargeImg, StyledFormContainer,StyledRightCornerImgContainer,
@@ -11,14 +14,14 @@ import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.p
 import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png';
 import icon_register_desc from '../../assets/images/authImg/register-desk.png';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 // import { signUp } from '../../redux/auth/auth-operations';
 const RegistrationPage = () => {
-    // const dispatch = useDispatch();
-
+    const dispatch = useDispatch();
+    // const [signUp] = useSignUpMutation();
     const onRegister = (data) => {
-        // dispatch(signUp(data))
         console.log(data)
+        dispatch(signUp(data))
     }
     return (
         <StyledRegistrationPageContainer>

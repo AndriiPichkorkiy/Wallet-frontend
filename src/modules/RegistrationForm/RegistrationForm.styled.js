@@ -6,6 +6,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import { respondTo } from '../../helpers/respondTo';
+import { LinearProgress } from '@mui/material';
 
 // export const ContainerTabl = styled.div`
 //   /* margin: 32px 0 0 0; */
@@ -166,5 +167,16 @@ export const StyledBtn= styled(Link)`
 export const StyledErrorMsg = styled.div`
         position: absolute;
         color:red;
-        font-size:16px;
+        font-size:12px;
+        line-height:1.2;
+`
+export const StyledProgressBar = styled(LinearProgress)`
+        margin-top:8px;
+        margin-bottom:8px;
+        background-color: #E5F1EF !important;
+        border-radius:5px;
+        height:6px !important;
+        & > span{
+                background-color: #24CCA7 !important;
+        }
 `

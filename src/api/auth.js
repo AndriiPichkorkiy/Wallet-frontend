@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-    baseURL:'https://connections-api.herokuapp.com/'
+    baseURL:'https://wallet-project-m5us.onrender.com'
 })
 const token = {
     set: token => {
@@ -12,7 +12,7 @@ const token = {
     }
 }
 export const signup = async(data) => {
-    const result  = await instance.post('/users/signup', data);
+    const result  = await instance.post('/api/user/register', data);
     token.set(result.data.token);
     return result.data;
 }
