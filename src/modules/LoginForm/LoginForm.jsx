@@ -16,7 +16,7 @@ import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SigninSchema = Yup.object().shape({
-   email: Yup.string()
+    email: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .strict()
@@ -31,14 +31,15 @@ const SigninSchema = Yup.object().shape({
         .trim()
         .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character")
         .required('Please enter a password'),
- });
+});
 const LoginForm = ({ onSubmit }) => {
     const initialState = {
         email: '',
-        password:''
+        password: ''
     }
-    const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
+    const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
     // const {  email, password } = state;
+    console.log(state, handleChange)
     return (
         <FormContainer>
             <ContainerLogo>
@@ -60,9 +61,9 @@ const LoginForm = ({ onSubmit }) => {
                                 title="Enter your email Please!"
                                 placeholder="E-mail"
                             />
-                             {errors.email && touched.email ? (
-                                    <StyledErrorMsg>{errors.email}</StyledErrorMsg>
-                                ) : null}
+                            {errors.email && touched.email ? (
+                                <StyledErrorMsg>{errors.email}</StyledErrorMsg>
+                            ) : null}
                         </FieldContainer>
                         <FieldContainer>
                             <StyledIconPass />
@@ -72,22 +73,22 @@ const LoginForm = ({ onSubmit }) => {
                                 placeholder="Password"
                                 title="Minimum six characters, one lowercase letter, one number and one special character"
                             />
-                                   {errors.password && touched.password ? (
-                                    <StyledErrorMsg>{errors.password}</StyledErrorMsg>
-                                ) : null}
+                            {errors.password && touched.password ? (
+                                <StyledErrorMsg>{errors.password}</StyledErrorMsg>
+                            ) : null}
                         </FieldContainer>
                         <StyledBtnMain type='submit'>Login</StyledBtnMain>
                         <StyledBtn to='/register'>Register</StyledBtn>
                     </Form>
                 )}
             </Formik>
-            </FormContainer>
-        )
+        </FormContainer>
+    )
 }
-    
-    LoginForm.propTypes = {
-        onSubmit: PropTypes.func.isRequired,
-    };
+
+LoginForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
 export default LoginForm;
 
 //   <Formik

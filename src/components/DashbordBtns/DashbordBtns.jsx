@@ -1,23 +1,87 @@
 import React from 'react'
-import { BtnsCont, Container, LinkBtn } from './DBtnsComponents';
-import SvgIcon from '../SVGIcon/SVGIcon'
+import {
+  BtnsCont,
+  BtnText,
+  Container,
+  CurrLinkBtn,
+  LinkBtn
+} from './DBtnsComponents'
+import HomeSharpIcon from '@mui/icons-material/HomeSharp'
+import TimelineIcon from '@mui/icons-material/Timeline'
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
+import Media from 'react-media'
+
 const DashbordBtns = () => {
-    return (
-        <Container>
-            <BtnsCont>
-                <LinkBtn to='/home'>
-                    {/* <img src={home} alt="" /> */}
-                    <SvgIcon name={'homeicon'} width={"44px"} height={"44px"}/>
-                </LinkBtn>
-                <LinkBtn to='/statistics'>
-                    {/* <img src={stat} alt="" /> */}
-                    <SvgIcon name={'statisticsicon'} width={"44px"} height={"44px"}/>
-                </LinkBtn>
-                <LinkBtn to='/currency'>
-                    <SvgIcon name={'currencyicon'} width={"44px"} height={"44px"}/>
-                </LinkBtn>
-            </BtnsCont>
-        </Container>
+  return (
+    <Container>
+      <BtnsCont>
+        <LinkBtn to='/cabinet'>
+          <Media queries={{ small: '(max-width: 767px)' }}>
+            {matches =>
+              matches.small ? (
+                <HomeSharpIcon
+                  sx={{
+                    color: '#fff',
+                    background: '#6e78e8',
+                    borderRadius: '6px',
+                    width: '44px',
+                    height: '44px'
+                  }}
+                />
+              ) : (
+                <HomeSharpIcon
+                  sx={{
+                    color: '#fff',
+                    background: '#6e78e8',
+                    width: '18px',
+                    height: '18px'
+                  }}
+                />
+              )
+            }
+          </Media>
+          <BtnText>Home</BtnText>
+        </LinkBtn>
+        <LinkBtn to='/statistics'>
+          <Media queries={{ small: '(max-width: 767px)' }}>
+            {matches =>
+              matches.small ? (
+                <TimelineIcon
+                  sx={{
+                    color: '#fff',
+                    background: '#6e78e8',
+                    borderRadius: '6px',
+                    width: '44px',
+                    height: '44px'
+                  }}
+                />
+              ) : (
+                <TimelineIcon
+                  sx={{
+                    color: '#fff',
+                    background: '#6e78e8',
+                    width: '18px',
+                    height: '18px'
+                  }}
+                />
+              )
+            }
+          </Media>
+          <BtnText>Statistiscs</BtnText>
+        </LinkBtn>
+        <CurrLinkBtn to='/currency'>
+          <AttachMoneyIcon
+            sx={{
+              color: '#fff',
+              background: '#6e78e8',
+              borderRadius: '6px',
+              width: '44px',
+              height: '44px'
+            }}
+          />
+        </CurrLinkBtn>
+      </BtnsCont>
+    </Container>
   )
 }
 

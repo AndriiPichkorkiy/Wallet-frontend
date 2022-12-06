@@ -15,6 +15,7 @@ export const signUp = createAsyncThunk(
       console.log('auth signup', data)
       return result
     } catch (error) {
+      console.log('error', error)
       Notify.failure(error.message)
       return rejectWithValue(error)
     }

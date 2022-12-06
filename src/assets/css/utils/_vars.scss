@@ -4,10 +4,10 @@
   --duration: 250ms;
   --timing-fun: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --accentPrimary: #24CCA7;
-  --accentSecondary: #FF6596;
-  --activeColor: #4A56E2;
-  --paleActiveColor: #6E78E8;
+  --accentPrimary: #24cca7;
+  --accentSecondary: #ff6596;
+  --activeColor: #4a56e2;
+  --paleActiveColor: #6e78e8;
   --background: #ffffff;
   --background-body: #e7eaf2;
   --main-text: #000000;
@@ -17,18 +17,15 @@
 
   --accent-color-green: var(--accentPrimary);
   --accent-color-violet: var(--activeColor);
-  --accent-color-violet-light:  var(--paleActiveColor);;
+  --accent-color-violet-light: var(--paleActiveColor);
   --accent-color-pink: var(--accentSecondary);
   --btn-color: var(--accentPrimary);
   --accent-text-green: var(--accentPrimary);
   --accent-text-pink: var(--accentSecondary);
-  
+
   --btn-border-radius: 20px;
   --modal-border-radius: 20px;
   --component-border-radius: 30px;
-  
-
-
 }
 
 //font

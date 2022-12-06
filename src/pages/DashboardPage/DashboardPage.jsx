@@ -1,13 +1,24 @@
-import React from "react";
+import React, { Suspense } from 'react'
+import { Outlet } from 'react-router-dom'
+import Balance from '../../components/Balance/Balance'
+import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
+import Header from '../../components/Header/Header'
+import Loader from '../../components/Loader/Loader'
+import { MainContainer } from './Dashboard.styled'
 
 const DashboardPage = () => {
-
-    return (
-        <div>
-            <h1>peek-a-boo</h1>
-        </div>
-
-    );
+  return (
+    <>
+      <Header />
+      <MainContainer>
+        <DashbordBtns />
+        <Balance/>
+        <Suspense fallback={<Loader />}>
+          <Outlet />
+        </Suspense>
+      </MainContainer>
+    </>
+  )
 }
 
-export default DashboardPage;
+export default DashboardPage

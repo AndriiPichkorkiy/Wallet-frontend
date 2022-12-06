@@ -14,21 +14,21 @@ import {
 import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
 const SignupSchema = Yup.object().shape({
-        name: Yup.string()
+    name: Yup.string()
         .min(1, 'Too Short!')
         .max(12, 'Too Long!')
         .required('Please enter a name')
         .strict()
         .trim()
         .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, "Must be only letters"),
-        email: Yup.string()
+    email: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .email('Invalid email')
         .strict()
         .trim()
         .required('Please enter an email'),
-        password: Yup.string()
+    password: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
         .lowercase('Only lowercase letters are allowed')
@@ -36,14 +36,14 @@ const SignupSchema = Yup.object().shape({
         .trim()
         .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character")
         .required('Please enter a password'),
-        confirmPassword: Yup.string()
+    confirmPassword: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
         .required('Please confirm your password')
         .lowercase('Only lowercase letters are allowed')
         .strict()
         .trim()
-        .oneOf([Yup.ref('password'),null], 'Password must match')
+        .oneOf([Yup.ref('password'), null], 'Password must match')
         .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character"),
 });
 
@@ -54,13 +54,14 @@ const RegistrationForm = ({ onSubmit }) => {
         password: '',
         confirmPassword: '',
     }
-    const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
+    const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
     // const { name, email, password, confirmPassword } = state;
+    console.log(state, handleChange)
     return (
         <FormContainer>
             <ContainerLogo>
-                <StyledImg src={icon} alt="wallet"/>
-                 <StyledLargeImg src={icon_large} alt="wallet"/>
+                <StyledImg src={icon} alt="wallet" />
+                <StyledLargeImg src={icon_large} alt="wallet" />
                 {/* <span>
                     <svg width='30' height='30'>
                         <use href='../../assets/images/icons/wallet30x30.svg'></use>
@@ -82,9 +83,9 @@ const RegistrationForm = ({ onSubmit }) => {
                                 placeholder="E-mail"
                             />
                             <StyledIconMail />
-                               {errors.email && touched.email ? (
-                                    <StyledErrorMsg>{errors.email}</StyledErrorMsg>
-                                ) : null}
+                            {errors.email && touched.email ? (
+                                <StyledErrorMsg>{errors.email}</StyledErrorMsg>
+                            ) : null}
                         </FieldContainer>
                         <FieldContainer>
                             <FieldStyled
@@ -94,9 +95,9 @@ const RegistrationForm = ({ onSubmit }) => {
                                 title="Minimum six characters, at least one letter and one number"
                             />
                             <StyledIconPass />
-                               {errors.password && touched.password ? (
-                                    <StyledErrorMsg>{errors.password}</StyledErrorMsg>
-                                ) : null}
+                            {errors.password && touched.password ? (
+                                <StyledErrorMsg>{errors.password}</StyledErrorMsg>
+                            ) : null}
                         </FieldContainer>
                         <FieldContainer>
                             <FieldStyled
@@ -107,9 +108,9 @@ const RegistrationForm = ({ onSubmit }) => {
                             />
                             <StyledProgressBar value={30} variant="determinate" />
                             <StyledIconPass />
-                               {errors.confirmPassword && touched.confirmPassword ? (
-                                    <StyledErrorMsg>{errors.confirmPassword}</StyledErrorMsg>
-                                ) : null}
+                            {errors.confirmPassword && touched.confirmPassword ? (
+                                <StyledErrorMsg>{errors.confirmPassword}</StyledErrorMsg>
+                            ) : null}
                         </FieldContainer>
                         <FieldContainer>
                             <FieldLastStyled
@@ -119,22 +120,22 @@ const RegistrationForm = ({ onSubmit }) => {
                                 title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                             />
                             <StyledIconUser />
-                               {errors.name && touched.name ? (
-                                    <StyledErrorMsg>{errors.name}</StyledErrorMsg>) : null}
+                            {errors.name && touched.name ? (
+                                <StyledErrorMsg>{errors.name}</StyledErrorMsg>) : null}
                         </FieldContainer>
-                          
+
                         <StyledBtnMain type='submit'>Register</StyledBtnMain>
                         <StyledBtn to='/login'>Login</StyledBtn>
                     </Form>
-)}
+                )}
             </Formik>
-            </FormContainer>
-        )
+        </FormContainer>
+    )
 }
-    
-    RegistrationForm.propTypes = {
-        onSubmit: PropTypes.func.isRequired,
-    };
+
+RegistrationForm.propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+};
 
 export default RegistrationForm;
 
