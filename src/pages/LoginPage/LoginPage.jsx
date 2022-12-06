@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../../modules/LoginForm/LoginForm'
-// import { useDispatch } from 'react-redux';
-// import { signUp } from '../../redux/auth/auth-operations';
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/auth-operations';
 import {
     StyledImg, StyledLargeImg, StyledFormContainer, StyledRightCornerImgContainer,
     StyledHeadContainer, StyledRegisterTitle, StyledRegisterImgContainer,
@@ -14,11 +14,11 @@ import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
 import icon_register_tab from '../../assets/images/authImg/login-tablet.png';
 import icon_register_desc from '../../assets/images/authImg/login-desk.png';
 const LoginPage = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // const onRegister = (data) => {
-    //     dispatch(signUp(data))
-    // }
+    const onLogin = (data) => {
+        dispatch(signIn(data))
+    }
     return (
           <StyledRegistrationPageContainer>
             <StyledHeadContainer>
@@ -46,7 +46,7 @@ const LoginPage = () => {
                     <StyledImg src={icon_pink_tablet} alt="pink circle"/>
                     
                 </StyledRightCornerImgLargeContainer>
-              <LoginForm onSubmit={console.log('test')} />
+              <LoginForm onSubmit={onLogin} />
             </StyledFormContainer>
         </StyledRegistrationPageContainer>
     )

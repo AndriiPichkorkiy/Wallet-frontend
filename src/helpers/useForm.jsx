@@ -13,10 +13,10 @@ const useForm = ({ initialState, onSubmit }) => {
     }
 
     const handleSubmit = (data) => {
+        delete data.confirmPassword;
         console.log(data)
-        onSubmit({ ...state });
+        onSubmit({ ...data });
         setState({ ...initialState })
-        console.log(state)
     }
 
     return {state, setState, handleChange, handleSubmit}

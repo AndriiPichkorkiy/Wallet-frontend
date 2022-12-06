@@ -26,11 +26,12 @@ export const signIn = createAsyncThunk(
     async (data, { rejectWithValue }) => {
         try {
             const result = await signin(data);
-            // Notify.success("You are logged in!")
+            Notify.success("You are logged in!");
+            console.log(result);
             return result;
         }
         catch (error) {
-            //  Notify.failure(error.message)
+             Notify.failure(error.message)
             return rejectWithValue(error);
         }
     }

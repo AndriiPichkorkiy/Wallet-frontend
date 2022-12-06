@@ -17,13 +17,20 @@ import icon_large from '../../assets/images/icons/logo-large.svg';
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SigninSchema = Yup.object().shape({
    email: Yup.string()
-     .min(2, 'Too Short!')
-     .max(50, 'Too Long!')
-     .required('Please enter an email'),
-     password: Yup.string()
-    .min(6, 'Too Short!')
-    .max(12, 'Too Long!')
-    .required('Please enter a password'),
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .strict()
+        .trim()
+        .email('Invalid email')
+        .required('Please enter an email'),
+    password: Yup.string()
+        .min(6, 'Too Short!')
+        .max(12, 'Too Long!')
+        .lowercase('Only lowercase letters are allowed')
+        .strict()
+        .trim()
+        .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character")
+        .required('Please enter a password'),
  });
 const LoginForm = ({ onSubmit }) => {
     const initialState = {
@@ -31,7 +38,7 @@ const LoginForm = ({ onSubmit }) => {
         password:''
     }
     const {state, handleChange, handleSubmit} = useForm({initialState, onSubmit})
-    const {  email, password } = state;
+    // const {  email, password } = state;
     return (
         <FormContainer>
             <ContainerLogo>
@@ -50,12 +57,9 @@ const LoginForm = ({ onSubmit }) => {
                             <FieldStyled
                                 type="email"
                                 name="email"
-                                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                 title="Enter your email Please!"
                                 placeholder="E-mail"
-                                required
-                                value={email}
-                                onChange={handleChange} />
+                            />
                              {errors.email && touched.email ? (
                                     <StyledErrorMsg>{errors.email}</StyledErrorMsg>
                                 ) : null}
@@ -66,11 +70,8 @@ const LoginForm = ({ onSubmit }) => {
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                                title="Minimum eight characters, at least one letter and one number"
-                                required
-                                value={password}
-                                onChange={handleChange} />
+                                title="Minimum six characters, one lowercase letter, one number and one special character"
+                            />
                                    {errors.password && touched.password ? (
                                     <StyledErrorMsg>{errors.password}</StyledErrorMsg>
                                 ) : null}

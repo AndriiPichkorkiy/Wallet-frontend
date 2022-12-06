@@ -17,8 +17,9 @@ export const signup = async(data) => {
     return result.data;
 }
 
-export const signin = async(data) => {
-    const  result = await instance.post('/users/login', data);
+export const signin = async (data) => {
+    console.log(data);
+    const  result = await instance.post('/api/users/login', data);
     token.set(result.data.token);
     return result.data;
 }

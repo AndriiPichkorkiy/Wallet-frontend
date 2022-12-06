@@ -171,7 +171,7 @@ export const StyledErrorMsg = styled.div`
         line-height:1.2;
 `
 export const StyledProgressBar = styled(LinearProgress)`
-        margin-top:8px;
+        top:8px;
         margin-bottom:8px;
         background-color: #E5F1EF !important;
         border-radius:5px;
