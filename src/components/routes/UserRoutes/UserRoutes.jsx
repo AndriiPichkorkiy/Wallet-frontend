@@ -2,6 +2,7 @@ import Loader from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../../pages/HomePage'
+import { Navigate } from 'react-router-dom/dist'
 
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
@@ -11,9 +12,9 @@ const RegistrationPage = lazy(() =>
   import('../../../pages/RegistrationPage/RegistrationPage')
 )
 const LoginPage = lazy(() => import('../../../pages/LoginPage/LoginPage'))
-const NotFoundPage = lazy(() =>
-  import('../../../pages/NotFoundPage/NotFoundPage')
-)
+// const NotFoundPage = lazy(() =>
+//   import('../../../pages/NotFoundPage/NotFoundPage')
+// )
 
 const DiagramTab = lazy(() => import('../../DiagramTab'))
 const Currency = lazy(() => import('../../Currency'))
@@ -35,8 +36,8 @@ const UserRouters = () => {
           </Route>
 
           {/* </Route> */}
-          <Route path='*' element={<NotFoundPage />} />
-          {/* <Route path='*' element={<Navigate to="/cabinet" />} /> */}
+          {/* <Route path='*' element={<NotFoundPage />} /> */}
+          <Route path='*' element={<Navigate to="/register" />} />
         </Routes>
       </Suspense>
     </>
