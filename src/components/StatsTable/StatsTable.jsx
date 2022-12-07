@@ -1,33 +1,34 @@
 import React from 'react'
 import Selector from './Selector/Selector'
+import Table from './Table/Table'
 import { Wrapper } from './StatsTable.styled'
 
-const colors = [
-  'rgba(254, 208, 87, 1)',
-  'rgba(255, 216, 208, 1)',
-  'rgba(253, 148, 152, 1)',
-  'rgba(197, 186, 255, 1)',
-  'rgba(110, 120, 232, 1)',
-  'rgba(74, 86, 226, 1)',
-  'rgba(129, 225, 255, 1)',
-  'rgba(36, 204, 167, 1)',
-  'rgba(0, 173, 132, 1)'
-]
+// const colors = [
+//   'rgba(254, 208, 87, 1)',
+//   'rgba(255, 216, 208, 1)',
+//   'rgba(253, 148, 152, 1)',
+//   'rgba(197, 186, 255, 1)',
+//   'rgba(110, 120, 232, 1)',
+//   'rgba(74, 86, 226, 1)',
+//   'rgba(129, 225, 255, 1)',
+//   'rgba(36, 204, 167, 1)',
+//   'rgba(0, 173, 132, 1)'
+// ]
 
 const months = [
-  { id: '01', name: 'January' },
-  { id: '02', name: 'February' },
-  { id: '03', name: 'March' },
-  { id: '04', name: 'April' },
-  { id: '05', name: 'May' },
-  { id: '06', name: 'June' },
-  { id: '07', name: 'July' },
-  { id: '08', name: 'August' },
-  { id: '09', name: 'September' },
-  { id: '010', name: 'October' },
-  { id: '012', name: 'November' },
-  { id: '013', name: 'December' },
-  { id: '014', name: 'All' }
+  { id: '1', name: 'January' },
+  { id: '2', name: 'February' },
+  { id: '3', name: 'March' },
+  { id: '4', name: 'April' },
+  { id: '5', name: 'May' },
+  { id: '6', name: 'June' },
+  { id: '7', name: 'July' },
+  { id: '8', name: 'August' },
+  { id: '9', name: 'September' },
+  { id: '10', name: 'October' },
+  { id: '11', name: 'November' },
+  { id: '12', name: 'December' },
+  { id: '13', name: 'All' }
 ]
 
 const years = [
@@ -36,36 +37,18 @@ const years = [
   { id: '2020', name: '2020' },
   { id: '2019', name: '2019' }
 ]
-const StatsTable = ({ statistics, totalData }) => {
-  const [month, setMonth] = React.useState('')
-  const [year, setYear] = React.useState('')
 
-  const handleChange = ({ target: { name, value } }) => {
-    // console.dir('name', name, 'value', value)
-    switch (name) {
-      case 'month':
-        return setMonth(value)
-      case 'year':
-        return setYear(value)
-      default:
-        return
-    }
-  }
-
+const StatsTable = ({ statistics, totalData, onChange }) => {
   return (
     <Wrapper>
       <Selector
         list={months}
         title={'Month'}
         name={'month'}
-        onChange={handleChange}
+        onChange={onChange}
       />
-      {/* <Selector
-        list={years}
-        title={'Year'}
-        name={'year'}
-        onChange={handleChange}
-      /> */}
+      <Selector list={years} title={'Year'} name={'year'} onChange={onChange} />
+      <Table statistics={statistics} totalData={totalData} />
     </Wrapper>
   )
 }

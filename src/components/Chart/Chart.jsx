@@ -2,7 +2,7 @@ import React from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
-import s from './Chart.module.css'
+import { ChartWrapper, BalanceWrapper } from './Chart.styled'
 
 const colors = [
   'rgba(254, 208, 87, 1)',
@@ -34,7 +34,7 @@ const Chart = ({ statistics, totalData }) => {
     layout: {
       padding: 6
     },
-    responsive: true,
+    // responsive: true,
 
     plugins: {
       tooltip: {
@@ -78,17 +78,15 @@ const Chart = ({ statistics, totalData }) => {
   }
 
   return (
-    <div className={s.chart}>
-      <div className={s.chart__container}>
-        <div className={s.chart__balance}>
-          {totalData ? (
-            `₴ ${totalData.totalBalance ? totalData.totalBalance : 0}`
-          ) : (
-            <p>loading...</p>
-          )}
-        </div>
-        <Doughnut data={doughnutData} options={options} />
-      </div>
+    <div>
+      <BalanceWrapper>
+        {totalData ? (
+          `₴ ${totalData.totalBalance ? totalData.totalBalance : 0}`
+        ) : (
+          <p>loading...</p>
+        )}
+      </BalanceWrapper>
+      <Doughnut data={doughnutData} options={options} />
     </div>
   )
 }

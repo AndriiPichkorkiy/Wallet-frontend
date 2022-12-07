@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { SelectWrapper, Select, Option, Svg } from './Selector.styled'
 
 const Selector = ({ list, title, name, onChange }) => {
   const onOpenEffect = ({ target: { id, tagName } }) => {
-    if (!tagName && tagName !== 'SELECT') {
-      return
-    }
+    // if (!tagName && tagName !== 'SELECT') {
+    //   return
+    // }
     const element = document.getElementById(`${id}-icon`)
     element.classList.toggle('rotate')
   }
@@ -28,7 +28,7 @@ const Selector = ({ list, title, name, onChange }) => {
       >
         <Option value='hide'>{title}</Option>
         {list.map(item => (
-          <Option key={item.id} value={item.name}>
+          <Option key={item.id} value={item.id}>
             {item.name}
           </Option>
         ))}
