@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Chart from '../Chart/Chart'
 
 import {
@@ -18,8 +18,10 @@ import {
 const DiagramTab = () => {
   const currentMonth = new Date().getMonth() + 1
   const currentYear = new Date().getFullYear()
+
   const [month, setMonth] = useState(currentMonth)
   const [year, setYear] = useState(currentYear)
+  console.log(month, year)
   // const [query, setQuery] = useState(`year=${year}&month=${month}`)
 
   const handleChange = ({ target: { name, value } }) => {
