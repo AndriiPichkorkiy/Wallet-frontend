@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
-import { isAuth } from "redux/selectors";
+import { isAuth } from "../../../redux/auth/userSlice";
 
 const PrivateRoute = () => {
     const isLogin = useSelector(isAuth);

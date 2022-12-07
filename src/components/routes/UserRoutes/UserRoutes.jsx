@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../../pages/HomePage'
 import { Navigate } from 'react-router-dom/dist'
 
-// import PrivateRoute from "../PrivateRoute/PrivateRoute";
-// import PublicRoute from "../PublicRoute/PublicRoute ";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PublicRoute from "../PublicRoute/PublicRoute ";
 
 const DashboardPage = lazy(() => import('../../../pages/DashboardPage'))
 const RegistrationPage = lazy(() =>
@@ -24,18 +24,17 @@ const UserRouters = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route element={<PublicRoute/>}> */}
-          <Route path='/register' element={<RegistrationPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          {/* </Route> */}
-          {/* <Route element={<PrivateRoute/>}> */}
-          <Route path='/cabinet' element={<DashboardPage />}>
-            <Route index element={<HomePage />} />
-            <Route path='statistics' element={<DiagramTab />} />
-            <Route path='currency' element={<Currency />} />
+          <Route element={<PublicRoute/>}>
+            <Route path='/register' element={<RegistrationPage />} />
+            <Route path='/login' element={<LoginPage />} />
           </Route>
-
-          {/* </Route> */}
+          <Route element={<PrivateRoute/>}>
+            <Route path='/cabinet' element={<DashboardPage />}>
+              <Route index element={<HomePage />} />
+              <Route path='statistics' element={<DiagramTab />} />
+              <Route path='currency' element={<Currency />} />
+            </Route>
+          </Route>
           {/* <Route path='*' element={<NotFoundPage />} /> */}
           <Route path='*' element={<Navigate to="/register" />} />
         </Routes>
