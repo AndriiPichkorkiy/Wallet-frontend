@@ -1,0 +1,2426 @@
+[
+  {
+    "_id": {
+      "$oid": "638a83afe05c2e2362246252"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10109,
+      "name": "Other expencses",
+      "_id": {
+        "$oid": "638a83afe05c2e2362246253"
+      }
+    },
+    "comment": "Winter clothes and batteries",
+    "amount": 2417,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022063950"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638a8457e05c2e2362246255"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10110,
+      "name": "Entertainment",
+      "_id": {
+        "$oid": "638a8457e05c2e2362246256"
+      }
+    },
+    "comment": "Payment of utility services",
+    "amount": 2417,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022231696"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638a848ae05c2e2362246258"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10110,
+      "name": "Entertainment",
+      "_id": {
+        "$oid": "638a848ae05c2e2362246259"
+      }
+    },
+    "comment": "Bank commission",
+    "amount": 15.02,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022282501"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638a84d7e05c2e236224625e"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10112,
+      "name": "Reset",
+      "_id": {
+        "$oid": "638a84d7e05c2e236224625f"
+      }
+    },
+    "comment": "Travel and adventures",
+    "amount": 1480,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022359165"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638a8517e05c2e2362246261"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638a8517e05c2e2362246262"
+      }
+    },
+    "comment": "Main job",
+    "amount": 22480,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022423481"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638a854de05c2e2362246264"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638a854de05c2e2362246265"
+      }
+    },
+    "comment": "additional income",
+    "amount": 10250,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670022477690"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b5a9ce8c94bc23ceefb32"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638b5a9ce8c94bc23ceefb33"
+      }
+    },
+    "comment": "additional income",
+    "amount": 8750,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670077084624"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b5d5fe308772376593569"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638b5d5fe30877237659356a"
+      }
+    },
+    "comment": "warm scarf",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670077791797"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b5daae30877237659356c"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638b5daae30877237659356d"
+      }
+    },
+    "comment": "warm scarf",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670077866727"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b7acfd78c04ca5765eacc"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638b7acfd78c04ca5765eacd"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 485.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670085327330"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b8b19335c2fdee7f32f65"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10103,
+      "name": "Car",
+      "_id": {
+        "$oid": "638b8b19335c2fdee7f32f66"
+      }
+    },
+    "comment": "car inspection",
+    "amount": 1280,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670089497939"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638b92aa0e7756c674ef5937"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638b92aa0e7756c674ef5938"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670091434518"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba55f9fbef1ee5fe6e634"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638ba55f9fbef1ee5fe6e635"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 4895.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670096223906"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba5f59fbef1ee5fe6e63a"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638ba5f59fbef1ee5fe6e63b"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 1234579,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670096373683"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba5ff9fbef1ee5fe6e63d"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638ba5ff9fbef1ee5fe6e63e"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 123456789,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670096383832"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba77a9fbef1ee5fe6e640"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638ba77a9fbef1ee5fe6e641"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 123456789,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670096762505"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba907e09598e80b3af5c9"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638ba907e09598e80b3af5ca"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 485.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670097159701"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638ba943e09598e80b3af5cc"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10106,
+      "name": "Household products",
+      "_id": {
+        "$oid": "638ba943e09598e80b3af5cd"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 100000000,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670097219108"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638bb39fe09598e80b3af5d1"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638bb39fe09598e80b3af5d2"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 485.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670099871210"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638bb49f43dda279d527e666"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638bb49f43dda279d527e667"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670100127487"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638bb6db60193267d33517ee"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638bb6db60193267d33517ef"
+      }
+    },
+    "comment": "хай Макс!",
+    "amount": 123456789.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670100699829"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638bb76f284483eecd896c1d"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638bb76f284483eecd896c1e"
+      }
+    },
+    "comment": "test2",
+    "amount": 123456789.2,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670100847076"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf1592684d4c280ab7144"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf1592684d4c280ab7145"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181209822"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf21c2684d4c280ab7147"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf21c2684d4c280ab7148"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181404935"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf2442684d4c280ab714a"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf2442684d4c280ab714b"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181444350"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf2542684d4c280ab714d"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf2542684d4c280ab714e"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181460998"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf25b2684d4c280ab7150"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf25b2684d4c280ab7151"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 485,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181467083"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf2652684d4c280ab7153"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638cf2652684d4c280ab7154"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670181477346"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf489bc6fcc98edfc2164"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf489bc6fcc98edfc2165"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf501bc6fcc98edfc2167"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf501bc6fcc98edfc2168"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "167017024302"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf50dbc6fcc98edfc216a"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf50dbc6fcc98edfc216b"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "167017024"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf51bbc6fcc98edfc216d"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf51bbc6fcc98edfc216e"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "16701"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf52cbc6fcc98edfc2170"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf52cbc6fcc98edfc2171"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "16"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf545bc6fcc98edfc2173"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf545bc6fcc98edfc2174"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "2"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf557bc6fcc98edfc2176"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf557bc6fcc98edfc2177"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "0"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638cf5aabc6fcc98edfc2179"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638cf5aabc6fcc98edfc217a"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638d094475538133786272ec"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638d094475538133786272ed"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638d095c75538133786272ef"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638d095c75538133786272f0"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638d0a027c1c3ec2f74792c4"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638d0a027c1c3ec2f74792c5"
+      }
+    },
+    "comment": "new warm hat",
+    "amount": 4856,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638d16d8eafff7f35fcb981e"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638d16d8eafff7f35fcb981f"
+      }
+    },
+    "comment": "First transaction",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638d18db2169f238a7acd218"
+    },
+    "owner": {
+      "$oid": "638d1084906268d69d004fa9"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638d18db2169f238a7acd219"
+      }
+    },
+    "comment": "First transaction",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e28d1f75e59cea5afdce1"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e28d1f75e59cea5afdce2"
+      }
+    },
+    "comment": "First transaction",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e28d7f75e59cea5afdce4"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e28d7f75e59cea5afdce5"
+      }
+    },
+    "comment": "First transaction",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e2e79a71585025d74c322"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e2e79a71585025d74c323"
+      }
+    },
+    "comment": "First comment",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e2f6da71585025d74c325"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e2f6da71585025d74c326"
+      }
+    },
+    "comment": "First comment",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e321ea71585025d74c329"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e321ea71585025d74c32a"
+      }
+    },
+    "comment": "First comment",
+    "amount": 432.5,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e3256a71585025d74c32c"
+    },
+    "owner": {
+      "$oid": "638a338f9a43639507e794e4"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e3256a71585025d74c32d"
+      }
+    },
+    "comment": "First comment",
+    "amount": 555.55,
+    "balance": 3344.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e61334c5988fd367eb065"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e61334c5988fd367eb066"
+      }
+    },
+    "comment": "First comment",
+    "amount": 555.55,
+    "balance": 0,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e66027f1bfe8880b05cda"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e66027f1bfe8880b05cdb"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 555.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e67da330ffc8c78fd6f96"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e67da330ffc8c78fd6f97"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 555.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e67e8330ffc8c78fd6f9b"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e67e8330ffc8c78fd6f9c"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 555.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e68544a2504e5adf859fd"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e68544a2504e5adf859fe"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 555.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e68a0fc0186ee50abd171"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e68a0fc0186ee50abd172"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 555.55,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e68a5fc0186ee50abd177"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10105,
+      "name": "Child care",
+      "_id": {
+        "$oid": "638e68a5fc0186ee50abd178"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 1111.1,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6a9a4cf5b75ae19262af"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6a9a4cf5b75ae19262b0"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 1666.6499999999999,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6aae4cf5b75ae19262b5"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6aae4cf5b75ae19262b6"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 2222.2,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6ab14cf5b75ae19262bb"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6ab14cf5b75ae19262bc"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 2777.75,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6ab54cf5b75ae19262c1"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6ab54cf5b75ae19262c2"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 3333.3,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6ac24cf5b75ae19262c7"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6ac24cf5b75ae19262c8"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 3888.8500000000004,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b82765c84909ee944ce"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b82765c84909ee944cf"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 4444.4,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b85765c84909ee944d4"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b85765c84909ee944d5"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 4999.95,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b87765c84909ee944da"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b87765c84909ee944db"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 5555.5,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b89765c84909ee944e0"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b89765c84909ee944e1"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 6111.05,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b8c765c84909ee944e6"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b8c765c84909ee944e7"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 6666.6,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b8e765c84909ee944ec"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b8e765c84909ee944ed"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 7222.15,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6b92765c84909ee944f2"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6b92765c84909ee944f3"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 7777.7,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cad3a00a89320a9d48f"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6cad3a00a89320a9d490"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 8333.25,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cb33a00a89320a9d495"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6cb33a00a89320a9d496"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 8888.8,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cb83a00a89320a9d49b"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6cb83a00a89320a9d49c"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 9444.35,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cbb3a00a89320a9d4a1"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6cbb3a00a89320a9d4a2"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 9999.9,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cbe3a00a89320a9d4a7"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e6cbe3a00a89320a9d4a8"
+      }
+    },
+    "comment": "First income",
+    "amount": 555.55,
+    "balance": 10555.45,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cf53a00a89320a9d4af"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e6cf53a00a89320a9d4b0"
+      }
+    },
+    "comment": "Main",
+    "amount": 555.21,
+    "balance": 10000.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6cfe3a00a89320a9d4b5"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e6cfe3a00a89320a9d4b6"
+      }
+    },
+    "comment": "Main",
+    "amount": 555.21,
+    "balance": 9445.03,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e6fe5701f053a54dab27a"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e6fe5701f053a54dab27b"
+      }
+    },
+    "comment": "Main",
+    "amount": 555.21,
+    "balance": 8889.82,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7006701f053a54dab282"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638e7006701f053a54dab283"
+      }
+    },
+    "comment": "first income",
+    "amount": 555.21,
+    "balance": 9445.03,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e700b701f053a54dab288"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638e700b701f053a54dab289"
+      }
+    },
+    "comment": "first income",
+    "amount": 555.21,
+    "balance": 10000.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7028701f053a54dab290"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10102,
+      "name": "Products",
+      "_id": {
+        "$oid": "638e7028701f053a54dab291"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 9445.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e702d701f053a54dab296"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10102,
+      "name": "Products",
+      "_id": {
+        "$oid": "638e702d701f053a54dab297"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 8890.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7031701f053a54dab29c"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10102,
+      "name": "Products",
+      "_id": {
+        "$oid": "638e7031701f053a54dab29d"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 8335.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e72bfcc586674fa5d2440"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10102,
+      "name": "Products",
+      "_id": {
+        "$oid": "638e72bfcc586674fa5d2441"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 7780.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e780e92c709c276a80d56"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e780e92c709c276a80d57"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 7225.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7914add4fc2f1426c5b6"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e7914add4fc2f1426c5b7"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 7225.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e79df2099232f91bf67a8"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e79df2099232f91bf67a9"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 5005.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7a3c2099232f91bf67b8"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10110,
+      "name": "Entertainment",
+      "_id": {
+        "$oid": "638e7a3c2099232f91bf67b9"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555,
+    "balance": 3340.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7b6464e9910ab5da67e1"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e7b6464e9910ab5da67e2"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 3340.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c2a919766197cf5948a"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e7c2a919766197cf5948b"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 3895.44,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c4959239ab3b272340a"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e7c4959239ab3b272340b"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 4450.64,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c5159239ab3b2723410"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": true,
+    "category": {
+      "id": 10501,
+      "name": "Regular Income",
+      "_id": {
+        "$oid": "638e7c5159239ab3b2723411"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 5005.84,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c6259239ab3b2723416"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e7c6259239ab3b2723417"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 4450.64,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c6859239ab3b272341c"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e7c6859239ab3b272341d"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 3895.44,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7c6c59239ab3b2723422"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e7c6c59239ab3b2723423"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 3340.24,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638e7f84f98a5bb9e6f0fd0a"
+    },
+    "owner": {
+      "$oid": "638e5c74dc3e2b59b752b8b0"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638e7f84f98a5bb9e6f0fd0b"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": 2785.04,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638f9d3524ab55cf14173279"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": false,
+    "category": {
+      "id": 10101,
+      "name": "Main expenses",
+      "_id": {
+        "$oid": "638f9d3524ab55cf1417327a"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 555.2,
+    "balance": -555.2,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fa12ae80b879f93f19a71"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fa12ae80b879f93f19a72"
+      }
+    },
+    "comment": "no Comment2",
+    "amount": 20.2,
+    "balance": -535,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fb3b02784590e5d36cfe0"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": false,
+    "category": {
+      "id": 10102,
+      "name": "Products",
+      "_id": {
+        "$oid": "638fb3b02784590e5d36cfe1"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 100,
+    "balance": -635,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fc97a9dcbd38d6d4e0db9"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fc97a9dcbd38d6d4e0dba"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 485.2,
+    "balance": 335.4,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fc9f4daab18360cfce7c6"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fc9f4daab18360cfce7c7"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 450,
+    "balance": 785.4,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fca3164c48858c6c64fd6"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fca3164c48858c6c64fd7"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 450,
+    "balance": 1235.4,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fca5e64c48858c6c64fe0"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fca5e64c48858c6c64fe1"
+      }
+    },
+    "comment": "Additional income",
+    "amount": 485.235,
+    "balance": 1720.64,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fcc1b8f908f6fea48d893"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fcc1b8f908f6fea48d894"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 450.23,
+    "balance": 2170.87,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  },
+  {
+    "_id": {
+      "$oid": "638fcc2d8f908f6fea48d89b"
+    },
+    "owner": {
+      "$oid": "638f9a8324ab55cf1417326e"
+    },
+    "type": true,
+    "category": {
+      "id": 10502,
+      "name": "Inregular Income",
+      "_id": {
+        "$oid": "638fcc2d8f908f6fea48d89c"
+      }
+    },
+    "comment": "no Comment",
+    "amount": 450.23,
+    "balance": 2621.1,
+    "date": {
+      "$date": {
+        "$numberLong": "1670170243028"
+      }
+    }
+  }
+]
