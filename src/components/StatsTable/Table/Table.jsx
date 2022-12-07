@@ -9,11 +9,10 @@ import {
   CategoryName,
   CategoryAmount,
   Square,
-  Total,
-  TotalList,
   TotalItem,
   TotalTitle,
-  TotalAmount
+  TotalExpenses,
+  TotalIncome
 } from './Table.styled'
 
 const colors = [
@@ -45,34 +44,18 @@ const Table = ({ statistics, totalData }) => {
             </Category>
           </ListItem>
         ))}
-
-        {/* <ListItem>
-          <Square></Square>
-          <Category>
-            <CategoryName>Household products</CategoryName>
-            <CategoryAmount>8 700.00</CategoryAmount>
-          </Category>
-        </ListItem>
-        <ListItem>
-          <Square></Square>
-          <Category>
-            <CategoryName>Products</CategoryName>
-            <CategoryAmount>800.00</CategoryAmount>
-          </Category>
-        </ListItem> */}
       </List>
-      {/* <Total>
-        <TotalList>
-          <TotalItem>
-            <TotalTitle>Expenses:</TotalTitle>
-            <TotalAmount>10000</TotalAmount>
-          </TotalItem>
-          <TotalItem>
-            <TotalTitle>Income:</TotalTitle>
-            <TotalAmount>20000</TotalAmount>
-          </TotalItem>
-        </TotalList>
-      </Total> */}
+
+      <List>
+        <TotalItem>
+          <TotalTitle>Expenses:</TotalTitle>
+          <TotalExpenses>{totalData.expenses}</TotalExpenses>
+        </TotalItem>
+        <TotalItem>
+          <TotalTitle>Income:</TotalTitle>
+          <TotalIncome>{totalData.income}</TotalIncome>
+        </TotalItem>
+      </List>
     </>
   )
 }

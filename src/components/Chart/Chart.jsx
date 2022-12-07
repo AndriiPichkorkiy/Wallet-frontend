@@ -17,7 +17,7 @@ const colors = [
 ]
 
 const Chart = ({ statistics, totalData }) => {
-  // ChartJS.register(ArcElement);
+  // ChartJS.register(ArcElement)
   ChartJS.register(ArcElement, Tooltip)
 
   const names = statistics.map(obj => obj.name)
@@ -34,7 +34,7 @@ const Chart = ({ statistics, totalData }) => {
     layout: {
       padding: 6
     },
-    // responsive: true,
+    responsive: true,
 
     plugins: {
       tooltip: {
@@ -78,7 +78,7 @@ const Chart = ({ statistics, totalData }) => {
   }
 
   return (
-    <div>
+    <ChartWrapper>
       <BalanceWrapper>
         {totalData ? (
           `₴ ${totalData.totalBalance ? totalData.totalBalance : 0}`
@@ -87,7 +87,7 @@ const Chart = ({ statistics, totalData }) => {
         )}
       </BalanceWrapper>
       <Doughnut data={doughnutData} options={options} />
-    </div>
+    </ChartWrapper>
   )
 }
 

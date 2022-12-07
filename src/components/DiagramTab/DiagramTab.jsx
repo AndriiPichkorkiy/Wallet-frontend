@@ -1,21 +1,26 @@
 import React, { useState, useEffect } from 'react'
 import Chart from '../Chart/Chart'
 
-import { StatsTitle } from './DiagramTab.styled'
-
 import {
   useGetStatsQuery,
-  useGetTotalStatsQuery,
-  useGetStatsByPeriodQuery
+  useGetTotalStatsQuery
+  // useGetStatsByPeriodQuery
 } from '../../services/statsApi'
 import StatsTable from '../StatsTable/StatsTable'
+
+import {
+  StatsTitle,
+  StatsWrapper,
+  DiagramWrapper,
+  Container
+} from './DiagramTab.styled'
 
 const DiagramTab = () => {
   const currentMonth = new Date().getMonth() + 1
   const currentYear = new Date().getFullYear()
   const [month, setMonth] = useState(currentMonth)
   const [year, setYear] = useState(currentYear)
-  const [query, setQuery] = useState(`year=${year}&month=${month}`)
+  // const [query, setQuery] = useState(`year=${year}&month=${month}`)
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -28,9 +33,9 @@ const DiagramTab = () => {
     }
   }
 
-  useEffect(() => {
-    setQuery(`year=${year}&month=${month}`)
-  }, [month, year])
+  // useEffect(() => {
+  //   setQuery(`year=${year}&month=${month}`)
+  // }, [month, year])
 
   // const { data: statsByPeriod } = useGetStatsByPeriodQuery(query)
   const { data: statsData } = useGetStatsQuery()
@@ -39,25 +44,27 @@ const DiagramTab = () => {
   // console.log(statsByPeriod)
 
   return (
-    <>
+    <Container>
       <StatsTitle>Statistics</StatsTitle>
-
-      {statsData || totalData !== false ? (
-        <Chart statistics={statsData ?? []} totalData={totalData ?? []} />
-      ) : (
-        <p>loading...</p>
-      )}
-      {/* {statsData || totalData !== false ? (
-        <StatsTable statistics={statsData ?? []} totalData={totalData ?? []} />
-      ) : (
-        <p>loading...</p>
-      )} */}
-      <StatsTable
-        onChange={handleChange}
-        statistics={statsData ?? []}
-        totalData={totalData ?? []}
-      />
-    </>
+      <StatsWrapper>
+        <DiagramWrapper>
+          {statsData || totalData !== false ? (
+            <Chart statistics={statsData ?? []} totalData={totalData ?? []} />
+          ) : (
+            <p>loading...</p>
+          )}
+        </DiagramWrapper>
+        {statsData || totalData !== false ? (
+          <StatsTable
+            statistics={statsData ?? []}
+            totalData={totalData ?? []}
+            onChange={handleChange}
+          />
+        ) : (
+          <p>loading...</p>
+        )}
+      </StatsWrapper>
+    </Container>
   )
 }
 export default DiagramTab

@@ -9,6 +9,16 @@ export const SelectWrapper = styled.div`
   .rotate {
     transform: rotateX(180deg);
   }
+  @media screen and (min-width: 768px) {
+    :not(:last-child) {
+      margin-right: 16px;
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    :not(:last-child) {
+      margin-right: 32px;
+    }
+  }
 `
 
 export const Select = styled.select`
@@ -44,15 +54,7 @@ export const Select = styled.select`
   }
 `
 export const Option = styled.option`
-  // width: 100%;
-  // background-color: transparent;
-  // cursor: pointer;
-
-  // font-family: 'Circe';
-  // font-style: normal;
-  // font-weight: 400;
-  // font-size: 16px;
-  // line-height: 24px;
+  background-color: #e7eaf2;
 `
 
 export const Svg = styled(DropDownIcon)`

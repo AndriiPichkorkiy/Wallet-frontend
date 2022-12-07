@@ -78,12 +78,35 @@ export const CategoryAmount = styled.h4`
   text-align: right;
 `
 
-export const Total = styled.div``
-export const TotalList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
+export const TotalItem = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin-top: 16px;
 `
-export const TotalItem = styled.li``
-export const TotalTitle = styled.span``
-export const TotalAmount = styled.span``
+export const TotalTitle = styled.span`
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+`
+export const TotalExpenses = styled.span`
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #ff6596;
+`
+export const TotalIncome = styled.span`
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #24cca7;
+`

@@ -1,7 +1,7 @@
 import React from 'react'
 import Selector from './Selector/Selector'
 import Table from './Table/Table'
-import { Wrapper } from './StatsTable.styled'
+import { Container, SelectionWrapper } from './StatsTable.styled'
 
 // const colors = [
 //   'rgba(254, 208, 87, 1)',
@@ -40,16 +40,23 @@ const years = [
 
 const StatsTable = ({ statistics, totalData, onChange }) => {
   return (
-    <Wrapper>
-      <Selector
-        list={months}
-        title={'Month'}
-        name={'month'}
-        onChange={onChange}
-      />
-      <Selector list={years} title={'Year'} name={'year'} onChange={onChange} />
+    <Container>
+      <SelectionWrapper>
+        <Selector
+          list={months}
+          title={'Month'}
+          name={'month'}
+          onChange={onChange}
+        />
+        <Selector
+          list={years}
+          title={'Year'}
+          name={'year'}
+          onChange={onChange}
+        />
+      </SelectionWrapper>
       <Table statistics={statistics} totalData={totalData} />
-    </Wrapper>
+    </Container>
   )
 }
 
