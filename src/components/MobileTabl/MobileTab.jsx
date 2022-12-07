@@ -3,7 +3,7 @@ import {
   CardBox,
   TypographyCard,
   Span,
-  ContainerEmpty,
+  ContainerEmpty
 } from './MobileTabl.styled'
 import { useId } from 'react'
 
@@ -19,24 +19,33 @@ const MobileTabl = ({ data }) => {
   }
   const card =
     // data &&
-    data.map(({ type, category, comment, sum, balance, date }) => {
+    data.map(({ type, category, comment, amount, balance, date }) => {
+      const time = date.$date.$numberLong
+      const newDate = new Date(+time)
+      const DATA =
+        newDate.getDate() +
+        '.' +
+        (newDate.getMonth() + 1) +
+        '.' +
+        newDate.getFullYear()
+
       return (
         <ContainerMobileTabl sx={{ minWidth: 280 }} isType={type ? '+' : '-'}>
           <CardBox key={unid}>
             <TypographyCard>
-              Date <Span> {date}</Span>
+              Date <Span> {DATA}</Span>
             </TypographyCard>
             <TypographyCard>
               Type <Span>{type ? '+' : '-'}</Span>
             </TypographyCard>
             <TypographyCard>
-              Category <Span>{category}</Span>
+              Category <Span>{category.name}</Span>
             </TypographyCard>
             <TypographyCard>
               Comment <Span>{comment}</Span>
             </TypographyCard>
             <TypographyCard>
-              Sum <Span isType={type ? '+' : '-'}>{sum}</Span>
+              Sum <Span isType={type ? '+' : '-'}>{amount}</Span>
             </TypographyCard>
             <TypographyCard>
               Balance <Span>{balance}</Span>

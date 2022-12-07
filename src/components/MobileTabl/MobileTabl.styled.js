@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ContainerMobileTabl = styled.div`
   width: 100%;
   max-width: 280px;
-  background-color: #ffffff;
+  background-color: var(--background);
   margin: 0 auto 8px auto;
   border-radius: 10px;
   border-left: 5px solid
@@ -66,6 +66,7 @@ export const TypographyCard = styled.p`
 export const Span = styled.span`
   font-size: 16px;
   font-weight: 400;
+  text-align: end;
   color: ${p => {
     switch (p.isType) {
       case '+':

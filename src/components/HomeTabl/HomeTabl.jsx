@@ -6,12 +6,26 @@ import { ContainerTabl, StyledGridOverlay } from './HomeTabl.styled'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
+  //   console.log(...data)
+
   const columns = [
     {
       field: 'date',
       headerName: 'Date',
       headerAlign: 'center',
-      type: 'date',
+      type: 'singleSelect',
+      valueOptions: ['$date.$numberLong'],
+      renderCell: ({ row: { date } }) => {
+        const time = date.$date.$numberLong
+        const newDate = new Date(+time)
+        const DATA =
+          newDate.getDate() +
+          '.' +
+          (newDate.getMonth() + 1) +
+          '.' +
+          newDate.getFullYear()
+        return <Typography>{DATA}</Typography>
+      },
       align: 'center',
       flex: 1
     },
@@ -31,8 +45,12 @@ const HomeTabl = ({ data }) => {
       headerName: 'Category',
       flex: 1,
       headerAlign: 'left',
-      align: 'left'
-      //   cellCalssName: 'name-column--cell',
+      align: 'left',
+      type: 'singleSelect',
+      valueOptions: ['id', 'name'],
+      renderCell: ({ row: { category } }) => (
+        <Typography>{category.name}</Typography>
+      )
     },
     {
       field: 'comment',
@@ -42,17 +60,16 @@ const HomeTabl = ({ data }) => {
       flex: 1
     },
     {
-      field: 'sum',
+      field: 'amount',
       headerName: 'Sum',
       headerAlign: 'center',
-      //   type: 'number',
       align: 'center',
       flex: 1,
-      renderCell: ({ row: { sum, type } }) => (
+      renderCell: ({ row: { amount, type } }) => (
         <Typography
           color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
         >
-          {sum}
+          {amount}
         </Typography>
       )
     },
@@ -64,13 +81,13 @@ const HomeTabl = ({ data }) => {
       flex: 1
     }
   ]
+  //   console.log(columns)
 
   function CustomNoRowsOverlay() {
     return (
       <StyledGridOverlay>
         <Typography
           sx={{
-            mt: 1,
             width: '500px',
             textAlign: 'center',
             fontFamily: 'Circe',
@@ -99,21 +116,10 @@ const HomeTabl = ({ data }) => {
             borderRadius: 8,
             backgroundColor: 'rgba(36,204,167, 0.6)'
           },
-          //   '&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus':
-          //     {
-          //       backgroundColor: '#959595',
-          //     },
-          //   '&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active':
-          //     {
-          //       backgroundColor: '#959595',
-          //     },
           '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
             {
               backgroundColor: 'var(--accentPrimary)'
             },
-          //   '&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner': {
-          //     backgroundColor: '#24CCA7',
-          //   },
           '& .MuiDataGrid-root': {
             border: 'none',
             fontFamily: 'Circe',
@@ -133,7 +139,6 @@ const HomeTabl = ({ data }) => {
           '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
             color: 'transparent'
           },
-
           '& .MuiDataGrid-columnHeaders': {
             backgroundColor: 'var(--background)',
             borderRadius: '30px'
@@ -166,6 +171,7 @@ const HomeTabl = ({ data }) => {
           }}
           rows={data}
           columns={columns}
+          getRowId={row => row.date.$date.$numberLong}
           pageSize={pageSize}
           onPageSizeChange={newPageSize => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}
