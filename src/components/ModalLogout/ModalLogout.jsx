@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { useDispatch } from "react-redux";
-import { useLogOutMutation } from "../../services/authApi";
+import { logOut } from "../../redux/auth/auth-operations";
 import { ModalCont, ModalLogoutButtonNo, ModalLogoutButtonYes, ModalLogoutText, Overlay, } from "./ModalLogoutComponents";
 
 const portal = document.querySelector('#portal')
@@ -37,7 +37,7 @@ const ModalLogout = ({ noExit}) => {
             <ModalCont className={"modalLogout"}>
                 <ModalLogoutText className="modalLogoutText">Are you sure that you want to log out?</ModalLogoutText>
                 <div>
-                    <ModalLogoutButtonYes onClick={() => dispatch(useLogOutMutation)}>YES</ModalLogoutButtonYes>
+                    <ModalLogoutButtonYes onClick={() => dispatch(logOut)}>YES</ModalLogoutButtonYes>
                     <ModalLogoutButtonNo onClick={noExit}>NO</ModalLogoutButtonNo>
                 </div>
             </ModalCont>
