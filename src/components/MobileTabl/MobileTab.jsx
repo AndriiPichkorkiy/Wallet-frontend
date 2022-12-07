@@ -45,10 +45,10 @@ const MobileTabl = ({ data }) => {
               Comment <Span>{comment}</Span>
             </TypographyCard>
             <TypographyCard>
-              Sum <Span isType={type ? '+' : '-'}>{amount}</Span>
+              Sum <Span isType={type ? '+' : '-'}>{amount.toFixed(2)}</Span>
             </TypographyCard>
             <TypographyCard>
-              Balance <Span>{balance}</Span>
+              Balance <Span>{balance.toFixed(2)}</Span>
             </TypographyCard>
           </CardBox>
         </ContainerMobileTabl>
