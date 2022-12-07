@@ -69,7 +69,7 @@ const HomeTabl = ({ data }) => {
         <Typography
           color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
         >
-          {amount}
+          {amount.toFixed(2)}
         </Typography>
       )
     },
@@ -78,7 +78,10 @@ const HomeTabl = ({ data }) => {
       headerName: 'Balance',
       headerAlign: 'center',
       align: 'center',
-      flex: 1
+      flex: 1,
+      renderCell: ({ row: { balance } }) => (
+        <Typography>{balance.toFixed(2)}</Typography>
+      )
     }
   ]
   //   console.log(columns)
