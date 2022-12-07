@@ -11,10 +11,13 @@ function Loader() {
     </Wrapper>
   );
 }
-function LoaderWrapper() {
+function LoaderWrapper({ children }) {
   return (
     <WrapperBig>
-      <Loader />
+      {children}
+      <Loader>
+
+      </Loader>
     </WrapperBig>
   );
 }
