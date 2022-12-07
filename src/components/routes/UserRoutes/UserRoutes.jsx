@@ -24,17 +24,17 @@ const UserRouters = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route element={<PublicRoute/>}>
+          {/* <Route element={<PublicRoute/>}> */}
             <Route path='/register' element={<RegistrationPage />} />
             <Route path='/login' element={<LoginPage />} />
-          </Route>
-          <Route element={<PrivateRoute/>}>
+          {/* </Route> */}
+          {/* <Route element={<PrivateRoute/>}> */}
             <Route path='/cabinet' element={<DashboardPage />}>
               <Route index element={<HomePage />} />
               <Route path='statistics' element={<DiagramTab />} />
               <Route path='currency' element={<Currency />} />
             </Route>
-          </Route>
+          {/* </Route> */}
           {/* <Route path='*' element={<NotFoundPage />} /> */}
           <Route path='*' element={<Navigate to="/register" />} />
         </Routes>
