@@ -1,76 +1,58 @@
-import React from 'react'
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
-// import { useSelector} from 'react-redux'
-import { useLoginMutation } from '../../services/authApi'
-import { isAuth } from '../../redux/auth/userSlice'
-import { newToken } from '../../redux/auth/tokenSlice'
-
+import React from 'react';
+import LoginForm from '../../modules/LoginForm/LoginForm'
+import { useDispatch } from 'react-redux';
+import { signIn } from '../../redux/auth/auth-operations';
+import {
+    StyledImg, StyledLargeImg, StyledFormContainer, StyledRightCornerImgContainer,
+    StyledHeadContainer, StyledRegisterTitle, StyledRegisterImgContainer,
+    StyledRegisterImgLargeContainer, StyledLeftCornerImgContainer, StyledRightCornerImgLargeContainer,
+    StyledRegistrationPageContainer
+} from '../RegistrationPage/RegistrationPage.styled';
+import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
+import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
+import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
+import icon_register_tab from '../../assets/images/authImg/login-tablet.png';
+import icon_register_desc from '../../assets/images/authImg/login-desk.png';
 const LoginPage = () => {
-  const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [login, { isLoading }] = useLoginMutation()
-
-  console.log(isLoading)
-
-  // const token = useSelector(state => state.token)
-  // const user = useSelector(state => state.user)
-
-  // console.log(token)
-  // console.log(user)
-
-  const handleChange = ({ target: { name, value } }) => {
-    switch (name) {
-      case 'email':
-        return setEmail(value)
-      case 'password':
-        return setPassword(value)
-      default:
-        return
+    const onLogin = (data) => {
+        dispatch(signIn(data))
     }
-  }
+    return (
+          <StyledRegistrationPageContainer>
+            <StyledHeadContainer>
+                <StyledLeftCornerImgContainer>
+                    <StyledLargeImg src={icon_violet} alt="violet circle"/>
+                </StyledLeftCornerImgContainer>
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-    const res = await login({ email, password }).unwrap()
-    dispatch(isAuth(res.user))
-    dispatch(newToken(res.token))
-    setEmail('')
-    setPassword('')
-  }
+                <StyledRegisterImgContainer>
+                    <StyledLargeImg src={icon_register_tab} alt="women with phone"/>
+                </StyledRegisterImgContainer>
 
-  return (
-    <>
-      <h1>Login Form</h1>
-      <div>
-        <form onSubmit={handleSubmit} autoComplete='off'>
-          <input
-            label='E-mail'
-            placeholder='ironMan3000@gmail.com'
-            variant='standard'
-            type='email'
-            name='email'
-            value={email}
-            onChange={handleChange}
-            required
-          />
+                <StyledRegisterImgLargeContainer>
+                    <StyledLargeImg src={icon_register_desc} alt="women with phone"/>
+                </StyledRegisterImgLargeContainer>
 
-          <input
-            label='Password'
-            placeholder='qwerty123'
-            variant='standard'
-            type='password'
-            name='password'
-            value={password}
-            onChange={handleChange}
-          />
-          <button type='submit'>Login</button>
-        </form>
-      </div>
-    </>
-  )
+                <StyledRegisterTitle>Finance App</StyledRegisterTitle>
+            </StyledHeadContainer>
+
+            <StyledFormContainer> 
+                <StyledRightCornerImgContainer>
+                    <StyledImg src={icon_pink} alt="pink circle"/>
+                    
+                </StyledRightCornerImgContainer>
+                <StyledRightCornerImgLargeContainer>
+                    <StyledImg src={icon_pink_tablet} alt="pink circle"/>
+                    
+                </StyledRightCornerImgLargeContainer>
+              <LoginForm onSubmit={onLogin} />
+            </StyledFormContainer>
+        </StyledRegistrationPageContainer>
+    )
 }
 
-export default LoginPage
+export default LoginPage;
+    // <div>
+    //         <RegistrationForm onSubmit={onRegister} />
+    //     </div>
