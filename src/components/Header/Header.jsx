@@ -6,7 +6,7 @@ const Header = () => {
     const [exit, setExit] = useState(false)
     return <>
         <HeaderContent toExit={() => setExit(!exit)} />
-        {exit && <ModalLogout toExit={() => setExit(!exit)} />}
+        {exit && <ModalLogout noExit={() => setExit(!exit)} />}
     </>
 }
 

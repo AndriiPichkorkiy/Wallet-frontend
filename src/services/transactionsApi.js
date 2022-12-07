@@ -7,6 +7,7 @@ export const transactionsApi = createApi({
   reducerPath: 'transactions',
   tagTypes: ['Transactions'],
   baseQuery: axiosBaseQuery({ baseUrl: BASE_URL }),
+
   endpoints: builder => ({
     getAllTransactions: builder.query({
       query: () => ({ url: '/transactions', method: 'GET' }),

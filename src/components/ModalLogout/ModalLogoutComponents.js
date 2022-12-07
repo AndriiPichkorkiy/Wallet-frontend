@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { respondTo } from "../../helpers/respondTo";
 
 export const Overlay = styled.div`
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: var(--overlay);
     position: fixed;
     top: 0;
     left: 0;
@@ -15,7 +15,7 @@ export const Overlay = styled.div`
 ` 
 
 export const ModalCont = styled.div`
-    background-color: white;
+    background-color: var(--background);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,8 +41,8 @@ export const ModalLogoutButtonYes = styled.button`
     max-height: 37px;
     align-items: center;
     background-color: transparent;
-    color: #4A56E2;
-    border: 1px #4A56E2 solid;
+    color: var(--activeColor);
+    border: 1px var(--activeColor) solid;
     margin-right: 10px;
 `
 
@@ -55,6 +55,6 @@ export const ModalLogoutButtonNo = styled.button`
     box-sizing: border-box;
     max-height: 37px;
     align-items: center;
-    background-color: #24CCA7;
-    color: white;
+    background-color: var(--accentPrimary);
+    color: var(--background);
 `

@@ -1,18 +1,20 @@
 import React, { useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useDispatch } from "react-redux";
+import { useLogOutMutation } from "../../services/authApi";
 import { ModalCont, ModalLogoutButtonNo, ModalLogoutButtonYes, ModalLogoutText, Overlay, } from "./ModalLogoutComponents";
 
 const portal = document.querySelector('#portal')
 
-const ModalLogout = ({ toExit}) => {
-    
+const ModalLogout = ({ noExit}) => {
+    const dispatch = useDispatch()
     const esc = useCallback(
       (e) => {
           if (e.code === `Escape`) {
-              toExit()
+              noExit()
           }
       },
-      [toExit],
+      [noExit],
     )
 
     useEffect(() => {
@@ -26,7 +28,7 @@ const ModalLogout = ({ toExit}) => {
     
     const onBackClick = e => {
         if (e.currentTarget === e.target) {
-            toExit()
+            noExit()
         }
     }
 
@@ -35,8 +37,8 @@ const ModalLogout = ({ toExit}) => {
             <ModalCont className={"modalLogout"}>
                 <ModalLogoutText className="modalLogoutText">Are you sure that you want to log out?</ModalLogoutText>
                 <div>
-                    <ModalLogoutButtonYes>YES</ModalLogoutButtonYes>
-                    <ModalLogoutButtonNo onClick={toExit}>NO</ModalLogoutButtonNo>
+                    <ModalLogoutButtonYes onClick={() => dispatch(useLogOutMutation)}>YES</ModalLogoutButtonYes>
+                    <ModalLogoutButtonNo onClick={noExit}>NO</ModalLogoutButtonNo>
                 </div>
             </ModalCont>
         </Overlay>, portal   
