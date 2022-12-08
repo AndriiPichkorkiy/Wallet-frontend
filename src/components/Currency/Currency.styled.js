@@ -2,14 +2,18 @@ import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo.js'
 
 export const TableWrapper = styled.div`
-    width: 100%;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
     width: 280px;
     height: 174px;
     border-radius: 30px;
     overflow: hidden;
     ${respondTo.sm`
-      width: 336px;
-        height: 182px;
+    margin-bottom: 20px;
+    width: 336px;
+    height: 182px;
     `}
     ${respondTo.lg`
       width: 393px;
@@ -105,14 +109,9 @@ color: #fff;
     `}
 `
 
-export const TableLoader = styled.tr`
+export const TableLoader = styled.div`
 position: absolute;
-    top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
-    color:#FFFFFF;
+    color: white;
 
 `
-
-
-

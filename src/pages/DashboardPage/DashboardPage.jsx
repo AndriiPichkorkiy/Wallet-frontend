@@ -36,7 +36,6 @@ const DashboardPage = () => {
                   <>
                     <ContainerTop>
                       <ContainerLeft>
-                        fffff
                         <DashbordBtns />
                         <Balance />
                       </ContainerLeft>
