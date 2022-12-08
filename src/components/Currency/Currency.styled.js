@@ -6,18 +6,18 @@ display:flex;
 flex-direction:column;
 align-items:center;
 justify-content:center;
-    width: 280px;
-    height: 174px;
-    border-radius: 30px;
-    overflow: hidden;
+width: 280px;
+height: 174px;
+border-radius: 30px;
+overflow: hidden;
     ${respondTo.sm`
-    margin-bottom: 20px;
-    width: 336px;
-    height: 182px;
+margin-bottom: 20px;
+width: 336px;
+height: 182px;
     `}
     ${respondTo.lg`
-      width: 393px;
-        height: 331px;
+width: 393px;
+height: 331px;
     `}
 `
 

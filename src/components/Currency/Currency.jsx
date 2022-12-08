@@ -4,8 +4,9 @@ import { getMonoCurrency } from "../../api/services";
 import Loader from '../Loader/Loader';
 import currencyImg from "../../assets/images/authImg/CurrencyVector.png"
 import { TableWrapper, TableCurrency, ImgCurrency, TableHeader, TableHeaderCell, TableBody, TableLoader } from './Currency.styled';
-import { default as data } from './CurrencyData';
-import { color } from '@mui/system';
+// import { default as data } from './CurrencyData';
+// import { color } from '@mui/system';
+import ErrorPlug from './ErorPlug';
 
 
 
@@ -29,6 +30,7 @@ const MonoCurrency = () => {
                 // const result = data
                 setState(prevState => {
                     return {
+                        ...prevState,
                         items: result,
                         loading: false,
                         error: null,
@@ -45,14 +47,10 @@ const MonoCurrency = () => {
                     return {
                         ...prevState,
                         loading: false,
-
                     }
                 })
             }
         }
-
-        // const timerId = setTimeout(fetchCurrency(), 300000)
-        // clearTimeout(timerId);
         fetchCurrency()
     }, [setState])
 
@@ -82,15 +80,13 @@ const MonoCurrency = () => {
                         <TableHeaderCell>Sale</TableHeaderCell>
                     </tr>
                 </TableHeader>
-                <TableBody>
-                    {element}
+                <TableBody>{error ? <ErrorPlug /> : element}
                     <tr><td><ImgCurrency src={currencyImg} alt="img" /></td></tr>
                 </TableBody>
             </TableCurrency >
             <TableLoader>{loading && <Loader />}</TableLoader>
         </TableWrapper >
     )
-
 };
 
 export default MonoCurrency;
