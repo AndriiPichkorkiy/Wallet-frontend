@@ -21,8 +21,8 @@ const DashbordBtns = () => {
               matches.small ? (
                 <HomeSharpIcon
                   sx={{
-                    color: '#fff',
-                    background: '#6e78e8',
+                    color: 'var(--background)',
+                    background: 'var(--paleActiveColor)',
                     borderRadius: '6px',
                     width: '44px',
                     height: '44px'
@@ -31,8 +31,8 @@ const DashbordBtns = () => {
               ) : (
                 <HomeSharpIcon
                   sx={{
-                    color: '#fff',
-                    background: '#6e78e8',
+                    color: 'var(--background)',
+                    background: 'var(--paleActiveColor)',
                     width: '18px',
                     height: '18px'
                   }}
@@ -42,14 +42,14 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Home</BtnText>
         </LinkBtn>
-        <LinkBtn to='/statistics'>
+        <LinkBtn to='/cabinet/statistics'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
                 <TimelineIcon
                   sx={{
-                    color: '#fff',
-                    background: '#6e78e8',
+                    color: 'var(--background)',
+                    background: 'var(--paleActiveColor)',
                     borderRadius: '6px',
                     width: '44px',
                     height: '44px'
@@ -58,8 +58,8 @@ const DashbordBtns = () => {
               ) : (
                 <TimelineIcon
                   sx={{
-                    color: '#fff',
-                    background: '#6e78e8',
+                    color: 'var(--background)',
+                    background: 'var(--paleActiveColor)',
                     width: '18px',
                     height: '18px'
                   }}
@@ -69,11 +69,11 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Statistiscs</BtnText>
         </LinkBtn>
-        <CurrLinkBtn to='/currency'>
+        <CurrLinkBtn to='/cabinet/currency'>
           <AttachMoneyIcon
             sx={{
-              color: '#fff',
-              background: '#6e78e8',
+              color: 'var(--background)',
+              background: 'var(--paleActiveColor)',
               borderRadius: '6px',
               width: '44px',
               height: '44px'

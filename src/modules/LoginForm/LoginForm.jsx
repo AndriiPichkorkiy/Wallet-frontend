@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import {Container, Header,FormContainer, LabelContainer, UserInput, StyledBtn } from './RegisterForm.styled';
 import useForm from '../../helpers/useForm';
@@ -14,6 +15,13 @@ import {
 
 import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
+// import { useSearchParams } from 'react-router-dom';
+import ModalRegistration from '../../components/ModalLogout/ModalRegistration';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { closeModal } from '../../redux/auth/auth-operations.js'
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SigninSchema = Yup.object().shape({
     email: Yup.string()
@@ -37,9 +45,38 @@ const LoginForm = ({ onSubmit }) => {
         email: '',
         password: ''
     }
-    const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
+    const token = useSelector(state => state.userV2.token);
+    const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
     // const {  email, password } = state;
-    if (null) console.log(state, handleChange)
+    // const [searchParams] = useSearchParams();
+    // const isNewRegistration = searchParams.get('register')
+    const isRegistratiunSuccess = useSelector(state => state.userV2.isLogin);
+    const state = useSelector(state => state.userV2);
+
+    const [isShowModal, SetIsShowModal] = useState(false)
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const closeModalPortal = () => { SetIsShowModal(false) }
+
+    useEffect(() => {
+        if (isRegistratiunSuccess === true) {
+            // show modal
+            SetIsShowModal(true)
+            dispatch(closeModal(false))
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
+
+    useEffect(() => {
+        // console.log("token, ", token)
+        if (token) {
+            // redirect
+            navigate("/cabinet", { replace: true });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [token])
+
     return (
         <FormContainer>
             <ContainerLogo>
@@ -82,6 +119,7 @@ const LoginForm = ({ onSubmit }) => {
                     </Form>
                 )}
             </Formik>
+            {isShowModal && <ModalRegistration onCloseModal={closeModalPortal} text="Thanks for registration! Please confirm your email before entering the account" btnClose="Continue" />}
         </FormContainer>
     )
 }

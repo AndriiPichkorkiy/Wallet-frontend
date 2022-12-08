@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import {Container, Header,FormContainer, LabelContainer, UserInput, StyledBtn } from './RegisterForm.styled';
 import useForm from '../../helpers/useForm';
@@ -13,6 +14,12 @@ import {
 } from './RegistrationForm.styled';
 import icon from '../../assets/images/icons/logo.svg';
 import icon_large from '../../assets/images/icons/logo-large.svg';
+import { useDispatch, useSelector } from 'react-redux';
+import Loader, { LoaderWrapper } from '../../components/Loader/Loader';
+import { Navigate, useNavigate } from 'react-router-dom';
+
+import ModalRegistration from '../../components/ModalLogout/ModalRegistration';
+
 const SignupSchema = Yup.object().shape({
     name: Yup.string()
         .min(1, 'Too Short!')
@@ -47,18 +54,38 @@ const SignupSchema = Yup.object().shape({
         .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character"),
 });
 
+const initialState = {
+    name: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+}
+
 const RegistrationForm = ({ onSubmit }) => {
-    const initialState = {
-        name: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-    }
-    const { state, handleChange, handleSubmit } = useForm({ initialState, onSubmit })
-    // const { name, email, password, confirmPassword } = state;
-    if (null) console.log(state, handleChange)
+
+    const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
+    const dispatch = useDispatch();
+
+    const isFetching = useSelector(state => state.userV2.loading);
+    const isRegistratiunSuccess = useSelector(state => state.userV2.isLogin);
+
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isRegistratiunSuccess) {
+            // redirect
+            navigate("/login?register=true", { replace: true });
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isRegistratiunSuccess])
+
+
+
+
     return (
         <FormContainer>
+            {isFetching ? <LoaderWrapper /> : null}
             <ContainerLogo>
                 <StyledImg src={icon} alt="wallet" />
                 <StyledLargeImg src={icon_large} alt="wallet" />
@@ -71,9 +98,13 @@ const RegistrationForm = ({ onSubmit }) => {
             <Formik
                 validationSchema={SignupSchema}
                 initialValues={initialState}
-                onSubmit={handleSubmit}
+                onSubmit={(data, { setSubmitting, resetForm }) => {
+                    handleSubmit(data);
+                    setSubmitting(false);
+                    resetForm();
+                }}
             >
-                {({ errors, touched }) => (
+                {({ isSubmitting, errors, touched, resetForm }) => (
                     <Form>
                         <FieldContainer>
                             <FieldStyled
@@ -124,7 +155,7 @@ const RegistrationForm = ({ onSubmit }) => {
                                 <StyledErrorMsg>{errors.name}</StyledErrorMsg>) : null}
                         </FieldContainer>
 
-                        <StyledBtnMain type='submit'>Register</StyledBtnMain>
+                        <StyledBtnMain type='submit' disabled={isSubmitting}>Register</StyledBtnMain>
                         <StyledBtn to='/login'>Login</StyledBtn>
                     </Form>
                 )}

@@ -6,7 +6,7 @@ export const HeaderC = styled.header`
     flex-direction: row;
     justify-content: space-between;
     padding: 15px 20px; 
-    background-color: white;
+    background-color: var(--background);
     ${respondTo.xs`
         padding: 20px 32px;
     `}
@@ -41,13 +41,13 @@ export const LogoutCont = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #BDBDBD;
+    color: var(--text-header);
 `
 
 export const BtnLogout = styled.button`
     padding: 0;
     margin-left: 8px;
-    background-color: white;
+    background-color: var(--background);
     position: relative;
     display: flex;
     flex-direction: row;
@@ -55,11 +55,11 @@ export const BtnLogout = styled.button`
     justify-content: center;
     &:hover, &:focus {
         &>svg, &>span {
-            color: #4A56E2;
+            color: var(--activeColor);
         }
     }
     ${respondTo.xs`
-        border-left: 1px #BDBDBD solid;
+        border-left: 1px var(--text-header) solid;
         padding-left: 12px;
         
     `}
@@ -70,14 +70,14 @@ export const LogoutExitName = styled.h3`
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
-    color: #BDBDBD;
+    color: var(--text-header);
 `
 
 export const LogoutExit = styled.span`
     position: absolute;
     color: transparent;
     ${respondTo.xs`
-        color: #BDBDBD;
+        color: var(--text-header);
         padding-top: 3px;
         margin-left: 8px;
         position: relative;

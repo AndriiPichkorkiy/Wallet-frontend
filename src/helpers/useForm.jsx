@@ -8,18 +8,18 @@ const useForm = ({ initialState, onSubmit }) => {
         const newValue = value;
         setState(prevState => ({
             ...prevState,
-            [name]:newValue
+            [name]: newValue
         }))
     }
 
     const handleSubmit = (data) => {
         delete data.confirmPassword;
-        console.log(data)
+        // console.log(data)
         onSubmit({ ...data });
         setState({ ...initialState })
     }
 
-    return {state, setState, handleChange, handleSubmit}
+    return { state, setState, handleChange, handleSubmit }
 }
 
 export default useForm;

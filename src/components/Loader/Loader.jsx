@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropagateLoader } from "react-spinners";
-import { Wrapper } from './Loader.styled';
+import { Wrapper, WrapperBig } from './Loader.styled';
 
 
 
@@ -11,5 +11,16 @@ function Loader() {
     </Wrapper>
   );
 }
+function LoaderWrapper({ children }) {
+  return (
+    <WrapperBig>
+      {children}
+      <Loader>
+
+      </Loader>
+    </WrapperBig>
+  );
+}
 
 export default Loader;
+export { LoaderWrapper };

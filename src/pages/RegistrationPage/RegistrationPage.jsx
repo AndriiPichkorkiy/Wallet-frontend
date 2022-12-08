@@ -20,7 +20,7 @@ const RegistrationPage = () => {
     const dispatch = useDispatch();
     // const [signUp] = useSignUpMutation();
     const onRegister = (data) => {
-        console.log(data)
+        // console.log(data)
         dispatch(signUp(data))
         // import React from 'react'
         // import { useState } from 'react'
