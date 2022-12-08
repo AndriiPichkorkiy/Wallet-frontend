@@ -1,4 +1,10 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+/* eslint-disable no-unused-vars */
+import {
+  createAsyncThunk,
+  createAction,
+  createReducer,
+  createSlice
+} from '@reduxjs/toolkit'
 import { signup, signin, logout, getCurrent } from '../../api/auth.js'
 // import {useSignUpMutation, useLoginMutation, useLogOutMutation } from '../../services/authApi';
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
@@ -16,7 +22,7 @@ export const signUp = createAsyncThunk(
       return result
     } catch (error) {
       console.log('error', error)
-      Notify.failure(error.message)
+      Notify.failure(error.message.response.data.message)
       return rejectWithValue(error)
     }
   }
@@ -59,3 +65,5 @@ export const current = createAsyncThunk('auth/current', async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error)
   }
 })
+
+export const closeModal = createAction('auth/closeModal')
