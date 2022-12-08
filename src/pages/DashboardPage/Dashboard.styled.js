@@ -42,25 +42,24 @@ export const ContainerTop = styled.div`
   justify-content: space-between;
 `
 
-export const BG = styled.div`
-  background: rgba(255, 255, 255, 0.4);
-  &::before {
-    ${respondTo.sm`
-    content: '';
-    position: absolute;
-    z-index: -1;
-    right: 0;
-    left: 0;
+// export const BG = styled.div`
+//   background: rgba(255, 255, 255, 0.4);
+//   ${respondTo.sm`
+//     // content: '';
+//     // position: absolute;
+//     // z-index: -1;
+//     // right: 0;
+//     // left: 0;
 
-	height: 100%;
-    background-image: url(${p => p.mediumPinkImg}),
-      url(${p => p.violetImg});
-    background-repeat: no-repeat;
-    background-position: right top, left bottom;
-    filter: blur(25px);`}
+// 	height: 100%;
+//     background-image: url(${p => p.mediumPinkImg}),
+//       url(${p => p.violetImg});
+//     background-repeat: no-repeat;
+//     background-position: right top, left bottom;
+//     //backdrop-filter: blur(25px)
+// 	`}
 
-    ${respondTo.lg`
-   background-image: url(${p => p.largePinkImg}),
-      url(${p => p.violetImg})`}
-  }
-`
+//   ${respondTo.lg`
+//    background-image: url(${p => p.largePinkImg}),
+//       url(${p => p.violetImg})`}
+// `
