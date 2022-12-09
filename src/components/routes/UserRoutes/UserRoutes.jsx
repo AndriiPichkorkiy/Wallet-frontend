@@ -3,6 +3,7 @@ import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import HomePage from '../../../pages/HomePage'
 import { Navigate } from 'react-router-dom/dist'
+import NewsPage from '../../../pages/NewsPage'
 
 // import PrivateRoute from "../PrivateRoute/PrivateRoute";
 // import PublicRoute from "../PublicRoute/PublicRoute ";
@@ -33,6 +34,7 @@ const UserRouters = () => {
             <Route index element={<HomePage />} />
             <Route path='statistics' element={<DiagramTab />} />
             <Route path='currency' element={<Currency />} />
+            <Route path='news' element={<NewsPage/>} />
           </Route>
 
           {/* </Route> */}
