@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense,useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
@@ -16,7 +16,13 @@ import mediumPinkImg from '../../assets/images/ellipsesBg/EllipsePinkTablet.png'
 import violetImg from '../../assets/images/ellipsesBg/EllipseViolet.png'
 import largePinkImg from '../../assets/images/ellipsesBg/EllipsePink.png'
 
+import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"
+import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
+
+
+
 const DashboardPage = () => {
+     const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] = useState(false)
   return (
     <>
       <Header />
@@ -26,6 +32,8 @@ const DashboardPage = () => {
         largePinkImg={largePinkImg}
       >
         <MainContainer>
+       <AddTransModalBtn onClick={()=>SetIsModalAddTransactionOpen(true)} />
+      {isModalAddTransactionOpen && <ModalTransactions closeModal={()=>SetIsModalAddTransactionOpen(false)}/>}
           {
             <Media
               queries={{
@@ -41,6 +49,8 @@ const DashboardPage = () => {
                       <ContainerLeft>
                         aaaaa
                         <DashbordBtns />
+                         
+            
                         <Balance />
                       </ContainerLeft>
                     </>
@@ -72,6 +82,7 @@ const DashboardPage = () => {
             </Media>
           }
           <Suspense fallback={<Loader />}>
+            
             <Outlet />
           </Suspense>
         </MainContainer>
