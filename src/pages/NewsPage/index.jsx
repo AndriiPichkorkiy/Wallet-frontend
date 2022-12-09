@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
 import { Navigate } from 'react-router-dom'
-import Currency from '../../components/Currency'
-import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
-import Header from '../../components/Header/Header'
 import { getNews } from '../../services/newsApi'
 import { Container, NewsHeader, NewsItem, NewsItemHead, NewsLink, NewsList, NewsText } from './NewsComponents'
 
