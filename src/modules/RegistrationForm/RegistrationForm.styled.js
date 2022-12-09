@@ -183,7 +183,7 @@ export const StyledProgressBar = styled(LinearProgress)`
   background-color: #e5f1ef !important;
   border-radius: 5px;
   height: 6px !important;
-  & > span {
-    background-color: #24cca7 !important;
-  }
+  // & > span {
+  //   background-color: #24cca7 ;
+  // }
 `

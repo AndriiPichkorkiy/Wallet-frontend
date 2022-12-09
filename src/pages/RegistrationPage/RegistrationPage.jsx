@@ -1,5 +1,5 @@
 import React from 'react';
-// import { useSignUpMutation } from '../../services/authApi';
+import { useSignUpMutation } from '../../services/authApi';
 // import {isAuth} from '../../redux/auth/userSlice'
 import { signUp } from '../../redux/auth/auth-operations';
 import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm';
@@ -9,6 +9,7 @@ import {
     StyledRegisterImgLargeContainer, StyledLeftCornerImgContainer, StyledRightCornerImgLargeContainer,
     StyledRegistrationPageContainer
 } from './RegistrationPage.styled';
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
 import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
 import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
@@ -17,43 +18,23 @@ import icon_register_desc from '../../assets/images/authImg/register-desk.png';
 import { useDispatch } from 'react-redux';
 // import { signUp } from '../../redux/auth/auth-operations';
 const RegistrationPage = () => {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
+    const [registrationUser, {error, isLoading, data}] = useSignUpMutation();
     // const [signUp] = useSignUpMutation();
-    const onRegister = (data) => {
+    const onRegister = async (data) => {
         // console.log(data)
-        dispatch(signUp(data))
-        // import React from 'react'
-        // import { useState } from 'react'
-        // import { useSignUpMutation } from '../../services/authApi'
-        // import { useDispatch } from 'react-redux'
-        // import { isAuth } from '../../redux/auth/userSlice'
-
-        // // import RegistrationForm from "";
-
-        // // {
-        // //   "name": "Valeriy Zalushnyi",
-        // //   "email": "rusnipeaceda@ukr.net",
-        // //   "password": "slavaukraini23"
-        // // }
-
-        // const RegistrationPage = () => {
-        //   const dispatch = useDispatch()
-        //   const [name, setName] = useState('')
-        //   const [email, setEmail] = useState('')
-        //   const [password, setPassword] = useState('')
-        //   const [signUp, { isLoading }] = useSignUpMutation()
-        //   console.log('isLoading', isLoading)
-        //   const handleChange = ({ target: { name, value } }) => {
-        //     switch (name) {
-        //       case 'name':
-        //         return setName(value)
-        //       case 'email':
-        //         return setEmail(value)
-        //       case 'password':
-        //         return setPassword(value)
-        //       default:
-        //         return
+        // dispatch(signUp(data))
+    try {
+      await registrationUser(data)
+      Notify.success('You are sign up!')
+      console.log('auth signup', data)
+    } catch (error) {
+      console.log('error', error)
+      Notify.failure(error.message.response.data.message)
     }
+  }
+
+    
     return (
         <StyledRegistrationPageContainer>
             <StyledHeadContainer>

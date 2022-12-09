@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Outlet } from 'react-router-dom'
-import Currency from '../../components/Currency'
+import MonoCurrency from '../../components/Currency/Currency'
 import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
@@ -40,7 +40,7 @@ const DashboardPage = () => {
                         <DashbordBtns />
                         <Balance />
                       </ContainerLeft>
-                      <Currency />
+                      <MonoCurrency />
                     </ContainerTop>
                   </>
                 )}
@@ -50,7 +50,7 @@ const DashboardPage = () => {
                       ddddd
                       <DashbordBtns />
                       <Balance />
-                      <Currency />
+                      <MonoCurrency />
                     </ContainerLeft>
                   </>
                 )}
