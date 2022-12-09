@@ -51,3 +51,14 @@ export const verifyEmailToken = async verifyCode => {
     return error
   }
 }
+
+export const getTransactionAll = async () => {
+  try {
+    const result = await instance.get('/api/transactions/getAll')
+    // console.log('first', result.data)
+    return result.data
+  } catch (error) {
+    console.error(error)
+    return error
+  }
+}

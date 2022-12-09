@@ -8,6 +8,7 @@ import {
 import { useId } from 'react'
 
 const MobileTabl = ({ data }) => {
+  //   console.log(data)
   const unid = useId()
   if (data.length === 0) {
     return (
@@ -17,37 +18,39 @@ const MobileTabl = ({ data }) => {
       </ContainerEmpty>
     )
   }
-  const card =
-    // data &&
-    data.map(({ type, category, comment, amount, balance, date }) => {
-      const time = date.$date.$numberLong
-      const newDate = new Date(+time).toLocaleDateString()
+  if (data.length > 0) {
+    const card =
+      // data &&
+      data.map(({ type, category, comment, amount, balance, date }) => {
+        const time = date
+        const newDate = new Date(time).toLocaleDateString()
 
-      return (
-        <ContainerMobileTabl sx={{ minWidth: 280 }} isType={type ? '+' : '-'}>
-          <CardBox key={unid}>
-            <TypographyCard>
-              Date <Span> {newDate}</Span>
-            </TypographyCard>
-            <TypographyCard>
-              Type <Span>{type ? '+' : '-'}</Span>
-            </TypographyCard>
-            <TypographyCard>
-              Category <Span>{category.name}</Span>
-            </TypographyCard>
-            <TypographyCard>
-              Comment <Span>{comment}</Span>
-            </TypographyCard>
-            <TypographyCard>
-              Sum <Span isType={type ? '+' : '-'}>{amount.toFixed(2)}</Span>
-            </TypographyCard>
-            <TypographyCard>
-              Balance <Span>{balance.toFixed(2)}</Span>
-            </TypographyCard>
-          </CardBox>
-        </ContainerMobileTabl>
-      )
-    })
-  return card
+        return (
+          <ContainerMobileTabl sx={{ minWidth: 280 }} isType={type ? '+' : '-'}>
+            <CardBox key={unid}>
+              <TypographyCard>
+                Date <Span> {newDate}</Span>
+              </TypographyCard>
+              <TypographyCard>
+                Type <Span>{type ? '+' : '-'}</Span>
+              </TypographyCard>
+              <TypographyCard>
+                Category <Span>{category.name}</Span>
+              </TypographyCard>
+              <TypographyCard>
+                Comment <Span>{comment}</Span>
+              </TypographyCard>
+              <TypographyCard>
+                Sum <Span isType={type ? '+' : '-'}>{amount.toFixed(2)}</Span>
+              </TypographyCard>
+              <TypographyCard>
+                Balance <Span>{balance.toFixed(2)}</Span>
+              </TypographyCard>
+            </CardBox>
+          </ContainerMobileTabl>
+        )
+      })
+    return card
+  }
 }
 export default MobileTabl

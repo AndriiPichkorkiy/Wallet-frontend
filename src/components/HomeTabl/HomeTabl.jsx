@@ -3,6 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { useState } from 'react'
 import { ContainerTabl, StyledGridOverlay } from './HomeTabl.styled'
+// import EllipsisText from 'react-ellipsis-text'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
@@ -13,23 +14,21 @@ const HomeTabl = ({ data }) => {
       field: 'date',
       headerName: 'Date',
       headerAlign: 'center',
-      type: 'singleSelect',
-      valueOptions: ['$date.$numberLong'],
+      type: 'date',
       renderCell: ({ row: { date } }) => {
-        const time = date.$date.$numberLong
-        const newDate = new Date(+time).toLocaleDateString()
-
+        const time = date
+        const newDate = new Date(time).toLocaleDateString()
         return <Typography>{newDate}</Typography>
       },
       align: 'center',
-      flex: 1
+      flex: 0.9
     },
     {
       field: 'type',
       headerName: 'Type',
       headerAlign: 'center',
       align: 'center',
-      flex: 1,
+      flex: 0.7,
       renderCell: ({ row: { type } }) => (
         <Typography>{type ? '+' : '-'}</Typography>
       )
@@ -38,7 +37,7 @@ const HomeTabl = ({ data }) => {
     {
       field: 'category',
       headerName: 'Category',
-      flex: 1,
+      flex: 1.1,
       headerAlign: 'left',
       align: 'left',
       type: 'singleSelect',
@@ -52,16 +51,20 @@ const HomeTabl = ({ data }) => {
       headerName: 'Comment',
       headerAlign: 'left',
       align: 'left',
-      flex: 1
+      flex: 1.2
+      //   renderCell: ({ row: { comment } }) => (
+      //     <EllipsisText text={comment} length={'17'} />
+      //   )
     },
     {
       field: 'amount',
       headerName: 'Sum',
       headerAlign: 'center',
-      align: 'center',
-      flex: 1,
+      align: 'right',
+      flex: 1.1,
       renderCell: ({ row: { amount, type } }) => (
         <Typography
+          sx={{ pr: '15px' }}
           color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
         >
           {amount.toFixed(2)}
@@ -72,14 +75,13 @@ const HomeTabl = ({ data }) => {
       field: 'balance',
       headerName: 'Balance',
       headerAlign: 'center',
-      align: 'center',
+      align: 'right',
       flex: 1,
       renderCell: ({ row: { balance } }) => (
-        <Typography>{balance.toFixed(2)}</Typography>
+        <Typography sx={{ pr: '15px' }}>{balance}</Typography>
       )
     }
   ]
-  //   console.log(columns)
 
   function CustomNoRowsOverlay() {
     return (
@@ -88,9 +90,8 @@ const HomeTabl = ({ data }) => {
           sx={{
             width: '500px',
             textAlign: 'center',
-            fontFamily: 'Circe',
-            fontSize: '18px',
-            lineHeight: '1.474'
+            fontSize: '24px !important',
+            lineHeight: '1.5'
           }}
         >
           There are no recorded transactions. Click the green button in the
@@ -105,6 +106,13 @@ const HomeTabl = ({ data }) => {
       <Box
         height='80vh'
         sx={{
+          '& .MuiTypography-root': {
+            fontFamily: 'Circe',
+            fontSize: '16px',
+            lineHeight: '1.5',
+            whiteSpace: 'normal'
+          },
+
           '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
             backgroundColor: 'transparent',
             width: '6px',
@@ -122,7 +130,7 @@ const HomeTabl = ({ data }) => {
             border: 'none',
             fontFamily: 'Circe',
             fontSize: '18px',
-            lineHeight: '1.474',
+            lineHeight: '1.5',
             color: 'var(--main-text)'
           },
           '& .MuiDataGrid-cell': {
@@ -130,9 +138,12 @@ const HomeTabl = ({ data }) => {
             borderBottom: '1px solid #DCDCDF',
             boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
             fontSize: '16px',
-            lineHeight: '1.125'
+            lineHeight: '1.5',
+            whiteSpace: 'normal'
           },
-          '& .MuiDataGrid-cellContent': { whiteSpace: 'normal' },
+          '& .MuiDataGrid-cellContent': {
+            whiteSpace: 'normal'
+          },
           '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
           '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
             color: 'transparent'
@@ -169,7 +180,7 @@ const HomeTabl = ({ data }) => {
           }}
           rows={data}
           columns={columns}
-          getRowId={row => row._id.$oid}
+          getRowId={row => row._id}
           pageSize={pageSize}
           onPageSizeChange={newPageSize => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}

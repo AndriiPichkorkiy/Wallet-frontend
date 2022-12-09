@@ -1,21 +1,21 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
+import { getTransactionAll } from '../../api/auth'
 import HomeTabl from '../../components/HomeTabl'
 import MobileTabl from '../../components/MobileTabl'
-import data from './transactions.json'
+// import data from './transactions.json'
 // import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
-// let data = []
-
-// let result = []
-// if (result.length > 0) {
-//   return data
-// }
-
 function HomePage() {
+  const [data, setData] = useState([])
+  console.log(data)
+  useEffect(() => {
+    getTransactionAll().then(setData)
+  }, [])
   //   const { data } = useGetAllTransactionsQuery()
   //   console.log(useGetAllTransactionsQuery())
   //   console.log(data)
+
   return (
     <>
       {data ? (

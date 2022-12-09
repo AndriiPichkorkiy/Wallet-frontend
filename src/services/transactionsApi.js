@@ -6,11 +6,20 @@ const BASE_URL = 'https://wallet-project-m5us.onrender.com'
 export const transactionsApi = createApi({
   reducerPath: 'transactions',
   tagTypes: ['Transactions'],
-  baseQuery: axiosBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: axiosBaseQuery({
+    baseUrl: BASE_URL,
 
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().userV2.token
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`)
+      }
+      return headers
+    }
+  }),
   endpoints: builder => ({
     getAllTransactions: builder.query({
-      query: () => ({ url: '/transactions', method: 'GET' }),
+      query: () => ({ url: '/api/transactions/getAll', method: 'GET' }),
       invalidatesTags: [{ type: 'Transactions' }]
     })
   })
