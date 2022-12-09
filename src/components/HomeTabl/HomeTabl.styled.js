@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material'
+
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
