@@ -52,6 +52,7 @@ const MonoCurrency = () => {
             }
         }
         fetchCurrency()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [setState])
 
 
@@ -62,8 +63,8 @@ const MonoCurrency = () => {
         .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
             <tr key={currencyCodeA}>
                 <td>{currencyCodeA === 840 ? currencyCodeA = "USD" : currencyCodeA = currencyCodeA
-                    && (currencyCodeA === 978 ? currencyCodeA = "EUR" : currencyCodeA = currencyCodeA)
-                    && (currencyCodeA === 985 ? currencyCodeA = "PLN" : currencyCodeA = currencyCodeA)}
+                    && (currencyCodeA === 978 ? currencyCodeA = "EUR" : currencyCodeA)
+                    && (currencyCodeA === 985 ? currencyCodeA = "PLN" : currencyCodeA)}
                 </td>
                 <td>{rateBuy || rateCross.toFixed(2)}</td>
                 <td>{rateSell || rateCross.toFixed(2)}</td>

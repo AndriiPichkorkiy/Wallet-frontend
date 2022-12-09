@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useState } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
@@ -6,7 +6,7 @@ import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import Loader from '../../components/Loader/Loader'
 import {
-  BG,
+  // BG,
   ContainerLeft,
   ContainerTop,
   MainContainer
@@ -17,9 +17,14 @@ import Media from 'react-media'
 // import largePinkImg from '../../assets/images/ellipsesBg/EllipsePink.png'
 import { useLocation } from 'react-router-dom'
 
+import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"
+import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
+
+
+
 const DashboardPage = () => {
   const { pathname } = useLocation()
-
+  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] = useState(false)
   return (
     <>
       <Header />
@@ -29,6 +34,8 @@ const DashboardPage = () => {
         largePinkImg={largePinkImg}
       > */}
       <MainContainer>
+        <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
+        {isModalAddTransactionOpen && <ModalTransactions closeModal={() => SetIsModalAddTransactionOpen(false)} />}
         <Media
           queries={{
             small: '(max-width: 767px)',
