@@ -9,9 +9,9 @@ import {
     StyledRegisterImgLargeContainer, StyledLeftCornerImgContainer, StyledRightCornerImgLargeContainer,
     StyledRegistrationPageContainer
 } from './RegistrationPage.styled';
-import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
-import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
-import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
+// import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
+// import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
+// import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png';
 import icon_register_desc from '../../assets/images/authImg/register-desk.png';
 import { useDispatch } from 'react-redux';
@@ -57,9 +57,9 @@ const RegistrationPage = () => {
     return (
         <StyledRegistrationPageContainer>
             <StyledHeadContainer>
-                <StyledLeftCornerImgContainer>
+                {/* <StyledLeftCornerImgContainer>
                     <StyledLargeImg src={icon_violet} alt="violet circle" />
-                </StyledLeftCornerImgContainer>
+                </StyledLeftCornerImgContainer> */}
 
                 <StyledRegisterImgContainer>
                     <StyledLargeImg src={icon_register_tab} alt="women with phone" />
@@ -73,14 +73,14 @@ const RegistrationPage = () => {
             </StyledHeadContainer>
 
             <StyledFormContainer>
-                <StyledRightCornerImgLargeContainer>
+                {/* <StyledRightCornerImgLargeContainer>
                     <StyledImg src={icon_pink} alt="pink circle" />
 
-                </StyledRightCornerImgLargeContainer>
-                <StyledRightCornerImgContainer>
+                </StyledRightCornerImgLargeContainer> */}
+                {/* <StyledRightCornerImgContainer>
                     <StyledImg src={icon_pink_tablet} alt="pink circle" />
 
-                </StyledRightCornerImgContainer>
+                </StyledRightCornerImgContainer> */}
                 <RegistrationForm onSubmit={onRegister} />
             </StyledFormContainer>
         </StyledRegistrationPageContainer>
