@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
@@ -48,6 +49,10 @@ const SignUpSchema = Yup.object().shape({
     .email('Invalid email')
     .strict()
     .trim()
+    .matches(
+      /^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}$/,
+      'invalid email'
+    )
     .required('Please enter an email'),
   password: Yup.string()
     .min(6, 'Too Short!')
@@ -56,7 +61,7 @@ const SignUpSchema = Yup.object().shape({
     .strict()
     .trim()
     .matches(
-      /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
       'Minimum six characters, one lowercase letter, one number and one special character'
     )
     .required('Please enter a password'),
