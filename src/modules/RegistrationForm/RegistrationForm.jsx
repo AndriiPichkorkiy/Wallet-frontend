@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
@@ -48,6 +49,10 @@ const SignUpSchema = Yup.object().shape({
     .email('Invalid email')
     .strict()
     .trim()
+    .matches(
+      /^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}$/,
+      'invalid email'
+    )
     .required('Please enter an email'),
   password: Yup.string()
     .min(6, 'Too Short!')
@@ -56,7 +61,7 @@ const SignUpSchema = Yup.object().shape({
     .strict()
     .trim()
     .matches(
-      /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
       'Minimum six characters, one lowercase letter, one number and one special character'
     )
     .required('Please enter a password'),
@@ -69,7 +74,7 @@ const SignUpSchema = Yup.object().shape({
     .trim()
     .oneOf([Yup.ref('password'), null], 'Password must match')
     .matches(
-      /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
       'Minimum six characters, one lowercase letter, one number and one special character'
     )
 })
@@ -84,6 +89,7 @@ const initialState = {
 const RegistrationForm = ({ onSubmit }) => {
   const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
   const dispatch = useDispatch()
+  console.log()
 
   //из этого хука мы получаем функцию signUp, которая будет вызываться при отправке формы
   const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
@@ -92,14 +98,14 @@ const RegistrationForm = ({ onSubmit }) => {
   // isSuccess - статус успеха
   // error - объект ошибки
 
-  const isFetching = useSelector(state => state.user.isLoggedIn)
   const isRegistrationSuccess = useSelector(state => state.user.user.name)
-  console.log('isRegistrationSuccess: ', isRegistrationSuccess)
+  console.log('isLoading: ', isLoading)
   const navigate = useNavigate()
 
   useEffect(() => {
     if (isRegistrationSuccess && window.newUser !== 'EXIT') {
       // redirect
+      alert("REDIRECT")
       navigate('/login?newUser=true', { replace: true })
       window.newUser = true;
     }
@@ -108,7 +114,7 @@ const RegistrationForm = ({ onSubmit }) => {
 
   return (
     <FormContainer>
-      {isFetching ? <LoaderWrapper /> : null}
+      {isLoading ? <LoaderWrapper /> : null}
       <ContainerLogo>
         <StyledImg src={icon} alt='wallet' />
         <StyledLargeImg src={icon_large} alt='wallet' />
@@ -122,7 +128,6 @@ const RegistrationForm = ({ onSubmit }) => {
         validationSchema={SignUpSchema}
         initialValues={initialState}
         onSubmit={(data, { setSubmitting, resetForm }) => {
-          alert("Forkim onSubmit")
           handleSubmit(data)
           setSubmitting(false)
           resetForm()

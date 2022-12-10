@@ -11,13 +11,12 @@ function Loader() {
     </Wrapper>
   );
 }
-function LoaderWrapper({ children }) {
+function LoaderWrapper() {
   return (
     <WrapperBig>
-      {children}
-      <Loader>
-
-      </Loader>
+      <Wrapper>
+        <PropagateLoader color="#24cca7" />
+      </Wrapper>
     </WrapperBig>
   );
 }

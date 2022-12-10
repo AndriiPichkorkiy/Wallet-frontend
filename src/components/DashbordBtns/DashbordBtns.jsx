@@ -94,9 +94,9 @@ const DashbordBtns = () => {
                   sx={{
                     color: 'var(--background)',
                     background: 'var(--paleActiveColor)',
-                    borderRadius: '8px',
-                    width: '34px',
-                    height: '34px'
+                    borderRadius: '2px',
+                    width: '18px',
+                    height: '18px'
                   }}
                 />
               )
