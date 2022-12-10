@@ -26,8 +26,8 @@ export const ContainerLeft = styled.div`
   display: flex;
   flex-direction: column;
   ${respondTo.lg`
-  height: 100vh;
-  padding-right:70px;
+    height: 100vh;
+    padding-right:70px;
     border-right: 1px solid #E7E5F2;
     box-shadow: inset -1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6);
     `}
