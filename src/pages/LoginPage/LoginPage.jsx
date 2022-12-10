@@ -29,6 +29,7 @@ import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.p
 import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png'
 import icon_register_tab from '../../assets/images/authImg/login-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/login-desk.png'
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 const LoginPage = () => {
   const state = useSelector(state => state)
@@ -38,8 +39,13 @@ const LoginPage = () => {
   const [login, { isError }] = useLoginMutation()
   const [currentUser] = useLazyCurrentUserQuery()
 
+  if (isError) {
+    Notify.failure('Email or password wrong')
+  }
+
   const onLogin = async data => {
     const response = await login(data).unwrap()
+    console.log('response: ', response)
     if (!response.token) {
       console.log('error', isError)
       return
