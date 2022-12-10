@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
+import { Notify } from "notiflix";
+import { useAddTransactionsMutation } from '../../services/transactionsApi';
 import './buttons.styled.js'
 import ButtonAddTransactions from './Buttons/buttonAddTransactions'
 import {
@@ -38,6 +39,8 @@ import {
 // }
 
 const ModalTransactions = ({ closeModal }) => {
+  const [newtransaction] = useAddTransactionsMutation()
+
   const [type, setTyped] = useState(false)
   const [date, setDate] = useState(Date.now())
   useEffect(() => {
@@ -69,15 +72,22 @@ const ModalTransactions = ({ closeModal }) => {
       type: Yup.boolean().required(),
       date: Yup.string().required()
     }),
-    onSubmit: (values, { resetForm }) => {
-      console.log(JSON.stringify(values, null, 2))
-      console.log('type', type)
-      console.log('date', date)
-      resetForm()
-      if (values.amount) {
-        alert('transaction successful')
+    onSubmit:async (values, { resetForm }) => {
+      try {
+        console.log('newtransaction', newtransaction)
+        const result = await newtransaction(IV);
+
+        resetForm()
+         if (values.amount) {
+        Notify.info('transaction successful')
         closeModal()
       }
+        return result
+     
+      } catch (error) {
+        console.log('error', error)
+      }
+  
     }
   })
   const IV = { ...formik.values, date, type }

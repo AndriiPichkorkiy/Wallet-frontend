@@ -83,16 +83,16 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
           //       }}
         >
-          <MenuItem value='Main expenses'>Main expenses</MenuItem>
-          <MenuItem value='Products'>Products</MenuItem>
-          <MenuItem value='Car'>Car</MenuItem>
-          <MenuItem value='Self care'>Self care</MenuItem>
-          <MenuItem value='Child care'>Child care</MenuItem>
-          <MenuItem value='Household products'>Household products</MenuItem>
-          <MenuItem value='Education'>Education</MenuItem>
-          <MenuItem value='Leisure'>Leisure</MenuItem>
-          <MenuItem value='Other expenses'>Other expenses</MenuItem>
-          <MenuItem value='Entertainment'>Entertainment</MenuItem>
+          <MenuItem value='10101'>Main expenses</MenuItem>
+          <MenuItem value='10102'>Products</MenuItem>
+          <MenuItem value='10103'>Car</MenuItem>
+          <MenuItem value='10104'>Self care</MenuItem>
+          <MenuItem value='10105'>Child care</MenuItem>
+          <MenuItem value='10106'>Household products</MenuItem>
+          <MenuItem value='10107'>Education</MenuItem>
+          <MenuItem value='10108'>Leisure</MenuItem>
+          <MenuItem value='10109'>Other expenses</MenuItem>
+          <MenuItem value='10110'>Entertainment</MenuItem>
         </Select>
       </FormControl>
     </Box>
@@ -123,7 +123,7 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
           //       }}
         >
-          <MenuItem value='Regular Income'>Regular Income</MenuItem>
+          <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='Irregular Income'>Irregular Income</MenuItem>
         </Select>
       </FormControl>
