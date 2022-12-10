@@ -92,15 +92,16 @@ const RegistrationForm = ({ onSubmit }) => {
   // isSuccess - статус успеха
   // error - объект ошибки
 
-  const isFetching = useSelector(state => state.userV2.loading)
-  const isRegistrationSuccess = useSelector(state => state.userV2.isLogin)
-
+  const isFetching = useSelector(state => state.user.isLoggedIn)
+  const isRegistrationSuccess = useSelector(state => state.user.user.name)
+  console.log('isRegistrationSuccess: ', isRegistrationSuccess)
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (isRegistrationSuccess) {
+    if (isRegistrationSuccess && window.newUser !== 'EXIT') {
       // redirect
-      navigate('/login?register=true', { replace: true })
+      navigate('/login?newUser=true', { replace: true })
+      window.newUser = true;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isRegistrationSuccess])
@@ -121,6 +122,7 @@ const RegistrationForm = ({ onSubmit }) => {
         validationSchema={SignUpSchema}
         initialValues={initialState}
         onSubmit={(data, { setSubmitting, resetForm }) => {
+          alert("Forkim onSubmit")
           handleSubmit(data)
           setSubmitting(false)
           resetForm()

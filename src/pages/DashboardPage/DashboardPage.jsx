@@ -12,9 +12,6 @@ import {
   MainContainer
 } from './Dashboard.styled'
 import Media from 'react-media'
-// import mediumPinkImg from '../../assets/images/ellipsesBg/EllipsePinkTablet.png'
-// import violetImg from '../../assets/images/ellipsesBg/EllipseViolet.png'
-// import largePinkImg from '../../assets/images/ellipsesBg/EllipsePink.png'
 import { useLocation } from 'react-router-dom'
 
 import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"

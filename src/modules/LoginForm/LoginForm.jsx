@@ -24,7 +24,7 @@ import icon_large from '../../assets/images/icons/logo-large.svg'
 // import { useSearchParams } from 'react-router-dom';
 import ModalRegistration from '../../components/ModalLogout/ModalRegistration'
 import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import { closeModal } from '../../redux/auth/auth-operations.js'
@@ -59,7 +59,13 @@ const LoginForm = ({ onSubmit }) => {
   // const {  email, password } = state;
   // const [searchParams] = useSearchParams();
   // const isNewRegistration = searchParams.get('register')
-  const isRegistrationSuccess = useSelector(state => state.user.isLoggedIn)
+  // const isRegistrationSuccess = useSelector(state => state.user.user.name)
+  // const { newUser } = useParams()
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const newUser = searchParams.get('newUser')
+  searchParams.get("__firebase_request_key")
+  // const isRegistrationSuccess = useSelector(state => state.user.user.name)
   const state = useSelector(state => state.user)
 
   const [isShowModal, SetIsShowModal] = useState(false)
@@ -71,10 +77,13 @@ const LoginForm = ({ onSubmit }) => {
   }
 
   useEffect(() => {
-    if (isRegistrationSuccess === true) {
+    if (window.newUser && window.newUser !== "EXIT") {
       // show modal
+      console.log('UseEffect')
       SetIsShowModal(true)
-      dispatch(closeModal(false))
+      // dispatch(closeModal(false))
+      navigate('/login', { replace: false })
+      window.newUser = "EXIT";
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

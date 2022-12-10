@@ -24,8 +24,9 @@ import { useDispatch } from 'react-redux'
 const RegistrationPage = () => {
   const dispatch = useDispatch()
   const [signUp, { isError, isLoading }] = useSignUpMutation()
-
+  console.log('isLoading', isLoading)
   const onHandleSubmit = async data => {
+    alert("onHandleSubmit")
     const response = await signUp(data).unwrap()
     if (!response) {
       return console.log('error', isError)
@@ -52,7 +53,7 @@ const RegistrationPage = () => {
       </StyledHeadContainer>
 
       <StyledFormContainer>
-        {isLoading && !isError ? (
+        {/* {isLoading && !isError ? (
           <h1>Loading...</h1>
         ) : (
           <>
@@ -64,7 +65,18 @@ const RegistrationPage = () => {
             </StyledRightCornerImgContainer>
             <RegistrationForm onSubmit={onHandleSubmit} />
           </>
-        )}
+        )} */}
+
+
+        <StyledRightCornerImgLargeContainer>
+          <StyledImg src={icon_pink} alt='pink circle' />
+        </StyledRightCornerImgLargeContainer>
+        <StyledRightCornerImgContainer>
+          <StyledImg src={icon_pink_tablet} alt='pink circle' />
+        </StyledRightCornerImgContainer>
+        <RegistrationForm onSubmit={onHandleSubmit} />
+
+
       </StyledFormContainer>
     </StyledRegistrationPageContainer>
   )

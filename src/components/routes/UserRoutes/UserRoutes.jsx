@@ -26,18 +26,18 @@ const UserRouters = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          <Route element={<PublicRoute/>}>
+          <Route element={<PublicRoute />}>
             <Route path='/register' element={<RegistrationPage />} />
             <Route path='/login' element={<LoginPage />} />
             <Route path='/api/user/verify/:verifyCode' element={<VerifyPage />} />
           </Route>
-          <Route element={<PrivateRoute/>}>
-          <Route path='/' element={<DashboardPage />}>
-            <Route index element={<HomePage />} />
-            <Route path='statistics' element={<DiagramTab />} />
-            <Route path='currency' element={<Currency />} />
-            <Route path='news' element={<NewsPage/>} />
-          </Route>
+          <Route element={<PrivateRoute />}>
+            <Route path='/' element={<DashboardPage />}>
+              <Route index element={<HomePage />} />
+              <Route path='statistics' element={<DiagramTab />} />
+              <Route path='currency' element={<Currency />} />
+              <Route path='news' element={<NewsPage />} />
+            </Route>
           </Route>
           {/* <Route path='*' element={<NotFoundPage />} /> */}
           <Route path='*' element={<Navigate to="/register" />} />
