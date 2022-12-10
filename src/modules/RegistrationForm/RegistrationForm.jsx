@@ -74,7 +74,7 @@ const SignUpSchema = Yup.object().shape({
     .trim()
     .oneOf([Yup.ref('password'), null], 'Password must match')
     .matches(
-      /^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
       'Minimum six characters, one lowercase letter, one number and one special character'
     )
 })
