@@ -28,6 +28,8 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 
 import { closeModal } from '../../redux/auth/auth-operations.js'
+import { LoaderWrapper } from '../../components/Loader/Loader'
+import { useSignUpMutation } from '../../services/authApi'
 // const icon = require('./assets/images/icons/wallet30x30.svg')
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -56,6 +58,7 @@ const LoginForm = ({ onSubmit }) => {
   }
   const token = useSelector(state => state.token)
   const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
+  const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
   // const {  email, password } = state;
   // const [searchParams] = useSearchParams();
   // const isNewRegistration = searchParams.get('register')
@@ -64,7 +67,6 @@ const LoginForm = ({ onSubmit }) => {
 
   const [searchParams, setSearchParams] = useSearchParams();
   const newUser = searchParams.get('newUser')
-  searchParams.get("__firebase_request_key")
   // const isRegistrationSuccess = useSelector(state => state.user.user.name)
   const state = useSelector(state => state.user)
 
@@ -99,6 +101,7 @@ const LoginForm = ({ onSubmit }) => {
 
   return (
     <FormContainer>
+      {isLoading ? <LoaderWrapper /> : null}
       <ContainerLogo>
         <StyledImg src={icon} alt='wallet' />
         <StyledLargeImg src={icon_large} alt='wallet' />

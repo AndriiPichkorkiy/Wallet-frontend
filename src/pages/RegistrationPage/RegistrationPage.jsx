@@ -26,7 +26,6 @@ const RegistrationPage = () => {
   const [signUp, { isError, isLoading }] = useSignUpMutation()
   console.log('isLoading', isLoading)
   const onHandleSubmit = async data => {
-    alert("onHandleSubmit")
     const response = await signUp(data).unwrap()
     if (!response) {
       return console.log('error', isError)

@@ -92,9 +92,8 @@ const RegistrationForm = ({ onSubmit }) => {
   // isSuccess - статус успеха
   // error - объект ошибки
 
-  const isFetching = useSelector(state => state.user.isLoggedIn)
   const isRegistrationSuccess = useSelector(state => state.user.user.name)
-  console.log('isRegistrationSuccess: ', isRegistrationSuccess)
+  console.log('isLoading: ', isLoading)
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -108,7 +107,7 @@ const RegistrationForm = ({ onSubmit }) => {
 
   return (
     <FormContainer>
-      {isFetching ? <LoaderWrapper /> : null}
+      {isLoading ? <LoaderWrapper /> : null}
       <ContainerLogo>
         <StyledImg src={icon} alt='wallet' />
         <StyledLargeImg src={icon_large} alt='wallet' />
@@ -122,7 +121,6 @@ const RegistrationForm = ({ onSubmit }) => {
         validationSchema={SignUpSchema}
         initialValues={initialState}
         onSubmit={(data, { setSubmitting, resetForm }) => {
-          alert("Forkim onSubmit")
           handleSubmit(data)
           setSubmitting(false)
           resetForm()
