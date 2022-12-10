@@ -5,8 +5,9 @@ import HomePage from '../../../pages/HomePage'
 import { Navigate } from 'react-router-dom/dist'
 import NewsPage from '../../../pages/NewsPage'
 
-// import PrivateRoute from "../PrivateRoute/PrivateRoute";
-// import PublicRoute from "../PublicRoute/PublicRoute ";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import PublicRoute from "../PublicRoute/PublicRoute ";
+import VerifyPage from '../../../pages/VerifyPage/VerifyPage'
 
 const DashboardPage = lazy(() => import('../../../pages/DashboardPage'))
 const RegistrationPage = lazy(() =>
@@ -25,19 +26,19 @@ const UserRouters = () => {
     <>
       <Suspense fallback={<Loader />}>
         <Routes>
-          {/* <Route element={<PublicRoute/>}> */}
-          <Route path='/register' element={<RegistrationPage />} />
-          <Route path='/login' element={<LoginPage />} />
-          {/* </Route> */}
-          {/* <Route element={<PrivateRoute/>}> */}
-          <Route path='/cabinet' element={<DashboardPage />}>
-            <Route index element={<HomePage />} />
-            <Route path='statistics' element={<DiagramTab />} />
-            <Route path='currency' element={<Currency />} />
-            <Route path='news' element={<NewsPage/>} />
+          <Route element={<PublicRoute />}>
+            <Route path='/register' element={<RegistrationPage />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/api/user/verify/:verifyCode' element={<VerifyPage />} />
           </Route>
-
-          {/* </Route> */}
+          <Route element={<PrivateRoute />}>
+            <Route path='/' element={<DashboardPage />}>
+              <Route index element={<HomePage />} />
+              <Route path='statistics' element={<DiagramTab />} />
+              <Route path='currency' element={<Currency />} />
+              <Route path='news' element={<NewsPage />} />
+            </Route>
+          </Route>
           {/* <Route path='*' element={<NotFoundPage />} /> */}
           <Route path='*' element={<Navigate to="/register" />} />
         </Routes>
