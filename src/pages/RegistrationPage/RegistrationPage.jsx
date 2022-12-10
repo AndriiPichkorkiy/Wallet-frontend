@@ -29,7 +29,6 @@ const RegistrationPage = () => {
   const onHandleSubmit = async data => {
     const response = await signUp(data).unwrap()
     if (!response) {
-      Notiflix.Notify.failure("ERRROOORRR")
       return console.log('error', isError)
 
     }
