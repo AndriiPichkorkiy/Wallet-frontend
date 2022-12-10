@@ -6,10 +6,13 @@ export const currentToken = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    newToken(_, action) {
-      return action.payload
+    setToken(_, action) {
+      return action.payload.token
     },
-  },
+    unsetToken(state, action) {
+      return (state = '')
+    }
+  }
 })
 
-export const { newToken } = currentToken.actions
+export const { setToken, unsetToken } = currentToken.actions
