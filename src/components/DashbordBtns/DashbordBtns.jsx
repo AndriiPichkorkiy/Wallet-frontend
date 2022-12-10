@@ -15,7 +15,7 @@ const DashbordBtns = () => {
   return (
     <Container>
       <BtnsCont>
-        <LinkBtn to='/cabinet'>
+        <LinkBtn to='/'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -42,7 +42,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Home</BtnText>
         </LinkBtn>
-        <LinkBtn to='/cabinet/statistics'>
+        <LinkBtn to='/statistics'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -69,7 +69,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Statistiscs</BtnText>
         </LinkBtn>
-        <CurrLinkBtn to='/cabinet/currency'>
+        <CurrLinkBtn to='/currency'>
           <AttachMoneyIcon
             sx={{
               color: 'var(--background)',
