@@ -105,6 +105,7 @@ const RegistrationForm = ({ onSubmit }) => {
   useEffect(() => {
     if (isRegistrationSuccess && window.newUser !== 'EXIT') {
       // redirect
+      alert("REDIRECT")
       navigate('/login?newUser=true', { replace: true })
       window.newUser = true;
     }

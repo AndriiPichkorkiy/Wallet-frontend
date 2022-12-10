@@ -90,14 +90,7 @@ const LoginForm = ({ onSubmit }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-  useEffect(() => {
-    // console.log("token, ", token)
-    if (token) {
-      // redirect
-      navigate('/cabinet', { replace: true })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token])
+
 
   return (
     <FormContainer>
