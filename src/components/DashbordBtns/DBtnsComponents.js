@@ -8,6 +8,7 @@ export const BtnsCont = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 0 auto;
+  /* font-family: 'Poppins'; */
   ${respondTo.sm`
         align-items: start;
         flex-direction: column;
@@ -93,7 +94,7 @@ export const NewsLinkBtn = styled(NavLink)`
         align-items: center;
         margin-right: 0px;
         font-weight: 400;
-        font-size: 24px;
+        font-size: 17px;
         &.active {
             filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
             font-weight: 700;
