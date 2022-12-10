@@ -1,6 +1,6 @@
 import React from 'react'
 import LoginForm from '../../modules/LoginForm/LoginForm'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import {
   useLoginMutation,
@@ -32,15 +32,15 @@ import icon_register_desc from '../../assets/images/authImg/login-desk.png'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
 
 const LoginPage = () => {
-  const state = useSelector(state => state)
-  console.log('state', state)
+  // const state = useSelector(state => state)
+  // console.log('state', state)
   const dispatch = useDispatch()
 
-  const [login, { isError }] = useLoginMutation()
+  const [login, { isError, error }] = useLoginMutation()
   const [currentUser] = useLazyCurrentUserQuery()
 
   if (isError) {
-    Notify.failure('Email or password wrong')
+    Notify.failure(error.data.message)
   }
 
   const onLogin = async data => {

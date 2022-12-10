@@ -21,16 +21,23 @@ import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png'
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/register-desk.png'
 import { useDispatch } from 'react-redux'
-import Notiflix from 'notiflix'
+import { Notify } from 'notiflix/build/notiflix-notify-aio'
+
+
+
 const RegistrationPage = () => {
   const dispatch = useDispatch()
-  const [signUp, { isError, isLoading }] = useSignUpMutation()
+  const [signUp, { isError, isLoading, error }] = useSignUpMutation()
   console.log('isLoading', isLoading)
+
+  if (isError) {
+    Notify.failure(error.data.message)
+  }
+
   const onHandleSubmit = async data => {
     const response = await signUp(data).unwrap()
     if (!response) {
       return console.log('error', isError)
-
     }
     dispatch(isRegister(response))
   }
