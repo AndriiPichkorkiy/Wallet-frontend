@@ -46,6 +46,7 @@ export const LogoutExitIcon = styled.img`
 `
 
 export const LogoutExitName = styled.h3`
+    font-family: "Circe";
     font-weight: 400;
     font-size: 18px;
     line-height: 27px;
