@@ -89,6 +89,7 @@ const initialState = {
 const RegistrationForm = ({ onSubmit }) => {
   const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
   const dispatch = useDispatch()
+  console.log()
 
   //из этого хука мы получаем функцию signUp, которая будет вызываться при отправке формы
   const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
