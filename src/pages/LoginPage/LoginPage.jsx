@@ -35,7 +35,7 @@ const LoginPage = () => {
   console.log('state', state)
   const dispatch = useDispatch()
 
-  const [login, { isError, isLoading }] = useLoginMutation()
+  const [login, { isError }] = useLoginMutation()
   const [currentUser] = useLazyCurrentUserQuery()
 
   const onLogin = async data => {
@@ -69,19 +69,15 @@ const LoginPage = () => {
       </StyledHeadContainer>
 
       <StyledFormContainer>
-        {isLoading && !isError ? (
-          <h1>Loading...</h1>
-        ) : (
-          <>
-            <StyledRightCornerImgContainer>
-              <StyledImg src={icon_pink} alt='pink circle' />
-            </StyledRightCornerImgContainer>
-            <StyledRightCornerImgLargeContainer>
-              <StyledImg src={icon_pink_tablet} alt='pink circle' />
-            </StyledRightCornerImgLargeContainer>
-            <LoginForm onSubmit={onLogin} />
-          </>
-        )}
+
+        <StyledRightCornerImgContainer>
+          <StyledImg src={icon_pink} alt='pink circle' />
+        </StyledRightCornerImgContainer>
+        <StyledRightCornerImgLargeContainer>
+          <StyledImg src={icon_pink_tablet} alt='pink circle' />
+        </StyledRightCornerImgLargeContainer>
+        <LoginForm onSubmit={onLogin} />
+
       </StyledFormContainer>
     </StyledRegistrationPageContainer>
   )
