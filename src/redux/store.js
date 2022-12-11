@@ -17,7 +17,6 @@ import { transactionsApi } from '../services/transactionsApi'
 
 import { currentUser } from './auth/authSlice'
 import { currentToken } from './auth/tokenSlice'
-// import authSlice from './auth/auth-slice'
 
 const persistConfig = {
   key: 'root',
@@ -31,7 +30,6 @@ const rootReducer = combineReducers({
   [transactionsApi.reducerPath]: transactionsApi.reducer,
   user: currentUser.reducer,
   token: currentToken.reducer
-  // userV2: authSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

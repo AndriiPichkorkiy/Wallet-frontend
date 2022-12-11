@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
 // import LoginPage from './pages/LoginPage/LoginPage'
 import UserRoutes from './components/routes/UserRoutes/UserRoutes'
@@ -9,12 +9,27 @@ import UserRoutes from './components/routes/UserRoutes/UserRoutes'
 // import DashbordBtns from './components/DashbordBtns/DashbordBtns'
 // import DiagramTab from './components/DiagramTab/DiagramTab'
 
-function App() {
-  // const dispatch = useDispatch();
+import { useDispatch, useSelector } from 'react-redux'
+import { useLazyCurrentUserQuery } from './services/authApi'
+import { newCurrentUser, isAuth } from './redux/auth/authSlice'
 
-  // useEffect(()=>{
-  //   dispatch(currentUser())
-  // }, [dispatch])
+function App() {
+  const dispatch = useDispatch()
+  const [currentUser] = useLazyCurrentUserQuery()
+  const token = useSelector(state => state.token)
+
+  useEffect(() => {
+    if (!token) {
+      return
+    }
+    const getUser = async () => {
+      const user = await currentUser().unwrap()
+      dispatch(newCurrentUser(user))
+      dispatch(isAuth())
+    }
+    getUser()
+  }, [dispatch])
+
   return (
     <>
       <div>
@@ -25,10 +40,3 @@ function App() {
 }
 
 export default App
-
-// <div className='App'>
-//   {/* <h1>Hello Freinds</h1>
-//   <img src={testPicture} alt='selling img' /> */}
-//   <RegistrationPage />
-//   <LoginPage/>
-// </div>

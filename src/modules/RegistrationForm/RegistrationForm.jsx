@@ -92,8 +92,7 @@ const RegistrationForm = ({ onSubmit }) => {
   // isSuccess - статус успеха
   // error - объект ошибки
 
-  const isFetching = useSelector(state => state.userV2.loading)
-  const isRegistrationSuccess = useSelector(state => state.userV2.isLogin)
+  const isRegistrationSuccess = useSelector(state => state.user.isLoggedIn)
 
   const navigate = useNavigate()
 
@@ -107,7 +106,7 @@ const RegistrationForm = ({ onSubmit }) => {
 
   return (
     <FormContainer>
-      {isFetching ? <LoaderWrapper /> : null}
+      {isLoading ? <LoaderWrapper /> : null}
       <ContainerLogo>
         <StyledImg src={icon} alt='wallet' />
         <StyledLargeImg src={icon_large} alt='wallet' />
