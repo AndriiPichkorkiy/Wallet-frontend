@@ -30,7 +30,7 @@ import { closeModal } from '../../redux/auth/auth-operations.js'
 import { LoaderWrapper } from '../Loader/Loader'
 import { useSignUpMutation } from '../../services/authApi'
 // const icon = require('./assets/images/icons/wallet30x30.svg')
-import {SignInSchema} from '../../helpers/CommonSChemas';
+import { SignInSchema } from '../../helpers/CommonSChemas'
 const LoginForm = ({ onSubmit }) => {
   const initialState = {
     email: '',
@@ -40,31 +40,33 @@ const LoginForm = ({ onSubmit }) => {
   const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
   const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams()
   const newUser = searchParams.get('newUser')
   // const isRegistrationSuccess = useSelector(state => state.user.user.name)
   const state = useSelector(state => state.user)
 
   const [isShowModal, SetIsShowModal] = useState(false)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  // const navigate = useNavigate()
+  // const dispatch = useDispatch()
 
   const closeModalPortal = () => {
     SetIsShowModal(false)
   }
 
+  const isNewUser = useSelector(state => state.user.newUser)
+
   useEffect(() => {
-    if (window.newUser && window.newUser !== "EXIT") {
-      // show modal
+    if (isNewUser) {
       SetIsShowModal(true)
-      // dispatch(closeModal(false))
-      navigate('/login', { replace: false })
-      window.newUser = "EXIT";
     }
+    // if (window.newUser && window.newUser !== 'EXIT') {
+    //   // show modal
+    //   // dispatch(closeModal(false))
+    //   navigate('/login', { replace: false })
+    //   window.newUser = 'EXIT'
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-
 
   return (
     <FormContainer>
@@ -124,4 +126,3 @@ LoginForm.propTypes = {
   onSubmit: PropTypes.func.isRequired
 }
 export default LoginForm
-

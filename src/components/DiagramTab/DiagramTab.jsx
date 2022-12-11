@@ -43,6 +43,8 @@ const DiagramTab = () => {
   const { data: statsData } = useGetStatsQuery()
   const { data: totalData } = useGetTotalStatsQuery()
 
+  console.log(statsData)
+
   // console.log(statsByPeriod)
 
   return (
