@@ -30,14 +30,6 @@ import {
   StyledSelectCustomRenderValue
 } from './SelectStyled'
 
-// const data={
-//     "type": true,
-//     "category": 10105,
-//     "comment": "First comment",
-//     "amount": 555.55,
-//     "date": 1670170243028
-// }
-
 const ModalTransactions = ({ closeModal }) => {
   const [newtransaction] = useAddTransactionsMutation()
 
@@ -61,20 +53,20 @@ const ModalTransactions = ({ closeModal }) => {
       type: type,
       date: date
     },
-    validationSchema: Yup.object({
+    validationSchema: Yup.object().shape({
       amount: Yup.number()
         .required('Please enter amount')
         .positive()
         .integer()
         .max(1000000),
-      category: Yup.string(),
+      category: Yup.number().required(),
       comment: Yup.string(),
       type: Yup.boolean().required(),
       date: Yup.string().required()
     }),
     onSubmit:async (values, { resetForm }) => {
       try {
-        console.log('newtransaction', newtransaction)
+      
         const result = await newtransaction(IV);
 
         resetForm()
@@ -85,13 +77,12 @@ const ModalTransactions = ({ closeModal }) => {
         return result
      
       } catch (error) {
-        console.log('error', error)
+                Notify.failure(error)
       }
   
     }
   })
   const IV = { ...formik.values, date, type }
-  console.log('IV', IV)
 
   return (
     <BackdropContainer
