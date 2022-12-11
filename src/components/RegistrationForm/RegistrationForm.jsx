@@ -28,6 +28,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import ModalRegistration from '../ModalLogout/ModalRegistration'
 import { useSignUpMutation } from '../../services/authApi'
 import { SignUpSchema } from '../../helpers/CommonSChemas'
+import { isRegister } from '../../redux/auth/authSlice'
 const initialState = {
   name: '',
   email: '',
@@ -42,23 +43,21 @@ const RegistrationForm = ({ onSubmit }) => {
 
   //из этого хука мы получаем функцию signUp, которая будет вызываться при отправке формы
   const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
-  // isLoading - статус загрузки
-  // isError - статус ошибки
-  // isSuccess - статус успеха
-  // error - объект ошибки
 
   const isRegistrationSuccess = useSelector(state => state.user.user.name)
-  console.log('isLoading: ', isLoading)
+  // const newUser = useSelector(state => state.user.newUser)
+  // console.log('newUser: ', newUser)
+  // console.log('isLoading: ', isLoading)
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (isRegistrationSuccess && window.newUser !== 'EXIT') {
-      // redirect
-      navigate('/login?newUser=true', { replace: true })
-      window.newUser = true
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isRegistrationSuccess])
+  // useEffect(() => {
+  //   if (isRegistrationSuccess && window.newUser !== 'EXIT') {
+  //     // redirect
+  //     navigate('/login?newUser=true', { replace: true })
+  //     window.newUser = true
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [isRegistrationSuccess])
 
   function increasePasswordHardness(event) {
     if (event.target.name === 'password') {
@@ -101,7 +100,6 @@ const RegistrationForm = ({ onSubmit }) => {
           break
         default:
           setPasswordHardness(0)
-        //-----------------------------------------------
       }
     }
   }

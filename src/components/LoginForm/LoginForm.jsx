@@ -46,21 +46,25 @@ const LoginForm = ({ onSubmit }) => {
   const state = useSelector(state => state.user)
 
   const [isShowModal, SetIsShowModal] = useState(false)
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
+  // const navigate = useNavigate()
+  // const dispatch = useDispatch()
 
   const closeModalPortal = () => {
     SetIsShowModal(false)
   }
 
+  const isNewUser = useSelector(state => state.user.newUser)
+
   useEffect(() => {
-    if (window.newUser && window.newUser !== 'EXIT') {
-      // show modal
+    if (isNewUser) {
       SetIsShowModal(true)
-      // dispatch(closeModal(false))
-      navigate('/login', { replace: false })
-      window.newUser = 'EXIT'
     }
+    // if (window.newUser && window.newUser !== 'EXIT') {
+    //   // show modal
+    //   // dispatch(closeModal(false))
+    //   navigate('/login', { replace: false })
+    //   window.newUser = 'EXIT'
+    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -77,7 +81,6 @@ const LoginForm = ({ onSubmit }) => {
         initialValues={initialState}
       >
         {({ errors, touched }) => (
-          //--------------------------------------------------------
           <Form>
             <FieldContainer>
               <StyledIconMail />
