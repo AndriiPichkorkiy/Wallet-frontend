@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-// import  '../../assets/css/utils/_vars.scss'
 import { Field } from 'formik'
 import { Link } from 'react-router-dom'
 import EmailIcon from '@mui/icons-material/Email'
@@ -8,11 +7,6 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { respondTo } from '../../helpers/respondTo'
 import { LinearProgress } from '@mui/material'
 
-// export const ContainerTabl = styled.div`
-//   /* margin: 32px 0 0 0; */
-//   ${respondTo.sm`margin: 20px 32px 0 32px`}
-//   ${respondTo.lg`margin: 46px 16px 0 70px`};
-// `
 export const ContainerLogo = styled.div`
   display: flex;
   align-items: center;
@@ -148,9 +142,16 @@ export const StyledBtnMain = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  &:hover,
+  
   &:focus {
-    background: #3b9b86;
+    background-color: var(--accentPrimary);
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+  }
+  &:hover{
+    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
 `
 export const StyledBtn = styled(Link)`
@@ -168,10 +169,17 @@ export const StyledBtn = styled(Link)`
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  &:hover,
+  
   &:focus {
     background: var(--activeColor);
     color: var(--background);
+    background-image: linear-gradient(315deg,  #4a56e2 0%, #ffd8d0a6 74%);
+  }
+  &:hover{
+    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
 `
 export const StyledErrorMsg = styled.div`

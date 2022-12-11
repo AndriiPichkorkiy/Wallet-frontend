@@ -4,6 +4,7 @@ import { respondTo } from '../../helpers/respondTo'
 export const Wrapp = styled.div`
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
+  height: 100vh;
 `
 export const MainContainer = styled.div`
   padding: 12px 20px;
