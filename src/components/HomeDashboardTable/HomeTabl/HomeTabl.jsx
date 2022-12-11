@@ -7,7 +7,7 @@ import {
   EmptyContainer,
   StyledGridOverlay
 } from './HomeTabl.styled'
-// import EllipsisText from 'react-ellipsis-text'
+import EllipsisText from 'react-ellipsis-text'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
@@ -25,7 +25,7 @@ const HomeTabl = ({ data }) => {
         return <Typography>{newDate}</Typography>
       },
       align: 'center',
-      flex: 0.9
+      flex: 1
     },
     {
       field: 'type',
@@ -55,10 +55,10 @@ const HomeTabl = ({ data }) => {
       headerName: 'Comment',
       headerAlign: 'left',
       align: 'left',
-      flex: 1.2
-      //   renderCell: ({ row: { comment } }) => (
-      //     <EllipsisText text={comment} length={'17'} />
-      //   )
+      flex: 1.1,
+      renderCell: ({ row: { comment } }) => (
+        <EllipsisText text={comment} length={'20'} />
+      )
     },
     {
       field: 'amount',
@@ -82,7 +82,7 @@ const HomeTabl = ({ data }) => {
       align: 'right',
       flex: 1,
       renderCell: ({ row: { balance } }) => (
-        <Typography sx={{ pr: '15px' }}>{balance}</Typography>
+        <Typography sx={{ pr: '15px' }}>{balance.toFixed(2)}</Typography>
       )
     }
   ]
@@ -184,7 +184,7 @@ const HomeTabl = ({ data }) => {
             components={{
               NoRowsOverlay: CustomNoRowsOverlay
             }}
-            rows={data}
+            rows={data ?? []}
             columns={columns}
             getRowId={row => row._id}
             pageSize={pageSize}

@@ -6,6 +6,7 @@ import {
   ContainerEmpty
 } from './MobileTabl.styled'
 import { useId } from 'react'
+import EllipsisText from 'react-ellipsis-text'
 
 const MobileTabl = ({ data }) => {
   const unid = useId()
@@ -30,7 +31,10 @@ const MobileTabl = ({ data }) => {
                 Category <Span>{category.name}</Span>
               </TypographyCard>
               <TypographyCard>
-                Comment <Span>{comment}</Span>
+                Comment
+                <Span>
+                  <EllipsisText text={comment} length={'20'} />
+                </Span>
               </TypographyCard>
               <TypographyCard>
                 Sum <Span isType={type ? '+' : '-'}>{amount.toFixed(2)}</Span>
