@@ -17,14 +17,13 @@ import Media from 'react-media'
 // import largePinkImg from '../../assets/images/ellipsesBg/EllipsePink.png'
 import { useLocation } from 'react-router-dom'
 
-import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"
+import ModalTransactions from '../../components/ModalTransaction/ModalTransactions'
 import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
-
-
 
 const DashboardPage = () => {
   const { pathname } = useLocation()
-  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] = useState(false)
+  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
+    useState(false)
   return (
     <>
       <Header />
@@ -35,7 +34,11 @@ const DashboardPage = () => {
       > */}
       <MainContainer>
         <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
-        {isModalAddTransactionOpen && <ModalTransactions closeModal={() => SetIsModalAddTransactionOpen(false)} />}
+        {isModalAddTransactionOpen && (
+          <ModalTransactions
+            closeModal={() => SetIsModalAddTransactionOpen(false)}
+          />
+        )}
         <Media
           queries={{
             small: '(max-width: 767px)',
@@ -45,21 +48,21 @@ const DashboardPage = () => {
         >
           {matches => (
             <>
-              {matches.small && pathname === '/cabinet/currency' && (
-                <ContainerLeft>
-                  <DashbordBtns />
-                </ContainerLeft>
-              )}
               {matches.small &&
-                (pathname === '/cabinet' ||
+                (pathname === '/cabinet/currency' ||
                   pathname === '/cabinet/statistics') && (
-                  <>
-                    <ContainerLeft>
-                      <DashbordBtns />
-                      <Balance />
-                    </ContainerLeft>
-                  </>
+                  <ContainerLeft>
+                    <DashbordBtns />
+                  </ContainerLeft>
                 )}
+              {matches.small && pathname === '/cabinet' && (
+                <>
+                  <ContainerLeft>
+                    <DashbordBtns />
+                    <Balance />
+                  </ContainerLeft>
+                </>
+              )}
               {matches.medium && pathname === '/cabinet/currency' && (
                 <Navigate to='/cabinet' />
               )}

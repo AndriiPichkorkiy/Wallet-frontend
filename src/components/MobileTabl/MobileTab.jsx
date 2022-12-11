@@ -8,16 +8,8 @@ import {
 import { useId } from 'react'
 
 const MobileTabl = ({ data }) => {
-  //   console.log(data)
   const unid = useId()
-  if (data.length === 0) {
-    return (
-      <ContainerEmpty sx={{ minWidth: 280 }}>
-        There are no recorded transactions. Click the green button in the lower
-        right corner and make the first entry!
-      </ContainerEmpty>
-    )
-  }
+
   if (data.length > 0) {
     const card =
       // data &&
@@ -51,6 +43,14 @@ const MobileTabl = ({ data }) => {
         )
       })
     return card
+  } else {
+    return (
+      <ContainerEmpty sx={{ minWidth: 280 }}>
+        There are no recorded transactions. Click the{' '}
+        <span style={{ color: 'var(--accentPrimary' }}>green button </span> in
+        the lower right corner ↓ and make the first entry!
+      </ContainerEmpty>
+    )
   }
 }
 export default MobileTabl

@@ -10,7 +10,8 @@ export const transactionsApi = createApi({
     baseUrl: BASE_URL,
 
     prepareHeaders: (headers, { getState }) => {
-      const token = getState().userV2.token
+      const token = getState().token
+      console.log('token', token)
       if (token) {
         headers.set('authorization', `Bearer ${token}`)
       }

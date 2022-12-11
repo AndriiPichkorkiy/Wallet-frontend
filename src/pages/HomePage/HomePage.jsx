@@ -8,7 +8,7 @@ import MobileTabl from '../../components/MobileTabl'
 
 function HomePage() {
   const [data, setData] = useState([])
-  console.log(data)
+
   useEffect(() => {
     getTransactionAll().then(setData)
   }, [])
