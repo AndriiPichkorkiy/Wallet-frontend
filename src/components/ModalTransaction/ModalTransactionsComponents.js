@@ -12,12 +12,14 @@ export const BackdropContainer = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.25);
-  z-index:111
- 
+  z-index:111;
+  overflow-y: scroll;
 `
 
 export const ModalTransactionsContainer = styled.div`
  position: fixed;
+overflow-y: auto;
+overflow-x: hidden;
   height: auto;
   /* height: 581px; */
   top: 50%;
