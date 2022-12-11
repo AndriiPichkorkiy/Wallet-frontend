@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Media from 'react-media'
 import { Navigate } from 'react-router-dom'
 // import { getNews } from '../../services/newsApi'
@@ -13,6 +13,7 @@ import {
 } from './NewsComponents'
 
 const NewsPage = () => {
+  // eslint-disable-next-line no-unused-vars
   const [news, setNews] = useState([])
 
   // useEffect(() => {

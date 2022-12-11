@@ -3,17 +3,21 @@ import { respondTo } from '../../helpers/respondTo'
 
 export const StyledRegistrationPageContainer = styled.div`
   position: relative;
+  height: 100vh;
   ${respondTo.sm`
                 padding:60px 117px 48px 118px;
         `}
   ${respondTo.lg`
            display:flex;
            align-items: center;
-           width:100%;
+           max-width: 1280px;
                 padding:0;
+                margin: 0 auto;
         `}
 `
 export const StyledFormContainer = styled.div`
+height: 100%;
+margin: 0 auto;
   ${respondTo.lg`
                 padding:52px 91px 52px 107px;
                 background: rgba(255, 255, 255, 0.4);
@@ -21,12 +25,15 @@ export const StyledFormContainer = styled.div`
         `}
 `
 export const StyledHeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 50px;
-  flex-grow: 1;
+  ${respondTo.sm`
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        margin-bottom: 50px;
+        `}
+  
   ${respondTo.lg`
-             flex-direction: column;
+        flex-direction: column;
         `}
 `
 export const StyledRegisterTitle = styled.div`
@@ -51,6 +58,7 @@ export const StyledLargeImg = styled.img`
 `
 export const StyledRegisterImgContainer = styled.div`
   display: none;
+  margin: 0;
   ${respondTo.sm`
                 display:block;
                 margin-right: 40px;
@@ -68,7 +76,7 @@ export const StyledRegisterImgLargeContainer = styled.div`
 `
 export const StyledRightCornerImgContainer = styled.div`
   display: none;
-  ${respondTo.sm`
+  /* ${respondTo.sm`
                 display:block;
                 position:absolute;
                 top:0;
@@ -77,27 +85,27 @@ export const StyledRightCornerImgContainer = styled.div`
         `}
   ${respondTo.lg`
                 display:none;
-        `}
+        `} */
 `
 
 export const StyledLeftCornerImgContainer = styled.div`
   display: none;
-  ${respondTo.sm`
+  /* ${respondTo.sm`
                 display:block;
                 position:absolute;
                 bottom:0;
                 left:0;
                 z-index:-1;
-        `}
+        `} */
 `
 
 export const StyledRightCornerImgLargeContainer = styled.div`
   display: none;
-  ${respondTo.lg`
+  /* ${respondTo.lg`
                 display:block;
                 position:absolute;
                 top:0;
                 right:0;
                 z-index:-1;
-        `}
+        `} */
 `
