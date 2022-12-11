@@ -6,15 +6,12 @@ import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import Loader from '../../components/Loader/Loader'
 import {
-  // BG,
   ContainerLeft,
   ContainerTop,
-  MainContainer
+  MainContainer,
+  Wrapp
 } from './Dashboard.styled'
 import Media from 'react-media'
-// import mediumPinkImg from '../../assets/images/ellipsesBg/EllipsePinkTablet.png'
-// import violetImg from '../../assets/images/ellipsesBg/EllipseViolet.png'
-// import largePinkImg from '../../assets/images/ellipsesBg/EllipsePink.png'
 import { useLocation } from 'react-router-dom'
 
 import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"
@@ -26,13 +23,8 @@ const DashboardPage = () => {
   const { pathname } = useLocation()
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] = useState(false)
   return (
-    <>
+    <Wrapp>
       <Header />
-      {/* <BG
-        mediumPinkImg={mediumPinkImg}
-        violetImg={violetImg}
-        largePinkImg={largePinkImg}
-      > */}
       <MainContainer>
         <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
         {isModalAddTransactionOpen && <ModalTransactions closeModal={() => SetIsModalAddTransactionOpen(false)} />}
@@ -93,8 +85,7 @@ const DashboardPage = () => {
           <Outlet />
         </Suspense>
       </MainContainer>
-      {/* </BG> */}
-    </>
+    </Wrapp>
   )
 }
 

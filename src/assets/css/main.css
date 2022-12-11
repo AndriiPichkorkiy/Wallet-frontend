@@ -35,14 +35,38 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
-}
-body {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   color: #000000;
   margin: 0;
-  background-color: #e7eaf2;
+  background-color: #E5E5E5;
+}
+@media screen and (min-width: 768px) {
+  html,
+body {
+    background: url(../../../public/imgs/pinkTab.png), url(../../../public/imgs/violet.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html,
+body {
+    background: url(../../../public/imgs/pink.png), url(../../../public/imgs/violet.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html,
+body {
+    background-color: #E5E5E5;
+  }
 }
 
 .ul {

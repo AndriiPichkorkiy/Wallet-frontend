@@ -3,7 +3,6 @@ import { respondTo } from '../../helpers/respondTo'
 
 export const StyledRegistrationPageContainer = styled.div`
   position: relative;
-  width:100;
   height: 100vh;
   ${respondTo.sm`
                 padding:60px 117px 48px 118px;
@@ -13,6 +12,7 @@ export const StyledRegistrationPageContainer = styled.div`
            align-items: center;
            max-width: 1280px;
                 padding:0;
+                margin: 0 auto;
         `}
 `
 export const StyledFormContainer = styled.div`
@@ -25,12 +25,15 @@ margin: 0 auto;
         `}
 `
 export const StyledHeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  margin-bottom: 50px;
-  flex-grow: 1;
+  ${respondTo.sm`
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+        margin-bottom: 50px;
+        `}
+  
   ${respondTo.lg`
-             flex-direction: column;
+        flex-direction: column;
         `}
 `
 export const StyledRegisterTitle = styled.div`
@@ -55,6 +58,7 @@ export const StyledLargeImg = styled.img`
 `
 export const StyledRegisterImgContainer = styled.div`
   display: none;
+  margin: 0;
   ${respondTo.sm`
                 display:block;
                 margin-right: 40px;

@@ -8,9 +8,9 @@ import {
     StyledRegisterImgLargeContainer, StyledLeftCornerImgContainer, StyledRightCornerImgLargeContainer,
     StyledRegistrationPageContainer
 } from '../RegistrationPage/RegistrationPage.styled';
-import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
-import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
-import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
+// import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
+// import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
+// import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
 import icon_register_tab from '../../assets/images/authImg/login-tablet.png';
 import icon_register_desc from '../../assets/images/authImg/login-desk.png';
 const LoginPage = () => {
@@ -22,9 +22,9 @@ const LoginPage = () => {
     return (
           <StyledRegistrationPageContainer>
             <StyledHeadContainer>
-                <StyledLeftCornerImgContainer>
+                {/* <StyledLeftCornerImgContainer>
                     <StyledLargeImg src={icon_violet} alt="violet circle"/>
-                </StyledLeftCornerImgContainer>
+                </StyledLeftCornerImgContainer> */}
 
                 <StyledRegisterImgContainer>
                     <StyledLargeImg src={icon_register_tab} alt="women with phone"/>
@@ -38,14 +38,14 @@ const LoginPage = () => {
             </StyledHeadContainer>
 
             <StyledFormContainer> 
-                <StyledRightCornerImgContainer>
+                {/* <StyledRightCornerImgContainer>
                     <StyledImg src={icon_pink} alt="pink circle"/>
                     
-                </StyledRightCornerImgContainer>
-                <StyledRightCornerImgLargeContainer>
+                </StyledRightCornerImgContainer> */}
+                {/* <StyledRightCornerImgLargeContainer>
                     <StyledImg src={icon_pink_tablet} alt="pink circle"/>
                     
-                </StyledRightCornerImgLargeContainer>
+                </StyledRightCornerImgLargeContainer> */}
               <LoginForm onSubmit={onLogin} />
             </StyledFormContainer>
         </StyledRegistrationPageContainer>
