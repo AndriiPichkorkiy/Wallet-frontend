@@ -11,7 +11,7 @@ import EllipsisText from 'react-ellipsis-text'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
-  //   console.log(...data)
+  console.log(data)
 
   const columns = [
     {

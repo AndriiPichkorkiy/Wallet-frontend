@@ -33,7 +33,7 @@ const MobileTabl = ({ data }) => {
               <TypographyCard>
                 Comment
                 <Span>
-                  <EllipsisText text={comment} length={'20'} />
+                  <EllipsisText text={comment} length={20} />
                 </Span>
               </TypographyCard>
               <TypographyCard>

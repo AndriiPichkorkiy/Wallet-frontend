@@ -42,6 +42,7 @@ export const transactionsApi = createApi({
 
 export const {
   useGetAllTransactionsQuery,
+  useLazyGetAllTransactionsQuery,
   useAddTransactionsMutation,
   useGetCategoryQuery
 } = transactionsApi
