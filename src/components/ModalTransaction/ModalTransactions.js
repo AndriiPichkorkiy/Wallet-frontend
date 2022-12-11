@@ -75,7 +75,6 @@ const ModalTransactions = ({ closeModal }) => {
       console.log('date', date)
       resetForm()
       if (values.amount) {
-        alert('transaction successful')
         closeModal()
       }
     }

@@ -18,7 +18,7 @@ const DashbordBtns = () => {
   return (
     <Container>
       <BtnsCont>
-        <LinkBtn to='/cabinet/'>
+        <LinkBtn to='/'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -46,7 +46,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Home</BtnText>
         </LinkBtn>
-        <LinkBtn to='/cabinet/statistics'>
+        <LinkBtn to='/statistics'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -74,7 +74,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Statistiscs</BtnText>
         </LinkBtn>
-        <CurrLinkBtn to='/cabinet/currency'>
+        <CurrLinkBtn to='/currency'>
           <AttachMoneyIcon
             sx={{
               color: 'var(--background)',
@@ -86,7 +86,7 @@ const DashbordBtns = () => {
           />
         </CurrLinkBtn>
       </BtnsCont>
-      <NewsLinkBtn to="/cabinet/news">
+      <NewsLinkBtn to="/news">
       <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               !matches.small && (
@@ -94,9 +94,9 @@ const DashbordBtns = () => {
                   sx={{
                     color: 'var(--background)',
                     background: 'var(--paleActiveColor)',
-                    borderRadius: '8px',
-                    width: '34px',
-                    height: '34px'
+                    borderRadius: '2px',
+                    width: '18px',
+                    height: '18px'
                   }}
                 />
               )

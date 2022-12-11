@@ -37,14 +37,14 @@ const DashboardPage = () => {
         >
           {matches => (
             <>
-              {matches.small && pathname === '/cabinet/currency' && (
+              {matches.small && pathname === '/currency' && (
                 <ContainerLeft>
                   <DashbordBtns />
                 </ContainerLeft>
               )}
               {matches.small &&
-                (pathname === '/cabinet' ||
-                  pathname === '/cabinet/statistics') && (
+                (pathname === '/' ||
+                  pathname === '/statistics') && (
                   <>
                     <ContainerLeft>
                       <DashbordBtns />
@@ -52,8 +52,8 @@ const DashboardPage = () => {
                     </ContainerLeft>
                   </>
                 )}
-              {matches.medium && pathname === '/cabinet/currency' && (
-                <Navigate to='/cabinet' />
+              {matches.medium && pathname === '/currency' && (
+                <Navigate to='/' />
               )}
               {matches.medium && (
                 <>
@@ -66,8 +66,8 @@ const DashboardPage = () => {
                   </ContainerTop>
                 </>
               )}
-              {matches.large && pathname === '/cabinet/currency' && (
-                <Navigate to='/cabinet' />
+              {matches.large && pathname === '/currency' && (
+                <Navigate to='/' />
               )}
               {matches.large && (
                 <>
