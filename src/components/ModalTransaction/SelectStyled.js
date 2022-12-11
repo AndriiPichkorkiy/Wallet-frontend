@@ -60,33 +60,29 @@ const MenuProps = {
   }
 }
 const data = [
-  {id:102,name:'test1'},
-  {id:103,name:'test2'},
-  {id:104,name:'test3'},
-  {id:105,name:'test4'},
-  {id:106,name:'test5'},
-  {id:107,name:'test'},
+  { id: 102, name: 'test1' },
+  { id: 103, name: 'test2' },
+  { id: 104, name: 'test3' },
+  { id: 105, name: 'test4' },
+  { id: 106, name: 'test5' },
+  { id: 107, name: 'test' }
 ]
-const ela = data.map((p) => 
-   p.id > 103?123123123:null )
+const ela = data.map(p => (p.id > 103 ? 123123123 : null))
 
 export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
   const { data } = useGetCategoryQuery()
- 
 
   return (
     <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
       <FormControl fullWidth sx={{ m: 1, minWidth: '280px' }}>
         <Select
           renderValue={selected => {
-            
             if (selected.length === 0) {
               return <em style={{ color: '#BDBDBD' }}>select a category</em>
             }
-            const {name} = data?.find(el => el.id === selected ) 
-            
+            const { name } = data?.find(el => el.id === selected)
+
             return name
-            
           }}
           name={name}
           variant='standard'
@@ -99,8 +95,14 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
           //       }}
         >
-          {data?.map(el=>el.id<10200&&<MenuItem  value={el.id}>{el.name}</MenuItem>)}
-     
+          {data?.map(
+            el =>
+              el.id < 10200 && (
+                <MenuItem key={el.id} value={el.id}>
+                  {el.name}
+                </MenuItem>
+              )
+          )}
         </Select>
       </FormControl>
     </Box>
@@ -113,16 +115,13 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
       <FormControl fullWidth sx={{ m: 1, minWidth: '280px' }}>
         <Select
           name={name}
+          renderValue={selected => {
+            if (selected.length === 0) {
+              return <em style={{ color: '#BDBDBD' }}>select a category</em>
+            }
+            const { name } = data?.find(el => el.id === selected)
 
-      renderValue={selected => {
-
-          if (selected.length === 0) {
-          return <em style={{ color: '#BDBDBD' }}>select a category</em>
-          }
-          const {name} = data?.find(el => el.id === selected ) 
-
-          return name
-            
+            return name
           }}
           //   IconComponent={<InputAdornment position="end">kg<InputAdornment>}
           variant='standard'
@@ -137,7 +136,9 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //         endAdornment: <InputAdornment position="end">kg</InputAdornment>,
           //       }}
         >
-            {data?.map(el=>el.id>10200&&<MenuItem  value={el.id}>{el.name}</MenuItem>)}
+          {data?.map(
+            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+          )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}
         </Select>

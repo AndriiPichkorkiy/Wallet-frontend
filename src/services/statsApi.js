@@ -17,6 +17,10 @@ export const statsApi = createApi({
     }
   }),
   endpoints: builder => ({
+    getBalance: builder.query({
+      query: () => ({ url: '/api/user/balance', method: 'GET' }),
+      invalidatesTags: [{ type: 'Stats' }]
+    }),
     getStats: builder.query({
       query: () => ({ url: '/api/transactions/categories', method: 'GET' }),
       invalidatesTags: [{ type: 'Stats' }]
@@ -38,6 +42,7 @@ export const statsApi = createApi({
 
 export const {
   useGetStatsQuery,
+  useLazyGetBalanceQuery,
   useGetTotalStatsQuery,
   useGetStatsByPeriodQuery,
   useLazyGetStatsByPeriodQuery

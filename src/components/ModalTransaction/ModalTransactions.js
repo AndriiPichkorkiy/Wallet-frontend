@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { Notify } from "notiflix";
-import { useAddTransactionsMutation } from '../../services/transactionsApi';
+import { Notify } from 'notiflix'
+import { useAddTransactionsMutation } from '../../services/transactionsApi'
 import './buttons.styled.js'
 import ButtonAddTransactions from './Buttons/buttonAddTransactions'
 import {
@@ -30,7 +30,14 @@ import {
   StyledSelectCustomRenderValue
 } from './SelectStyled'
 
+import { useDispatch } from 'react-redux'
+import { useLazyGetBalanceQuery } from '../../services/statsApi'
+import { setBalance } from '../../redux/finance/financeSlice'
+
 const ModalTransactions = ({ closeModal }) => {
+  const dispatch = useDispatch()
+  const [getBalance] = useLazyGetBalanceQuery()
+
   const [newtransaction] = useAddTransactionsMutation()
 
   const [type, setTyped] = useState(false)
@@ -64,22 +71,22 @@ const ModalTransactions = ({ closeModal }) => {
       type: Yup.boolean().required(),
       date: Yup.string().required()
     }),
-    onSubmit:async (values, { resetForm }) => {
+    onSubmit: async (values, { resetForm }) => {
       try {
-      
-        const result = await newtransaction(IV);
+        const result = await newtransaction(IV)
 
         resetForm()
-         if (values.amount) {
-        Notify.info('transaction successful')
-        closeModal()
-      }
+        if (values.amount) {
+          Notify.info('transaction successful')
+          closeModal()
+        }
+        const balance = await getBalance().unwrap()
+        dispatch(setBalance(balance))
+
         return result
-     
       } catch (error) {
-                Notify.failure(error)
+        Notify.failure(error)
       }
-  
     }
   })
   const IV = { ...formik.values, date, type }

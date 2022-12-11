@@ -10,8 +10,6 @@ import {
 } from '../../services/statsApi'
 import StatsTable from '../StatsTable/StatsTable'
 
-import { setBalance } from '../../redux/finance/financeSlice'
-
 import {
   StatsTitle,
   StatsWrapper,
@@ -20,7 +18,7 @@ import {
 } from './DiagramTab.styled'
 
 const DiagramTab = () => {
-  const dispatch = useDispatch()
+  // const dispatch = useDispatch()
 
   const currentMonth = new Date().getMonth() + 1
   const currentYear = new Date().getFullYear()
@@ -31,7 +29,7 @@ const DiagramTab = () => {
   const [query, setQuery] = useState(`year=${year}&month=${month}`)
 
   const handleChange = ({ target: { name, value } }) => {
-    console.log(value)
+    // console.log(value)
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -42,17 +40,9 @@ const DiagramTab = () => {
     }
   }
 
-  const [getBalance] = useLazyGetStatsByPeriodQuery()
-  const balance = useSelector(state => state.finance)
-
   useEffect(() => {
     // setQuery(`year=${year}`)
     setQuery(`year=${year}&month=${month}`)
-    const fetchBalance = async () => {
-      const data = await getBalance(query).unwrap()
-      dispatch(setBalance(data.totalStats.totalBalance))
-    }
-    fetchBalance()
   }, [month, year])
 
   const { data: statsByPeriod } = useGetStatsByPeriodQuery(query)
@@ -65,7 +55,7 @@ const DiagramTab = () => {
   //   item => item.id !== '10501' && item.id !== '10502'
   // )
 
-  console.log(statsByPeriod)
+  // console.log(statsByPeriod)
 
   // console.log(statsByPeriod)
 
