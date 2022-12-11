@@ -64,15 +64,15 @@ const MenuProps = {
     }
   }
 }
-const data = [
-  { id: 102, name: 'test1' },
-  { id: 103, name: 'test2' },
-  { id: 104, name: 'test3' },
-  { id: 105, name: 'test4' },
-  { id: 106, name: 'test5' },
-  { id: 107, name: 'test' }
-]
-const ela = data.map(p => (p.id > 103 ? 123123123 : null))
+// const data = [
+//   { id: 102, name: 'test1' },
+//   { id: 103, name: 'test2' },
+//   { id: 104, name: 'test3' },
+//   { id: 105, name: 'test4' },
+//   { id: 106, name: 'test5' },
+//   { id: 107, name: 'test' }
+// ]
+// const ela = data.map(p => (p.id > 103 ? 123123123 : null))
 
 export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
   const { data } = useGetCategoryQuery()

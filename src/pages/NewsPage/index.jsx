@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
 import { Navigate } from 'react-router-dom'
-// import { getNews } from '../../services/newsApi'
+import { getNews } from '../../services/newsApi'
 import {
   Container,
   NewsHeader,
@@ -16,13 +16,13 @@ const NewsPage = () => {
   // eslint-disable-next-line no-unused-vars
   const [news, setNews] = useState([])
 
-  // useEffect(() => {
-  //     const asyncF = async () => {
-  //         const { data } = await getNews("currency")
-  //         setNews(data.articles)
-  //     }
-  //     asyncF()
-  // }, [])
+  useEffect(() => {
+    const asyncF = async () => {
+      const { data } = await getNews("currency")
+      setNews(data.articles)
+    }
+    asyncF()
+  }, [])
 
   return (
     <Media queries={{ small: '(max-width: 767px)' }}>
@@ -34,7 +34,7 @@ const NewsPage = () => {
             <Container>
               <NewsHeader>News about currency</NewsHeader>
               <NewsList>
-                <NewsItem>
+                {/* <NewsItem>
                   <NewsItemHead>QWWeeeee</NewsItemHead>
                   <NewsText>ASdasdfasd asd sas swde qweas sa</NewsText>
                   <NewsLink href='/'>link to the article</NewsLink>
@@ -43,7 +43,7 @@ const NewsPage = () => {
                   <NewsItemHead>QWWeeeee</NewsItemHead>
                   <NewsText>ASdasdfasd asd sas swde qweas sa</NewsText>
                   <NewsLink href='/'>link to the article</NewsLink>
-                </NewsItem>
+                </NewsItem> */}
 
                 {news.map(item => {
                   return (

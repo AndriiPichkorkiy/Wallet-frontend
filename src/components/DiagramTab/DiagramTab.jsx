@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import Chart from '../Chart/Chart'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, } from 'react-redux'
 import { useLazyGetStatsByPeriodQuery } from '../../services/statsApi'
 
 import {
-  useGetStatsQuery,
-  useGetTotalStatsQuery,
+  // useGetStatsQuery,
+  // useGetTotalStatsQuery,
   useGetStatsByPeriodQuery
 } from '../../services/statsApi'
 import StatsTable from '../StatsTable/StatsTable'
@@ -43,7 +43,7 @@ const DiagramTab = () => {
   }
 
   const [getBalance] = useLazyGetStatsByPeriodQuery()
-  const balance = useSelector(state => state.finance)
+  // const balance = useSelector(state => state.finance)
 
   useEffect(() => {
     // setQuery(`year=${year}`)
@@ -53,6 +53,7 @@ const DiagramTab = () => {
       dispatch(setBalance(data.totalStats.totalBalance))
     }
     fetchBalance()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [month, year])
 
   const { data: statsByPeriod } = useGetStatsByPeriodQuery(query)
