@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { respondTo } from '../../helpers/respondTo'
+import { respondTo } from '../../../helpers/respondTo'
 
 export const ContainerTabl = styled.div`
   /* margin: 32px 0 0 0; */

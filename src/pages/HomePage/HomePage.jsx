@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
 import { getTransactionAll } from '../../api/auth'
-import HomeTabl from '../../components/HomeTabl'
-import MobileTabl from '../../components/MobileTabl'
+import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
+import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
 // import data from './transactions.json'
 // import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 

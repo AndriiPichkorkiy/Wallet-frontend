@@ -8,6 +8,7 @@ export const BtnsCont = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 0 auto;
+  /* font-family: 'Poppins'; */
   ${respondTo.sm`
         align-items: start;
         flex-direction: column;
@@ -69,6 +70,38 @@ export const CurrLinkBtn = styled(NavLink)`
     `}
 `
 
+export const NewsLinkBtn = styled(NavLink)`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  visibility: hidden;
+  text-decoration: none;
+  &.active {
+    & > svg {
+      background: var(--activeColor);
+    }
+  }
+  ${respondTo.sm`
+        margin-left: 60px;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0px;
+        font-weight: 400;
+        font-size: 17px;
+        &.active {
+            filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+            font-weight: 700;
+        }
+    `}
+`
+
 export const BtnText = styled.span`
   position: absolute;
   width: 1px;
@@ -83,7 +116,14 @@ export const BtnText = styled.span`
         pointer-events: 1;
         visibility: visible;
         margin-left: 20px;
-        color: black;
-        
+        color: var(--main-text);
     `}
 `
+
+export const NewsBtnText = styled.span`
+  ${respondTo.sm`
+        margin-left: 10px;
+        color: var(--main-text);
+    `}
+`
+

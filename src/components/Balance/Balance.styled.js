@@ -6,7 +6,6 @@ export const Wrapp = styled.div`
   height: 80px;
   background: var(--background);
   border-radius: var(--component-border-radius);
-  /* margin-top: 12px; */
   margin-bottom: 32px;
   padding-top: 8px;
   padding-bottom: 11px;
@@ -19,12 +18,10 @@ export const Wrapp = styled.div`
         width: 336px;
         margin-top: 28px;
 		margin-bottom: 0px;
-        // margin-bottom: 20px;
     `}
 
   ${respondTo.lg`
         width: 395px;
-		//  margin-top: 28px; 
         margin-bottom: 32px;
     `}
 `

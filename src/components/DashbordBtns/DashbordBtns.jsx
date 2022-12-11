@@ -4,18 +4,21 @@ import {
   BtnText,
   Container,
   CurrLinkBtn,
-  LinkBtn
+  LinkBtn,
+  NewsBtnText,
+  NewsLinkBtn
 } from './DBtnsComponents'
 import HomeSharpIcon from '@mui/icons-material/HomeSharp'
 import TimelineIcon from '@mui/icons-material/Timeline'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
+import ArticleIcon from '@mui/icons-material/Article';
 import Media from 'react-media'
 
 const DashbordBtns = () => {
   return (
     <Container>
       <BtnsCont>
-        <LinkBtn to='/cabinet'>
+        <LinkBtn to='/'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -33,6 +36,7 @@ const DashbordBtns = () => {
                   sx={{
                     color: 'var(--background)',
                     background: 'var(--paleActiveColor)',
+                    borderRadius: '2px',
                     width: '18px',
                     height: '18px'
                   }}
@@ -42,7 +46,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Home</BtnText>
         </LinkBtn>
-        <LinkBtn to='/cabinet/statistics'>
+        <LinkBtn to='/statistics'>
           <Media queries={{ small: '(max-width: 767px)' }}>
             {matches =>
               matches.small ? (
@@ -60,6 +64,7 @@ const DashbordBtns = () => {
                   sx={{
                     color: 'var(--background)',
                     background: 'var(--paleActiveColor)',
+                    borderRadius: '2px',
                     width: '18px',
                     height: '18px'
                   }}
@@ -69,7 +74,7 @@ const DashbordBtns = () => {
           </Media>
           <BtnText>Statistiscs</BtnText>
         </LinkBtn>
-        <CurrLinkBtn to='/cabinet/currency'>
+        <CurrLinkBtn to='/currency'>
           <AttachMoneyIcon
             sx={{
               color: 'var(--background)',
@@ -81,6 +86,24 @@ const DashbordBtns = () => {
           />
         </CurrLinkBtn>
       </BtnsCont>
+      <NewsLinkBtn to="/news">
+      <Media queries={{ small: '(max-width: 767px)' }}>
+            {matches =>
+              !matches.small && (
+                <ArticleIcon
+                  sx={{
+                    color: 'var(--background)',
+                    background: 'var(--paleActiveColor)',
+                    borderRadius: '2px',
+                    width: '18px',
+                    height: '18px'
+                  }}
+                />
+              )
+          }
+        </Media>
+        <NewsBtnText>News</NewsBtnText>
+        </NewsLinkBtn>
     </Container>
   )
 }

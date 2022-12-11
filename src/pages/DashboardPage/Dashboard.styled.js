@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
-// import mediumPinkImg from '../../assets/images/ellipsesBg/EllipsePinkTablet.png'
-// import mediumVioletImg from '../../assets/images/ellipsesBg/EllipseVioletTablet.png'
 
 export const MainContainer = styled.div`
   padding: 12px 20px;
@@ -23,7 +21,6 @@ export const MainContainer = styled.div`
   	align-items:flex-start;
   	min-width: 1200px;
   	padding: 0 16px;
-
 	`}
 `
 export const ContainerLeft = styled.div`
@@ -45,25 +42,3 @@ export const ContainerTop = styled.div`
   ${respondTo.sm`
   align-items: center`}
 `
-
-// export const BG = styled.div`
-//   background: rgba(255, 255, 255, 0.4);
-//   ${respondTo.sm`
-//     // content: '';
-//     // position: absolute;
-//     // z-index: -1;
-//     // right: 0;
-//     // left: 0;
-
-// 	height: 100%;
-//     background-image: url(${p => p.mediumPinkImg}),
-//       url(${p => p.violetImg});
-//     background-repeat: no-repeat;
-//     background-position: right top, left bottom;
-//     //backdrop-filter: blur(25px)
-// 	`}
-
-//   ${respondTo.lg`
-//    background-image: url(${p => p.largePinkImg}),
-//       url(${p => p.violetImg})`}
-// `
