@@ -21,19 +21,13 @@ const MobileTabl = ({ data }) => {
     // data &&
     data.map(({ type, category, comment, amount, balance, date }) => {
       const time = date.$date.$numberLong
-      const newDate = new Date(+time)
-      const DATA =
-        newDate.getDate() +
-        '.' +
-        (newDate.getMonth() + 1) +
-        '.' +
-        newDate.getFullYear()
+      const newDate = new Date(+time).toLocaleDateString()
 
       return (
         <ContainerMobileTabl sx={{ minWidth: 280 }} isType={type ? '+' : '-'}>
           <CardBox key={unid}>
             <TypographyCard>
-              Date <Span> {DATA}</Span>
+              Date <Span> {newDate}</Span>
             </TypographyCard>
             <TypographyCard>
               Type <Span>{type ? '+' : '-'}</Span>

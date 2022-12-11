@@ -7,14 +7,16 @@ import { Wrapper, WrapperBig } from './Loader.styled';
 function Loader() {
   return (
     <Wrapper>
-      <PropagateLoader color="#4a56e2" />
+      <PropagateLoader color="#FFFFFF" />
     </Wrapper>
   );
 }
 function LoaderWrapper() {
   return (
     <WrapperBig>
-      <Loader />
+      <Wrapper>
+        <PropagateLoader color="#24cca7" />
+      </Wrapper>
     </WrapperBig>
   );
 }

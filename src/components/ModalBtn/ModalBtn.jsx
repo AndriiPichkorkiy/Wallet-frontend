@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const ModalBtn = () => {
-    return (
-        <button></button>
-    )
-}
+// const ModalBtn = () => {
+//     return (
+//         <button></button>
+//     )
+// }

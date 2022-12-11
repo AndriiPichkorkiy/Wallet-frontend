@@ -17,14 +17,9 @@ const HomeTabl = ({ data }) => {
       valueOptions: ['$date.$numberLong'],
       renderCell: ({ row: { date } }) => {
         const time = date.$date.$numberLong
-        const newDate = new Date(+time)
-        const DATA =
-          newDate.getDate() +
-          '.' +
-          (newDate.getMonth() + 1) +
-          '.' +
-          newDate.getFullYear()
-        return <Typography>{DATA}</Typography>
+        const newDate = new Date(+time).toLocaleDateString()
+
+        return <Typography>{newDate}</Typography>
       },
       align: 'center',
       flex: 1
@@ -174,7 +169,7 @@ const HomeTabl = ({ data }) => {
           }}
           rows={data}
           columns={columns}
-          getRowId={row => row.date.$date.$numberLong}
+          getRowId={row => row._id.$oid}
           pageSize={pageSize}
           onPageSizeChange={newPageSize => setPageSize(newPageSize)}
           rowsPerPageOptions={[5, 10, 20]}

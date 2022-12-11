@@ -2,53 +2,53 @@
   "stats": [
     {
       "id": 1,
-      "name": "Basic expenses",
-      "quantity": 8700
+      "name": "Main expenses",
+      "quantity": 8700.0
     },
     {
       "id": 2,
       "name": "Products",
-      "quantity": 3800
+      "quantity": 3800.74
     },
     {
       "id": 3,
       "name": "Car",
-      "quantity": 1500
+      "quantity": 1500.0
     },
     {
       "id": 4,
       "name": "Self care",
-      "quantity": 800
+      "quantity": 800.0
     },
     {
       "id": 5,
       "name": "Child care",
-      "quantity": 2208
+      "quantity": 2208.5
     },
     {
       "id": 6,
       "name": "Household products",
-      "quantity": 300
+      "quantity": 300.0
     },
     {
       "id": 7,
       "name": "Education",
-      "quantity": 3400
+      "quantity": 3400.0
     },
     {
       "id": 8,
       "name": "Leisure",
-      "quantity": 1230
+      "quantity": 1230.0
     },
     {
       "id": 9,
       "name": "Other expenses",
-      "quantity": 610
+      "quantity": 610.0
     }
   ],
   "totalStats": {
-    "expenses": 222549,
-    "income": 27350,
+    "expenses": 22549.24,
+    "income": 27350.0,
     "totalBalance": 100500
   }
 }

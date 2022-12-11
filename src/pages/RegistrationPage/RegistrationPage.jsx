@@ -1,67 +1,61 @@
-import React from 'react';
-import { useSignUpMutation } from '../../services/authApi';
-// import {isAuth} from '../../redux/auth/userSlice'
-import { signUp } from '../../redux/auth/auth-operations';
-import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm';
+import React from 'react'
+import { useSignUpMutation } from '../../services/authApi'
+import { isRegister } from '../../redux/auth/authSlice'
+import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm'
 import {
-    StyledImg, StyledLargeImg, StyledFormContainer, StyledRightCornerImgContainer,
-    StyledHeadContainer, StyledRegisterTitle, StyledRegisterImgContainer,
-    StyledRegisterImgLargeContainer, StyledLeftCornerImgContainer, StyledRightCornerImgLargeContainer,
-    StyledRegistrationPageContainer
-} from './RegistrationPage.styled';
+  StyledImg,
+  StyledLargeImg,
+  StyledFormContainer,
+  StyledRightCornerImgContainer,
+  StyledHeadContainer,
+  StyledRegisterTitle,
+  StyledRegisterImgContainer,
+  StyledRegisterImgLargeContainer,
+  StyledLeftCornerImgContainer,
+  StyledRightCornerImgLargeContainer,
+  StyledRegistrationPageContainer
+} from './RegistrationPage.styled'
+
+import icon_register_tab from '../../assets/images/authImg/register-tablet.png'
+import icon_register_desc from '../../assets/images/authImg/register-desk.png'
+import { useDispatch } from 'react-redux'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
-import icon_pink from '../../assets/images/ellipsesBg/EllipsePink.png';
-import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.png';
-import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
-import icon_register_tab from '../../assets/images/authImg/register-tablet.png';
-import icon_register_desc from '../../assets/images/authImg/register-desk.png';
 
 const RegistrationPage = () => {
-    const [registrationUser, {error, isLoading, data}] = useSignUpMutation();
-    const onRegister = async (data) => {
-    try {
-      await registrationUser(data)
-      Notify.success('You are sign up!')
-      console.log('auth signup', data)
-    } catch (error) {
-      console.log('error', error)
-      Notify.failure(error.message.response.data.message)
-    }
+  const dispatch = useDispatch()
+  const [signUp, { isError, isLoading, error }] = useSignUpMutation()
+  console.log('isLoading', isLoading)
+
+  if (isError) {
+    Notify.failure(error.data.message)
   }
-    return (
-        <StyledRegistrationPageContainer>
-            <StyledHeadContainer>
-                <StyledLeftCornerImgContainer>
-                    <StyledLargeImg src={icon_violet} alt="violet circle" />
-                </StyledLeftCornerImgContainer>
 
-                <StyledRegisterImgContainer>
-                    <StyledLargeImg src={icon_register_tab} alt="women with phone" />
-                </StyledRegisterImgContainer>
+  const onHandleSubmit = async data => {
+    const response = await signUp(data).unwrap()
+    if (!response) {
+      return console.log('error', isError)
+    }
+    dispatch(isRegister(response))
+  }
 
-                <StyledRegisterImgLargeContainer>
-                    <StyledLargeImg src={icon_register_desc} alt="women with phone" />
-                </StyledRegisterImgLargeContainer>
+  return (
+    <StyledRegistrationPageContainer>
+      <StyledHeadContainer>
+        <StyledRegisterImgContainer>
+          <StyledLargeImg src={icon_register_tab} alt='women with phone' />
+        </StyledRegisterImgContainer>
 
-                <StyledRegisterTitle>Finance App</StyledRegisterTitle>
-            </StyledHeadContainer>
+        <StyledRegisterImgLargeContainer>
+          <StyledLargeImg src={icon_register_desc} alt='women with phone' />
+        </StyledRegisterImgLargeContainer>
+        <StyledRegisterTitle>Finance App</StyledRegisterTitle>
+      </StyledHeadContainer>
 
-            <StyledFormContainer>
-                <StyledRightCornerImgLargeContainer>
-                    <StyledImg src={icon_pink} alt="pink circle" />
-
-                </StyledRightCornerImgLargeContainer>
-                <StyledRightCornerImgContainer>
-                    <StyledImg src={icon_pink_tablet} alt="pink circle" />
-
-                </StyledRightCornerImgContainer>
-                <RegistrationForm onSubmit={onRegister} isLoading={ isLoading}  />
-            </StyledFormContainer>
-        </StyledRegistrationPageContainer>
-    )
+      <StyledFormContainer>
+        <RegistrationForm onSubmit={onHandleSubmit} />
+      </StyledFormContainer>
+    </StyledRegistrationPageContainer>
+  )
 }
 
-export default RegistrationPage;
-    // <div>
-    //         <RegistrationForm onSubmit={onRegister} />
-    //     </div>
+export default RegistrationPage
