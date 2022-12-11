@@ -1,21 +1,18 @@
 import React from 'react'
 import { useSignUpMutation } from '../../services/authApi'
 import { isRegister } from '../../redux/auth/authSlice'
-import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm'
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import {
-  StyledImg,
   StyledLargeImg,
   StyledFormContainer,
-  StyledRightCornerImgContainer,
   StyledHeadContainer,
   StyledRegisterTitle,
   StyledRegisterImgContainer,
   StyledRegisterImgLargeContainer,
-  StyledLeftCornerImgContainer,
-  StyledRightCornerImgLargeContainer,
   StyledRegistrationPageContainer
 } from './RegistrationPage.styled'
-
+// import { compose, connect } from 'redux';
+import { withAuthRedirect } from '../../components/hoc/withAuthRedirect';
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/register-desk.png'
 import { useDispatch } from 'react-redux'
@@ -24,7 +21,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio'
 const RegistrationPage = () => {
   const dispatch = useDispatch()
   const [signUp, { isError, isLoading, error }] = useSignUpMutation()
-  console.log('isLoading', isLoading)
+
 
   if (isError) {
     Notify.failure(error.data.message)
@@ -57,5 +54,7 @@ const RegistrationPage = () => {
     </StyledRegistrationPageContainer>
   )
 }
+
+// export default withAuthRedirect(RegistrationPage);
 
 export default RegistrationPage
