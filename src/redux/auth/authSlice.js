@@ -19,7 +19,7 @@ export const currentUser = createSlice({
     },
     isAuth(state, _) {
       state.isLoggedIn = true //при авторизации в стейт записывается true, что значит что пользователь залогинен
-      state.newUser = 'EXIT'
+      state.newUser = false //при авторизации в стейт записывается false, что значит что пользователь не новый
     },
     newCurrentUser(state, action) {
       state.user = action.payload //при обновлении данных пользователя в стейт записывается объект с данными о пользователе (в случае если пользователь не новый, просто заходит в свой профиль)

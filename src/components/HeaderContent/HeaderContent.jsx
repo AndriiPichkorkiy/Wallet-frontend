@@ -16,8 +16,6 @@ import { useSelector } from 'react-redux'
 export const HeaderContent = ({ toExit }) => {
   const name = useSelector(store => store.user.user.name)
 
-  console.log('name: ', name)
-
   return (
     <>
       <HeaderC>

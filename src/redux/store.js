@@ -18,6 +18,8 @@ import { transactionsApi } from '../services/transactionsApi'
 import { currentUser } from './auth/authSlice'
 import { currentToken } from './auth/tokenSlice'
 
+import { userBalance } from './finance/financeSlice'
+
 const persistConfig = {
   key: 'root',
   storage,
@@ -29,7 +31,8 @@ const rootReducer = combineReducers({
   [statsApi.reducerPath]: statsApi.reducer,
   [transactionsApi.reducerPath]: transactionsApi.reducer,
   user: currentUser.reducer,
-  token: currentToken.reducer
+  token: currentToken.reducer,
+  finance: userBalance.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
