@@ -35,14 +35,38 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
-}
-body {
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
   color: #000000;
   margin: 0;
-  background-color: #e7eaf2;
+  background-color: #E5E5E5;
+}
+@media screen and (min-width: 768px) {
+  html,
+body {
+    background: url(../../../public/imgs/pinkTab.png), url(../../../public/imgs/violet.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html,
+body {
+    background: url(../../../public/imgs/pink.png), url(../../../public/imgs/violet.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    background-attachment: fixed;
+    background-color: #E5E5E5;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html,
+body {
+    background-color: #E5E5E5;
+  }
 }
 
 .ul {
@@ -79,79 +103,4 @@ img {
   -moz-transition: none !important;
   -ms-transition: none !important;
   -o-transition: none !important;
-}
-
-@media screen and (min-width: 480px) {
-  .Header {
-    padding: 20px 32px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .Header {
-    padding: 16px 20px;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .logoIcon {
-    width: 40px;
-    margin-right: 20px;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .logoText {
-    font-size: 36px;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .btnLogout {
-    border-left: 1px #bdbdbd solid;
-    padding-left: 12px;
-  }
-}
-
-@media screen and (min-width: 480px) {
-  .logoutBtn_text {
-    color: #bdbdbd;
-    padding-top: 3px;
-    margin-left: 8px;
-    position: relative;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .modalLogout {
-    padding: 20px 80px;
-  }
-}
-
-.modalLogoutText {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.modalLogoutButton {
-  border-radius: 20px;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 27px;
-  padding: 5px 20px;
-  box-sizing: border-box;
-  max-height: 37px;
-  align-items: center;
-}
-.modalLogoutButtonYes {
-  background-color: transparent;
-  color: #4a56e2;
-  border: 1px #4a56e2 solid;
-  margin-right: 10px;
-}
-.modalLogoutButtonNo {
-  background-color: #24cca7;
-  color: white;
-} /*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */

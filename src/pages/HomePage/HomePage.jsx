@@ -1,31 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Media from 'react-media'
-import HomeTabl from '../../components/HomeTabl'
-import MobileTabl from '../../components/MobileTabl'
-import data from './transactions.json'
-// import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
+// import { getTransactionAll } from '../../api/auth'
+import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
+import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
+import ModalTransactions from '../../components/ModalTransaction/ModalTransactions'
+import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
+import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
-// let data = []
-
-// let result = []
-// if (result.length > 0) {
-//   return data
-// }
-
-function HomePage() {
-  //   const { data } = useGetAllTransactionsQuery()
+export default function HomePage() {
+  const { data } = useGetAllTransactionsQuery()
   //   console.log(useGetAllTransactionsQuery())
   //   console.log(data)
+
+  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
+    useState(false)
+
   return (
     <>
-      {data ? (
+      <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
+      {isModalAddTransactionOpen && (
+        <ModalTransactions
+          closeModal={() => SetIsModalAddTransactionOpen(false)}
+        />
+      )}
+      {data !== false ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
             matches.small ? (
-              <MobileTabl data={data} />
+              <MobileTabl data={data ?? []} />
             ) : (
               <>
-                <HomeTabl data={data} />
+                <HomeTabl data={data ?? []} />
               </>
             )
           }
@@ -34,5 +39,3 @@ function HomePage() {
     </>
   )
 }
-
-export default HomePage

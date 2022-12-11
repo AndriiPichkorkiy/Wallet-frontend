@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import Switch from "react-switch";
-import Datetime from 'react-datetime';
-import "react-datetime/css/react-datetime.css";
+import styled from 'styled-components'
+import Switch from 'react-switch'
+import Datetime from 'react-datetime'
+import 'react-datetime/css/react-datetime.css'
 
 import { respondTo } from '../../helpers/respondTo'
 
@@ -12,19 +12,24 @@ export const BackdropContainer = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.25);
-  z-index:111
- 
+  z-index: 111;
+  overflow-y: scroll;
 `
 
 export const ModalTransactionsContainer = styled.div`
- position: fixed;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
   height: auto;
+  width: 320px;
+  margin: 0 auto;
   /* height: 581px; */
-  top: 50%;
+  /* top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   background-color: #ffffff;
-    /* @media screen and(max-width:479px) {
+
+  /* @media screen and(max-width:479px) {
     width: 90vw;
   }
 
@@ -36,119 +41,145 @@ export const ModalTransactionsContainer = styled.div`
     width: 528px;
   } */
 
-
-/* margin: 0 10px 37px; */
-${respondTo.xs`margin: 0 20px 37px`}
- ${respondTo.sm`border-radius:20px;min-width:504px`}
-
-
+  /* margin: 0 10px 37px; */
+  ${respondTo.xs`margin: 0 20px 37px`}
+  ${respondTo.sm`border-radius:20px; min-width:504px`}
 `
 export const StyledForm = styled.form`
-display:flex;
-flex-direction:column;
-margin: 0 10px;`
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  ${respondTo.sm`padding-left: 73px; padding-right: 73px; `}
+`
 
 export const TitleTransactions = styled.p`
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 24px;
-line-height: 36px;
-text-align: center;
-color: #000000;
-margin:20px 0 40px`
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+  color: #000000;
+  margin: 20px 0 40px;
+`
 
 export const LabelIncome = styled.label`
-font-family: 'Circe';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-color: #24CCA7;
-margin-right: 20px;
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  color: #24cca7;
+  margin-right: 20px;
 `
 export const IncomeExpensContainer = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 export const SwitchInput = styled(Switch)`
- transform: rotate(180deg);
-  `
+  transform: rotate(180deg);
+`
 export const LabelExpense = styled.label`
-font-family: 'Circe';
-font-style: normal;
-font-weight: 700;
-font-size: 16px;
-line-height: 24px;
-margin-left:20px;
-color: #FF6596;
-
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: 20px;
+  color: #ff6596;
 `
 export const StyledInput = styled.input`
-color: '#BDBDBD';
-padding-left:20px;
+  font-family: 'Circe';
+  font-size: 18px;
+  color: #bdbdbd;
+  padding-left: 20px;
+  padding-bottom: 8px;
   outline: none;
   border: none;
-  border-bottom: #E0E0E0 1px solid;
+  border-bottom: #e0e0e0 1px solid;
   margin: 40px 10px 0;
 `
 
-
 export const StyledTextarea = styled.textarea`
-padding-left:20px;
-color: '#BDBDBD';
-resize: none;
-outline: none;
-border: none;
-border-bottom: #E0E0E0 1px solid;
-margin: 40px 10px 0;
-height: 84px;`
+  font-family: 'Circe';
+  font-size: 18px;
+  padding-left: 20px;
+  color: #bdbdbd;
+  resize: none;
+  outline: none;
+  border: none;
+  border-bottom: #e0e0e0 1px solid;
+  margin: 40px 10px 0;
+  height: 84px;
+`
 
 export const StyledDatetime = styled(Datetime)`
-outline: none;
-padding-left:20px;
-border: none;
-border-bottom: #E0E0E0 1px solid;
- margin: 40px 10px 0;
-  &>input{
+  font-family: 'Circe';
+  font-size: 18px;
+  outline: none;
+  padding-left: 20px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: #e0e0e0 1px solid;
+  margin: 40px 10px 0;
+  & > input {
+    font-family: 'Circe';
+    font-size: 18px;
     outline: none;
-    border:none;
+    border: none;
     width: 100%;
   }
-`  
+`
 export const StyledDateIcon = styled.img`
-position: absolute;
- right:0;top:0;
- margin-top:40px;
- margin-right:16px;
- pointer-events:none
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 40px;
+  margin-right: 16px;
+  pointer-events: none;
 `
 export const StyledAddButton = styled.button`
-   
-    background-color: #24CCA7;
-    margin: 40px 0 20px;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;` 
+  font-family: 'Circe';
+  font-size: 18px;
+  background-color: #24cca7;
+  margin: 40px 0 20px;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${respondTo.sm`
+  margin-left: auto;
+  margin-right: auto;
+     width: 300px;
+    `}
+`
 
 export const StyledAddButtonText = styled.span`
- color: #FFFFFF;` 
+  color: #ffffff;
+`
 
 export const StyledCancelButtonText = styled.span`
-  color: #4A56E2;
+  font-family: 'Circe';
+  font-size: 18px;
+  color: #4a56e2;
 `
 
 export const StyledCancelButton = styled.button`
-    background-color: #FFFFFF;
-    margin-bottom:37px;
-    height: 50px;
-    border: 1px solid #4A56E2;
-    border-radius: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  background-color: #ffffff;
+  margin-bottom: 55px;
+  height: 50px;
+  border: 1px solid #4a56e2;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  ${respondTo.sm`
+  margin-left: auto;
+  margin-right: auto;
+     width: 300px;
+	 margin-bottom: 60px;
+    `}
 `
