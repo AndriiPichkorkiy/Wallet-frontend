@@ -57,7 +57,7 @@ const HomeTabl = ({ data }) => {
       align: 'left',
       flex: 1.1,
       renderCell: ({ row: { comment } }) => (
-        <EllipsisText text={comment} length={'20'} />
+        <EllipsisText text={comment} length={20} />
       )
     },
     {
