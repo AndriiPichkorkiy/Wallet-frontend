@@ -11,35 +11,6 @@ const token = {
     instance.defaults.headers.common.Authorization = ''
   }
 }
-export const signup = async data => {
-  const result = await instance.post('/api/user/register', data)
-  token.set(result.data.token)
-  return result.data
-}
-
-export const signin = async data => {
-  console.log(data)
-  const result = await instance.post('/api/user/login', data)
-  token.set(result.data.token)
-  return result.data
-}
-
-export const logout = async () => {
-  const result = await instance.post('/user/logout')
-  token.unset()
-  return result.data
-}
-
-export const getCurrent = async authToken => {
-  try {
-    token.set(authToken)
-    const result = await instance.get('user/current')
-    return result.data
-  } catch (error) {
-    token.unset()
-    throw error
-  }
-}
 
 export const verifyEmailToken = async verifyCode => {
   try {
@@ -52,13 +23,4 @@ export const verifyEmailToken = async verifyCode => {
   }
 }
 
-export const getTransactionAll = async () => {
-  try {
-    const result = await instance.get('/api/transactions/getAll')
-    // console.log('first', result.data)
-    return result.data
-  } catch (error) {
-    console.error(error)
-    return error
-  }
-}
+

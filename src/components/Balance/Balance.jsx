@@ -1,13 +1,16 @@
-import { Wrapp, Text, BalanceH2, Currenty} from "./Balance.styled";
+import { useSelector } from 'react-redux'
+import { Wrapp, Text, BalanceH2, Currenty } from './Balance.styled'
 
-const Balance = () =>{
-    
-    
-    return (
-        <Wrapp>
-            <Text>Your balance</Text>
-            <BalanceH2><Currenty>&#8372;</Currenty> 24 000.00</BalanceH2>
-        </Wrapp>
-    )
+const Balance = () => {
+  const balance = useSelector(state => state.finance)
+
+  return (
+    <Wrapp>
+      <Text>Your balance</Text>
+      <BalanceH2>
+        <Currenty>&#8372;</Currenty> {balance}
+      </BalanceH2>
+    </Wrapp>
+  )
 }
-export default Balance;
+export default Balance

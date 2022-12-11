@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../../modules/LoginForm/LoginForm'
+import LoginForm from '../../components/LoginForm/LoginForm'
 import { useDispatch } from 'react-redux'
 import {
   useLoginMutation,
@@ -11,16 +11,12 @@ import { isAuth } from '../../redux/auth/authSlice'
 import { newCurrentUser } from '../../redux/auth/authSlice'
 
 import {
-  StyledImg,
   StyledLargeImg,
   StyledFormContainer,
-  StyledRightCornerImgContainer,
   StyledHeadContainer,
   StyledRegisterTitle,
   StyledRegisterImgContainer,
   StyledRegisterImgLargeContainer,
-  StyledLeftCornerImgContainer,
-  StyledRightCornerImgLargeContainer,
   StyledRegistrationPageContainer
 } from '../RegistrationPage/RegistrationPage.styled'
 
@@ -69,4 +65,11 @@ const LoginPage = () => {
   )
 }
 
+// export default withAuthRedirect(LoginPage);
 export default LoginPage
+
+// export default compose(
+//     connect(mapStateToProps, {getUserProfile}),
+//     withRouter,
+//     withAuthRedirect
+// )(ProfileContainer)
