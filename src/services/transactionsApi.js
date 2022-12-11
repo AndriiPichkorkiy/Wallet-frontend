@@ -20,7 +20,7 @@ export const transactionsApi = createApi({
   }),
   endpoints: builder => ({
     getAllTransactions: builder.query({
-      query: () => ({ url: '/api/transactions/getAll', method: 'GET' }),
+		query: () => ({ url: '/api/transactions/getAll', method: 'GET' }),
       invalidatesTags: [{ type: 'Transactions' }]
     })
   })
