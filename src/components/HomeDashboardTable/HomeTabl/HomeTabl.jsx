@@ -8,10 +8,13 @@ import {
   StyledGridOverlay
 } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
+import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
-const HomeTabl = ({ data }) => {
-  const [pageSize, setPageSize] = useState(10)
-  //   console.log(...data)
+const HomeTabl = () => {
+  const { data } = useGetAllTransactionsQuery()
+  console.log(data)
+
+  const [pageSize, setPageSize] = useState(5)
 
   const columns = [
     {
@@ -55,7 +58,7 @@ const HomeTabl = ({ data }) => {
       headerName: 'Comment',
       headerAlign: 'left',
       align: 'left',
-      flex: 1.1,
+      flex: 1,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={20} />
       )
@@ -188,7 +191,9 @@ const HomeTabl = ({ data }) => {
             columns={columns}
             getRowId={row => row._id}
             pageSize={pageSize}
-            onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+            onPageSizeChange={newPageSize => {
+              setPageSize(newPageSize)
+            }}
             rowsPerPageOptions={[5, 10, 20]}
             pagination
             {...data}
