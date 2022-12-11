@@ -23,8 +23,7 @@ import {
 import icon_register_tab from '../../assets/images/authImg/login-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/login-desk.png'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
-import { compose, connect } from 'redux';
-import { withAuthRedirect } from '../../components/hoc/withAuthRedirect';
+
 const LoginPage = () => {
   const dispatch = useDispatch()
 

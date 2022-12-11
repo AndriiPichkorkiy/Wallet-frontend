@@ -12,7 +12,6 @@ import {
   StyledRegistrationPageContainer
 } from './RegistrationPage.styled'
 // import { compose, connect } from 'redux';
-import { withAuthRedirect } from '../../components/hoc/withAuthRedirect'
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/register-desk.png'
 import { useDispatch } from 'react-redux'
@@ -23,7 +22,7 @@ const RegistrationPage = () => {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-  const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
+  const [signUp, { isError, isSuccess, error }] = useSignUpMutation()
 
   if (isError) {
     Notify.failure(error.data.message)
