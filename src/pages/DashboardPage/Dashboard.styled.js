@@ -5,7 +5,7 @@ export const Wrapp = styled.div`
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
 `
-export const MainContainer = styled.div`
+export const MainContainer = styled.main`
   padding: 12px 20px;
   margin-left: auto;
   margin-right: auto;

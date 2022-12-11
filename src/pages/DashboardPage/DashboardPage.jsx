@@ -1,4 +1,4 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
@@ -16,24 +16,13 @@ import {
 import Media from 'react-media'
 import { useLocation } from 'react-router-dom'
 
-import ModalTransactions from '../../components/ModalTransaction/ModalTransactions'
-import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
-
 const DashboardPage = () => {
   const { pathname } = useLocation()
-  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
-    useState(false)
+
   return (
     <Wrapp>
       <Header />
       <MainContainer>
-        <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
-        {isModalAddTransactionOpen && (
-          <ModalTransactions
-            closeModal={() => SetIsModalAddTransactionOpen(false)}
-          />
-        )}
-
         <Media
           queries={{
             small: '(max-width: 767px)',
