@@ -20,19 +20,22 @@ export const ContainerLogo = styled.div`
   margin-bottom: 60px;
 `
 export const FormContainer = styled.div`
+  height: 100%;
+  display: grid;
   position: relative;
   padding: 36px 20px;
   background-color: var(--background);
   ${respondTo.sm`
         min-width:533px;
+        height: 616px;
         padding:40px 60px 66px 65px;
         border-radius:20px;
         margin-left:auto;
         margin-right:auto;
-        `}
+      `}
   ${respondTo.lg`
-        // margin: 46px 16px 0 70px
-        `};
+        height: 100%;
+      `};
 `
 export const FieldStyled = styled(Field)`
   width: 100%;
