@@ -15,15 +15,10 @@ import icon_pink_tablet from '../../assets/images/ellipsesBg/EllipsePinkTablet.p
 import icon_violet from '../../assets/images/ellipsesBg/EllipseViolet.png';
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png';
 import icon_register_desc from '../../assets/images/authImg/register-desk.png';
-import { useDispatch } from 'react-redux';
-// import { signUp } from '../../redux/auth/auth-operations';
+
 const RegistrationPage = () => {
-    // const dispatch = useDispatch();
     const [registrationUser, {error, isLoading, data}] = useSignUpMutation();
-    // const [signUp] = useSignUpMutation();
     const onRegister = async (data) => {
-        // console.log(data)
-        // dispatch(signUp(data))
     try {
       await registrationUser(data)
       Notify.success('You are sign up!')
@@ -33,8 +28,6 @@ const RegistrationPage = () => {
       Notify.failure(error.message.response.data.message)
     }
   }
-
-    
     return (
         <StyledRegistrationPageContainer>
             <StyledHeadContainer>
@@ -62,7 +55,7 @@ const RegistrationPage = () => {
                     <StyledImg src={icon_pink_tablet} alt="pink circle" />
 
                 </StyledRightCornerImgContainer>
-                <RegistrationForm onSubmit={onRegister} />
+                <RegistrationForm onSubmit={onRegister} isLoading={ isLoading}  />
             </StyledFormContainer>
         </StyledRegistrationPageContainer>
     )

@@ -28,8 +28,9 @@ const SignupSchema = Yup.object().shape({
         .trim()
         .matches(/^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$/, "Must be only letters"),
     email: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
+        .min(10, 'Too Short!')
+        .max(63, 'Too Long!')
+        .matches(/^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}$/, "At least two symbols before @")
         .email('Invalid email')
         .strict()
         .trim()
@@ -37,20 +38,18 @@ const SignupSchema = Yup.object().shape({
     password: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
-        // .lowercase('Only lowercase letters are allowed')
         .strict()
         .trim()
-        // .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character")
+        .matches(/^(?=.*[a-zA-z0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character, without whiteSpace")
         .required('Please enter a password'),
     confirmPassword: Yup.string()
         .min(6, 'Too Short!')
         .max(12, 'Too Long!')
         .required('Please confirm your password')
-        // .lowercase('Only lowercase letters are allowed')
         .strict()
         .trim()
         .oneOf([Yup.ref('password'), null], 'Password must match')
-        // .matches(/^(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter, one number and one special character"),
+        .matches(/^(?=.*[a-zA-z0-9])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/, "Minimum six characters, one lowercase letter,one uppercase letter, one number and one special character, without whiteSpace")
 });
 
 const initialState = {
@@ -60,12 +59,11 @@ const initialState = {
     confirmPassword: '',
 }
 
-const RegistrationForm = ({ onSubmit }) => {
+const RegistrationForm = ({ onSubmit, isLoading }) => {
     const [passwordHardness, setPasswordHardness] = useState(0);
 
-    const dispatch = useDispatch();
     const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
-    const isFetching = useSelector(state => state.userV2.loading);
+    // const isFetching = useSelector(state => state.userV2.loading);
     const isRegistratiunSuccess = useSelector(state => state.userV2.isLogin);
 
 
@@ -80,57 +78,55 @@ const RegistrationForm = ({ onSubmit }) => {
     }, [isRegistratiunSuccess])
 
     function increasePasswordHardness(event) {
-        // if (event.target.name === 'password') {
-        //     if (event.target.value.length > 3) setPasswordHardness(passwordHardness + 30);
-            
-        // }
-        let passwordProgress = document.querySelector('.MuiLinearProgress-bar');
+        if (event.target.name === 'password') {
+            let passwordProgress = document.querySelector('.MuiLinearProgress-bar');
 
-      //Regular Expressions.
-      let regex = [];
-      regex.push("[A-Z]"); //Uppercase Alphabet.
-      regex.push("[a-z]"); //Lowercase Alphabet.
-      regex.push("[0-9]"); //Digit.
-      regex.push("[$@$!%*#?&]"); //Special Character.
+            //Regular Expressions.
+            let regex = [];
+            regex.push("[A-Z]"); //Uppercase Alphabet.
+            regex.push("[a-z]"); //Lowercase Alphabet.
+            regex.push("[0-9]"); //Digit.
+            regex.push("[$@$!%*#?&]"); //Special Character.
 
-      let passed = 0;
+            let passed = 0;
 
-      //Validate for each Regular Expression.
-      for (var i = 0; i < regex.length; i++) {
-        if (new RegExp(regex[i]).test(event.target.value)) {
-          passed++;
+            //Validate for each Regular Expression.
+            for (var i = 0; i < regex.length; i++) {
+                if (new RegExp(regex[i]).test(event.target.value)) {
+                    passed++;
+                }
+            }
+            //Display status.
+            switch (passed) {
+                case 1:
+                    setPasswordHardness(30);
+                    passwordProgress.style.backgroundColor = "red";
+                    break;
+                case 2:
+                    setPasswordHardness(50);
+                    passwordProgress.style.backgroundColor = "#e4e42a";
+                    // setPasswordHardness(passwordHardness + 20);
+                    break;
+                case 3:
+                    setPasswordHardness(80);
+                    passwordProgress.style.backgroundColor = "orange";
+                    // setPasswordHardness(passwordHardness + 30);
+                    break;
+                case 4:
+                    setPasswordHardness(100);
+                    passwordProgress.style.backgroundColor = "#24cca7";
+                    break;
+                default:
+                    setPasswordHardness(0);
+            }
         }
-      }
-      //Display status.
-      switch (passed) {
-          case 1:
-              setPasswordHardness(30);
-              passwordProgress.style.backgroundColor = "red";
-            break;
-          case 2:
-              setPasswordHardness(50);
-               passwordProgress.style.backgroundColor = "#e4e42a";
-            // setPasswordHardness(passwordHardness + 20);
-          break;
-          case 3:
-              setPasswordHardness(80);
-              passwordProgress.style.backgroundColor = "orange";
-            // setPasswordHardness(passwordHardness + 30);
-              break;
-          case 4:
-              setPasswordHardness(100);
-              passwordProgress.style.backgroundColor = "#24cca7";
-              break;
-           default:
-            setPasswordHardness(0);
-      }
-}
+    }
 
 
 
     return (
         <FormContainer>
-            {isFetching ? <LoaderWrapper /> : null}
+            {isLoading ? <LoaderWrapper /> : null}
             <ContainerLogo>
                 <StyledImg src={icon} alt="wallet" />
                 <StyledLargeImg src={icon_large} alt="wallet" />
@@ -143,7 +139,7 @@ const RegistrationForm = ({ onSubmit }) => {
                     setSubmitting(false);
                     // resetForm();
                 }}
-                
+
             >
                 {({ isSubmitting, errors, touched, resetForm }) => (
                     <Form onChange={increasePasswordHardness}>
@@ -207,6 +203,7 @@ const RegistrationForm = ({ onSubmit }) => {
 
 RegistrationForm.propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    isLoading: PropTypes.func.isRequired,
 };
 
 export default RegistrationForm;

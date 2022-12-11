@@ -26,7 +26,8 @@ import { closeModal } from '../../redux/auth/auth-operations.js'
 const SigninSchema = Yup.object().shape({
     email: Yup.string()
         .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
+        .max(63, 'Too Long!')
+        .matches(/^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}$/, "At least two symbols before @")
         .strict()
         .trim()
         .email('Invalid email')
