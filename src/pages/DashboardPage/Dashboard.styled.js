@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
+export const Wrapp = styled.div`
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
+`
 export const MainContainer = styled.div`
   padding: 12px 20px;
   margin-left: auto;
@@ -39,6 +43,7 @@ export const ContainerTop = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
   ${respondTo.sm`
   align-items: center`}
 `

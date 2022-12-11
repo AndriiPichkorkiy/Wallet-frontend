@@ -5,7 +5,14 @@ import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import Loader from '../../components/Loader/Loader'
-import { ContainerLeft, ContainerTop, MainContainer } from './Dashboard.styled'
+
+import {
+  ContainerLeft,
+  ContainerTop,
+  MainContainer,
+  Wrapp
+} from './Dashboard.styled'
+
 import Media from 'react-media'
 import { useLocation } from 'react-router-dom'
 
@@ -17,7 +24,7 @@ const DashboardPage = () => {
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
   return (
-    <>
+    <Wrapp>
       <Header />
       <MainContainer>
         <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
@@ -81,7 +88,7 @@ const DashboardPage = () => {
           <Outlet />
         </Suspense>
       </MainContainer>
-    </>
+    </Wrapp>
   )
 }
 
