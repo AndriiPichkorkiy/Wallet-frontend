@@ -9,6 +9,7 @@ import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
 export default function HomePage() {
   const { data } = useGetAllTransactionsQuery()
+
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
 
