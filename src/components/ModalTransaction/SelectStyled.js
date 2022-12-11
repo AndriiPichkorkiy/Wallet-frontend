@@ -58,9 +58,11 @@ const MenuProps = {
       background: 'rgba(255, 255, 255, 0.7)',
       boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
       backdropFilter: 'blur(25px)',
-      color: '#000000',
-      fontFamily: 'Circe',
-      fontSize: '18px'
+      color: '#000000'
+      //   '&:hover': { color: 'red' },
+      //   '& > li:hover': {
+      //     color: 'blue '
+      //   }
     }
   }
 }
@@ -72,7 +74,6 @@ const data = [
   { id: 106, name: 'test5' },
   { id: 107, name: 'test' }
 ]
-const ela = data.map(p => (p.id > 103 ? 123123123 : null))
 
 export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
   const { data } = useGetCategoryQuery()
@@ -105,7 +106,19 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id < 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id < 10200 && (
+                <MenuItem
+                  sx={{
+                    '& MuiMenuItem-root.Mui-selected:hover': {
+                      color: 'red !important'
+                    }
+                  }}
+                  value={el.id}
+                >
+                  {el.name}
+                </MenuItem>
+              )
           )}
         </Select>
       </FormControl>
@@ -145,7 +158,19 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id > 10200 && (
+                <MenuItem
+                  //   sx={{
+                  //     '& li.Mui-selected:activ': {
+                  //       color: 'red !important'
+                  //     }
+                  //   }}
+                  value={el.id}
+                >
+                  {el.name}
+                </MenuItem>
+              )
           )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}

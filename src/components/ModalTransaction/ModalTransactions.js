@@ -21,7 +21,8 @@ import {
   StyledCancelButton,
   StyledAddButtonText,
   StyledCancelButtonText,
-  StyledDateIcon
+  StyledDateIcon,
+  WrapperInput
 } from './ModalTransactionsComponents'
 import SvgIcon from '../../assets/images/icons/date_range.svg'
 import ButtonExpense from './Buttons/buttonExpense'
@@ -144,29 +145,29 @@ const ModalTransactions = ({ closeModal }) => {
               onChange={formik.handleChange}
             />
           )}
-
-          <StyledInput
-            name='amount'
-            value={formik.values.amount}
-            onChange={formik.handleChange}
-            placeholder='0.00'
-          />
-          <div
-            style={{
-              position: 'relative'
-            }}
-          >
-            <StyledDatetime
-              onChange={date => setDate(date)}
-              dateFormat='DD.MM.YYYY'
-            
-              timeFormat={false}
-              value={date}
-              name='datetime'
-              closeOnClickOutside
+          <WrapperInput>
+            <StyledInput
+              name='amount'
+              value={formik.values.amount}
+              onChange={formik.handleChange}
+              placeholder='0.00'
             />
-            <StyledDateIcon src={SvgIcon} width='24px' alt='datetimeIcon' />
-          </div>
+            <div
+              style={{
+                position: 'relative'
+              }}
+            >
+              <StyledDatetime
+                onChange={date => setDate(date)}
+                dateFormat='DD.MM.YYYY'
+                timeFormat={false}
+                value={date}
+                name='datetime'
+                closeOnClickOutside
+              />
+              <StyledDateIcon src={SvgIcon} width='24px' alt='datetimeIcon' />
+            </div>
+          </WrapperInput>
 
           <StyledTextarea
             name='comment'
