@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Chart from '../Chart/Chart'
 
 import {
   useGetStatsQuery,
-  useGetTotalStatsQuery
-  // useGetStatsByPeriodQuery
+  useGetTotalStatsQuery,
+  useGetStatsByPeriodQuery
 } from '../../services/statsApi'
 import StatsTable from '../StatsTable/StatsTable'
 
@@ -21,10 +21,12 @@ const DiagramTab = () => {
 
   const [month, setMonth] = useState(currentMonth)
   const [year, setYear] = useState(currentYear)
-  console.log(month, year)
-  // const [query, setQuery] = useState(`year=${year}&month=${month}`)
+  // console.log(month, year)
+  // const [query, setQuery] = useState(`year=${year}`)
+  const [query, setQuery] = useState(`year=${year}&month=${month}`)
 
   const handleChange = ({ target: { name, value } }) => {
+    console.log(value)
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -35,13 +37,22 @@ const DiagramTab = () => {
     }
   }
 
-  // useEffect(() => {
-  //   setQuery(`year=${year}&month=${month}`)
-  // }, [month, year])
+  useEffect(() => {
+    // setQuery(`year=${year}`)
+    setQuery(`year=${year}&month=${month}`)
+  }, [month, year])
 
-  // const { data: statsByPeriod } = useGetStatsByPeriodQuery(query)
-  const { data: statsData } = useGetStatsQuery()
-  const { data: totalData } = useGetTotalStatsQuery()
+  const { data: statsByPeriod } = useGetStatsByPeriodQuery(query)
+  const statsData = statsByPeriod?.stats
+  const totalData = statsByPeriod?.totalStats
+  // const { data: statsData } = useGetStatsQuery()
+  // const { data: totalData } = useGetTotalStatsQuery()
+
+  // const categories = statsData?.filter(
+  //   item => item.id !== '10501' && item.id !== '10502'
+  // )
+
+  console.log(statsByPeriod)
 
   // console.log(statsByPeriod)
 

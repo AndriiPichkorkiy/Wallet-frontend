@@ -6,7 +6,7 @@ export const Wrapp = styled.div`
   backdrop-filter: blur(25px);
   height: 100vh;
 `
-export const MainContainer = styled.div`
+export const MainContainer = styled.main`
   padding: 12px 20px;
   margin-left: auto;
   margin-right: auto;
@@ -25,22 +25,26 @@ export const MainContainer = styled.div`
   	flex-direction: row;
   	align-items:flex-start;
   	min-width: 1200px;
-  	padding: 0px 16px;
-
+  	padding: 0 16px;
 	`}
 `
 export const ContainerLeft = styled.div`
   display: flex;
   flex-direction: column;
+
   ${respondTo.lg`
-    height: 100vh;
-    padding-right:70px;
+  height: 100vh;
+  padding-top:40px;
+  padding-right:70px;
     border-right: 1px solid #E7E5F2;
     box-shadow: inset -1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6);
-    `}
+    `};
 `
 export const ContainerTop = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  ${respondTo.sm`
+  align-items: center`}
 `

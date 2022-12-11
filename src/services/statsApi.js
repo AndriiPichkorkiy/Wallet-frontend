@@ -1,16 +1,24 @@
-import { createApi } from '@reduxjs/toolkit/query/react'
-import { axiosBaseQuery } from '../helpers/axiosBaseQuery'
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+// import { axiosBaseQuery } from '../helpers/axiosBaseQuery'
 
-const BASE_URL = 'https://wallet-project-m5us.onrender.com/api'
-// const BASE_URL = 'http://localhost:4000'
+const BASE_URL = 'https://wallet-project-m5us.onrender.com'
 
 export const statsApi = createApi({
   reducerPath: 'stats',
   tagTypes: ['Stats'],
-  baseQuery: axiosBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+    prepareHeaders: (headers, { getState }) => {
+      const token = getState().token
+      if (token) {
+        headers.set('authorization', `Bearer ${token}`)
+      }
+      return headers
+    }
+  }),
   endpoints: builder => ({
     getStats: builder.query({
-      query: () => ({ url: '/transactions/categories', method: 'GET' }),
+      query: () => ({ url: '/api/transactions/categories', method: 'GET' }),
       invalidatesTags: [{ type: 'Stats' }]
     }),
     getTotalStats: builder.query({
@@ -19,7 +27,7 @@ export const statsApi = createApi({
     }),
     getStatsByPeriod: builder.query({
       query: params => ({
-        url: `/totalStats/${params}`,
+        url: `/api/transactions/statistics/?${params}`,
         method: 'GET'
       }),
 
@@ -31,5 +39,6 @@ export const statsApi = createApi({
 export const {
   useGetStatsQuery,
   useGetTotalStatsQuery,
-  useGetStatsByPeriodQuery
+  useGetStatsByPeriodQuery,
+  useLazyGetStatsByPeriodQuery
 } = statsApi

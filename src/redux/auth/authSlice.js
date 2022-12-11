@@ -5,7 +5,8 @@ const initialState = {
     name: '',
     email: ''
   },
-  isLoggedIn: false
+  isLoggedIn: false,
+  newUser: false
 }
 
 export const currentUser = createSlice({
@@ -14,9 +15,11 @@ export const currentUser = createSlice({
   reducers: {
     isRegister(state, action) {
       state.user = action.payload //при регистрации в стейт записывается объект с данными о пользователе
+      state.newUser = true //при регистрации в стейт записывается true, что значит что пользователь новый
     },
     isAuth(state, _) {
       state.isLoggedIn = true //при авторизации в стейт записывается true, что значит что пользователь залогинен
+      state.newUser = false //при авторизации в стейт записывается false, что значит что пользователь не новый
     },
     newCurrentUser(state, action) {
       state.user = action.payload //при обновлении данных пользователя в стейт записывается объект с данными о пользователе (в случае если пользователь не новый, просто заходит в свой профиль)
@@ -26,6 +29,7 @@ export const currentUser = createSlice({
         name: '',
         email: ''
       }
+      state.newUser = false
       state.isLoggedIn = false //при выходе из аккаунта в стейт обнуляем объект пользователя в стейте
     }
   }
