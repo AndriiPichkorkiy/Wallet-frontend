@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginForm from '../../modules/LoginForm/LoginForm'
+import LoginForm from '../../components/LoginForm/LoginForm'
 import { useDispatch } from 'react-redux'
 import {
   useLoginMutation,
@@ -11,23 +11,20 @@ import { isAuth } from '../../redux/auth/authSlice'
 import { newCurrentUser } from '../../redux/auth/authSlice'
 
 import {
-  StyledImg,
   StyledLargeImg,
   StyledFormContainer,
-  StyledRightCornerImgContainer,
   StyledHeadContainer,
   StyledRegisterTitle,
   StyledRegisterImgContainer,
   StyledRegisterImgLargeContainer,
-  StyledLeftCornerImgContainer,
-  StyledRightCornerImgLargeContainer,
   StyledRegistrationPageContainer
 } from '../RegistrationPage/RegistrationPage.styled'
 
 import icon_register_tab from '../../assets/images/authImg/login-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/login-desk.png'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
-
+import { compose, connect } from 'redux';
+import { withAuthRedirect } from '../../components/hoc/withAuthRedirect';
 const LoginPage = () => {
   const dispatch = useDispatch()
 
@@ -69,4 +66,11 @@ const LoginPage = () => {
   )
 }
 
+// export default withAuthRedirect(LoginPage);
 export default LoginPage
+
+// export default compose(
+//     connect(mapStateToProps, {getUserProfile}),
+//     withRouter,
+//     withAuthRedirect
+// )(ProfileContainer)
