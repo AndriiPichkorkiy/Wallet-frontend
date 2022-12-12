@@ -1,22 +1,20 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const initialState = {
-    currency: null,
-    date: null,
-};
 
-export const currencyData = createSlice({
-    name: 'currency',
-    initialState,
-    reducers: {
-        setCurrency(state, action) {
-           return (state = action.payload)
-        },
-        setDate(state, action) {
-            return state = action.payload
-        }
-    },
+
+export const currencyApi = createApi({
+    reducerPath: 'currency',
+    baseQuery: fetchBaseQuery({ baseUrl: 'https://api.monobank.ua/bank/currency' }),
+    refetchOnMountOrArgChange: 300,
+    endpoints: (builder) => ({
+        getCurrency: builder.query({
+            query: () => '/',
+        })
+    })
 })
 
-export const { setCurrency, setDate } = currencyData.actions
+
+export const { useGetCurrencyQuery } = currencyApi;
+
+
 
