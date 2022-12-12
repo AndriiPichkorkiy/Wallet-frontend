@@ -61,8 +61,8 @@ const HomeTabl = () => {
       flex: 1.1,
       headerAlign: 'center',
       align: 'left',
-      //   type: 'singleSelect',
-      //   valueOptions: ['name'],
+      type: 'singleSelect',
+      valueOptions: ['name'],
       renderCell: ({ row: { category } }) => (
         <Typography>{category.name}</Typography>
       )
@@ -150,7 +150,9 @@ const HomeTabl = () => {
               {
                 backgroundColor: 'var(--accentPrimary)'
               },
-            '& .MuiDataGrid-columnHeaderDraggableContainer': { width: '80%' },
+            '& .MuiDataGrid-columnHeaderDraggableContainer': {
+              width: '80% !important'
+            },
             '& .MuiDataGrid-root': {
               border: 'none',
               fontFamily: 'Circe',
