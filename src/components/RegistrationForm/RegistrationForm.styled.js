@@ -8,11 +8,7 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { respondTo } from '../../helpers/respondTo'
 import { LinearProgress } from '@mui/material'
 
-// export const ContainerTabl = styled.div`
-//   /* margin: 32px 0 0 0; */
-//   ${respondTo.sm`margin: 20px 32px 0 32px`}
-//   ${respondTo.lg`margin: 46px 16px 0 70px`};
-// `
+
 export const ContainerLogo = styled.div`
   display: flex;
   align-items: center;
@@ -21,7 +17,10 @@ export const ContainerLogo = styled.div`
 `
 export const FormContainer = styled.div`
   height: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   position: relative;
   padding: 36px 20px;
   background-color: var(--background);
@@ -33,9 +32,6 @@ export const FormContainer = styled.div`
         margin-left:auto;
         margin-right:auto;
       `}
-  ${respondTo.lg`
-        height: 100%;
-      `};
 `
 export const FieldStyled = styled(Field)`
   width: 100%;
@@ -148,9 +144,15 @@ export const StyledBtnMain = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  &:hover,
   &:focus {
-    background: #3b9b86;
+    background-color: var(--accentPrimary);
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+  }
+  &:hover{
+    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
 `
 export const StyledBtn = styled(Link)`
@@ -158,7 +160,7 @@ export const StyledBtn = styled(Link)`
   width: 100%;
   max-height: 50px;
   padding: 13px 61px;
-  background: transparent;
+background: transparent;
   color: var(--activeColor);
   border: 1px solid var(--activeColor);
   border-radius: 20px;
@@ -168,10 +170,16 @@ export const StyledBtn = styled(Link)`
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  &:hover,
   &:focus {
     background: var(--activeColor);
     color: var(--background);
+    background-image: linear-gradient(315deg,  #4a56e2 0%, #ffd8d0a6 74%);
+  }
+  &:hover{
+    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
+              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
+    inset -4px -4px 6px 0 rgba(255,255,255,.5),
+    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
 `
 export const StyledErrorMsg = styled.div`

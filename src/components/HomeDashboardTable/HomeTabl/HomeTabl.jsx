@@ -73,9 +73,9 @@ const HomeTabl = () => {
       headerAlign: 'center',
       align: 'left',
       flex: 1,
-      renderCell: ({ row: { comment } }) => (
-        <EllipsisText text={comment} length={15} />
-      )
+      // renderCell: ({ row: { comment } }) => (
+      //   <EllipsisText text={comment} length={15} />
+      // )
     },
     {
       field: 'amount',

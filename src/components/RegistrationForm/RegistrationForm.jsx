@@ -110,10 +110,6 @@ const RegistrationForm = ({ onSubmit }) => {
     return (
         <FormContainer>
             {isLoading ? <LoaderWrapper /> : null}
-            <ContainerLogo>
-                <StyledImg src={icon} alt='wallet' />
-                <StyledLargeImg src={icon_large} alt='wallet' />
-            </ContainerLogo>
             <Formik
                 validationSchema={SignUpSchema}
                 initialValues={initialState}
@@ -125,6 +121,10 @@ const RegistrationForm = ({ onSubmit }) => {
             >
                 {({ isSubmitting, errors, touched, resetForm }) => (
                     <Form onChange={increasePasswordHardness}>
+                        <ContainerLogo>
+                            <StyledImg src={icon} alt='wallet' />
+                            <StyledLargeImg src={icon_large} alt='wallet' />
+                        </ContainerLogo>
                         <FieldContainer>
                             <FieldStyled
                                 type='email'
