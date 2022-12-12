@@ -23,10 +23,10 @@ export const HeaderContent = ({ toExit }) => {
     <>
       <HeaderC>
         <LogoCont>
-          <NavLink to="/">
+          {/* <NavLink to="/"> */}
             <Logo src={wallet} alt='logo' />
-          </NavLink>
-          <LogoText>Wallet</LogoText>
+            <LogoText>Wallet</LogoText>
+          {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
           <LogoutExitName className={'name'}>{name}</LogoutExitName>
