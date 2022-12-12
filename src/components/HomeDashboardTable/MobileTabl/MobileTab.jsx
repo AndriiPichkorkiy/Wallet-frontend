@@ -5,11 +5,12 @@ import {
   Span,
   ContainerEmpty
 } from './MobileTabl.styled'
-import { useId } from 'react'
+// import { useId } from 'react'
+import { nanoid } from '@reduxjs/toolkit'
 import EllipsisText from 'react-ellipsis-text'
 
 const MobileTabl = ({ data }) => {
-  const unid = useId()
+  // const unid = useId()
 
   if (data.length > 0) {
     const card =
@@ -19,8 +20,12 @@ const MobileTabl = ({ data }) => {
         const newDate = new Date(time).toLocaleDateString()
 
         return (
-          <ContainerMobileTabl sx={{ minWidth: 280 }} isType={type ? '+' : '-'}>
-            <CardBox key={unid}>
+          <ContainerMobileTabl
+            key={nanoid()}
+            sx={{ minWidth: 280 }}
+            isType={type ? '+' : '-'}
+          >
+            <CardBox>
               <TypographyCard>
                 Date <Span> {newDate}</Span>
               </TypographyCard>

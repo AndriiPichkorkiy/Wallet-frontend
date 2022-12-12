@@ -10,7 +10,7 @@ import {
   ContainerLeft,
   ContainerTop,
   MainContainer,
-  Wrapp
+  Wrapper
 } from './Dashboard.styled'
 
 import Media from 'react-media'
@@ -20,7 +20,7 @@ const DashboardPage = () => {
   const { pathname } = useLocation()
 
   return (
-    <Wrapp>
+    <Wrapper>
       <Header />
       <MainContainer>
         <Media
@@ -77,7 +77,7 @@ const DashboardPage = () => {
           <Outlet />
         </Suspense>
       </MainContainer>
-    </Wrapp>
+    </Wrapper>
   )
 }
 

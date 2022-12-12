@@ -52,6 +52,10 @@ const ModalTransactions = ({ closeModal }) => {
     if (e.key === 'Escape') closeModal()
   }
 
+  const onCloseBtnClick = () => {
+    closeModal()
+  }
+
   const formik = useFormik({
     initialValues: {
       amount: '',
@@ -182,7 +186,7 @@ const ModalTransactions = ({ closeModal }) => {
           <StyledAddButton type='submit'>
             <StyledAddButtonText>Add</StyledAddButtonText>
           </StyledAddButton>
-          <StyledCancelButton type='button'>
+          <StyledCancelButton onClick={() => onCloseBtnClick()} type='button'>
             <StyledCancelButtonText>Cancel</StyledCancelButtonText>
           </StyledCancelButton>
         </StyledForm>

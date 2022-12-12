@@ -11,7 +11,7 @@ export const HeaderC = styled.header`
         padding: 20px 32px;
     `}
   ${respondTo.lg`
-        padding: 16px 20px;
+        padding: 20px 20px;
     `}
 `
 

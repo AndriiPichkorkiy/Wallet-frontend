@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import { useState } from 'react'
 import {
-  ContainerTabl,
+  ContainerTable,
   EmptyContainer,
   StyledGridOverlay
 } from './HomeTabl.styled'
@@ -11,6 +10,22 @@ import EllipsisText from 'react-ellipsis-text'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
+  const [boxSize, setBoxSize] = useState(500)
+
+  const getBox = () => {
+    const box = document.querySelector('.MuiDataGrid-virtualScrollerRenderZone')
+    return box
+  }
+
+  useEffect(() => {
+    if (data.length === 0) {
+      return
+    }
+    setTimeout(() => {
+      const newBox = getBox()
+      setBoxSize(newBox.clientHeight + 108)
+    }, 100)
+  }, [data, boxSize, pageSize])
 
   const columns = [
     {
@@ -107,9 +122,10 @@ const HomeTabl = ({ data }) => {
 
   return (
     <>
-      <ContainerTabl>
+      <ContainerTable>
         <Box
-          height='80vh'
+          // height='80vh'
+          height={boxSize}
           sx={{
             '& .MuiTypography-root': {
               fontFamily: 'Circe',
@@ -193,7 +209,7 @@ const HomeTabl = ({ data }) => {
             {...data}
           />
         </Box>
-      </ContainerTabl>
+      </ContainerTable>
       <EmptyContainer />
     </>
   )
