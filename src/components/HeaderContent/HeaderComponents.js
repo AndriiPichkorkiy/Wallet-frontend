@@ -32,6 +32,7 @@ export const Logo = styled.img`
 
 export const LogoText = styled.span`
   font-size: 22px;
+  font-weight: 700;
   ${respondTo.sm`
         font-size: 36px;
     `}

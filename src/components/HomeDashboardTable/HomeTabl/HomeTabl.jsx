@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import {
@@ -9,24 +9,26 @@ import {
 import EllipsisText from 'react-ellipsis-text'
 import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
-const HomeTabl = ({ data }) => {
+const HomeTabl = () => {
+  const { data } = useGetAllTransactionsQuery()
+  //   console.log(data)
   const [pageSize, setPageSize] = useState(10)
-  const [boxSize, setBoxSize] = useState(500)
+  //   const [boxSize, setBoxSize] = useState(500)
 
-  const getBox = () => {
-    const box = document.querySelector('.MuiDataGrid-virtualScrollerRenderZone')
-    return box
-  }
+  //   const getBox = () => {
+  //     const box = document.querySelector('.MuiDataGrid-virtualScrollerRenderZone')
+  //     return box
+  //   }
 
-  useEffect(() => {
-    if (data.length === 0) {
-      return
-    }
-    setTimeout(() => {
-      const newBox = getBox()
-      setBoxSize(newBox.clientHeight + 108)
-    }, 100)
-  }, [data, boxSize, pageSize])
+  //   useEffect(() => {
+  //     if (data.length === 0) {
+  //       return
+  //     }
+  //     setTimeout(() => {
+  //       const newBox = getBox()
+  //       setBoxSize(newBox.clientHeight + 108)
+  //     }, 100)
+  //   }, [data, boxSize, pageSize])
 
   const columns = [
     {
@@ -57,10 +59,10 @@ const HomeTabl = ({ data }) => {
       field: 'category',
       headerName: 'Category',
       flex: 1.1,
-      headerAlign: 'left',
+      headerAlign: 'center',
       align: 'left',
-      type: 'singleSelect',
-      valueOptions: ['id', 'name'],
+      //   type: 'singleSelect',
+      //   valueOptions: ['name'],
       renderCell: ({ row: { category } }) => (
         <Typography>{category.name}</Typography>
       )
@@ -68,11 +70,11 @@ const HomeTabl = ({ data }) => {
     {
       field: 'comment',
       headerName: 'Comment',
-      headerAlign: 'left',
+      headerAlign: 'center',
       align: 'left',
       flex: 1,
       renderCell: ({ row: { comment } }) => (
-        <EllipsisText text={comment} length={20} />
+        <EllipsisText text={comment} length={15} />
       )
     },
     {
@@ -80,10 +82,10 @@ const HomeTabl = ({ data }) => {
       headerName: 'Sum',
       headerAlign: 'center',
       align: 'right',
-      flex: 1.1,
+      flex: 1,
       renderCell: ({ row: { amount, type } }) => (
         <Typography
-          sx={{ pr: '15px' }}
+          sx={{ pr: '20px' }}
           color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
         >
           {amount.toFixed(2)}
@@ -97,7 +99,7 @@ const HomeTabl = ({ data }) => {
       align: 'right',
       flex: 1,
       renderCell: ({ row: { balance } }) => (
-        <Typography sx={{ pr: '15px' }}>{balance.toFixed(2)}</Typography>
+        <Typography sx={{ pr: '20px' }}>{balance.toFixed(2)}</Typography>
       )
     }
   ]
@@ -125,8 +127,8 @@ const HomeTabl = ({ data }) => {
     <>
       <ContainerTable>
         <Box
-          // height='80vh'
-          height={boxSize}
+          height='60vh'
+          //   height={boxSize}
           sx={{
             '& .MuiTypography-root': {
               fontFamily: 'Circe',
@@ -145,15 +147,17 @@ const HomeTabl = ({ data }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-            {
-              backgroundColor: 'var(--accentPrimary)'
-            },
+              {
+                backgroundColor: 'var(--accentPrimary)'
+              },
+            '& .MuiDataGrid-columnHeaderDraggableContainer': { width: '80%' },
             '& .MuiDataGrid-root': {
               border: 'none',
               fontFamily: 'Circe',
               fontSize: '18px',
               lineHeight: '1.5',
               color: 'var(--main-text)'
+              //   paddingRight: '20px'
             },
             '& .MuiDataGrid-cell': {
               borderTop: 'none',
@@ -162,9 +166,13 @@ const HomeTabl = ({ data }) => {
               fontSize: '16px',
               lineHeight: '1.5',
               whiteSpace: 'normal'
+              //   paddingRight: '20px'
             },
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
+            },
+            '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell': {
+              //   paddingRight: '20px'
             },
             '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
             '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
@@ -189,11 +197,12 @@ const HomeTabl = ({ data }) => {
             '& .MuiIconButton-root:hover': {
               color: 'var(--activeColor)'
             },
+            '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-            {
-              outline: 'none !important',
-              outlineOffset: '0'
-            }
+              {
+                outline: 'none !important',
+                outlineOffset: '0'
+              }
           }}
         >
           <DataGrid
