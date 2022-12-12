@@ -162,11 +162,11 @@ export const StyledAddButton = styled.button`
   margin-right: auto;
      width: 300px;
     `}
-  &:focus {
+  &:hover {
     background-color: var(--accentPrimary);
     background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
   }
-  &:hover {
+  &:focus {
     box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
       -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
@@ -199,12 +199,12 @@ export const StyledCancelButton = styled.button`
      width: 300px;
 	 margin-bottom: 60px;
     `}
-  &:focus {
+  &:hover {
     background: var(--activeColor);
     color: var(--background);
     background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
   }
-  &:hover {
+  &:focus {
     box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
       -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),

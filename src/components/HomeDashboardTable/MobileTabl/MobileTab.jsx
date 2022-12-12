@@ -11,7 +11,7 @@ import EllipsisText from 'react-ellipsis-text'
 
 const MobileTabl = ({ data }) => {
   // const unid = useId()
-
+  console.log(data.length)
   if (data.length > 0) {
     const card =
       // data &&

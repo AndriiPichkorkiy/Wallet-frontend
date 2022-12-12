@@ -1,12 +1,11 @@
 import React from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'
+import { Chart as ChartJS, ArcElement } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
 import { ChartWrapper, BalanceWrapper } from './Chart.styled'
 
 const Chart = ({ statistics, totalData }) => {
-  // ChartJS.register(ArcElement)
-  ChartJS.register(ArcElement, Tooltip)
+  ChartJS.register(ArcElement)
 
   const names = statistics.map(obj => obj.name)
   const colors = statistics.map(obj => obj.color)

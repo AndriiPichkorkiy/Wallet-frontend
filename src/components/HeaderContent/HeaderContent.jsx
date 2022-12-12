@@ -15,13 +15,17 @@ import { useSelector } from 'react-redux'
 
 export const HeaderContent = ({ toExit }) => {
   const name = useSelector(store => store.user.user.name)
-
+  // const email = useSelector(store => store.user.user.email)
+  // const name = email.split("@")[0]
+  // console.log(name)
   return (
     <>
       <HeaderC>
         <LogoCont>
+          {/* <NavLink to="/"> */}
           <Logo src={wallet} alt='logo' />
           <LogoText>Wallet</LogoText>
+          {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
           <LogoutExitName className={'name'}>{name}</LogoutExitName>
@@ -30,7 +34,7 @@ export const HeaderContent = ({ toExit }) => {
               sx={{
                 color: '#BDBDBD'
               }}
-              // src={logout} alt="logout"
+            // src={logout} alt="logout"
             />
             <LogoutExit>Exit</LogoutExit>
           </BtnLogout>

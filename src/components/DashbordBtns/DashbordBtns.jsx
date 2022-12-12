@@ -11,7 +11,7 @@ import {
 import HomeSharpIcon from '@mui/icons-material/HomeSharp'
 import TimelineIcon from '@mui/icons-material/Timeline'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
-import ArticleIcon from '@mui/icons-material/Article';
+import ArticleIcon from '@mui/icons-material/Article'
 import Media from 'react-media'
 
 const DashbordBtns = () => {
@@ -72,7 +72,7 @@ const DashbordBtns = () => {
               )
             }
           </Media>
-          <BtnText>Statistiscs</BtnText>
+          <BtnText>Statistics</BtnText>
         </LinkBtn>
         <CurrLinkBtn to='/currency'>
           <AttachMoneyIcon
@@ -86,24 +86,24 @@ const DashbordBtns = () => {
           />
         </CurrLinkBtn>
       </BtnsCont>
-      <NewsLinkBtn to="/news">
-      <Media queries={{ small: '(max-width: 767px)' }}>
-            {matches =>
-              !matches.small && (
-                <ArticleIcon
-                  sx={{
-                    color: 'var(--background)',
-                    background: 'var(--paleActiveColor)',
-                    borderRadius: '2px',
-                    width: '18px',
-                    height: '18px'
-                  }}
-                />
-              )
+      <NewsLinkBtn to='/news'>
+        <Media queries={{ small: '(max-width: 767px)' }}>
+          {matches =>
+            !matches.small && (
+              <ArticleIcon
+                sx={{
+                  color: 'var(--background)',
+                  background: 'var(--paleActiveColor)',
+                  borderRadius: '2px',
+                  width: '18px',
+                  height: '18px'
+                }}
+              />
+            )
           }
         </Media>
         <NewsBtnText>News</NewsBtnText>
-        </NewsLinkBtn>
+      </NewsLinkBtn>
     </Container>
   )
 }

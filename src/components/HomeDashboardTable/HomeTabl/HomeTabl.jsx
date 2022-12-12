@@ -36,19 +36,23 @@ const HomeTabl = () => {
       headerName: 'Date',
       headerAlign: 'center',
       type: 'date',
+      align: 'center',
+      flex: 1,
+      hideable: false,
+      hideSortIcons: true,
       renderCell: ({ row: { date } }) => {
         const time = date
         const newDate = new Date(time).toLocaleDateString()
         return <Typography>{newDate}</Typography>
-      },
-      align: 'center',
-      flex: 1
+      }
     },
     {
       field: 'type',
       headerName: 'Type',
       headerAlign: 'center',
       align: 'center',
+      hideable: false,
+      hideSortIcons: true,
       flex: 0.7,
       renderCell: ({ row: { type } }) => (
         <Typography>{type ? '+' : '-'}</Typography>
@@ -61,8 +65,10 @@ const HomeTabl = () => {
       flex: 1.1,
       headerAlign: 'center',
       align: 'left',
-      //   type: 'singleSelect',
-      //   valueOptions: ['name'],
+      hideSortIcons: true,
+      hideable: false,
+      type: 'singleSelect',
+      valueOptions: ['name'],
       renderCell: ({ row: { category } }) => (
         <Typography>{category.name}</Typography>
       )
@@ -73,15 +79,17 @@ const HomeTabl = () => {
       headerAlign: 'center',
       align: 'left',
       flex: 1,
-      // renderCell: ({ row: { comment } }) => (
-      //   <EllipsisText text={comment} length={15} />
-      // )
+      renderCell: ({ row: { comment } }) => (
+        <EllipsisText text={comment} length={15} />
+      )
     },
     {
       field: 'amount',
       headerName: 'Sum',
       headerAlign: 'center',
       align: 'right',
+      hideable: false,
+      hideSortIcons: true,
       flex: 1,
       renderCell: ({ row: { amount, type } }) => (
         <Typography
@@ -97,13 +105,26 @@ const HomeTabl = () => {
       headerName: 'Balance',
       headerAlign: 'center',
       align: 'right',
+      hideable: false,
+      hideSortIcons: true,
       flex: 1,
       renderCell: ({ row: { balance } }) => (
         <Typography sx={{ pr: '20px' }}>{balance.toFixed(2)}</Typography>
       )
     }
   ]
+  // {
+  //   field: 'action',
+  //   headerName: 'Action',
+  //   width: 180,
+  //   sortable: false,
+  //   disableClickEventBubbling: true,
 
+  //   renderCell: params => {
+  //     const onClick = e => {
+  //       const currentRow = params.row
+  //       return alert(JSON.stringify(currentRow, null, 4))
+  //     }
   function CustomNoRowsOverlay() {
     return (
       <StyledGridOverlay>
@@ -150,7 +171,9 @@ const HomeTabl = () => {
               {
                 backgroundColor: 'var(--accentPrimary)'
               },
-            '& .MuiDataGrid-columnHeaderDraggableContainer': { width: '80%' },
+            '& .MuiDataGrid-columnHeaderDraggableContainer': {
+              width: '80% !important'
+            },
             '& .MuiDataGrid-root': {
               border: 'none',
               fontFamily: 'Circe',
@@ -202,7 +225,8 @@ const HomeTabl = () => {
               {
                 outline: 'none !important',
                 outlineOffset: '0'
-              }
+              },
+            '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >
           <DataGrid

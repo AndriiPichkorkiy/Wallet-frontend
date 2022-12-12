@@ -118,6 +118,9 @@ export const BtnText = styled.span`
         margin-left: 20px;
         color: var(--main-text);
     `}
+  &:hover {
+    color: var(--paleActiveColor);
+  }
 `
 
 export const NewsBtnText = styled.span`
@@ -125,4 +128,7 @@ export const NewsBtnText = styled.span`
         margin-left: 10px;
         color: var(--main-text);
     `}
+  &:hover {
+    color: var(--paleActiveColor);
+  }
 `

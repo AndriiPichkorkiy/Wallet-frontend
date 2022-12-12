@@ -9,6 +9,12 @@ export const SelectWrapper = styled.div`
   .rotate {
     transform: rotateX(180deg);
   }
+  .rotateOpen {
+    transform: rotateX(180deg);
+  }
+  .rotateClose {
+    transform: rotateX(0deg);
+  }
   @media screen and (min-width: 768px) {
     :not(:last-child) {
       margin-right: 16px;
