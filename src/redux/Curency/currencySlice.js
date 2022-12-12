@@ -2,19 +2,20 @@ import { createSlice } from '@reduxjs/toolkit'
 import { string } from 'prop-types';
 
 const initialState = {
-    date: null,
     currency: null,
+    date: null,
 };
 
 export const currencyData = createSlice({
-  name: 'currency',
-  initialState,
-  reducers: {
-      setCurrency(state, action) {
-          console.log(state, action)
-    //    state.currency = action.payload
-    },
-  }
+    name: 'currency',
+    
+        setCurrency(state, action) {
+            state.currency = action.payload.currency
+        },
+        setDate(state, action) {
+            state.date = action.payload
+        }
 })
 
-export const { setCurrency } = currencyData.actions
+export const { setCurrency, setDate } = currencyData.actions
+
