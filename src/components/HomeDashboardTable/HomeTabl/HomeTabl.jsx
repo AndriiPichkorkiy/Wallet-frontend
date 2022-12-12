@@ -1,20 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import { useState } from 'react'
 import {
-  ContainerTabl,
+  ContainerTable,
   EmptyContainer,
   StyledGridOverlay
 } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
 import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
-const HomeTabl = () => {
-  const { data } = useGetAllTransactionsQuery()
-  console.log(data)
+const HomeTabl = ({ data }) => {
+  const [pageSize, setPageSize] = useState(10)
+  const [boxSize, setBoxSize] = useState(500)
 
-  const [pageSize, setPageSize] = useState(5)
+  const getBox = () => {
+    const box = document.querySelector('.MuiDataGrid-virtualScrollerRenderZone')
+    return box
+  }
+
+  useEffect(() => {
+    if (data.length === 0) {
+      return
+    }
+    setTimeout(() => {
+      const newBox = getBox()
+      setBoxSize(newBox.clientHeight + 108)
+    }, 100)
+  }, [data, boxSize, pageSize])
 
   const columns = [
     {
@@ -111,9 +123,10 @@ const HomeTabl = () => {
 
   return (
     <>
-      <ContainerTabl>
+      <ContainerTable>
         <Box
-          height='80vh'
+          // height='80vh'
+          height={boxSize}
           sx={{
             '& .MuiTypography-root': {
               fontFamily: 'Circe',
@@ -132,9 +145,9 @@ const HomeTabl = () => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: 'var(--accentPrimary)'
+            },
             '& .MuiDataGrid-root': {
               border: 'none',
               fontFamily: 'Circe',
@@ -177,10 +190,10 @@ const HomeTabl = () => {
               color: 'var(--activeColor)'
             },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              }
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            }
           }}
         >
           <DataGrid
@@ -199,7 +212,7 @@ const HomeTabl = () => {
             {...data}
           />
         </Box>
-      </ContainerTabl>
+      </ContainerTable>
       <EmptyContainer />
     </>
   )

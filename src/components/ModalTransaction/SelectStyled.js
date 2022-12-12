@@ -64,15 +64,15 @@ const MenuProps = {
     }
   }
 }
-// const data = [
-//   { id: 102, name: 'test1' },
-//   { id: 103, name: 'test2' },
-//   { id: 104, name: 'test3' },
-//   { id: 105, name: 'test4' },
-//   { id: 106, name: 'test5' },
-//   { id: 107, name: 'test' }
-// ]
-// const ela = data.map(p => (p.id > 103 ? 123123123 : null))
+const data = [
+  { id: 102, name: 'test1' },
+  { id: 103, name: 'test2' },
+  { id: 104, name: 'test3' },
+  { id: 105, name: 'test4' },
+  { id: 106, name: 'test5' },
+  { id: 107, name: 'test' }
+]
+const ela = data.map(p => (p.id > 103 ? 123123123 : null))
 
 export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
   const { data } = useGetCategoryQuery()
@@ -105,7 +105,12 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id < 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id < 10200 && (
+                <MenuItem key={el.id} value={el.id}>
+                  {el.name}
+                </MenuItem>
+              )
           )}
         </Select>
       </FormControl>
@@ -121,11 +126,7 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           name={name}
           renderValue={selected => {
             if (selected.length === 0) {
-              return (
-                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
-                  Select a category
-                </em>
-              )
+              return <em style={{ color: '#BDBDBD' }}>select a category</em>
             }
             const { name } = data?.find(el => el.id === selected)
 
@@ -145,7 +146,12 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id > 10200 && (
+                <MenuItem key={el.id} value={el.id}>
+                  {el.name}
+                </MenuItem>
+              )
           )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}
