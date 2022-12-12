@@ -19,7 +19,6 @@ export const MainContainer = styled.main`
 
   ${respondTo.sm`
   height: calc(100vh - 80px);
-
    	align-items: normal;
    	min-width: 768px;
    	padding: 32px 32px;`}
