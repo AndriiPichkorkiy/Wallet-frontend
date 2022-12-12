@@ -107,7 +107,12 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id < 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id < 10200 && (
+                <MenuItem key={el.id} value={el.id}>
+                  {el.name}
+                </MenuItem>
+              )
           )}
         </Select>
       </FormControl>
@@ -143,7 +148,12 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
+            el =>
+              el.id > 10200 && (
+                <MenuItem key={el.id} value={el.id}>
+                  {el.name}
+                </MenuItem>
+              )
           )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}

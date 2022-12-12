@@ -45,14 +45,14 @@ const ModalLogout = ({ noExit }) => {
   )
   
 
-  const [logOut, { isError, error }] = useLazyLogOutQuery()
+  const [logOut] = useLazyLogOutQuery()
 
   const onHandleLogOut = async () => {
     await logOut().unwrap()
-    if (isError) {
-      console.log('error', error.data)
-      return
-    }
+    // if (isError) {
+    //   console.log('error', error.data)
+    //   return
+    // }
     dispatch(onLogOutAction())
     dispatch(unsetToken())
   }
