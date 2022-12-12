@@ -12,10 +12,8 @@ import {
 } from './HeaderComponents'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useSelector } from 'react-redux'
-import { NavLink } from 'react-router-dom'
 
 export const HeaderContent = ({ toExit }) => {
-  // const name = useSelector(store => store.user.user.name)
   const email = useSelector(store => store.user.user.email)
   const name = email.split("@")[0]
   console.log(name)
@@ -24,8 +22,8 @@ export const HeaderContent = ({ toExit }) => {
       <HeaderC>
         <LogoCont>
           {/* <NavLink to="/"> */}
-            <Logo src={wallet} alt='logo' />
-            <LogoText>Wallet</LogoText>
+          <Logo src={wallet} alt='logo' />
+          <LogoText>Wallet</LogoText>
           {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
@@ -35,7 +33,7 @@ export const HeaderContent = ({ toExit }) => {
               sx={{
                 color: '#BDBDBD'
               }}
-              // src={logout} alt="logout"
+            // src={logout} alt="logout"
             />
             <LogoutExit>Exit</LogoutExit>
           </BtnLogout>
