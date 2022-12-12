@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import { useState } from 'react'
 import {
-  ContainerTabl,
+  ContainerTable,
   EmptyContainer,
   StyledGridOverlay
 } from './HomeTabl.styled'
@@ -126,7 +125,7 @@ const HomeTabl = () => {
 
   return (
     <>
-      <ContainerTabl>
+      <ContainerTable>
         <Box
           height='60vh'
           //   height={boxSize}
@@ -222,7 +221,7 @@ const HomeTabl = () => {
             {...data}
           />
         </Box>
-      </ContainerTabl>
+      </ContainerTable>
       <EmptyContainer />
     </>
   )

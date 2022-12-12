@@ -66,7 +66,6 @@ const MenuProps = {
     }
   }
 }
-
 // const data = [
 //   { id: 102, name: 'test1' },
 //   { id: 103, name: 'test2' },
@@ -108,19 +107,7 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el =>
-              el.id < 10200 && (
-                <MenuItem
-                  sx={{
-                    '& MuiMenuItem-root.Mui-selected:hover': {
-                      color: 'red !important'
-                    }
-                  }}
-                  value={el.id}
-                >
-                  {el.name}
-                </MenuItem>
-              )
+            el => el.id < 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
           )}
         </Select>
       </FormControl>
@@ -136,11 +123,7 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           name={name}
           renderValue={selected => {
             if (selected.length === 0) {
-              return (
-                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
-                  Select a category
-                </em>
-              )
+              return <em style={{ color: '#BDBDBD' }}>select a category</em>
             }
             const { name } = data?.find(el => el.id === selected)
 
@@ -160,19 +143,7 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el =>
-              el.id > 10200 && (
-                <MenuItem
-                  //   sx={{
-                  //     '& li.Mui-selected:activ': {
-                  //       color: 'red !important'
-                  //     }
-                  //   }}
-                  value={el.id}
-                >
-                  {el.name}
-                </MenuItem>
-              )
+            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
           )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}

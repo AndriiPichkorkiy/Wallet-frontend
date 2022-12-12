@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import { respondTo } from '../../../helpers/respondTo'
 
-export const ContainerTabl = styled.div`
+export const ContainerTable = styled.div`
+  /* margin: 32px 0 0 0; */
   width: 100%;
   ${respondTo.lg`margin: 46px 0 0 70px;`}
 `

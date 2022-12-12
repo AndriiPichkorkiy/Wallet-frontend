@@ -4,9 +4,6 @@ import { SelectWrapper, Select, Option, Svg } from './Selector.styled'
 
 const Selector = ({ list, title, name, onChange }) => {
   const onOpenEffect = ({ target: { id, tagName } }) => {
-    // if (!tagName && tagName !== 'SELECT') {
-    //   return
-    // }
     const element = document.getElementById(`${id}-icon`)
     element.classList.toggle('rotate')
   }
@@ -14,6 +11,8 @@ const Selector = ({ list, title, name, onChange }) => {
     const element = document.getElementById(`${id}-icon`)
     element.classList.toggle('rotate')
   }
+
+  // console.log('list', list)
 
   return (
     <SelectWrapper>

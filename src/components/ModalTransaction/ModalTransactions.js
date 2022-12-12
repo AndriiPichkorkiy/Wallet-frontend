@@ -31,7 +31,14 @@ import {
   StyledSelectCustomRenderValue
 } from './SelectStyled'
 
+import { useDispatch } from 'react-redux'
+import { useLazyGetBalanceQuery } from '../../services/statsApi'
+import { setBalance } from '../../redux/finance/financeSlice'
+
 const ModalTransactions = ({ closeModal }) => {
+  const dispatch = useDispatch()
+  const [getBalance] = useLazyGetBalanceQuery()
+
   const [newtransaction] = useAddTransactionsMutation()
 
   const [type, setTyped] = useState(false)
@@ -44,6 +51,10 @@ const ModalTransactions = ({ closeModal }) => {
   })
   const closeByEscape = e => {
     if (e.key === 'Escape') closeModal()
+  }
+
+  const onCloseBtnClick = () => {
+    closeModal()
   }
 
   const formik = useFormik({
@@ -74,6 +85,9 @@ const ModalTransactions = ({ closeModal }) => {
           Notify.info('transaction successful')
           closeModal()
         }
+        const balance = await getBalance().unwrap()
+        dispatch(setBalance(balance))
+
         return result
       } catch (error) {
         Notify.failure(error)
@@ -178,7 +192,7 @@ const ModalTransactions = ({ closeModal }) => {
           <StyledAddButton type='submit'>
             <StyledAddButtonText>Add</StyledAddButtonText>
           </StyledAddButton>
-          <StyledCancelButton type='button'>
+          <StyledCancelButton onClick={() => onCloseBtnClick()} type='button'>
             <StyledCancelButtonText>Cancel</StyledCancelButtonText>
           </StyledCancelButton>
         </StyledForm>

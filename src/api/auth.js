@@ -22,5 +22,3 @@ export const verifyEmailToken = async verifyCode => {
     return error
   }
 }
-
-
