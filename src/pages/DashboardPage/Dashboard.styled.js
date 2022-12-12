@@ -14,7 +14,7 @@ export const MainContainer = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   ${respondTo.sm`
