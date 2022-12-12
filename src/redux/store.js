@@ -17,9 +17,8 @@ import { transactionsApi } from '../services/transactionsApi'
 
 import { currentUser } from './auth/authSlice'
 import { currentToken } from './auth/tokenSlice'
-// import authSlice from './auth/auth-slice'
+import { userBalance } from './finance/financeSlice'
 import { currencyData } from './Curency/currencySlice'
-import { currencyApi } from '../../src/services/currencyApi'
 
 const persistConfig = {
   key: 'root',
@@ -33,8 +32,8 @@ const rootReducer = combineReducers({
   [transactionsApi.reducerPath]: transactionsApi.reducer,
   user: currentUser.reducer,
   token: currentToken.reducer,
+  finance: userBalance.reducer,
   currency: currencyData.reducer,
-  // userV2: authSlice
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -50,7 +49,6 @@ export const store = configureStore({
       .concat(authApi.middleware)
       .concat(statsApi.middleware)
       .concat(transactionsApi.middleware)
-      // .concat(currencyApi.middleware)
 })
 
 export const persistor = persistStore(store)

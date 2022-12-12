@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import { respondTo } from '../../helpers/respondTo'
+import { respondTo } from '../../../helpers/respondTo'
 
-export const ContainerTabl = styled.div`
+export const ContainerTable = styled.div`
   /* margin: 32px 0 0 0; */
   width: 100%;
   /* ${respondTo.sm`margin: 20px 0 0 0`} */
@@ -13,4 +13,8 @@ export const StyledGridOverlay = styled.div`
   align-items: center;
   justify-content: center;
   height: 100%;
+`
+export const EmptyContainer = styled.div`
+  ${respondTo.sm`height: 72px`}
+  ${respondTo.lg`height: 0`}
 `

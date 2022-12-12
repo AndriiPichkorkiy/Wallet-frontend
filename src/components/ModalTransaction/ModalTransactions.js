@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-
+import { Notify } from 'notiflix'
+import { useAddTransactionsMutation } from '../../services/transactionsApi'
 import './buttons.styled.js'
 import ButtonAddTransactions from './Buttons/buttonAddTransactions'
 import {
@@ -29,15 +30,16 @@ import {
   StyledSelectCustomRenderValue
 } from './SelectStyled'
 
-// const data={
-//     "type": true,
-//     "category": 10105,
-//     "comment": "First comment",
-//     "amount": 555.55,
-//     "date": 1670170243028
-// }
+import { useDispatch } from 'react-redux'
+import { useLazyGetBalanceQuery } from '../../services/statsApi'
+import { setBalance } from '../../redux/finance/financeSlice'
 
 const ModalTransactions = ({ closeModal }) => {
+  const dispatch = useDispatch()
+  const [getBalance] = useLazyGetBalanceQuery()
+
+  const [newtransaction] = useAddTransactionsMutation()
+
   const [type, setTyped] = useState(false)
   const [date, setDate] = useState(Date.now())
   useEffect(() => {
@@ -50,6 +52,10 @@ const ModalTransactions = ({ closeModal }) => {
     if (e.key === 'Escape') closeModal()
   }
 
+  const onCloseBtnClick = () => {
+    closeModal()
+  }
+
   const formik = useFormik({
     initialValues: {
       amount: '',
@@ -58,29 +64,36 @@ const ModalTransactions = ({ closeModal }) => {
       type: type,
       date: date
     },
-    validationSchema: Yup.object({
+    validationSchema: Yup.object().shape({
       amount: Yup.number()
         .required('Please enter amount')
         .positive()
         .integer()
         .max(1000000),
-      category: Yup.string(),
+      category: Yup.number().required(),
       comment: Yup.string(),
       type: Yup.boolean().required(),
       date: Yup.string().required()
     }),
-    onSubmit: (values, { resetForm }) => {
-      console.log(JSON.stringify(values, null, 2))
-      console.log('type', type)
-      console.log('date', date)
-      resetForm()
-      if (values.amount) {
-        closeModal()
+    onSubmit: async (values, { resetForm }) => {
+      try {
+        const result = await newtransaction(IV)
+
+        resetForm()
+        if (values.amount) {
+          Notify.info('transaction successful')
+          closeModal()
+        }
+        const balance = await getBalance().unwrap()
+        dispatch(setBalance(balance))
+
+        return result
+      } catch (error) {
+        Notify.failure(error)
       }
     }
   })
   const IV = { ...formik.values, date, type }
-  console.log('IV', IV)
 
   return (
     <BackdropContainer
@@ -152,7 +165,11 @@ const ModalTransactions = ({ closeModal }) => {
             onChange={formik.handleChange}
             placeholder='0.00'
           />
-          <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'relative'
+            }}
+          >
             <StyledDatetime
               onChange={date => setDate(date)}
               dateFormat='DD.MM.YYYY'
@@ -173,7 +190,7 @@ const ModalTransactions = ({ closeModal }) => {
           <StyledAddButton type='submit'>
             <StyledAddButtonText>Add</StyledAddButtonText>
           </StyledAddButton>
-          <StyledCancelButton type='button'>
+          <StyledCancelButton onClick={() => onCloseBtnClick()} type='button'>
             <StyledCancelButtonText>Cancel</StyledCancelButtonText>
           </StyledCancelButton>
         </StyledForm>

@@ -1,33 +1,28 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense } from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header/Header'
 import Loader from '../../components/Loader/Loader'
+
 import {
   ContainerLeft,
   ContainerTop,
   MainContainer,
-  Wrapp
+  Wrapper
 } from './Dashboard.styled'
+
 import Media from 'react-media'
 import { useLocation } from 'react-router-dom'
 
-import ModalTransactions from "../../components/ModalTransaction/ModalTransactions"
-import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
-
-
-
 const DashboardPage = () => {
   const { pathname } = useLocation()
-  const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] = useState(false)
+
   return (
-    <Wrapp>
+    <Wrapper>
       <Header />
       <MainContainer>
-        <AddTransModalBtn onClick={() => SetIsModalAddTransactionOpen(true)} />
-        {isModalAddTransactionOpen && <ModalTransactions closeModal={() => SetIsModalAddTransactionOpen(false)} />}
         <Media
           queries={{
             small: '(max-width: 767px)',
@@ -37,21 +32,20 @@ const DashboardPage = () => {
         >
           {matches => (
             <>
-              {matches.small && pathname === '/currency' && (
-                <ContainerLeft>
-                  <DashbordBtns />
-                </ContainerLeft>
-              )}
               {matches.small &&
-                (pathname === '/' ||
-                  pathname === '/statistics') && (
-                  <>
-                    <ContainerLeft>
-                      <DashbordBtns />
-                      <Balance />
-                    </ContainerLeft>
-                  </>
+                (pathname === '/currency' || pathname === '/statistics') && (
+                  <ContainerLeft>
+                    <DashbordBtns />
+                  </ContainerLeft>
                 )}
+              {matches.small && pathname === '/' && (
+                <>
+                  <ContainerLeft>
+                    <DashbordBtns />
+                    <Balance />
+                  </ContainerLeft>
+                </>
+              )}
               {matches.medium && pathname === '/currency' && (
                 <Navigate to='/' />
               )}
@@ -66,9 +60,7 @@ const DashboardPage = () => {
                   </ContainerTop>
                 </>
               )}
-              {matches.large && pathname === '/currency' && (
-                <Navigate to='/' />
-              )}
+              {matches.large && pathname === '/currency' && <Navigate to='/' />}
               {matches.large && (
                 <>
                   <ContainerLeft>
@@ -85,7 +77,7 @@ const DashboardPage = () => {
           <Outlet />
         </Suspense>
       </MainContainer>
-    </Wrapp>
+    </Wrapper>
   )
 }
 

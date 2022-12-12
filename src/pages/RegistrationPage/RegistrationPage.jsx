@@ -1,39 +1,48 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSignUpMutation } from '../../services/authApi'
 import { isRegister } from '../../redux/auth/authSlice'
-import RegistrationForm from '../../modules/RegistrationForm/RegistrationForm'
+import RegistrationForm from '../../components/RegistrationForm/RegistrationForm'
 import {
-  StyledImg,
   StyledLargeImg,
   StyledFormContainer,
-  StyledRightCornerImgContainer,
   StyledHeadContainer,
   StyledRegisterTitle,
   StyledRegisterImgContainer,
   StyledRegisterImgLargeContainer,
-  StyledLeftCornerImgContainer,
-  StyledRightCornerImgLargeContainer,
   StyledRegistrationPageContainer
 } from './RegistrationPage.styled'
-
+// import { compose, connect } from 'redux';
 import icon_register_tab from '../../assets/images/authImg/register-tablet.png'
 import icon_register_desc from '../../assets/images/authImg/register-desk.png'
 import { useDispatch } from 'react-redux'
 import { Notify } from 'notiflix/build/notiflix-notify-aio'
+import { useNavigate } from 'react-router'
 
 const RegistrationPage = () => {
   const dispatch = useDispatch()
-  const [signUp, { isError, isLoading, error }] = useSignUpMutation()
-  console.log('isLoading', isLoading)
+
+  const navigate = useNavigate()
+  const [signUp, { isError, isSuccess, error }] = useSignUpMutation()
 
   if (isError) {
     Notify.failure(error.data.message)
   }
 
+  console.log('isError: ', isError)
+  useEffect(() => {
+    console.log('isSuccess: ', isSuccess)
+    if (isSuccess) {
+      // redirect
+      navigate('/login', { replace: true })
+      window.newUser = true
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess])
+
   const onHandleSubmit = async data => {
     const response = await signUp(data).unwrap()
     if (!response) {
-      return console.log('error', isError)
+      return console.log('error', error.data.message)
     }
     dispatch(isRegister(response))
   }
@@ -57,5 +66,7 @@ const RegistrationPage = () => {
     </StyledRegistrationPageContainer>
   )
 }
+
+// export default withAuthRedirect(RegistrationPage);
 
 export default RegistrationPage

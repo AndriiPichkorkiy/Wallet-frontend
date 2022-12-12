@@ -47,6 +47,13 @@ export const authApi = createApi({
       }),
       invalidatesTags: ['Auth']
     })
+    // verifyEmail: builder.mutation({
+    //   query: verifyCode => ({
+    //     url: `api/user/verify/${verifyCode}`,
+    //     method: 'POST'
+    //   }),
+    //   invalidatesTags: ['Auth']
+    // })
   })
 })
 
