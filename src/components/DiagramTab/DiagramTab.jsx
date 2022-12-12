@@ -13,6 +13,7 @@ import {
   DiagramWrapper,
   Container
 } from './DiagramTab.styled'
+import { Notify } from 'notiflix'
 
 const colors = [
   { id: 10101, color: 'rgba(254, 208, 87, 1)' },
@@ -30,9 +31,8 @@ const colors = [
 const DiagramTab = () => {
   const [month, setMonth] = useState('')
   const [year, setYear] = useState('')
-  // const [query, setQuery] = useState(``)
   const [stats, setStats] = useState({})
-  const [getData, { data, isLoading, isError }] = useLazyGetStatsByPeriodQuery()
+  const [getData, { isLoading, isError }] = useLazyGetStatsByPeriodQuery()
 
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -50,15 +50,20 @@ const DiagramTab = () => {
     if (!query) {
       return
     }
-    console.log('year', year, 'month', month)
-    console.log('query', query)
+    // console.log('year', year, 'month', month)
+    // console.log('query', query)
     const fetchData = async () => {
       const result = await getData(query).unwrap()
-      console.log('result', result)
+      // console.log('result', result)
+      if (isError) {
+        Notify.failure('Something went wrong...')
+        return
+      }
       const changedResult = addColorsToObject(colors, result)
       setStats(changedResult)
     }
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [month, year])
 
   const addColorsToObject = (colors, stats) => {
@@ -80,11 +85,11 @@ const DiagramTab = () => {
     if (!year && !month) {
       return `year=${currentYear}&month=${currentMonth}`
     }
-    if (year && month) {
-      return `year=${year}&month=${month}`
-    }
     if (year && !month) {
       return `year=${year}`
+    }
+    if (year && month) {
+      return `year=${year}&month=${month}`
     }
     if (!year && month) {
       return `year=${currentYear}&month=${month}`
