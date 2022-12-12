@@ -8,6 +8,7 @@ import { respondTo } from '../../helpers/respondTo'
 export const Wrapper = styled.div`
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
+  height: 100vh;
 `
 export const MainContainer = styled.main`
   height: calc(100vh - 60px);

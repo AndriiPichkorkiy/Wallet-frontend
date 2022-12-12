@@ -17,8 +17,11 @@ import { useGetCategoryQuery } from '../../services/transactionsApi'
 
 const CssTextField = styled(InputBase)({
   '&': {
+    fontFamily: 'Circe',
+    fontSize: '18px',
     borderBottom: '1px solid #E0E0E0',
-    background: '#FFFF'
+    background: '#FFFF',
+    marginTop: '40px'
     // paddingLeft: '20px'
   },
   '& label.Mui-focused': {
@@ -55,7 +58,9 @@ const MenuProps = {
       background: 'rgba(255, 255, 255, 0.7)',
       boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
       backdropFilter: 'blur(25px)',
-      color: 'red'
+      color: '#000000',
+      fontFamily: 'Circe',
+      fontSize: '18px'
     }
   }
 }
@@ -78,7 +83,11 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
         <Select
           renderValue={selected => {
             if (selected.length === 0) {
-              return <em style={{ color: '#BDBDBD' }}>select a category</em>
+              return (
+                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
+                  Select a category
+                </em>
+              )
             }
             const { name } = data?.find(el => el.id === selected)
 

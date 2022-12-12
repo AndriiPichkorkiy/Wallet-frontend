@@ -165,7 +165,11 @@ const ModalTransactions = ({ closeModal }) => {
             onChange={formik.handleChange}
             placeholder='0.00'
           />
-          <div style={{ position: 'relative' }}>
+          <div
+            style={{
+              position: 'relative'
+            }}
+          >
             <StyledDatetime
               onChange={date => setDate(date)}
               dateFormat='DD.MM.YYYY'

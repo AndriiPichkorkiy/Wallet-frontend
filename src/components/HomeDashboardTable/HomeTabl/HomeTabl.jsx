@@ -7,6 +7,7 @@ import {
   StyledGridOverlay
 } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
+import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
 const HomeTabl = ({ data }) => {
   const [pageSize, setPageSize] = useState(10)
@@ -69,7 +70,7 @@ const HomeTabl = ({ data }) => {
       headerName: 'Comment',
       headerAlign: 'left',
       align: 'left',
-      flex: 1.1,
+      flex: 1,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={20} />
       )
@@ -144,9 +145,9 @@ const HomeTabl = ({ data }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: 'var(--accentPrimary)'
+            },
             '& .MuiDataGrid-root': {
               border: 'none',
               fontFamily: 'Circe',
@@ -189,10 +190,10 @@ const HomeTabl = ({ data }) => {
               color: 'var(--activeColor)'
             },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              }
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            }
           }}
         >
           <DataGrid
@@ -203,7 +204,9 @@ const HomeTabl = ({ data }) => {
             columns={columns}
             getRowId={row => row._id}
             pageSize={pageSize}
-            onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+            onPageSizeChange={newPageSize => {
+              setPageSize(newPageSize)
+            }}
             rowsPerPageOptions={[5, 10, 20]}
             pagination
             {...data}
