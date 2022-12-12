@@ -14,8 +14,10 @@ import LogoutIcon from '@mui/icons-material/Logout'
 import { useSelector } from 'react-redux'
 
 export const HeaderContent = ({ toExit }) => {
-  const name = useSelector(store => store.user.user.name)
-
+  // const name = useSelector(store => store.user.user.name)
+  const email = useSelector(store => store.user.user.email)
+  const name = email.split("@")[0]
+  console.log(name)
   return (
     <>
       <HeaderC>
