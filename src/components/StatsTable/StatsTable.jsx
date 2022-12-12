@@ -1,6 +1,6 @@
 import React from 'react'
 import Selector from './Selector/Selector'
-import Table from './Table/Table'
+// import Table from './Table/Table'
 import { Container, SelectionWrapper } from './StatsTable.styled'
 
 const months = [
@@ -43,7 +43,7 @@ const StatsTable = ({ statistics, totalData, onChange }) => {
           onChange={onChange}
         />
       </SelectionWrapper>
-      <Table statistics={statistics} totalData={totalData} />
+      {/* <Table statistics={statistics} totalData={totalData} /> */}
     </Container>
   )
 }

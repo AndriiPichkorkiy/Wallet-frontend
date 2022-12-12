@@ -7,6 +7,7 @@ const Selector = ({ list, title, name, onChange }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const onOpenEffect = ({ target: { id, tagName } }) => {
+    console.log('id', id)
     const element = document.getElementById(`${id}-icon`)
     element.classList.add('rotateOpen')
     element.classList.remove('rotateClose')
