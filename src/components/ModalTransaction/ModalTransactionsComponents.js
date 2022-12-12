@@ -42,14 +42,13 @@ export const ModalTransactionsContainer = styled.div`
   } */
 
   /* margin: 0 10px 37px; */
-  ${respondTo.xs`margin: 0 20px 37px`}
-  ${respondTo.sm`border-radius:20px; min-width:504px`}
+  ${respondTo.sm`border-radius:20px; min-width:540px`}
 `
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
   margin: 0 10px;
-  ${respondTo.sm`padding-left: 73px; padding-right: 73px; `}
+  ${respondTo.sm`padding-left: 73px; padding-right: 73px`}
 `
 
 export const TitleTransactions = styled.p`
@@ -61,6 +60,7 @@ export const TitleTransactions = styled.p`
   text-align: center;
   color: #000000;
   margin: 20px 0 40px;
+  ${respondTo.sm`font-size: 30px; margin-top: 40px;`}
 `
 
 export const LabelIncome = styled.label`
@@ -72,6 +72,12 @@ export const LabelIncome = styled.label`
   color: #24cca7;
   margin-right: 20px;
 `
+export const WrapperInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  ${respondTo.sm`flex-direction: row;`}
+`
+
 export const IncomeExpensContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -99,6 +105,7 @@ export const StyledInput = styled.input`
   border: none;
   border-bottom: #e0e0e0 1px solid;
   margin: 40px 10px 0;
+  ${respondTo.sm`width: 190px;`}
 `
 
 export const StyledTextarea = styled.textarea`
@@ -155,6 +162,16 @@ export const StyledAddButton = styled.button`
   margin-right: auto;
      width: 300px;
     `}
+  &:focus {
+    background-color: var(--accentPrimary);
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+  }
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
+  }
 `
 
 export const StyledAddButtonText = styled.span`
@@ -182,4 +199,15 @@ export const StyledCancelButton = styled.button`
      width: 300px;
 	 margin-bottom: 60px;
     `}
+  &:focus {
+    background: var(--activeColor);
+    color: var(--background);
+    background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
+  }
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
+  }
 `

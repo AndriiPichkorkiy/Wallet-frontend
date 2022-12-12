@@ -1,10 +1,6 @@
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
-// const header = document.querySelector('header')
-// const headerHeight = header ? header.getBoundingClientRect().height : 80
-// console.log(headerHeight)
-
 export const Wrapper = styled.div`
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
@@ -18,7 +14,7 @@ export const MainContainer = styled.main`
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
 
   ${respondTo.sm`
