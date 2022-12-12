@@ -35,11 +35,15 @@ const ModalLogout = ({ noExit }) => {
     }
   }, [esc])
 
-  const onBackClick = e => {
-    if (e.currentTarget === e.target) {
-      noExit()
-    }
-  }
+  const onBackClick = useCallback(
+    e => {
+      if (e.currentTarget === e.target) {
+        noExit()
+      }
+    },
+    [noExit]
+  )
+  
 
   const [logOut, { isError, error }] = useLazyLogOutQuery()
 
