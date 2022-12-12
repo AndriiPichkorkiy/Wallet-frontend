@@ -50,8 +50,8 @@ const DiagramTab = () => {
     if (!query) {
       return
     }
-    // console.log('year', year, 'month', month)
-    // console.log('query', query)
+    console.log('year', year, 'month', month)
+    console.log('query', query)
     const fetchData = async () => {
       const result = await getData(query).unwrap()
       // console.log('result', result)
@@ -78,10 +78,6 @@ const DiagramTab = () => {
   const makeQuery = (year, month) => {
     const currentMonth = new Date().getMonth() + 1
     const currentYear = new Date().getFullYear()
-    if (month === 'hide' || year === 'hide') {
-      console.log('hide')
-      return ''
-    }
     if (!year && !month) {
       return `year=${currentYear}&month=${currentMonth}`
     }
