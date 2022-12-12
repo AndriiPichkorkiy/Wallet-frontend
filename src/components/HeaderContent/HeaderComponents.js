@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
@@ -15,10 +16,12 @@ export const HeaderC = styled.header`
     `}
 `
 
-export const LogoCont = styled.div`
+export const LogoCont = styled(NavLink)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
+  color: var(--main-text);
 `
 
 export const Logo = styled.img`
