@@ -14,6 +14,7 @@ import storage from 'redux-persist/lib/storage'
 import { authApi } from '../services/authApi'
 import { statsApi } from '../services/statsApi'
 import { transactionsApi } from '../services/transactionsApi'
+import { currencyApi } from '../services/currencyApi'
 
 import { currentUser } from './auth/authSlice'
 import { currentToken } from './auth/tokenSlice'
@@ -49,6 +50,7 @@ export const store = configureStore({
       .concat(authApi.middleware)
       .concat(statsApi.middleware)
       .concat(transactionsApi.middleware)
+     .concat(currencyApi.middleware)
 })
 
 export const persistor = persistStore(store)

@@ -9,9 +9,9 @@ export const currencyApi = createApi({
     tagTypes: ["Currency"],
     endpoints: builder => ({
         getCurrency: builder.query({
-            query: () => '/',
+            query: () => '',
             providesTags: ["Currency"],
-       }),     
+        }),
     }),
 });
 
