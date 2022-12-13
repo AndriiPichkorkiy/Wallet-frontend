@@ -1,5 +1,5 @@
 import {
-  StyledAddTransitionButton,
+//   StyledAddTransitionButton,
   ContainerAddTransitionButton
 } from '../buttons.styled'
 import ButtonAddTransactions from './buttonAddTransactions'
@@ -8,9 +8,7 @@ import ButtonAddTransactions from './buttonAddTransactions'
 export const AddTransModalBtn = ({ onClick }) => {
   return (
     <ContainerAddTransitionButton onClick={onClick}>
-      <StyledAddTransitionButton>
         <ButtonAddTransactions />
-      </StyledAddTransitionButton>
     </ContainerAddTransitionButton>
   )
 }

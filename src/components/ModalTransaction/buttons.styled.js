@@ -1,39 +1,31 @@
-/* //////////// BUTTTON*/
-import { respondTo } from '../../helpers/respondTo'
 import styled from 'styled-components'
+
 export const ContainerAddTransitionButton = styled.div`
-  ${respondTo.sm`
-     margin-bottom: 40px;
-  margin-right: 40px; 
-    `}
+  cursor: pointer;
   position: fixed;
-  bottom: 0;
-  right: 0;
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-  margin-right: 20px;
-  z-index: 10;
-`
-export const StyledAddTransitionButton = styled.div`
+  right: 20px;
+  bottom: 20px;
   width: 44px;
   height: 44px;
-  background: #24cca7;
+  background-color: var(--accentPrimary);
   border-radius: 50%;
+  border: none;
+  outline: none;
   display: flex;
-  align-items: center;
   justify-content: center;
-  cursor: pointer;
+  align-items: center;
+  z-index: 10;
+  &:hover,
+  &:focus {
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+    transform: scale(1.04);
+  }
 `
 export const ButtonMinus = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 100%;
-  /* margin-bottom: 40px;
-  margin-right: 40px; */
-
-  /* width: 44px; */
 `
 
 export const ButtonPlus = styled.div`
