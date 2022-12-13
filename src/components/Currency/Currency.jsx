@@ -27,7 +27,7 @@ const MonoCurrency = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [data])
 
-
+    if (!data) return <></>
     const dataMono = data.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
         .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
             <tr key={currencyCodeA}>
