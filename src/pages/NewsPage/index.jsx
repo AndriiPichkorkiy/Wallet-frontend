@@ -18,7 +18,7 @@ const NewsPage = () => {
 
   useEffect(() => {
     const asyncF = async () => {
-      const { data } = await getNews("currency")
+      const { data } = await getNews('currency')
       setNews(data.articles)
     }
     asyncF()
@@ -28,7 +28,7 @@ const NewsPage = () => {
     <Media queries={{ small: '(max-width: 767px)' }}>
       {matches =>
         matches.small ? (
-          <Navigate to='cabinet/currency' />
+          <Navigate to='/currency' />
         ) : (
           <>
             <Container>
@@ -48,9 +48,13 @@ const NewsPage = () => {
                 {news.map(item => {
                   return (
                     <NewsItem style={{ margin: '10px 0' }}>
-                      <NewsItemHead>{item.source.name}</NewsItemHead>
+                      <NewsItemHead>
+                        {new Date(item.publishedAt).toLocaleDateString()}
+                      </NewsItemHead>
                       <NewsText>{item.title}</NewsText>
-                      <NewsLink href={item.url}>link to the article</NewsLink>
+                      <NewsLink target='_blank' href={item.url}>
+                        Link to the article
+                      </NewsLink>
                     </NewsItem>
                   )
                 })}

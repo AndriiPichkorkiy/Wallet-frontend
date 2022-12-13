@@ -71,10 +71,6 @@ const LoginForm = ({ onSubmit }) => {
   return (
     <FormContainer>
       {isLoading ? <LoaderWrapper /> : null}
-      <ContainerLogo>
-        <StyledImg src={icon} alt='wallet' />
-        <StyledLargeImg src={icon_large} alt='wallet' />
-      </ContainerLogo>
       <Formik
         validationSchema={SignInSchema}
         onSubmit={handleSubmit}
@@ -82,6 +78,10 @@ const LoginForm = ({ onSubmit }) => {
       >
         {({ errors, touched }) => (
           <Form>
+            <ContainerLogo>
+              <StyledImg src={icon} alt='wallet' />
+              <StyledLargeImg src={icon_large} alt='wallet' />
+            </ContainerLogo>
             <FieldContainer>
               <StyledIconMail />
               <FieldStyled

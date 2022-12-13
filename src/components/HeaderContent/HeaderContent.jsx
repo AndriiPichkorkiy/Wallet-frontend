@@ -8,29 +8,37 @@ import {
   BtnLogout,
   LogoutCont,
   LogoutExitName,
-  LogoutExit
+  LogoutExit,
+  // LogoutExitNameCircle
 } from './HeaderComponents'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useSelector } from 'react-redux'
 
 export const HeaderContent = ({ toExit }) => {
-  const name = useSelector(store => store.user.user.name)
-
+  const nameAll = useSelector(store => store.user.user.name)
+  // const name = nameAll.split('')[0].toUpperCase()
   return (
     <>
       <HeaderC>
         <LogoCont>
+          {/* <NavLink to="/"> */}
           <Logo src={wallet} alt='logo' />
           <LogoText>Wallet</LogoText>
+          {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
-          <LogoutExitName className={'name'}>{name}</LogoutExitName>
+          {/* <LogoutExitNameCircle className={'name'}>
+            {name}
+          </LogoutExitNameCircle> */}
+          <LogoutExitName>
+            {nameAll}
+          </LogoutExitName>
           <BtnLogout onClick={toExit} type='btn'>
             <LogoutIcon
               sx={{
                 color: '#BDBDBD'
               }}
-              // src={logout} alt="logout"
+            // src={logout} alt="logout"
             />
             <LogoutExit>Exit</LogoutExit>
           </BtnLogout>

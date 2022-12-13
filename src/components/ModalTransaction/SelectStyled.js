@@ -58,21 +58,23 @@ const MenuProps = {
       background: 'rgba(255, 255, 255, 0.7)',
       boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
       backdropFilter: 'blur(25px)',
-      color: '#000000',
-      fontFamily: 'Circe',
-      fontSize: '18px'
+      color: '#000000'
+      //   '&:hover': { color: 'red' },
+      //   '& > li:hover': {
+      //     color: 'blue '
+      //   }
     }
   }
 }
-const data = [
-  { id: 102, name: 'test1' },
-  { id: 103, name: 'test2' },
-  { id: 104, name: 'test3' },
-  { id: 105, name: 'test4' },
-  { id: 106, name: 'test5' },
-  { id: 107, name: 'test' }
-]
-const ela = data.map(p => (p.id > 103 ? 123123123 : null))
+// const data = [
+//   { id: 102, name: 'test1' },
+//   { id: 103, name: 'test2' },
+//   { id: 104, name: 'test3' },
+//   { id: 105, name: 'test4' },
+//   { id: 106, name: 'test5' },
+//   { id: 107, name: 'test' }
+// ]
+// const ela = data.map(p => (p.id > 103 ? 123123123 : null))
 
 export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
   const { data } = useGetCategoryQuery()
@@ -126,7 +128,11 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           name={name}
           renderValue={selected => {
             if (selected.length === 0) {
-              return <em style={{ color: '#BDBDBD' }}>select a category</em>
+              return (
+                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
+                  Select a category
+                </em>
+              )
             }
             const { name } = data?.find(el => el.id === selected)
 

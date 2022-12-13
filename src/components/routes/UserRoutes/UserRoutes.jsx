@@ -1,7 +1,7 @@
 import Loader from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import HomePage from '../../../pages/HomePage/HomePage'
+// import HomePage from '../../../pages/HomePage/HomePage'
 import { Navigate } from 'react-router-dom/dist'
 import NewsPage from '../../../pages/NewsPage'
 
@@ -17,7 +17,7 @@ const LoginPage = lazy(() => import('../../../pages/LoginPage/LoginPage'))
 // const NotFoundPage = lazy(() =>
 //   import('../../../pages/NotFoundPage/NotFoundPage')
 // )
-
+const HomePage = lazy(() => import('../../../pages/HomePage'))
 const DiagramTab = lazy(() => import('../../DiagramTab'))
 const Currency = lazy(() => import('../../Currency'))
 

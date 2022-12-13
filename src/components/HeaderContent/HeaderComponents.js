@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
@@ -15,10 +16,12 @@ export const HeaderC = styled.header`
     `}
 `
 
-export const LogoCont = styled.div`
+export const LogoCont = styled(NavLink)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-decoration: none;
+  color: var(--main-text);
 `
 
 export const Logo = styled.img`
@@ -32,6 +35,7 @@ export const Logo = styled.img`
 
 export const LogoText = styled.span`
   font-size: 22px;
+  font-weight: 700;
   ${respondTo.sm`
         font-size: 36px;
     `}
@@ -73,6 +77,17 @@ export const LogoutExitName = styled.h3`
   font-size: 18px;
   line-height: 27px;
   color: var(--text-header);
+  margin-left: 5px;
+`
+
+export const LogoutExitNameCircle = styled.div`
+  padding: 5px 10px;
+  background-color: var(--paleActiveColor);
+  border-radius: 20px;
+  color: var(--background);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
 `
 
 export const LogoutExit = styled.span`

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// import  '../../assets/css/utils/_vars.scss'
 import { Field } from 'formik'
 import { Link } from 'react-router-dom'
 import EmailIcon from '@mui/icons-material/Email'
@@ -6,6 +7,7 @@ import LockIcon from '@mui/icons-material/Lock'
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { respondTo } from '../../helpers/respondTo'
 import { LinearProgress } from '@mui/material'
+
 
 export const ContainerLogo = styled.div`
   display: flex;
@@ -15,7 +17,10 @@ export const ContainerLogo = styled.div`
 `
 export const FormContainer = styled.div`
   height: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   position: relative;
   padding: 36px 20px;
   background-color: var(--background);
@@ -27,9 +32,6 @@ export const FormContainer = styled.div`
         margin-left:auto;
         margin-right:auto;
       `}
-  ${respondTo.lg`
-        height: 100%;
-      `};
 `
 export const FieldStyled = styled(Field)`
   width: 100%;
@@ -125,8 +127,10 @@ export const StyledIconUser = styled(AccountBoxIcon)`
   color: var(--text-header);
 `
 export const StyledBtnMain = styled.button`
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
   max-height: 50px;
   padding: 13px 61px;
   background: var(--accentPrimary);
@@ -142,7 +146,6 @@ export const StyledBtnMain = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  
   &:focus {
     background-color: var(--accentPrimary);
     background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
@@ -153,13 +156,18 @@ export const StyledBtnMain = styled.button`
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
+   ${respondTo.sm`
+                width: 300px;
+        `}
 `
 export const StyledBtn = styled(Link)`
-  display: inline-block;
+  display: block;
   width: 100%;
+  margin-left:auto;
+  margin-right:auto;
   max-height: 50px;
   padding: 13px 61px;
-  background: transparent;
+background: transparent;
   color: var(--activeColor);
   border: 1px solid var(--activeColor);
   border-radius: 20px;
@@ -169,7 +177,6 @@ export const StyledBtn = styled(Link)`
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  
   &:focus {
     background: var(--activeColor);
     color: var(--background);
@@ -181,6 +188,9 @@ export const StyledBtn = styled(Link)`
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
+   ${respondTo.sm`
+                width: 300px;
+        `}
 `
 export const StyledErrorMsg = styled.div`
   position: absolute;

@@ -44,6 +44,18 @@ export const ModalLogoutButtonYes = styled.button`
     color: var(--activeColor);
     border: 1px var(--activeColor) solid;
     margin-right: 10px;
+
+    &:focus {
+    background: var(--activeColor);
+    color: var(--background);
+    background-image: linear-gradient(315deg,  #4a56e2 0%, #ffd8d0a6 74%);
+    }
+    &:hover{
+        box-shadow:  -2px 2px 6px 0 rgba(255,255,255,.5),
+                -2px 2px 6px 0 rgba(116, 125, 139, .5), 
+        inset -2px -2px 6px 0 rgba(255,255,255,.5),
+        inset -2px -2px 6px 0 rgba(0, 0, 0, .4);
+    }
 `
 
 export const ModalLogoutButtonNo = styled.button`
@@ -57,4 +69,15 @@ export const ModalLogoutButtonNo = styled.button`
     align-items: center;
     background-color: var(--accentPrimary);
     color: var(--background);
+
+    &:focus {
+    background-color: var(--accentPrimary);
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+    }
+    &:hover{
+        box-shadow:  -2px 2px 6px 0 rgba(255,255,255,.5),
+                -2px 2px 6px 0 rgba(116, 125, 139, .5), 
+        inset -2px -2px 6px 0 rgba(255,255,255,.5),
+        inset -2px -2px 6px 0 rgba(0, 0, 0, .4);
+    }
 `
