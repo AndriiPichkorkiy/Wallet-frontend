@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { ContainerTable, StyledGridOverlay } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
-import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
+// import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
 const HomeTabl = ({ transactions, quantity }) => {
   //   console.log(quantity)
@@ -167,9 +167,9 @@ const HomeTabl = ({ transactions, quantity }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: 'var(--accentPrimary)'
+            },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -228,10 +228,10 @@ const HomeTabl = ({ transactions, quantity }) => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              },
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >

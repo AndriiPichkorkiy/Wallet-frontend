@@ -22,6 +22,23 @@ export const LogoCont = styled(NavLink)`
   align-items: center;
   text-decoration: none;
   color: var(--main-text);
+
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 15s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #0f0f8a93;
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 500%;
+  }
+}
 `
 
 export const Logo = styled.img`
