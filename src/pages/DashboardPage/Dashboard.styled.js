@@ -4,15 +4,9 @@ import { respondTo } from '../../helpers/respondTo'
 export const Wrapper = styled.div`
   background: rgba(255, 255, 255, 0.4);
   height: 100%;
-  min-height: 568px;
+  min-height: 100vh;
   ${respondTo.sm`
   backdrop-filter: blur(25px);
-    height: 100vh;
-    min-height: 1024px;
-  `}
-  ${respondTo.lg`
-    height: 100vh;
-    min-height: 900px;
   `}
 `
 export const MainContainer = styled.main`
