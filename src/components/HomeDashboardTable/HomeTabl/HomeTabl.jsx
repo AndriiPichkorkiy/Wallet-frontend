@@ -79,9 +79,6 @@ const HomeTabl = () => {
       headerAlign: 'center',
       align: 'left',
       flex: 1,
-      hideSortIcons: true,
-      editable: true,
-      hideable: false,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={15} />
       )

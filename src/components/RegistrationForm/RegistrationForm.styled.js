@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+// import  '../../assets/css/utils/_vars.scss'
 import { Field } from 'formik'
 import { Link } from 'react-router-dom'
 import EmailIcon from '@mui/icons-material/Email'
@@ -6,6 +7,7 @@ import LockIcon from '@mui/icons-material/Lock'
 import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { respondTo } from '../../helpers/respondTo'
 import { LinearProgress } from '@mui/material'
+
 
 export const ContainerLogo = styled.div`
   display: flex;
@@ -15,7 +17,10 @@ export const ContainerLogo = styled.div`
 `
 export const FormContainer = styled.div`
   height: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   position: relative;
   padding: 36px 20px;
   background-color: var(--background);
@@ -27,9 +32,6 @@ export const FormContainer = styled.div`
         margin-left:auto;
         margin-right:auto;
       `}
-  ${respondTo.lg`
-        height: 100%;
-      `};
 `
 export const FieldStyled = styled(Field)`
   width: 100%;
@@ -142,7 +144,6 @@ export const StyledBtnMain = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 20px;
-  
   &:focus {
     background-color: var(--accentPrimary);
     background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
@@ -159,7 +160,7 @@ export const StyledBtn = styled(Link)`
   width: 100%;
   max-height: 50px;
   padding: 13px 61px;
-  background: transparent;
+background: transparent;
   color: var(--activeColor);
   border: 1px solid var(--activeColor);
   border-radius: 20px;
@@ -169,7 +170,6 @@ export const StyledBtn = styled(Link)`
   text-align: center;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  
   &:focus {
     background: var(--activeColor);
     color: var(--background);
