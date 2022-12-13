@@ -21,8 +21,10 @@ export const HeaderContent = ({ toExit }) => {
     <>
       <HeaderC>
         <LogoCont>
-            <Logo src={wallet} alt='logo' />
-            <LogoText>Wallet</LogoText>
+          {/* <NavLink to="/"> */}
+          <Logo src={wallet} alt='logo' />
+          <LogoText>Wallet</LogoText>
+          {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
           {/* <LogoutExitNameCircle className={'name'}>
@@ -36,6 +38,7 @@ export const HeaderContent = ({ toExit }) => {
               sx={{
                 color: '#BDBDBD'
               }}
+            // src={logout} alt="logout"
             />
             <LogoutExit>Exit</LogoutExit>
           </BtnLogout>
