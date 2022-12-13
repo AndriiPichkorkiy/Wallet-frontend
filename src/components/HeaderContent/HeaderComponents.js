@@ -77,6 +77,17 @@ export const LogoutExitName = styled.h3`
   font-size: 18px;
   line-height: 27px;
   color: var(--text-header);
+  margin-left: 5px;
+`
+
+export const LogoutExitNameCircle = styled.div`
+  padding: 5px 10px;
+  background-color: var(--paleActiveColor);
+  border-radius: 20px;
+  color: var(--background);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 27px;
 `
 
 export const LogoutExit = styled.span`
