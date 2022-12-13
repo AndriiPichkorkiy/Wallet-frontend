@@ -9,13 +9,13 @@ import {
 import { nanoid } from '@reduxjs/toolkit'
 import EllipsisText from 'react-ellipsis-text'
 
-const MobileTabl = ({ data }) => {
+const MobileTabl = ({ transactions }) => {
   // const unid = useId()
-  console.log(data.length)
-  if (data.length > 0) {
+
+  if (transactions.length > 0) {
     const card =
       // data &&
-      data.map(({ type, category, comment, amount, balance, date }) => {
+      transactions.map(({ type, category, comment, amount, balance, date }) => {
         const time = date
         const newDate = new Date(time).toLocaleDateString()
 
