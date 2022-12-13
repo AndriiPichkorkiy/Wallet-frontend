@@ -1,41 +1,40 @@
 // import { useState, useEffect } from 'react';
 // import { getMonoCurrency } from "../../api/services";
-// import Loader from '../Loader/Loader';
 // import { default as data } from './CurrencyData';
 // import { color } from '@mui/system';
 // import ErrorPlug from './ErorPlug';
 import React from 'react';
 import { useGetCurrencyQuery } from '../../redux/Curency/currencySlice';
 import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import Loader from '../Loader/Loader';
 import currencyImg from "../../assets/images/authImg/CurrencyVector.png"
 import { TableWrapper, TableCurrency, ImgCurrency, TableHeader, TableHeaderCell, TableBody, TableLoader } from './Currency.styled';
-import { Refresh } from '@mui/icons-material';
+
 
 
 
 const MonoCurrency = () => {
-
-    const { data, error, isLoading, refetch, startedTimeStamp } = useGetCurrencyQuery({ refetchOnMountOrArgChange: true })
-    const stateCurrency = useSelector(state => state.currency.data)
-
-
+    const { data, isLoading, startedTimeStamp, refetch } = useGetCurrencyQuery()
     const newDate = new Date().getTime()
     const delta = 300000
 
     useEffect(() => {
-        const difference = newDate - startedTimeStamp
-        if (difference > delta) {
-            localStorage.removeItem('currency');
-            refetch()
-        } else {
-            return stateCurrency
+        const loadData = async () => {
+            const difference = newDate - startedTimeStamp
+            if (difference > delta) {
+                refetch()
+                console.log("data refetch")
+            } else {
+                console.log("does not require updates")
+                return data
+            }
         }
-        // elint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        loadData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [data])
 
 
-    const element = stateCurrency.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
+    const dataMono = data.filter(({ currencyCodeA, currencyCodeB }) => currencyCodeA === 840 || (currencyCodeA === 978 && currencyCodeB === 980) || currencyCodeA === 985)
         .map(({ currencyCodeA, rateBuy, rateSell, rateCross }) =>
             <tr key={currencyCodeA}>
                 <td>{currencyCodeA === 840 ? currencyCodeA = "USD" : currencyCodeA = currencyCodeA
@@ -58,12 +57,11 @@ const MonoCurrency = () => {
                     </tr>
                 </TableHeader>
                 <TableBody>
-                    {element}
-                    {/* {error ? <ErrorPlug /> : element} */}
+                    {dataMono}
                     <tr><td><ImgCurrency src={currencyImg} alt="img" /></td></tr>
                 </TableBody>
             </TableCurrency >
-            {/* <TableLoader>{isLoading && <Loader />}</TableLoader> */}
+            <TableLoader>{isLoading && <Loader />}</TableLoader>
         </TableWrapper >
     )
 };
