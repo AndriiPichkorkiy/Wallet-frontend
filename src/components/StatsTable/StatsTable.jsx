@@ -1,5 +1,5 @@
 import React from 'react'
-// import Select from './Select/Select'
+import Select from './Select/Select'
 import Selector from './Selector/Selector'
 // import Table from './Table/Table'
 import { Container, SelectionWrapper } from './StatsTable.styled'
@@ -42,24 +42,24 @@ const StatsTable = ({ statistics, totalData, onChange }) => {
   return (
     <Container>
       <SelectionWrapper>
-        {/* <Select
+        <Select
+          list={months}
+          title={'Month'}
+          name={'month'}
+          onChange={onChange}
+        />
+        {/* <Selector
           list={months}
           title={'Month'}
           name={'month'}
           onChange={onChange}
         /> */}
-        <Selector
-          list={months}
-          title={'Month'}
-          name={'month'}
-          onChange={onChange}
-        />
-        <Selector
+        {/* <Selector
           list={years}
           title={'Year'}
           name={'year'}
           onChange={onChange}
-        />
+        /> */}
       </SelectionWrapper>
       {/* <Table statistics={statistics} totalData={totalData} /> */}
     </Container>

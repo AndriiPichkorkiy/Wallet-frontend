@@ -32,10 +32,10 @@ export default function HomePage() {
               <MobileTabl transactions={data.transactions ?? []} />
             ) : (
               <>
-                <HomeTabl
+                {/* <HomeTabl
                   transactions={data.transactions ?? []}
                   quantity={data.quantity}
-                />
+                /> */}
               </>
             )
           }

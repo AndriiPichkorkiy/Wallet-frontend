@@ -5,7 +5,6 @@ import StatsTable from '../StatsTable/StatsTable'
 import Chart from '../Chart/Chart'
 
 import { LoaderWrapper } from '../Loader/Loader'
-// import Loader from '../Loader/Loader'
 
 import {
   StatsTitle,
@@ -50,11 +49,8 @@ const DiagramTab = () => {
     if (!query) {
       return
     }
-    console.log('year', year, 'month', month)
-    console.log('query', query)
     const fetchData = async () => {
       const result = await getData(query).unwrap()
-      // console.log('result', result)
       if (isError) {
         Notify.failure('Something went wrong...')
         return
@@ -99,12 +95,12 @@ const DiagramTab = () => {
         <LoaderWrapper />
       ) : (
         <StatsWrapper>
-          <DiagramWrapper>
+          {/* <DiagramWrapper>
             <Chart
               statistics={stats.stats ?? []}
               totalData={stats.totalStats ?? []}
             />
-          </DiagramWrapper>
+          </DiagramWrapper> */}
           <StatsTable
             statistics={stats.stats ?? []}
             totalData={stats.totalStats ?? []}
