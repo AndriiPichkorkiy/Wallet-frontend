@@ -128,7 +128,11 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           name={name}
           renderValue={selected => {
             if (selected.length === 0) {
-              return <em style={{ color: '#BDBDBD' }}>select a category</em>
+              return (
+                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
+                  Select a category
+                </em>
+              )
             }
             const { name } = data?.find(el => el.id === selected)
 

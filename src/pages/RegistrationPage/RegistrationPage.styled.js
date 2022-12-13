@@ -5,19 +5,21 @@ export const StyledRegistrationPageContainer = styled.div`
   position: relative;
   height: 100vh;
   ${respondTo.sm`
-                padding:60px 117px 48px 118px;
+            display: grid;
+            justify-items: center;
+            margin-top: 60px;
         `}
   ${respondTo.lg`
-           display:flex;
-           align-items: center;
-                padding:0;
-                margin: 0 auto;
+          min-height: 616px;
+          display:flex;
+          align-items: center;
+          padding:0;
+          margin: 0 auto;
         `}
 `
 export const StyledFormContainer = styled.div`
   height: 100%;
   margin: 0 auto;
-  
   ${respondTo.sm`
         display: flex;
         justify-content: center;
@@ -49,7 +51,7 @@ export const StyledImg = styled.img`
     // `}
 `
 export const StyledLargeImg = styled.img`
-animation-name: pulse;
+  animation-name: pulse;
   animation-timing-function: ease-in-out;
   animation-duration: 3s;
 
@@ -57,11 +59,9 @@ animation-name: pulse;
   from {
     transform: scale3d(1, 1, 1);
   }
-
   50% {
     transform: scale3d(1.05, 1.05, 1.05);
   }
-
   to {
     transform: scale3d(1, 1, 1);
   }
@@ -100,6 +100,7 @@ export const StyledRightCornerImgLargeContainer = styled.div`
 export const StyledRegisterTitle = styled.h2`
   display: none;
   font-weight: 400;
+  line-height: 150%;
 
   overflow: hidden;
   background: linear-gradient(90deg, #24cca7, #4a56e2, #24cca7);
@@ -107,14 +108,25 @@ export const StyledRegisterTitle = styled.h2`
   background-size: 85%;
   animation: animate 5s linear infinite;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: #07013973;
+  -webkit-text-fill-color: #0f1a9870;
 
 @keyframes animate {
   0% {
     background-position: -500%;
+    transform: scale3d(1, 1, 1);
+  }
+  25% {
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+  50% {
+    transform: scale3d(1.04, 1.04, 1.04);
+  }
+  75% {
+    transform: scale3d(1.01, 1.01, 1.01);
   }
   100% {
     background-position: 500%;
+    transform: scale3d(0.9, 0.9, 0.9);
   }
 }
 

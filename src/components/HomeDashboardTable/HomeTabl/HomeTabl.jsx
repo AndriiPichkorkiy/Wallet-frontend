@@ -79,9 +79,6 @@ const HomeTabl = () => {
       headerAlign: 'center',
       align: 'left',
       flex: 1,
-      hideSortIcons: true,
-      editable: true,
-      hideable: false,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={15} />
       )
@@ -151,7 +148,7 @@ const HomeTabl = () => {
     <>
       <ContainerTable>
         <Box
-          height='60vh'
+          height='70vh'
           //   height={boxSize}
           sx={{
             '& .MuiTypography-root': {
@@ -249,7 +246,7 @@ const HomeTabl = () => {
           />
         </Box>
       </ContainerTable>
-      <EmptyContainer />
+      {/* <EmptyContainer /> */}
     </>
   )
 }

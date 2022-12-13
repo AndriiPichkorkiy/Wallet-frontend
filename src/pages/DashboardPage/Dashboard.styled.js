@@ -3,11 +3,19 @@ import { respondTo } from '../../helpers/respondTo'
 
 export const Wrapper = styled.div`
   background: rgba(255, 255, 255, 0.4);
+  height: 100%;
+  min-height: 568px;
+  ${respondTo.sm`
   backdrop-filter: blur(25px);
-  height: 100vh;
+    height: 100vh;
+    min-height: 1024px;
+  `}
+  ${respondTo.lg`
+    height: 100vh;
+    min-height: 900px;
+  `}
 `
 export const MainContainer = styled.main`
-  height: calc(100vh - 60px);
   padding: 12px 20px;
   margin-left: auto;
   margin-right: auto;
@@ -18,7 +26,6 @@ export const MainContainer = styled.main`
   align-items: center;
 
   ${respondTo.sm`
-  height: calc(100vh - 80px);
    	align-items: normal;
    	min-width: 768px;
    	padding: 32px 32px;`}
