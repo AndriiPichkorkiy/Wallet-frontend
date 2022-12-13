@@ -28,7 +28,7 @@ const schemaTemplate = {
     .trim()
 
     .matches(
-      /^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+\.[a-zA-Z]{2,4}$/,
+      /^[^-][a-zA-Z0-9.!#$%&'*+=?^_`{|}~-][^-]{0,}\@[a-zA-Z0-9-]+((\.[a-zA-Z]{2,4})|(\.[a-zA-Z]{2,4}\.[a-zA-Z]{2,3}))$/,
       'invalid email'
     )
     .required('Please enter an email'),
@@ -41,7 +41,7 @@ const schemaTemplate = {
     .trim()
     // .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
     .matches(
-      /^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
+      /^((?!<|>).)*$|^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
       'Minimum six characters, one latin letter, one number and one special character'
     )
     .required('Please enter a password'),
