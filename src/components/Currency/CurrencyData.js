@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-export default [
+export const data = [
   {
     currencyCodeA: 840,
     currencyCodeB: 980,

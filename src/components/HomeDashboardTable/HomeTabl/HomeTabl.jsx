@@ -1,17 +1,13 @@
 import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import {
-  ContainerTable,
-  EmptyContainer,
-  StyledGridOverlay
-} from './HomeTabl.styled'
+import { ContainerTable, StyledGridOverlay } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
-import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
+// import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
-const HomeTabl = () => {
-  const { data } = useGetAllTransactionsQuery()
-  //   console.log(data)
+const HomeTabl = ({ transactions, quantity }) => {
+  //   console.log(quantity)
+
   const [pageSize, setPageSize] = useState(10)
   //   const [boxSize, setBoxSize] = useState(500)
 
@@ -79,6 +75,9 @@ const HomeTabl = () => {
       headerAlign: 'center',
       align: 'left',
       flex: 1,
+      hideSortIcons: true,
+      editable: true,
+      hideable: false,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={15} />
       )
@@ -168,11 +167,11 @@ const HomeTabl = () => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: 'var(--accentPrimary)'
+            },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
-              width: '80% !important'
+              width: 'fit-content !important'
             },
             '& .MuiDataGrid-root': {
               border: 'none',
@@ -194,10 +193,17 @@ const HomeTabl = () => {
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
             },
+            '& .MuiDataGrid-columnHeader:first-child': {
+              paddingLeft: '30px'
+            },
+            '.MuiDataGrid-columnHeader:nth-child(5)': { paddingLeft: '40px' },
             '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell': {
               //   paddingRight: '20px'
             },
-            '& .MuiDataGrid-columnHeaderTitle': { fontWeight: '700' },
+            '& .MuiDataGrid-columnHeaderTitle': {
+              fontWeight: '700',
+              paddingRight: '15px'
+            },
             '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
               color: 'transparent'
             },
@@ -222,10 +228,10 @@ const HomeTabl = () => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              },
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >
@@ -233,7 +239,7 @@ const HomeTabl = () => {
             components={{
               NoRowsOverlay: CustomNoRowsOverlay
             }}
-            rows={data ?? []}
+            rows={transactions ?? []}
             columns={columns}
             getRowId={row => row._id}
             pageSize={pageSize}
@@ -242,11 +248,10 @@ const HomeTabl = () => {
             }}
             rowsPerPageOptions={[5, 10, 20]}
             pagination
-            {...data}
+            {...transactions}
           />
         </Box>
       </ContainerTable>
-      {/* <EmptyContainer /> */}
     </>
   )
 }

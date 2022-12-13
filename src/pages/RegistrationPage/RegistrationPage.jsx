@@ -40,7 +40,9 @@ const RegistrationPage = () => {
   }, [isSuccess])
 
   const onHandleSubmit = async data => {
-    const response = await signUp(data).unwrap()
+    const { name, email, password } = data;
+    const newData = { name, email, password };
+    const response = await signUp(newData).unwrap()
     if (!response) {
       return console.log('error', error.data.message)
     }

@@ -13,7 +13,7 @@ export const StyledGridOverlay = styled.div`
   justify-content: center;
   height: 100%;
 `
-export const EmptyContainer = styled.div`
-  ${respondTo.sm`height: 72px`}
-  ${respondTo.lg`height: 0`}
-`
+// export const EmptyContainer = styled.div`
+//   ${respondTo.sm`height: 72px`}
+//   ${respondTo.lg`height: 0`}
+// `

@@ -68,7 +68,8 @@ color: white;
 `
 
 export const TableHeaderCell = styled.th`
-padding: 11px 17px 12px 20px;
+    padding-top: 17px;
+    padding-bottom: 16px;
     font-family: 'Circe';
     font-style: normal;
     font-weight: 700;
@@ -76,10 +77,12 @@ padding: 11px 17px 12px 20px;
     line-height: 27px;
     color: #FFFFFF;
      ${respondTo.sm`
-     padding: 11px 25px 12px 20px;
+     padding-top: 11px;
+    padding-bottom: 12px;
     `}
     ${respondTo.lg`
-        padding: 17px 64px 16px 44px;
+    padding-top: 17px;
+    padding-bottom: 16px;
     `}
 
 `
