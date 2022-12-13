@@ -20,8 +20,8 @@ export const transactionsApi = createApi({
     getAllTransactions: builder.query({
       query: () => ({
         url: '/api/transactions/getAll',
-        method: 'GET',
-        params: { limit: 101, page: 1 }
+        method: 'GET'
+        // params: { limit: 101, page: 1 }
       }),
       providesTags: [{ type: 'Transactions' }]
     }),

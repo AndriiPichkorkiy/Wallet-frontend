@@ -1,14 +1,37 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { ContainerTable, StyledGridOverlay } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
-import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
+// import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
 const HomeTabl = ({ transactions, quantity }) => {
-  //   console.log(quantity)
+  console.log(quantity)
 
-  const [pageSize, setPageSize] = useState(10)
+  //   const [pageSize, setPageSize] = useState(10)
+  const [page, setPage] = useState(0)
+  const [pageSize, setPageSize] = useState(5)
+
+  console.log('page', page)
+  console.log('pageSize', pageSize)
+  //   const queryOptions = useMemo(
+  //     () => ({
+  //       page,
+  //       pageSize
+  //     }),
+  //     [page, pageSize]
+  //   )
+
+  const [rowCountState, setRowCountState] = useState(quantity || 0)
+  React.useEffect(() => {
+    setRowCountState(prevRowCountState =>
+      quantity !== undefined ? quantity : prevRowCountState
+    )
+  }, [quantity, setRowCountState])
+
+  console.log('rowCountState', rowCountState)
+
+  console.log('change', quantity)
   //   const [boxSize, setBoxSize] = useState(500)
 
   //   const getBox = () => {
@@ -193,10 +216,12 @@ const HomeTabl = ({ transactions, quantity }) => {
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
             },
-            '& .MuiDataGrid-columnHeader:first-child': {
+            '& .MuiDataGrid-columnHeader::first-of-type': {
               paddingLeft: '30px'
             },
-            '.MuiDataGrid-columnHeader:nth-child(5)': { paddingLeft: '40px' },
+            '.MuiDataGrid-columnHeader:nth-of-type(5)': {
+              paddingLeft: '40px'
+            },
             '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell': {
               //   paddingRight: '20px'
             },
@@ -240,13 +265,16 @@ const HomeTabl = ({ transactions, quantity }) => {
               NoRowsOverlay: CustomNoRowsOverlay
             }}
             rows={transactions ?? []}
+            rowCount={rowCountState}
             columns={columns}
             getRowId={row => row._id}
             pageSize={pageSize}
-            onPageSizeChange={newPageSize => {
-              setPageSize(newPageSize)
-            }}
-            rowsPerPageOptions={[5, 10, 20]}
+            onPageChange={newPage => setPage(newPage)}
+            // onPageSizeChange={newPageSize => {
+            //   console.log('newPageSize', newPageSize)
+            //     setPageSize(newPageSize)
+            // }}
+            rowsPerPageOptions={[5]}
             pagination
             {...transactions}
           />
