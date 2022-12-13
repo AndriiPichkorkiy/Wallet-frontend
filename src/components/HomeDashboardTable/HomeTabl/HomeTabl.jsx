@@ -148,7 +148,7 @@ const HomeTabl = () => {
     <>
       <ContainerTable>
         <Box
-          height='60vh'
+          height='70vh'
           //   height={boxSize}
           sx={{
             '& .MuiTypography-root': {
@@ -246,7 +246,7 @@ const HomeTabl = () => {
           />
         </Box>
       </ContainerTable>
-      <EmptyContainer />
+      {/* <EmptyContainer /> */}
     </>
   )
 }

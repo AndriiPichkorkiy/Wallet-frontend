@@ -3,14 +3,14 @@ import { respondTo } from '../../helpers/respondTo'
 
 export const Wrapper = styled.div`
   background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(25px);
   height: 100%;
   min-height: 568px;
   ${respondTo.sm`
+  backdrop-filter: blur(25px);
     height: 100vh;
     min-height: 1024px;
   `}
-    ${respondTo.lg`
+  ${respondTo.lg`
     height: 100vh;
     min-height: 900px;
   `}
