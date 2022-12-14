@@ -120,3 +120,15 @@ export const LogoutExit = styled.span`
         line-height: 27px;  
     `}
 `
+// export const Avatar = styled.div`
+//   display: flex;
+//   align-items: center;
+//   margin-left: 5px;
+//   gap: 12px;
+//   & img {
+//     width: 45px;
+//     height: 45px;
+//     background: url(.png);
+//     border-radius: 3px;
+//   }
+// `

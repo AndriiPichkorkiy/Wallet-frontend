@@ -198,10 +198,15 @@ export const AddButton = styled.button`
   color: #ffffff;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-  :focus,
-  :hover {
-    background: var(--activeColor);
-    color: var(--background);
+  &:focus {
+    background-color: var(--accentPrimary);
+    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+  }
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
   }
 `
 
@@ -229,9 +234,15 @@ export const CancelButton = styled.button`
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 
-  :focus,
-  :hover {
+  &:focus {
     background: var(--activeColor);
     color: var(--background);
+    background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
+  }
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
   }
 `

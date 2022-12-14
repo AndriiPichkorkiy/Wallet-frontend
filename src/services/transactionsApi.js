@@ -1,5 +1,4 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-// const token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzOTIwZjUwODM1NGQ0MjI4YWJhZTFkYSIsImlhdCI6MTY3MDUxNjczMCwiZXhwIjoxNjcwNzc1OTMwfQ.rm5CXJZqBA9-Wq1-CzcPW8bsWWNzva8zllPNbi4EhbE'
 const BASE_URL = 'https://wallet-project-m5us.onrender.com'
 
 export const transactionsApi = createApi({
@@ -18,10 +17,10 @@ export const transactionsApi = createApi({
 
   endpoints: builder => ({
     getAllTransactions: builder.query({
-      query: () => ({
-        url: '/api/transactions/getAll',
-        method: 'GET',
-        params: { limit: 101, page: 1 }
+      query: searchParams => ({
+        url: `/api/transactions/getAll`,
+        params: searchParams,
+        method: 'GET'
       }),
       providesTags: [{ type: 'Transactions' }]
     }),

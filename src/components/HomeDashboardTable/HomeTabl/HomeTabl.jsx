@@ -1,30 +1,23 @@
 import React, { useState } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
-import { ContainerTable, StyledGridOverlay } from './HomeTabl.styled'
+import {
+  ContainerTable,
+  EmptyContainer,
+  StyledGridOverlay
+} from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
-// import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
-const HomeTabl = ({ transactions, quantity }) => {
-  //   console.log(quantity)
-
+const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
+  const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(10)
-  //   const [boxSize, setBoxSize] = useState(500)
 
-  //   const getBox = () => {
-  //     const box = document.querySelector('.MuiDataGrid-virtualScrollerRenderZone')
-  //     return box
-  //   }
-
-  //   useEffect(() => {
-  //     if (data.length === 0) {
-  //       return
-  //     }
-  //     setTimeout(() => {
-  //       const newBox = getBox()
-  //       setBoxSize(newBox.clientHeight + 108)
-  //     }, 100)
-  //   }, [data, boxSize, pageSize])
+  const [rowCountState, setRowCountState] = useState(quantity || 0)
+  React.useEffect(() => {
+    setRowCountState(prevRowCountState =>
+      quantity !== undefined ? quantity : prevRowCountState
+    )
+  }, [quantity, setRowCountState])
 
   const columns = [
     {
@@ -76,7 +69,6 @@ const HomeTabl = ({ transactions, quantity }) => {
       align: 'left',
       flex: 1,
       hideSortIcons: true,
-      editable: true,
       hideable: false,
       renderCell: ({ row: { comment } }) => (
         <EllipsisText text={comment} length={15} />
@@ -112,18 +104,7 @@ const HomeTabl = ({ transactions, quantity }) => {
       )
     }
   ]
-  // {
-  //   field: 'action',
-  //   headerName: 'Action',
-  //   width: 180,
-  //   sortable: false,
-  //   disableClickEventBubbling: true,
 
-  //   renderCell: params => {
-  //     const onClick = e => {
-  //       const currentRow = params.row
-  //       return alert(JSON.stringify(currentRow, null, 4))
-  //     }
   function CustomNoRowsOverlay() {
     return (
       <StyledGridOverlay>
@@ -148,7 +129,6 @@ const HomeTabl = ({ transactions, quantity }) => {
       <ContainerTable>
         <Box
           height='70vh'
-          //   height={boxSize}
           sx={{
             '& .MuiTypography-root': {
               fontFamily: 'Circe',
@@ -167,9 +147,9 @@ const HomeTabl = ({ transactions, quantity }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-            {
-              backgroundColor: 'var(--accentPrimary)'
-            },
+              {
+                backgroundColor: 'var(--accentPrimary)'
+              },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -179,7 +159,6 @@ const HomeTabl = ({ transactions, quantity }) => {
               fontSize: '18px',
               lineHeight: '1.5',
               color: 'var(--main-text)'
-              //   paddingRight: '20px'
             },
             '& .MuiDataGrid-cell': {
               borderTop: 'none',
@@ -188,21 +167,21 @@ const HomeTabl = ({ transactions, quantity }) => {
               fontSize: '16px',
               lineHeight: '1.5',
               whiteSpace: 'normal'
-              //   paddingRight: '20px'
             },
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
             },
-            '& .MuiDataGrid-columnHeader:first-child': {
+            '& .MuiDataGrid-columnHeader:first-of-type': {
               paddingLeft: '30px'
             },
-            '.MuiDataGrid-columnHeader:nth-child(5)': { paddingLeft: '40px' },
-            '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell': {
-              //   paddingRight: '20px'
+            '.MuiDataGrid-columnHeader:nth-of-type(5)': {
+              paddingLeft: '30px'
             },
+            '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell':
+              {},
             '& .MuiDataGrid-columnHeaderTitle': {
               fontWeight: '700',
-              paddingRight: '15px'
+              paddingRight: '10px'
             },
             '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
               color: 'transparent'
@@ -216,7 +195,7 @@ const HomeTabl = ({ transactions, quantity }) => {
             },
             '& .MuiDataGrid-footerContainer': {
               border: 'none',
-              backgroundColor: 'rgba(255, 255, 255, 0.6)',
+              backgroundColor: 'rgba(255, 255, 255, 0.3)',
               borderRadius: '30px'
             },
             '& .MuiIconButton-root': {
@@ -228,10 +207,10 @@ const HomeTabl = ({ transactions, quantity }) => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-            {
-              outline: 'none !important',
-              outlineOffset: '0'
-            },
+              {
+                outline: 'none !important',
+                outlineOffset: '0'
+              },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >
@@ -239,19 +218,27 @@ const HomeTabl = ({ transactions, quantity }) => {
             components={{
               NoRowsOverlay: CustomNoRowsOverlay
             }}
+            {...transactions}
             rows={transactions ?? []}
+            rowCount={rowCountState}
             columns={columns}
             getRowId={row => row._id}
+            page={page}
             pageSize={pageSize}
+            onPageChange={newPage => {
+              setPage(newPage)
+              functionChangePage(newPage)
+            }}
             onPageSizeChange={newPageSize => {
               setPageSize(newPageSize)
             }}
-            rowsPerPageOptions={[5, 10, 20]}
+            rowsPerPageOptions={[5, 10]}
             pagination
-            {...transactions}
+            paginationMode='server'
           />
         </Box>
       </ContainerTable>
+      <EmptyContainer />
     </>
   )
 }

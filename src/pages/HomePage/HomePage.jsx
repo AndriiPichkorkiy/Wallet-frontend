@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import Media from 'react-media'
-// import { getTransactionAll } from '../../api/auth'
 import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
 import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
-// import ModalTransactions from '../../components/ModalTransaction/ModalTransactions'
 import ModalTransactions from '../../components/ModalTransactions'
 import { AddTransModalBtn } from '../../components/ModalTransactions/Buttons/AddTransModal'
 import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
 export default function HomePage() {
-  const { data } = useGetAllTransactionsQuery()
-  // console.log(useGetAllTransactionsQuery())
-  // console.log(data)
-  // console.log(data.transactions)
+  const [page, setPage] = useState(0)
+  const { data } = useGetAllTransactionsQuery({ limit: 10, page: page + 1 })
 
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
@@ -36,6 +32,7 @@ export default function HomePage() {
                 <HomeTabl
                   transactions={data.transactions ?? []}
                   quantity={data.quantity}
+                  functionChangePage={setPage}
                 />
               </>
             )

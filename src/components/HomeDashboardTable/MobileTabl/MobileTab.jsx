@@ -5,16 +5,13 @@ import {
   Span,
   ContainerEmpty
 } from './MobileTabl.styled'
-// import { useId } from 'react'
 import { nanoid } from '@reduxjs/toolkit'
 import EllipsisText from 'react-ellipsis-text'
 
 const MobileTabl = ({ transactions }) => {
-  // const unid = useId()
 
   if (transactions.length > 0) {
     const card =
-      // data &&
       transactions.map(({ type, category, comment, amount, balance, date }) => {
         const time = date
         const newDate = new Date(time).toLocaleDateString()
