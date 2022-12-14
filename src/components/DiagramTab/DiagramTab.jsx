@@ -5,7 +5,6 @@ import StatsTable from '../StatsTable/StatsTable'
 import Chart from '../Chart/Chart'
 
 import { LoaderWrapper } from '../Loader/Loader'
-// import Loader from '../Loader/Loader'
 
 import {
   StatsTitle,
@@ -34,7 +33,7 @@ const DiagramTab = () => {
   const [stats, setStats] = useState({})
   const [getData, { isLoading, isError }] = useLazyGetStatsByPeriodQuery()
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (name, value) => {
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -50,11 +49,8 @@ const DiagramTab = () => {
     if (!query) {
       return
     }
-    console.log('year', year, 'month', month)
-    console.log('query', query)
     const fetchData = async () => {
       const result = await getData(query).unwrap()
-      // console.log('result', result)
       if (isError) {
         Notify.failure('Something went wrong...')
         return
@@ -78,6 +74,9 @@ const DiagramTab = () => {
   const makeQuery = (year, month) => {
     const currentMonth = new Date().getMonth() + 1
     const currentYear = new Date().getFullYear()
+    if (month === 0 && !year) {
+      return `year=${currentYear}`
+    }
     if (!year && !month) {
       return `year=${currentYear}&month=${currentMonth}`
     }

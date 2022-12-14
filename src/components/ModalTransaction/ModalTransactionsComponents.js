@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import Switch from 'react-switch'
 import Datetime from 'react-datetime'
 import 'react-datetime/css/react-datetime.css'
-
+import { Formik } from 'formik'
 import { respondTo } from '../../helpers/respondTo'
+import { Field } from 'formik'
 
 export const BackdropContainer = styled.div`
-  position: fixed;
+  // position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -17,19 +18,19 @@ export const BackdropContainer = styled.div`
 `
 
 export const ModalTransactionsContainer = styled.div`
-  position: fixed;
-  overflow-y: auto;
-  overflow-x: hidden;
-  height: auto;
-  width: 320px;
+  // position: fixed;
+  // overflow-y: auto;
+  // overflow-x: hidden;
+  // height: auto;
+  // width: 320px;
   margin: 0 auto;
-  /* height: 581px; */
-  /* top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
+  height: 100%;
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
   background-color: #ffffff;
 
-  /* @media screen and(max-width:479px) {
+  @media screen and(max-width:479px) {
     width: 90vw;
   }
 
@@ -39,12 +40,12 @@ export const ModalTransactionsContainer = styled.div`
 
   @media screen and(min-width:1200px) {
     width: 528px;
-  } */
+  }
 
   /* margin: 0 10px 37px; */
   ${respondTo.sm`border-radius:20px; min-width:540px`}
 `
-export const StyledForm = styled.form`
+export const StyledForm = styled(Formik)`
   display: flex;
   flex-direction: column;
   margin: 0 10px;
@@ -95,7 +96,7 @@ export const LabelExpense = styled.label`
   margin-left: 20px;
   color: #ff6596;
 `
-export const StyledInput = styled.input`
+export const StyledInput = styled(Field)`
   font-family: 'Circe';
   font-size: 18px;
   color: #bdbdbd;
@@ -162,11 +163,11 @@ export const StyledAddButton = styled.button`
   margin-right: auto;
      width: 300px;
     `}
-  &:hover {
+  &:focus {
     background-color: var(--accentPrimary);
     background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
   }
-  &:focus {
+  &:hover {
     box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
       -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
@@ -199,12 +200,12 @@ export const StyledCancelButton = styled.button`
      width: 300px;
 	 margin-bottom: 60px;
     `}
-  &:hover {
+  &:focus {
     background: var(--activeColor);
     color: var(--background);
     background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
   }
-  &:focus {
+  &:hover {
     box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
       -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),

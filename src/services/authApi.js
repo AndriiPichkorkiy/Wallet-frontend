@@ -16,6 +16,14 @@ export const authApi = createApi({
     }
   }),
   endpoints: builder => ({
+    token: builder.mutation({
+      query: token => ({
+        url: `/api/user/verify/${token}`,
+        method: 'POST'
+        // body: userData
+      }),
+      invalidatesTags: [{ type: 'Auth' }]
+    }),
     signUp: builder.mutation({
       query: userData => ({
         url: `/api/user/register`,
