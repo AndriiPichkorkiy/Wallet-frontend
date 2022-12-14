@@ -212,9 +212,9 @@ const HomeTabl = ({ transactions, quantity }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-            {
-              backgroundColor: 'var(--accentPrimary)'
-            },
+              {
+                backgroundColor: 'var(--accentPrimary)'
+              },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -275,10 +275,10 @@ const HomeTabl = ({ transactions, quantity }) => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-            {
-              outline: 'none !important',
-              outlineOffset: '0'
-            },
+              {
+                outline: 'none !important',
+                outlineOffset: '0'
+              },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >
@@ -300,6 +300,7 @@ const HomeTabl = ({ transactions, quantity }) => {
           />
         </Box>
       </ContainerTable>
+      {/* <EmptyContainer /> */}
     </>
   )
 }
