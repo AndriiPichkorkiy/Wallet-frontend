@@ -16,6 +16,12 @@ export default function HomePage() {
 
   const onClickNextPage = () => {
     setPage(prevState => prevState + 1)
+    window.scrollTo(0, 0)
+  }
+
+  const onClickFirstPage = () => {
+    setPage(page === 1)
+    window.scrollTo(0, 0)
   }
 
   return (
@@ -36,6 +42,10 @@ export default function HomePage() {
                 {data.transactions.length === 5 && (
                   <Button onClick={onClickNextPage}>Load more</Button>
                 )}
+                {data.transactions.length > 0 &&
+                  data.transactions.length < 5 && (
+                    <Button onClick={onClickFirstPage}>To First Page</Button>
+                  )}
               </>
             ) : (
               <>
