@@ -1,4 +1,4 @@
-import { ButtonMinus, ButtonPlus, ButtonPlusCrist } from './Buttons.styled'
+import { ButtonMinus, ButtonPlus, ButtonPlusCrist } from './buttons.styled'
 const ButtonExpense = () => {
   return (
     <ButtonMinus>
