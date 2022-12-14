@@ -3,13 +3,14 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #968a9e;
-  border-radius: 20px;
+  background-color: rgba(36, 204, 167, 0.6);
+  border-radius: 8px;
 }
 
 *::-webkit-scrollbar {
   width: 6px;
-  background: white;
+  height: 6px;
+  background: transparent;
   -webkit-appearance: none;
 
   @include desktop1024 {

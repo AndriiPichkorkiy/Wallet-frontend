@@ -10,7 +10,7 @@ import EllipsisText from 'react-ellipsis-text'
 
 const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
   const [page, setPage] = useState(0)
-  const [pageSize, setPageSize] = useState(5)
+  const [pageSize, setPageSize] = useState(10)
 
   const [rowCountState, setRowCountState] = useState(quantity || 0)
   React.useEffect(() => {
@@ -232,7 +232,7 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
             onPageSizeChange={newPageSize => {
               setPageSize(newPageSize)
             }}
-            rowsPerPageOptions={[5]}
+            rowsPerPageOptions={[5, 10]}
             pagination
             paginationMode='server'
           />

@@ -8,7 +8,7 @@ import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
 export default function HomePage() {
   const [page, setPage] = useState(0)
-  const { data } = useGetAllTransactionsQuery({ limit: 5, page: page + 1 })
+  const { data } = useGetAllTransactionsQuery({ limit: 10, page: page + 1 })
 
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
