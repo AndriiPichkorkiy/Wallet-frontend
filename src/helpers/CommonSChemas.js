@@ -41,7 +41,7 @@ const schemaTemplate = {
     .trim()
     // .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
     .matches(
-      /^((?!<|>).)*$|^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
+      /^(?!.*[<>])(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,12}$/,
       'Minimum six characters, one latin letter, one number and one special character, except < >'
     )
     .required('Please enter a password'),
@@ -56,7 +56,7 @@ const schemaTemplate = {
     .oneOf([Yup.ref('password'), null], 'Password must match')
     // .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
     .matches(
-      /^((?!<|>).)*$|^(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,16}$/,
+      /^(?!.*[<>])(?=.*[0-9])(?=.*[a-zA-Z])(?=\S+$).{6,12}$/,
       'Minimum six characters, one latin letter, one number and one special character, except < >'
     )
 }
