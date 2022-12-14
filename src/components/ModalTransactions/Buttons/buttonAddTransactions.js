@@ -1,4 +1,4 @@
-import { VerticalAlign, ButtonPlus, ButtonPlusCrist } from './Buttons.styled'
+import { VerticalAlign, ButtonPlus, ButtonPlusCrist } from './buttons.styled'
 
 const ButtonAddTransactions = () => {
   return (
