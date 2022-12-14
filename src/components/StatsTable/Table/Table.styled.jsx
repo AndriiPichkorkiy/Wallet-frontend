@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
+export const TableWrapper = styled.div`
+  width: 100%;
+`
+
 export const Head = styled.div`
   display: flex;
   justify-content: space-between;
