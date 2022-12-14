@@ -115,6 +115,10 @@ export const LinkBtn = styled(NavLink)`
             font-weight: 700;
             font-size: 18px;
             line-height: 27px;
+
+            animation: none;
+            -webkit-transform: none;
+            transform: none;
         }
     `}
 `
@@ -293,6 +297,10 @@ export const NewsLinkBtn = styled(NavLink)`
             font-weight: 700;
             font-size: 18px;
             line-height: 27px;
+
+            animation: none;
+            -webkit-transform: none;
+            transform: none;
         }
     `}
 `
