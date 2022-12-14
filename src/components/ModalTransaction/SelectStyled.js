@@ -84,7 +84,7 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
       <FormControl fullWidth sx={{ m: 1, minWidth: '280px' }}>
         <Select
           renderValue={selected => {
-            if (selected.length === 0) {
+            if (!selected || selected.length === 0) {
               return (
                 <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
                   Select a category
@@ -107,12 +107,7 @@ export const StyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el =>
-              el.id < 10200 && (
-                <MenuItem key={el.id} value={el.id}>
-                  {el.name}
-                </MenuItem>
-              )
+            el => el.id < 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
           )}
         </Select>
       </FormControl>
@@ -127,12 +122,8 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
         <Select
           name={name}
           renderValue={selected => {
-            if (selected.length === 0) {
-              return (
-                <em style={{ color: '#BDBDBD', fontStyle: 'normal' }}>
-                  Select a category
-                </em>
-              )
+            if (!selected || selected.length === 0) {
+              return <em style={{ color: '#BDBDBD' }}>select a category</em>
             }
             const { name } = data?.find(el => el.id === selected)
 
@@ -152,12 +143,7 @@ export const UnstyledSelectCustomRenderValue = ({ value, onChange, name }) => {
           //       }}
         >
           {data?.map(
-            el =>
-              el.id > 10200 && (
-                <MenuItem key={el.id} value={el.id}>
-                  {el.name}
-                </MenuItem>
-              )
+            el => el.id > 10200 && <MenuItem value={el.id}>{el.name}</MenuItem>
           )}
           {/* <MenuItem value='10501'>Regular Income</MenuItem>
           <MenuItem value='10501'>Irregular Income</MenuItem> */}

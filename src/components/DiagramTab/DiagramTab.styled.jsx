@@ -1,14 +1,15 @@
 import styled from 'styled-components'
+import { respondTo } from '../../helpers/respondTo'
 
 export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media screen and (min-width: 1200px) {
-    margin-left: 70px;
+  ${respondTo.lg`
+  margin-left: 70px;
     margin-top: 32px;
-  }
+  `}
 `
 
 export const StatsWrapper = styled.div`
@@ -16,10 +17,11 @@ export const StatsWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  @media screen and (min-width: 768px) {
+  ${respondTo.sm`
+  margin-top: 0;
     align-items: flex-start;
     flex-direction: row;
-  }
+  `}
 `
 export const DiagramWrapper = styled.div`
   display: flex;
