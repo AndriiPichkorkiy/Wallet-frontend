@@ -19,7 +19,8 @@ export const transactionsApi = createApi({
   endpoints: builder => ({
     getAllTransactions: builder.query({
       query: () => ({
-        url: '/api/transactions/getAll',
+        url: `/api/transactions/getAll/?page=1&limit=100`,
+        // url: `/api/transactions/getAll`,
         method: 'GET'
         // params: { limit: 101, page: 1 }
       }),

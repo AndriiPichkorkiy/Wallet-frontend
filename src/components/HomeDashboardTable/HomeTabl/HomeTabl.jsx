@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import { Box, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import { ContainerTable, StyledGridOverlay } from './HomeTabl.styled'
@@ -6,21 +6,43 @@ import EllipsisText from 'react-ellipsis-text'
 // import { useGetAllTransactionsQuery } from '../../../services/transactionsApi'
 
 const HomeTabl = ({ transactions, quantity }) => {
-  console.log(quantity)
-
-  //   const [pageSize, setPageSize] = useState(10)
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(5)
 
-  console.log('page', page)
-  console.log('pageSize', pageSize)
-  //   const queryOptions = useMemo(
-  //     () => ({
-  //       page,
-  //       pageSize
-  //     }),
-  //     [page, pageSize]
-  //   )
+  // const [page, setPage] = useState(0)
+  // const [limit, setLimit] = useState(5)
+
+  // console.log('page', page)
+  // console.log('limit', limit)
+  // const queryOptions = useMemo(
+  //   () => ({
+  //     page,
+  //     pageSize
+  //   }),
+  //   [page, pageSize]
+  // )
+  // useEffect(() => {
+  //   const query = makeQuery(page, limit)
+  //   if (!query) {
+  //     return
+  //   }
+  //   console.log('page', page, 'limit', limit)
+  //   console.log('query', query)
+
+  //   const fetchData = async () => {
+  //     const result  = await data(query).unwrap()
+  //     console.log('result', result)
+  //   //   const changedResult = page+5
+  //     // setLimit(prev => prev+5)
+  //   }
+  //   fetchData()
+  // }, [data, limit, page])
+
+  // const makeQuery = (page, limit) => {
+  //   if (page && limit) {
+  //     return `page=${page}&limit=${limit}`
+  //   }
+  // }
 
   const [rowCountState, setRowCountState] = useState(quantity || 0)
   React.useEffect(() => {
@@ -29,9 +51,9 @@ const HomeTabl = ({ transactions, quantity }) => {
     )
   }, [quantity, setRowCountState])
 
-  console.log('rowCountState', rowCountState)
+  //   console.log('rowCountState', rowCountState)
 
-  console.log('change', quantity)
+  //   console.log('change', quantity)
   //   const [boxSize, setBoxSize] = useState(500)
 
   //   const getBox = () => {
@@ -216,18 +238,18 @@ const HomeTabl = ({ transactions, quantity }) => {
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
             },
-            '& .MuiDataGrid-columnHeader::first-of-type': {
+            '& .MuiDataGrid-columnHeader:first-of-type': {
               paddingLeft: '30px'
             },
             '.MuiDataGrid-columnHeader:nth-of-type(5)': {
-              paddingLeft: '40px'
+              paddingLeft: '30px'
             },
             '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell': {
               //   paddingRight: '20px'
             },
             '& .MuiDataGrid-columnHeaderTitle': {
               fontWeight: '700',
-              paddingRight: '15px'
+              paddingRight: '10px'
             },
             '& .MuiDataGrid-columnSeparator .MuiDataGrid-iconSeparator': {
               color: 'transparent'
@@ -268,15 +290,13 @@ const HomeTabl = ({ transactions, quantity }) => {
             rowCount={rowCountState}
             columns={columns}
             getRowId={row => row._id}
+            page={page}
             pageSize={pageSize}
             onPageChange={newPage => setPage(newPage)}
-            // onPageSizeChange={newPageSize => {
-            //   console.log('newPageSize', newPageSize)
-            //     setPageSize(newPageSize)
-            // }}
+            onPageSizeChange={newPageSize => {
+              setPageSize(newPageSize)
+            }}
             rowsPerPageOptions={[5]}
-            pagination
-            {...transactions}
           />
         </Box>
       </ContainerTable>
