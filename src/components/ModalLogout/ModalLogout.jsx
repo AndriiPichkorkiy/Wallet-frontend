@@ -43,18 +43,13 @@ const ModalLogout = ({ noExit }) => {
     },
     [noExit]
   )
-  
 
   const [logOut] = useLazyLogOutQuery()
 
-  const onHandleLogOut = async () => {
-    await logOut().unwrap()
-    // if (isError) {
-    //   console.log('error', error.data)
-    //   return
-    // }
+  const onHandleLogOut = () => {
     dispatch(onLogOutAction())
     dispatch(unsetToken())
+    logOut()
   }
 
   return createPortal(
