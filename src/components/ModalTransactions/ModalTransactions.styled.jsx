@@ -32,7 +32,7 @@ export const ModalBox = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-
+position: relative;
   // background-color: teal;
 
   ${respondTo.sm`
@@ -245,4 +245,18 @@ export const CancelButton = styled.button`
       inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
       inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
   }
+`
+export const CloseModalBtn = styled.img`
+display:none;
+  ${respondTo.sm`
+  display:block;
+cursor: pointer;
+position: absolute;
+top: 0;
+right: 0;
+margin:20px 20px 0 0 ;
+
+  `}
+
+
 `

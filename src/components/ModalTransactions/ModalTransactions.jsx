@@ -29,7 +29,7 @@ import {
   AddButton,
   CancelButton,
   StyledDateIcon,
-  WrapperInput
+  WrapperInput,CloseModalBtn
 } from './ModalTransactions.styled'
 import { StyledErrorMsg } from '../RegistrationForm/RegistrationForm.styled'
 import ButtonExpense from './Buttons/buttonExpense'
@@ -38,7 +38,7 @@ import Select from '../StatsTable/Select/Select'
 // import Header from '../Header/Header'
 import SvgIcon from '../../assets/images/icons/date_range.svg'
 import { setBalance } from '../../redux/finance/financeSlice'
-
+import CloseModal from '../../assets/images/icons/closeModal.svg'
 const portal = document.querySelector('#portal')
 
 const yesterday = moment().subtract(1, 'day')
@@ -112,14 +112,14 @@ const ModalTransactions = ({ closeModal }) => {
 
   const onSubmit = async e => {
     const addBtn = document.getElementById('addBtn')
-    addBtn.disabled = true
+ 
 
     if (!amount || !category) {
-      Notify.Failure('Please fill in all fields')
+      Notify.failure('Please fill in all fields')
       return
     }
     if (comment.length > 100) {
-      Notify.Failure('Comment must be less than 100 characters')
+      Notify.failure('Comment must be less than 100 characters')
       return
     }
     const newTransactionData = {
@@ -129,6 +129,7 @@ const ModalTransactions = ({ closeModal }) => {
       type: transactionType,
       date: date
     }
+   addBtn.disabled = true
     const result = await newTransaction(newTransactionData)
     if (result) {
       Notify.info('Transaction successful!')
@@ -172,7 +173,9 @@ const ModalTransactions = ({ closeModal }) => {
         if (e.target === e.currentTarget) closeModal()
       }}
     >
-      <ModalBox className={'modalLogout'}>
+      <ModalBox className={'modalLogout'}><CloseModalBtn src={CloseModal}
+        width='16px'
+        alt='CloseModalBtn' onClick={()=>closeModal()} />
         <Title>Add transaction</Title>
         <StyledForm
           // key={'qwe'}
