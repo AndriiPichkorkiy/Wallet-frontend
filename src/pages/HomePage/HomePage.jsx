@@ -5,13 +5,18 @@ import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
 import ModalTransactions from '../../components/ModalTransactions'
 import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
 import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
+import { Button } from './HomePage.styled'
 
 export default function HomePage() {
   const [page, setPage] = useState(0)
-  const { data } = useGetAllTransactionsQuery({ limit: 10, page: page + 1 })
+  const { data } = useGetAllTransactionsQuery({ limit: 5, page: page + 1 })
 
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
+
+  const onClickNextPage = () => {
+    setPage(prevState => prevState + 1)
+  }
 
   return (
     <>
@@ -26,7 +31,12 @@ export default function HomePage() {
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
             matches.small ? (
-              <MobileTabl transactions={data.transactions ?? []} />
+              <>
+                <MobileTabl transactions={data.transactions ?? []} />
+                {data.transactions.length === 5 && (
+                  <Button onClick={onClickNextPage}>Load more</Button>
+                )}
+              </>
             ) : (
               <>
                 <HomeTabl
