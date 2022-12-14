@@ -30,6 +30,14 @@ const Select = ({ list, title, name, onChange }) => {
     setIsOpen(true)
   }
 
+  const onHandleBlur = e => {
+    setIsOpen(false)
+    const id = e.target.id
+    const element = document.getElementById(`${id}-icon`)
+    element.classList.remove('rotateOpen')
+    element.classList.add('rotateClose')
+  }
+
   const onHandleSelect = e => {
     setSelected(e.target.innerText)
     setValue(e.target.value)
@@ -43,11 +51,12 @@ const Select = ({ list, title, name, onChange }) => {
   return (
     <>
       <SelectWrapper
-        onBlur={e => onHandleClick(e)}
+        onBlur={e => onHandleBlur(e)}
         onDoubleClick={() => {
           return
         }}
         onClick={e => onHandleClick(e)}
+        onTouchCancel={e => onHandleClick(e)}
       >
         <Title>{selected ? selected : title}</Title>
         <Svg id={`${name}-icon`} />

@@ -6,7 +6,6 @@ export const SelectWrapper = styled.div`
   position: relative;
   margin-bottom: 20px;
   width: 100%;
-
   .rotateOpen {
     transform: rotateX(180deg);
   }
@@ -33,7 +32,6 @@ export const Title = styled.p`
   left: 20px;
   transform: translateY(-50%);
   // cursor: none;
-  z-index: -1;
 
   font-family: 'Circe';
   font-style: normal;
@@ -44,7 +42,6 @@ export const Title = styled.p`
 
 export const Svg = styled(DropDownIcon)`
   position: absolute;
-  z-index: -1;
   top: 40%;
   right: 20px;
   width: 18px;
