@@ -33,7 +33,10 @@ const DiagramTab = () => {
   const [stats, setStats] = useState({})
   const [getData, { isLoading, isError }] = useLazyGetStatsByPeriodQuery()
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (name, value) => {
+    // const handleChange = ({ target: { name, value } }) => {
+    // console.log('name', name)
+    // console.log('value', value)
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -45,6 +48,7 @@ const DiagramTab = () => {
   }
 
   useEffect(() => {
+    console.log('month', month)
     const query = makeQuery(year, month)
     if (!query) {
       return
@@ -74,6 +78,9 @@ const DiagramTab = () => {
   const makeQuery = (year, month) => {
     const currentMonth = new Date().getMonth() + 1
     const currentYear = new Date().getFullYear()
+    if (month === 0 && !year) {
+      return `year=${currentYear}`
+    }
     if (!year && !month) {
       return `year=${currentYear}&month=${currentMonth}`
     }
@@ -95,12 +102,12 @@ const DiagramTab = () => {
         <LoaderWrapper />
       ) : (
         <StatsWrapper>
-          {/* <DiagramWrapper>
+          <DiagramWrapper>
             <Chart
               statistics={stats.stats ?? []}
               totalData={stats.totalStats ?? []}
             />
-          </DiagramWrapper> */}
+          </DiagramWrapper>
           <StatsTable
             statistics={stats.stats ?? []}
             totalData={stats.totalStats ?? []}

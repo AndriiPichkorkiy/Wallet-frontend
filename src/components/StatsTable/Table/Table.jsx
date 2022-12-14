@@ -1,6 +1,7 @@
 import React from 'react'
 
 import {
+  TableWrapper,
   Head,
   Title,
   List,
@@ -17,7 +18,7 @@ import {
 
 const Table = ({ statistics, totalData }) => {
   return (
-    <>
+    <TableWrapper>
       <Head>
         <Title>Category</Title>
         <Title>Sum</Title>
@@ -44,7 +45,7 @@ const Table = ({ statistics, totalData }) => {
           <TotalIncome>{totalData.income}</TotalIncome>
         </TotalItem>
       </List>
-    </>
+    </TableWrapper>
   )
 }
 

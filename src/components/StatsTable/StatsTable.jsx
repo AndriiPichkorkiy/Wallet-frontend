@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from './Select/Select'
-import Selector from './Selector/Selector'
-// import Table from './Table/Table'
+// import Selector from './SelectorOld/Selector'
+import Table from './Table/Table'
 import { Container, SelectionWrapper } from './StatsTable.styled'
 
 const months = [
@@ -16,8 +16,8 @@ const months = [
   { id: '9', name: 'September' },
   { id: '10', name: 'October' },
   { id: '11', name: 'November' },
-  { id: '12', name: 'December' }
-  // { id: '', name: 'All' }
+  { id: '12', name: 'December' },
+  { id: '0', name: 'All' }
 ]
 
 // const years = [
@@ -48,20 +48,9 @@ const StatsTable = ({ statistics, totalData, onChange }) => {
           name={'month'}
           onChange={onChange}
         />
-        {/* <Selector
-          list={months}
-          title={'Month'}
-          name={'month'}
-          onChange={onChange}
-        /> */}
-        {/* <Selector
-          list={years}
-          title={'Year'}
-          name={'year'}
-          onChange={onChange}
-        /> */}
+        <Select list={years} title={'Year'} name={'year'} onChange={onChange} />
       </SelectionWrapper>
-      {/* <Table statistics={statistics} totalData={totalData} /> */}
+      <Table statistics={statistics} totalData={totalData} />
     </Container>
   )
 }
