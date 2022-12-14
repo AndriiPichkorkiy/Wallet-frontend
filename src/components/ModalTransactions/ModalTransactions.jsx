@@ -129,11 +129,8 @@ const ModalTransactions = ({ closeModal }) => {
       type: transactionType,
       date: date
     }
-    console.log(newTransactionData, 'newTransactionData')
     const result = await newTransaction(newTransactionData)
     if (result) {
-      // console.log(result, 'result')
-
       Notify.info('Transaction successful!')
       setState(initialValue)
       closeModal()

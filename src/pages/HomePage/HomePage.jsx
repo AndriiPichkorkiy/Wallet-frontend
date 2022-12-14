@@ -3,7 +3,7 @@ import Media from 'react-media'
 import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
 import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
 import ModalTransactions from '../../components/ModalTransactions'
-import { AddTransModalBtn } from '../../components/ModalTransaction/Buttons/AddTransModal'
+import { AddTransModalBtn } from '../../components/ModalTransactions/Buttons/AddTransModal'
 import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 import { Button } from './HomePage.styled'
 
