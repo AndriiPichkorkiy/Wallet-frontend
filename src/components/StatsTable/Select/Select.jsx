@@ -1,34 +1,38 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback } from 'react'
 
 import {
   SelectWrapper,
-  Selctor,
+  Selector,
   List,
   ListOption,
   Svg,
-  Title
-  // CategoryTitle,
-  // CategorySelect
+  Title,
+  CategoryTitle,
+  CategorySvg,
+  CategorySelect
 } from './Select.styled'
 
-const Select = ({ list, title, name, onChange }) => {
+const Select = ({ list, title, name, onChange, isModal, isLoading }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [value, setValue] = useState(null)
   const [selected, setSelected] = useState(null)
 
-  const onHandleClick = e => {
-    const id = e.target.id
-    const element = document.getElementById(`${id}-icon`)
-    if (isOpen) {
-      element.classList.remove('rotateOpen')
-      element.classList.add('rotateClose')
-      setIsOpen(false)
-      return
-    }
-    element.classList.add('rotateOpen')
-    element.classList.remove('rotateClose')
-    setIsOpen(true)
-  }
+  const onHandleClick = useCallback(
+    e => {
+      const id = e.target.id
+      const element = document.getElementById(`${id}-icon`)
+      if (isOpen) {
+        element?.classList.remove('rotateOpen')
+        element?.classList.add('rotateClose')
+        setIsOpen(false)
+        return
+      }
+      element?.classList.add('rotateOpen')
+      element?.classList.remove('rotateClose')
+      setIsOpen(true)
+    },
+    [isOpen]
+  )
 
   const onHandleBlur = e => {
     setIsOpen(false)
@@ -58,10 +62,23 @@ const Select = ({ list, title, name, onChange }) => {
         onClick={e => onHandleClick(e)}
         onTouchCancel={e => onHandleClick(e)}
       >
-        <Title>{selected ? selected : title}</Title>
-        <Svg id={`${name}-icon`} />
-        <Selctor id={name} type='button'></Selctor>
-        {isOpen && (
+        {isModal ? (
+          <CategorySelect id={name} type='button'></CategorySelect>
+        ) : (
+          <Selector id={name} type='button'></Selector>
+        )}
+        {isModal ? (
+          <CategoryTitle>{selected ? selected : title}</CategoryTitle>
+        ) : (
+          <Title>{selected ? selected : title}</Title>
+        )}
+        {isModal ? (
+          <CategorySvg id={`${name}-icon`} className={'rotateClose'} />
+        ) : (
+          <Svg id={`${name}-icon`} className={'rotateClose'} />
+        )}
+
+        {isOpen && !isLoading ? (
           <List>
             {list.map(item => (
               <ListOption
@@ -74,7 +91,7 @@ const Select = ({ list, title, name, onChange }) => {
               </ListOption>
             ))}
           </List>
-        )}
+        ) : null}
       </SelectWrapper>
     </>
   )

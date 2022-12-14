@@ -34,9 +34,6 @@ const DiagramTab = () => {
   const [getData, { isLoading, isError }] = useLazyGetStatsByPeriodQuery()
 
   const handleChange = (name, value) => {
-    // const handleChange = ({ target: { name, value } }) => {
-    // console.log('name', name)
-    // console.log('value', value)
     switch (name) {
       case 'month':
         return setMonth(value)
@@ -48,7 +45,6 @@ const DiagramTab = () => {
   }
 
   useEffect(() => {
-    console.log('month', month)
     const query = makeQuery(year, month)
     if (!query) {
       return

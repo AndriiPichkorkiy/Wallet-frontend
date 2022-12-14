@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Media from 'react-media'
 // import { getTransactionAll } from '../../api/auth'
-import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
+// import HomeTabl from '../../components/HomeDashboardTable/HomeTabl'
 import MobileTabl from '../../components/HomeDashboardTable/MobileTabl'
 // import ModalTransactions from '../../components/ModalTransaction/ModalTransactions'
 import ModalTransactions from '../../components/ModalTransactions'
@@ -37,7 +37,6 @@ export default function HomePage() {
                   transactions={data.transactions ?? []}
                   quantity={data.quantity}
                 /> */}
-                <h1>Home</h1>
               </>
             )
           }
