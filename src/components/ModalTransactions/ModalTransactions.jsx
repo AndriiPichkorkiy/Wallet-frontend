@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 
@@ -77,12 +77,12 @@ const ModalTransactions = ({ closeModal }) => {
     //   window.scrollTo(0, 0)
     // })
 
-    const el = document.querySelector('main')
-    el.style.position = 'fixed'
+    // const el = document.querySelector('main')
+    // el.style.position = 'fixed'
 
     document.addEventListener('keydown', closeByEscape)
     return () => {
-      el.style.position = 'static'
+      // el.style.position = 'static'
       document.removeEventListener('keydown', closeByEscape)
     }
   })
@@ -101,9 +101,10 @@ const ModalTransactions = ({ closeModal }) => {
     }
   }, [categories, transactionType])
 
-  const closeByEscape = e => {
+  const closeByEscape = useCallback(e => {
     if (e.key === 'Escape') closeModal()
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const onCloseBtnClick = () => {
     closeModal()
