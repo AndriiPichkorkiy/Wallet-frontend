@@ -33,6 +33,8 @@ export const ModalBox = styled.div`
   height: 100%;
   padding: 20px;
 
+  // background-color: teal;
+
   ${respondTo.sm`
     padding: 40px 72px 60px;
     // padding-bottom: 60px;
@@ -109,6 +111,7 @@ export const StyledInput = styled(Field)`
   outline: none;
   border: none;
   border-bottom: #e0e0e0 1px solid;
+  background-color: transparent;
   margin-top: 20px;
   margin-bottom: 40px;
   margin-right: 32px;
@@ -126,6 +129,8 @@ export const StyledDatetime = styled(Datetime)`
   border: none;
   border-bottom: #e0e0e0 1px solid;
   margin-bottom: 40px;
+  background-color: transparent;
+
   & > input {
     font-family: 'Circe';
     font-size: 18px;
@@ -145,6 +150,8 @@ export const StyledDateIcon = styled.img`
   top: 0;
   margin-right: 16px;
   pointer-events: none;
+  background-color: transparent;
+
   ${respondTo.sm`
     transform: translate(0, 75%);
   `}
@@ -161,70 +168,70 @@ export const StyledTextarea = styled.textarea`
   border-bottom: #e0e0e0 1px solid;
   margin-bottom: 40px;
   height: 84px;
+  background-color: transparent;
+
   ${respondTo.sm`
   height: 32px;
   `}
 `
-export const StyledAddButton = styled.button`
-  font-family: 'Circe';
-  font-size: 18px;
-  background-color: #24cca7;
+export const AddButton = styled.button`
+  width: 300px;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  background-color: #24cca7;
   border: none;
   border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ${respondTo.sm`
-  margin-left: auto;
-  margin-right: auto;
-     width: 300px;
-    `}
-  &:focus {
-    background-color: var(--accentPrimary);
-    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
-  }
-  &:hover {
-    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
-      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
-  }
-`
-
-export const StyledAddButtonText = styled.span`
   color: #ffffff;
-`
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-export const StyledCancelButtonText = styled.span`
-  font-family: 'Circe';
-  font-size: 18px;
-  color: #4a56e2;
-`
-
-export const StyledCancelButton = styled.button`
-  background-color: #ffffff;
-  height: 50px;
-  border: 1px solid #4a56e2;
-  border-radius: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  ${respondTo.sm`
-  margin-left: auto;
-  margin-right: auto;
-  width: 300px;
-    `}
-  &:focus {
+  :focus,
+  :hover {
     background: var(--activeColor);
     color: var(--background);
-    background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
   }
-  &:hover {
-    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
-      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
+`
+
+export const CancelButton = styled.button`
+  width: 300px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  background-color: transparent;
+  color: #4a56e2;
+  border: 1px solid #4a56e2;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+
+  :focus,
+  :hover {
+    background: var(--activeColor);
+    color: var(--background);
   }
 `

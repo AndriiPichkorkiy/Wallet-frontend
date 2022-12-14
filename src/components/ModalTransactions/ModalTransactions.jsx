@@ -1,9 +1,9 @@
-import React, { useCallback, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { useDispatch } from 'react-redux'
 
 import * as Yup from 'yup'
-import { Form, ErrorMessage } from 'formik'
+import { ErrorMessage } from 'formik'
 import moment from 'moment'
 import { Notify } from 'notiflix'
 
@@ -26,10 +26,8 @@ import {
   StyledInput,
   StyledTextarea,
   StyledDatetime,
-  StyledAddButton,
-  StyledCancelButton,
-  StyledAddButtonText,
-  StyledCancelButtonText,
+  AddButton,
+  CancelButton,
   StyledDateIcon,
   WrapperInput
 } from './ModalTransactions.styled'
@@ -37,7 +35,7 @@ import { StyledErrorMsg } from '../RegistrationForm/RegistrationForm.styled'
 import ButtonExpense from './Buttons/buttonExpense'
 import ButtonAddTransactions from './Buttons/buttonAddTransactions'
 import Select from '../StatsTable/Select/Select'
-
+// import Header from '../Header/Header'
 import SvgIcon from '../../assets/images/icons/date_range.svg'
 import { setBalance } from '../../redux/finance/financeSlice'
 
@@ -64,13 +62,10 @@ const ValidationSchema = Yup.object().shape({
 
 const ModalTransactions = ({ closeModal }) => {
   const dispatch = useDispatch()
-  const {
-    data: categories,
-    isLoading: isCategoryLoading,
-    isError: isCategoriesError
-  } = useGetCategoryQuery()
+  const { data: categories, isLoading: isCategoryLoading } =
+    useGetCategoryQuery()
   const [getBalance] = useLazyGetBalanceQuery()
-  const [newTransaction, { isLoading, isError }] = useAddTransactionsMutation()
+  const [newTransaction] = useAddTransactionsMutation()
   const [state, setState] = useState(initialValue)
   const [transactionType, setTransactionType] = useState(false)
   const [date, setDate] = useState(Date.now())
@@ -81,6 +76,7 @@ const ModalTransactions = ({ closeModal }) => {
     // window.addEventListener('scroll', e => {
     //   window.scrollTo(0, 0)
     // })
+
     const el = document.querySelector('main')
     el.style.position = 'fixed'
 
@@ -110,14 +106,13 @@ const ModalTransactions = ({ closeModal }) => {
   }
 
   const onCloseBtnClick = () => {
-    const cancelBtn = document.querySelector('.cancelBtn')
-    if (isLoading) {
-      cancelBtn.disabled = true
-    }
     closeModal()
   }
 
   const onSubmit = async e => {
+    const addBtn = document.getElementById('addBtn')
+    addBtn.disabled = true
+
     if (!amount || !category) {
       Notify.Failure('Please fill in all fields')
       return
@@ -136,7 +131,7 @@ const ModalTransactions = ({ closeModal }) => {
     console.log(newTransactionData, 'newTransactionData')
     const result = await newTransaction(newTransactionData)
     if (result) {
-      console.log(result, 'result')
+      // console.log(result, 'result')
 
       Notify.info('Transaction successful!')
       setState(initialValue)
@@ -149,7 +144,7 @@ const ModalTransactions = ({ closeModal }) => {
 
   const handleChange = ({ target: { name, value } }) => {
     const amountReg = /^[0-9]{0,7}([.,][0-9]{0,2})?$/
-    const commentReg = /^[a-zA-Zа-яА-Я0-9\s.,!?-~@/|\\&$<>()-=]{0,100}$/
+    const commentReg = /^[a-zA-Zа-яА-Я0-9\s.,!?-~@/|\\&$<>()-=]{0,251}$/
 
     switch (name) {
       case 'amount':
@@ -182,7 +177,7 @@ const ModalTransactions = ({ closeModal }) => {
       <ModalBox className={'modalLogout'}>
         <Title>Add transaction</Title>
         <StyledForm
-          key={'qwe'}
+          // key={'qwe'}
           onSubmit={onSubmit}
           initialValues={initialValue}
           validationSchema={ValidationSchema}
@@ -282,16 +277,12 @@ const ModalTransactions = ({ closeModal }) => {
               {errors.comment && touched.comment ? (
                 <StyledErrorMsg>{errors.comment}</StyledErrorMsg>
               ) : null}
-              <StyledAddButton type='submit'>
-                <StyledAddButtonText>Add</StyledAddButtonText>
-              </StyledAddButton>
-              <StyledCancelButton
-                className='cancelBtn'
-                onClick={() => onCloseBtnClick()}
-                type='button'
-              >
-                <StyledCancelButtonText>Cancel</StyledCancelButtonText>
-              </StyledCancelButton>
+              <AddButton type='submit' id={'addBtn'}>
+                add
+              </AddButton>
+              <CancelButton onClick={() => onCloseBtnClick()} type='button'>
+                cancel
+              </CancelButton>
             </FormikForm>
           )}
         </StyledForm>

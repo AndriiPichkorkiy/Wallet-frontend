@@ -37,7 +37,6 @@ export default function HomePage() {
                   transactions={data.transactions ?? []}
                   quantity={data.quantity}
                 /> */}
-                <h1>Home</h1>
               </>
             )
           }

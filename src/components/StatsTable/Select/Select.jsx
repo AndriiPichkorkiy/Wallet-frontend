@@ -8,6 +8,7 @@ import {
   Svg,
   Title,
   CategoryTitle,
+  CategorySvg,
   CategorySelect
 } from './Select.styled'
 
@@ -21,13 +22,13 @@ const Select = ({ list, title, name, onChange, isModal, isLoading }) => {
       const id = e.target.id
       const element = document.getElementById(`${id}-icon`)
       if (isOpen) {
-        element.classList.remove('rotateOpen')
-        element.classList.add('rotateClose')
+        element?.classList.remove('rotateOpen')
+        element?.classList.add('rotateClose')
         setIsOpen(false)
         return
       }
-      element.classList.add('rotateOpen')
-      element.classList.remove('rotateClose')
+      element?.classList.add('rotateOpen')
+      element?.classList.remove('rotateClose')
       setIsOpen(true)
     },
     [isOpen]
@@ -62,20 +63,21 @@ const Select = ({ list, title, name, onChange, isModal, isLoading }) => {
         onTouchCancel={e => onHandleClick(e)}
       >
         {isModal ? (
-          <CategoryTitle>{selected ? selected : title}</CategoryTitle>
-        ) : (
-          <Title>{selected ? selected : title}</Title>
-        )}
-        {isLoading ? (
-          <Svg id={`${name}-icon`} />
-        ) : (
-          <Svg id={`${name}-icon`} className={'rotateClose'} />
-        )}
-        {isModal ? (
           <CategorySelect id={name} type='button'></CategorySelect>
         ) : (
           <Selector id={name} type='button'></Selector>
         )}
+        {isModal ? (
+          <CategoryTitle>{selected ? selected : title}</CategoryTitle>
+        ) : (
+          <Title>{selected ? selected : title}</Title>
+        )}
+        {isModal ? (
+          <CategorySvg id={`${name}-icon`} className={'rotateClose'} />
+        ) : (
+          <Svg id={`${name}-icon`} className={'rotateClose'} />
+        )}
+
         {isOpen && !isLoading ? (
           <List>
             {list.map(item => (

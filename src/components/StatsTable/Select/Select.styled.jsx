@@ -35,8 +35,6 @@ export const Title = styled.p`
   left: 20px;
   transform: translateY(-50%);
   cursor: pointer;
-  // z-index: -1;
-
   font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
@@ -47,7 +45,6 @@ export const Title = styled.p`
 
 export const Svg = styled(DropDownIcon)`
   position: absolute;
-  // z-index: -1;
   top: 40%;
   right: 20px;
   width: 18px;
@@ -55,6 +52,7 @@ export const Svg = styled(DropDownIcon)`
   cursor: pointer;
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 `
+
 export const Selector = styled.input`
   width: 100%;
   height: 50px;
@@ -71,7 +69,6 @@ export const Selector = styled.input`
   cursor: pointer;
   :hover,
   :focus-visible {
-    outline: 1px solid #4a56e2;
     border-color: #4a56e2;
   }
 `
@@ -130,7 +127,6 @@ export const CategoryTitle = styled.p`
   position: absolute;
   top: 45%;
   left: 20px;
-  // z-index: -1;
   cursor: pointer;
   transform: translateY(-50%);
 
@@ -142,6 +138,16 @@ export const CategoryTitle = styled.p`
 
   color: #bdbdbd;
 `
+export const CategorySvg = styled(DropDownIcon)`
+  position: absolute;
+  top: 40%;
+  right: 20px;
+  width: 18px;
+  height: 9px;
+  cursor: pointer;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+`
+
 export const CategorySelect = styled.input`
   width: 100%;
   height: 50px;
