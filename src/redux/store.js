@@ -12,6 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage'
 
 import { authApi } from '../services/authApi'
+import { newsApi } from '../services/newsApi'
 import { statsApi } from '../services/statsApi'
 import { transactionsApi } from '../services/transactionsApi'
 
@@ -31,9 +32,10 @@ const rootReducer = combineReducers({
   [statsApi.reducerPath]: statsApi.reducer,
   [transactionsApi.reducerPath]: transactionsApi.reducer,
   [currencysApi.reducerPath]: currencysApi.reducer,
+  [newsApi.reducerPath]: newsApi.reducer,
   user: currentUser.reducer,
   token: currentToken.reducer,
-  finance: userBalance.reducer,
+  finance: userBalance.reducer
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -50,6 +52,7 @@ export const store = configureStore({
       .concat(statsApi.middleware)
       .concat(transactionsApi.middleware)
       .concat(currencysApi.middleware)
+      .concat(newsApi.middleware)
 })
 
 export const persistor = persistStore(store)
