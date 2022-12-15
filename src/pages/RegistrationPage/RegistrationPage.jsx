@@ -28,9 +28,7 @@ const RegistrationPage = () => {
     Notify.failure(error.data.message)
   }
 
-  console.log('isError: ', isError)
   useEffect(() => {
-    console.log('isSuccess: ', isSuccess)
     if (isSuccess) {
       // redirect
       navigate('/login', { replace: true })
@@ -40,8 +38,8 @@ const RegistrationPage = () => {
   }, [isSuccess])
 
   const onHandleSubmit = async data => {
-    const { name, email, password } = data;
-    const newData = { name, email, password };
+    const { name, email, password } = data
+    const newData = { name, email, password }
     const response = await signUp(newData).unwrap()
     if (!response) {
       return console.log('error', error.data.message)
