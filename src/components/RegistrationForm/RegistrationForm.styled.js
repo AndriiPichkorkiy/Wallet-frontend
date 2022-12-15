@@ -127,8 +127,10 @@ export const StyledIconUser = styled(AccountBoxIcon)`
   color: var(--text-header);
 `
 export const StyledBtnMain = styled.button`
-  display: inline-block;
-  width: 100%;
+  display: block;
+  width:100%;
+  margin-left:auto;
+  margin-right:auto;
   max-height: 50px;
   padding: 13px 61px;
   background: var(--accentPrimary);
@@ -154,10 +156,15 @@ export const StyledBtnMain = styled.button`
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
+   ${respondTo.sm`
+                width: 300px;
+        `}
 `
 export const StyledBtn = styled(Link)`
-  display: inline-block;
+  display: block;
   width: 100%;
+  margin-left:auto;
+  margin-right:auto;
   max-height: 50px;
   padding: 13px 61px;
 background: transparent;
@@ -181,6 +188,9 @@ background: transparent;
     inset -4px -4px 6px 0 rgba(255,255,255,.5),
     inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
   }
+   ${respondTo.sm`
+                width: 300px;
+        `}
 `
 export const StyledErrorMsg = styled.div`
   position: absolute;

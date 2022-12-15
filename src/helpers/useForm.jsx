@@ -13,9 +13,8 @@ const useForm = ({ initialState, onSubmit }) => {
     }
 
     const handleSubmit = (data) => {
-        delete data.confirmPassword;
-        // console.log(data)
-        onSubmit({ ...data });
+        // delete data.confirmPassword;
+        onSubmit({ ...data});
         setState({ ...initialState })
     }
 

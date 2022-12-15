@@ -9,8 +9,9 @@ import { useGetAllTransactionsQuery } from '../../services/transactionsApi'
 
 export default function HomePage() {
   const { data } = useGetAllTransactionsQuery()
-  //   console.log(useGetAllTransactionsQuery())
-  //   console.log(data)
+  // console.log(useGetAllTransactionsQuery())
+  console.log(data)
+  // console.log(data.transactions)
 
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
@@ -23,14 +24,18 @@ export default function HomePage() {
           closeModal={() => SetIsModalAddTransactionOpen(false)}
         />
       )}
-      {data !== false ? (
+
+      {data ? (
         <Media queries={{ small: '(max-width: 767px)' }}>
           {matches =>
             matches.small ? (
-              <MobileTabl data={data ?? []} />
+              <MobileTabl transactions={data.transactions ?? []} />
             ) : (
               <>
-                <HomeTabl data={data ?? []} />
+                <HomeTabl
+                  transactions={data.transactions ?? []}
+                  quantity={data.quantity}
+                />
               </>
             )
           }
