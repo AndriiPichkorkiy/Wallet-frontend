@@ -36,9 +36,9 @@ const LoginPage = () => {
 
   const onLogin = async data => {
     const response = await login(data).unwrap()
-    console.log('response: ', response)
+    // console.log('response: ', response)
     if (!response.token) {
-      console.log('error', isError)
+      //   console.log('error', isError)
       return
     }
     dispatch(setToken(response))

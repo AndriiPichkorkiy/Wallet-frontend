@@ -10,12 +10,10 @@ import { Button } from './HomePage.styled'
 export default function HomePage() {
   const [page, setPage] = useState(0)
   const { data } = useGetAllTransactionsQuery({ limit: 5, page: page + 1 })
-  //   console.log(page)
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
 
   if (!data) return
-
   const isShowClickNext = data.quantity > data.transactions.length + page * 5
 
   const onClickFirstPage = () => {
@@ -55,7 +53,11 @@ export default function HomePage() {
                   {page !== 0 &&
                     data.transactions.length > 0 &&
                     data.transactions.length < 5 && (
-                      <Button onClick={onClickFirstPage}>To First Page</Button>
+                      <>
+                        <Button onClick={onClickFirstPage}>
+                          To First Page
+                        </Button>
+                      </>
                     )}
                   {isShowClickNext && (
                     <Button onClick={onClickRight}>Click right</Button>
