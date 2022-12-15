@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Media from 'react-media'
 import { Navigate } from 'react-router-dom'
-import { getNews } from '../../services/newsApi'
+import { useGetNewsQuery } from '../../services/newsApi'
 import {
   Container,
   NewsHeader,
@@ -13,16 +13,8 @@ import {
 } from './NewsComponents'
 
 const NewsPage = () => {
-  // eslint-disable-next-line no-unused-vars
-  const [news, setNews] = useState([])
+  const { data: dataNews } = useGetNewsQuery()
 
-  useEffect(() => {
-    const asyncF = async () => {
-      const { data } = await getNews('currency')
-      setNews(data.articles)
-    }
-    asyncF()
-  }, [])
 
   return (
     <Media queries={{ small: '(max-width: 767px)' }}>
@@ -34,24 +26,13 @@ const NewsPage = () => {
             <Container>
               <NewsHeader>News about currency</NewsHeader>
               <NewsList>
-                {/* <NewsItem>
-                  <NewsItemHead>QWWeeeee</NewsItemHead>
-                  <NewsText>ASdasdfasd asd sas swde qweas sa</NewsText>
-                  <NewsLink href='/'>link to the article</NewsLink>
-                </NewsItem>
-                <NewsItem>
-                  <NewsItemHead>QWWeeeee</NewsItemHead>
-                  <NewsText>ASdasdfasd asd sas swde qweas sa</NewsText>
-                  <NewsLink href='/'>link to the article</NewsLink>
-                </NewsItem> */}
-
-                {news.map(item => {
+                {dataNews?.map(item => {
                   return (
-                    <NewsItem style={{ margin: '10px 0' }}>
+                    <NewsItem key={item.uuid} style={{ margin: '10px 0' }}>
                       <NewsItemHead>
-                        {new Date(item.publishedAt).toLocaleDateString()}
+                        {item.title}
                       </NewsItemHead>
-                      <NewsText>{item.title}</NewsText>
+                      <NewsText>{item.description}</NewsText>
                       <NewsLink target='_blank' href={item.url}>
                         Link to the article
                       </NewsLink>
