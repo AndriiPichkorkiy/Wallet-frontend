@@ -9,10 +9,9 @@ import { nanoid } from '@reduxjs/toolkit'
 import EllipsisText from 'react-ellipsis-text'
 
 const MobileTabl = ({ transactions }) => {
-
   if (transactions.length > 0) {
-    const card =
-      transactions.map(({ type, category, comment, amount, balance, date }) => {
+    const card = transactions.map(
+      ({ type, category, comment, amount, balance, date }) => {
         const time = date
         const newDate = new Date(time).toLocaleDateString()
 
@@ -47,9 +46,11 @@ const MobileTabl = ({ transactions }) => {
             </CardBox>
           </ContainerMobileTabl>
         )
-      })
+      }
+    )
     return card
-  } else {
+  }
+  if (transactions.length === 0) {
     return (
       <ContainerEmpty sx={{ minWidth: 280 }}>
         There are no recorded transactions. Click the{' '}

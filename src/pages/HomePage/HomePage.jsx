@@ -10,17 +10,26 @@ import { Button } from './HomePage.styled'
 export default function HomePage() {
   const [page, setPage] = useState(0)
   const { data } = useGetAllTransactionsQuery({ limit: 5, page: page + 1 })
-
+  //   console.log(page)
   const [isModalAddTransactionOpen, SetIsModalAddTransactionOpen] =
     useState(false)
 
-  const onClickNextPage = () => {
+  if (!data) return
+
+  const isShowClickNext = data.quantity > data.transactions.length + page * 5
+
+  const onClickFirstPage = () => {
+    setPage(page === 1)
+    window.scrollTo(0, 0)
+  }
+
+  const onClickRight = async () => {
     setPage(prevState => prevState + 1)
     window.scrollTo(0, 0)
   }
 
-  const onClickFirstPage = () => {
-    setPage(page === 1)
+  const onClickLeft = async () => {
+    setPage(prevState => prevState - 1)
     window.scrollTo(0, 0)
   }
 
@@ -39,13 +48,19 @@ export default function HomePage() {
             matches.small ? (
               <>
                 <MobileTabl transactions={data.transactions ?? []} />
-                {data.transactions.length === 5 && (
-                  <Button onClick={onClickNextPage}>Load more</Button>
-                )}
-                {data.transactions.length > 0 &&
-                  data.transactions.length < 5 && (
-                    <Button onClick={onClickFirstPage}>To First Page</Button>
+                <div style={{ display: 'flex' }}>
+                  {page !== 0 && (
+                    <Button onClick={onClickLeft}>Click left</Button>
                   )}
+                  {page !== 0 &&
+                    data.transactions.length > 0 &&
+                    data.transactions.length < 5 && (
+                      <Button onClick={onClickFirstPage}>To First Page</Button>
+                    )}
+                  {isShowClickNext && (
+                    <Button onClick={onClickRight}>Click right</Button>
+                  )}
+                </div>
               </>
             ) : (
               <>
