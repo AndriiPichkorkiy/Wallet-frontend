@@ -1,6 +1,5 @@
 import React from 'react'
 import Select from './Select/Select'
-// import Selector from './SelectorOld/Selector'
 import Table from './Table/Table'
 import { Container, SelectionWrapper } from './StatsTable.styled'
 
@@ -20,13 +19,6 @@ const months = [
   { id: '0', name: 'All' }
 ]
 
-// const years = [
-//   { id: '2022', name: '2022' },
-//   { id: '2021', name: '2021' },
-//   { id: '2020', name: '2020' },
-//   { id: '2019', name: '2019' }
-// ]
-
 const makeYears = () => {
   const years = []
   const currentYear = new Date().getFullYear()
@@ -38,17 +30,30 @@ const makeYears = () => {
 
 const years = makeYears()
 
+const makeMonthName = array => {
+  const currentMonth = new Date().getMonth()
+  const monthName = array[currentMonth]
+  return monthName.name
+}
+
+const month = makeMonthName(months)
+
 const StatsTable = ({ statistics, totalData, onChange }) => {
   return (
     <Container>
       <SelectionWrapper>
         <Select
           list={months}
-          title={'Month'}
+          title={month}
           name={'month'}
           onChange={onChange}
         />
-        <Select list={years} title={'Year'} name={'year'} onChange={onChange} />
+        <Select
+          list={years}
+          title={new Date().getFullYear()}
+          name={'year'}
+          onChange={onChange}
+        />
       </SelectionWrapper>
       <Table statistics={statistics} totalData={totalData} />
     </Container>

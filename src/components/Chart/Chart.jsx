@@ -6,7 +6,6 @@ import { ChartWrapper, BalanceWrapper } from './Chart.styled'
 
 const Chart = ({ statistics, totalData }) => {
   ChartJS.register(ArcElement)
-  console.log('statistics', statistics)
 
   const names = statistics.map(obj => obj.name)
   const colors = statistics.map(obj => obj.color)

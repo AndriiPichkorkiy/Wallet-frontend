@@ -32,7 +32,7 @@ const DiagramTab = () => {
   const [year, setYear] = useState('')
   const [stats, setStats] = useState({})
   const [getData, { isLoading, isError }] = useLazyGetStatsByPeriodQuery()
-  console.log('isLoading', isLoading, ", stats: ", stats)
+
   const handleChange = (name, value) => {
     switch (name) {
       case 'month':
@@ -91,7 +91,7 @@ const DiagramTab = () => {
     }
   }
 
-  const isStatsEmpty = Object.keys(stats).length === 0;
+  const isStatsEmpty = Object.keys(stats).length === 0
 
   return (
     <Container>
