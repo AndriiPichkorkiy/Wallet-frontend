@@ -31,8 +31,8 @@ export const NewsItem = styled.li`
   /* border: 0.5px gray solid; */
   border-bottom: 1px solid #e7e5f2;
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05),
-    0px 10px 5px rgba(255, 255, 255, 0.6);
-  /* padding: 10px 20px; */
+    0px 5px 5px rgba(0, 0, 0, 0.3);
+  padding: 0px 20px;
   /* border-radius: 40px; */
   /* :not(:last-child) { */
   /* margin-bottom: 8px; */

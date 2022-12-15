@@ -110,10 +110,7 @@ const ModalTransactions = ({ closeModal }) => {
     closeModal()
   }
 
-  const onSubmit = async e => {
-    const addBtn = document.getElementById('addBtn')
-
-
+  const onSubmit = async (e) => {
     if (!amount || !category) {
       Notify.failure('Please fill in all fields')
       return
@@ -129,8 +126,12 @@ const ModalTransactions = ({ closeModal }) => {
       type: transactionType,
       date: date
     }
-    addBtn.disabled = true
     const result = await newTransaction(newTransactionData)
+    if (result.error) {
+      Notify.warning(result.error.data.message);
+      return
+
+    }
     if (result) {
       Notify.info('Transaction successful!')
       setState(initialValue)
@@ -167,6 +168,10 @@ const ModalTransactions = ({ closeModal }) => {
     setState(prev => ({ ...prev, [name]: value }))
   }
 
+  const BtnSubmit = <AddButton type='submit' id={'addBtn'}>
+    add
+  </AddButton>
+
   return createPortal(
     <BackDrop
       onClick={e => {
@@ -178,9 +183,15 @@ const ModalTransactions = ({ closeModal }) => {
         alt='CloseModalBtn' onClick={() => closeModal()} />
         <Title>Add transaction</Title>
         <StyledForm
-          // key={'qwe'}
-          onSubmit={onSubmit}
-          initialValues={initialValue}
+          onSubmit={(data) => {
+            const addBtn = document.getElementById('addBtn')
+            addBtn.disabled = true
+            onSubmit(data).finally(() => {
+              addBtn.disabled = false
+            })
+          }}
+          // enableReinitialize={false}
+          initialValues={{ ...state }}
           validationSchema={ValidationSchema}
         >
           {({ errors, touched }) => (
@@ -279,9 +290,10 @@ const ModalTransactions = ({ closeModal }) => {
               {errors.comment && touched.comment ? (
                 <StyledErrorMsg>{errors.comment}</StyledErrorMsg>
               ) : null}
-              <AddButton type='submit' id={'addBtn'}>
+              {/* <AddButton type='submit' id={'addBtn'}>
                 add
-              </AddButton>
+              </AddButton> */}
+              {BtnSubmit}
               <CancelButton onClick={() => onCloseBtnClick()} type='button'>
                 cancel
               </CancelButton>
