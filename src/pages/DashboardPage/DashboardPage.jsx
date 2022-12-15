@@ -4,7 +4,7 @@ import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
 import Header from '../../components/Header'
-import Loader from '../../components/Loader/Loader'
+import { LoaderWrapper } from '../../components/Loader/Loader'
 
 import {
   ContainerLeft,
@@ -73,7 +73,7 @@ const DashboardPage = () => {
             </>
           )}
         </Media>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<LoaderWrapper />}>
           <Outlet />
         </Suspense>
       </MainContainer>
