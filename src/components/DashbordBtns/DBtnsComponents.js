@@ -36,65 +36,70 @@ export const LinkBtn = styled(NavLink)`
       background: var(--activeColor);
     }
   }
-      &:before {
-        pointer-events: none;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        top: 100%;
-        left: 5%;
-        height: 10px;
-        width: 90%;
-        opacity: 0;
-        background: radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 80%);
-        transition-property: transform opacity;
-      }
-    
-      &:hover, &.active{
-        transform: translateY(-6px);
-        animation-name: hover;
-        animation-duration: 1.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        &:before {
-          opacity: .4;
-          transform: translateY(6px);
-          animation-name: hover-shadow;
-          animation-duration: 1.5s;
-          animation-delay: .3s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-      }
-    
-    @keyframes hover {
-      50% {
-        transform: translateY(-3px);
-      }
-    
-      100% {
-        transform: translateY(-6px);
-      }
-    }
-    
-    @keyframes hover-shadow {
-      0% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
-    
-      50% {
-        transform: translateY(3px);
-        opacity: 1;
-      }
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0) 80%
+    );
+    transition-property: transform opacity;
+  }
 
-      100% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
+  &:hover,
+  &.active {
+    transform: translateY(-6px);
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    &:before {
+      opacity: 0.4;
+      transform: translateY(6px);
+      animation-name: hover-shadow;
+      animation-duration: 1.5s;
+      animation-delay: 0.3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
+  }
+
+  @keyframes hover {
+    50% {
+      transform: translateY(-3px);
+    }
+
+    100% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes hover-shadow {
+    0% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+
+    50% {
+      transform: translateY(3px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+  }
 
   ${respondTo.sm`
         display: flex;
@@ -129,72 +134,77 @@ export const CurrLinkBtn = styled(NavLink)`
   height: 44px;
 
   display: inline-block;
-	transition-property: transform;
+  transition-property: transform;
 
   &.active {
     & > svg {
       background: var(--activeColor);
     }
   }
-      &:before {
-        pointer-events: none;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        top: 100%;
-        left: 5%;
-        height: 10px;
-        width: 90%;
-        opacity: 0;
-        background: radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 80%);
-        transition-property: transform opacity;
-      }
-    
-      &:hover, &.active{
-        transform: translateY(-6px);
-        animation-name: hover;
-        animation-duration: 1.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        &:before {
-          opacity: .4;
-          transform: translateY(6px);
-          animation-name: hover-shadow;
-          animation-duration: 1.5s;
-          animation-delay: .3s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-      }
-    
-    @keyframes hover {
-      50% {
-        transform: translateY(-3px);
-      }
-    
-      100% {
-        transform: translateY(-6px);
-      }
-    }
-    
-    @keyframes hover-shadow {
-      0% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
-    
-      50% {
-        transform: translateY(3px);
-        opacity: 1;
-      }
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0) 80%
+    );
+    transition-property: transform opacity;
+  }
 
-      100% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
+  &:hover,
+  &.active {
+    transform: translateY(-6px);
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    &:before {
+      opacity: 0.4;
+      transform: translateY(6px);
+      animation-name: hover-shadow;
+      animation-duration: 1.5s;
+      animation-delay: 0.3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
+  }
+
+  @keyframes hover {
+    50% {
+      transform: translateY(-3px);
+    }
+
+    100% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes hover-shadow {
+    0% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+
+    50% {
+      transform: translateY(3px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+  }
 
   ${respondTo.sm`
         position: absolute;
@@ -214,71 +224,76 @@ export const NewsLinkBtn = styled(NavLink)`
       background: var(--activeColor);
     }
   }
-      &:before {
-        pointer-events: none;
-        position: absolute;
-        z-index: -1;
-        content: '';
-        top: 100%;
-        left: 5%;
-        height: 10px;
-        width: 90%;
-        opacity: 0;
-        background: radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 80%);
-        transition-property: transform opacity;
-      }
-    
-      &:hover, &.active{
-        transform: translateY(-6px);
-        animation-name: hover;
-        animation-duration: 1.5s;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-        animation-direction: alternate;
-        &:before {
-          opacity: .4;
-          transform: translateY(6px);
-          animation-name: hover-shadow;
-          animation-duration: 1.5s;
-          animation-delay: .3s;
-          animation-timing-function: linear;
-          animation-iteration-count: infinite;
-          animation-direction: alternate;
-        }
-      }
-    
-    @keyframes hover {
-      50% {
-        transform: translateY(-3px);
-      }
-    
-      100% {
-        transform: translateY(-6px);
-      }
-    }
-    
-    @keyframes hover-shadow {
-      0% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
-    
-      50% {
-        transform: translateY(3px);
-        opacity: 1;
-      }
+  &:before {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 100%;
+    left: 5%;
+    height: 10px;
+    width: 90%;
+    opacity: 0;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(0, 0, 0, 0.35) 0%,
+      rgba(0, 0, 0, 0) 80%
+    );
+    transition-property: transform opacity;
+  }
 
-      100% {
-        transform: translateY(6px);
-        opacity: .4;
-      }
+  &:hover,
+  &.active {
+    transform: translateY(-6px);
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    &:before {
+      opacity: 0.4;
+      transform: translateY(6px);
+      animation-name: hover-shadow;
+      animation-duration: 1.5s;
+      animation-delay: 0.3s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
     }
+  }
+
+  @keyframes hover {
+    50% {
+      transform: translateY(-3px);
+    }
+
+    100% {
+      transform: translateY(-6px);
+    }
+  }
+
+  @keyframes hover-shadow {
+    0% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+
+    50% {
+      transform: translateY(3px);
+      opacity: 1;
+    }
+
+    100% {
+      transform: translateY(6px);
+      opacity: 0.4;
+    }
+  }
 
   ${respondTo.sm`
         margin-left: 60px;
         position: relative;
         width: 100%;
-        height: 100%;
+        height: 60%;
         opacity: 1;
         visibility: visible;
         display: flex;
@@ -287,7 +302,9 @@ export const NewsLinkBtn = styled(NavLink)`
         margin-right: 0px;
         font-weight: 400;
         font-size: 18px;
-        
+        & > a {
+        padding: 20px;
+        }
         &:before{
           content: none;
         }

@@ -4,7 +4,7 @@ const breakpoints = {
   xs: '480px',
   sm: '768px',
   md: '992px',
-  lg: '1200px',
+  lg: '1200px'
 }
 
 const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
@@ -16,6 +16,6 @@ const respondTo = Object.keys(breakpoints).reduce((accumulator, label) => {
   return accumulator
 }, {})
 
-console.log('respondTo', respondTo)
+// console.log('respondTo', respondTo)
 
 export { respondTo }
