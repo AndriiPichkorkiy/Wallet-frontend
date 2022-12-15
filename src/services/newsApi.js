@@ -20,6 +20,9 @@ const instance = axios.create({
 //     return news
 // }
 
-export async function getNews() {
-  return instance.get(baseURL)
+export async function getNews(userToken) {
+  console.log(userToken)
+  return instance.get(baseURL, {
+    headers: { Authorization: `Bearer ${userToken}` }
+  })
 }

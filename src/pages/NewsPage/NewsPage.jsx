@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Media from 'react-media'
+import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom'
 import { getNews } from '../../services/newsApi'
 import {
@@ -15,15 +16,16 @@ import {
 const NewsPage = () => {
     // eslint-disable-next-line no-unused-vars
     const [news, setNews] = useState([])
+    const token = useSelector(state => state.token)
 
     useEffect(() => {
         const asyncF = async () => {
-            const { data } = await getNews()
+            const { data } = await getNews(token)
             console.log(data)
             setNews(data)
         }
         asyncF()
-    }, [])
+    }, [token])
 
     return (
         <Media queries={{ small: '(max-width: 767px)' }}>
