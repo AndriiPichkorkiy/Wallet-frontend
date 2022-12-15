@@ -6,7 +6,6 @@
 
 html,
 body {
-  overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: $font-size-body;
 
@@ -20,14 +19,16 @@ body {
   background-color: $background-body;
 
   @include tablet {
-    background: url(../../../public/imgs/pinkTab.png), url(../../../public/imgs/violet.png);  
+    background: url(../../../public/imgs/pinkTab.png),
+      url(../../../public/imgs/violet.png);
     background-repeat: no-repeat, no-repeat;
     background-position: top right, bottom left;
     background-attachment: fixed;
     background-color: $background-body;
   }
   @include desktop1200 {
-    background: url(../../../public/imgs/pink.png), url(../../../public/imgs/violet.png);  
+    background: url(../../../public/imgs/pink.png),
+      url(../../../public/imgs/violet.png);
     background-repeat: no-repeat, no-repeat;
     background-position: top right, bottom left;
     background-attachment: fixed;
@@ -35,6 +36,15 @@ body {
   }
   @include desktop1280 {
     background-color: $background-body;
+  }
+}
+
+html {
+  @include tablet {
+    overflow-x: hidden;
+  }
+  @include desktop1200 {
+    overflow-x: unset;
   }
 }
 

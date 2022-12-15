@@ -1,8 +1,10 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
-import { respondTo } from '../../helpers/respondTo'
+import { respondTo } from '../../../helpers/respondTo'
 
 export const HeaderC = styled.header`
+  position: absolute;
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -31,14 +33,14 @@ export const LogoCont = styled(NavLink)`
   -webkit-background-clip: text;
   -webkit-text-fill-color: #0f0f8a93;
 
-@keyframes animate {
-  0% {
-    background-position: -500%;
+  @keyframes animate {
+    0% {
+      background-position: -500%;
+    }
+    100% {
+      background-position: 500%;
+    }
   }
-  100% {
-    background-position: 500%;
-  }
-}
 `
 
 export const Logo = styled.img`
@@ -120,15 +122,15 @@ export const LogoutExit = styled.span`
         line-height: 27px;  
     `}
 `
-// export const Avatar = styled.div`
-//   display: flex;
-//   align-items: center;
-//   margin-left: 5px;
-//   gap: 12px;
-//   & img {
-//     width: 45px;
-//     height: 45px;
-//     background: url(.png);
-//     border-radius: 3px;
-//   }
-// `
+export const Avatar = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  gap: 12px;
+  & img {
+    width: 45px;
+    height: 45px;
+    background: url(.png);
+    border-radius: 3px;
+  }
+`

@@ -13,22 +13,32 @@ export const MainContainer = styled.main`
   padding: 12px 20px;
   margin-left: auto;
   margin-right: auto;
+
   width: 100%;
+  /* height: 100vh; */
+  min-height: fit-content;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-top: 85px;
+  padding-bottom: 32px;
 
   ${respondTo.sm`
    	align-items: normal;
    	min-width: 768px;
-   	padding: 32px 32px;`}
+   	padding: 32px 32px;
+    padding-top: 85px;
+    height: 100vh;
+    `}
 
   ${respondTo.lg`
   	flex-direction: row;
   	align-items:flex-start;
   	min-width: 1200px;
-  	padding: 0 16px;
+
+    padding-top: 85px;
+    padding-bottom: 60px;
 	`}
 `
 export const ContainerLeft = styled.div`

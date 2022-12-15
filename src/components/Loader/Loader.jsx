@@ -9,11 +9,14 @@ function Loader() {
     </Wrapper>
   )
 }
-function LoaderWrapper() {
+
+// #24cca7
+function LoaderWrapper({ color }) {
+  const loaderColor = color ? color : '#4a56e2';
   return (
     <WrapperBig>
       <Wrapper>
-        <PropagateLoader color='#24cca7' />
+        <PropagateLoader color={loaderColor} />
       </Wrapper>
     </WrapperBig>
   )

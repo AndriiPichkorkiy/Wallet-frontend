@@ -1,5 +1,5 @@
 import React from 'react'
-import wallet from '../../assets/images/icons/wallet30x30.svg'
+import wallet from '../../../assets/images/icons/wallet30x30.svg'
 import {
   HeaderC,
   LogoCont,
@@ -9,31 +9,31 @@ import {
   LogoutCont,
   LogoutExitName,
   LogoutExit,
-//   Avatar
+  Avatar
   // LogoutExitNameCircle
 } from './HeaderComponents'
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useSelector } from 'react-redux'
-// import { randomAvatar } from '../../helpers/rendomAvatar'
-// import Media from 'react-media'
+import Media from 'react-media'
 
 export const HeaderContent = ({ toExit }) => {
   const nameAll = useSelector(store => store.user.user.name)
+  const avatar = useSelector(store => store.user.user.avatar)
   // const name = nameAll.split('')[0].toUpperCase()
   return (
     <>
       <HeaderC>
         <LogoCont to="/">
           {/* <NavLink */}
-            <Logo src={wallet} alt='logo' />
-            <LogoText>Wallet</LogoText>
+          <Logo src={wallet} alt='logo' />
+          <LogoText>Wallet</LogoText>
           {/* </NavLink> */}
         </LogoCont>
         <LogoutCont>
           {/* <LogoutExitNameCircle className={'name'}>
             {name}
           </LogoutExitNameCircle> */}
-          {/* <Media
+          <Media
             queries={{
               medium: '(min-width: 768px)'
             }}
@@ -42,12 +42,12 @@ export const HeaderContent = ({ toExit }) => {
               <>
                 {matches.medium && (
                   <Avatar>
-                    <img src={randomAvatar} alt='Avatar' />
+                    <img src={avatar} alt='Avatar' />
                   </Avatar>
                 )}
               </>
             )}
-          </Media> */}
+          </Media>
 
           <LogoutExitName>{nameAll}</LogoutExitName>
           <BtnLogout onClick={toExit} type='btn'>
@@ -55,7 +55,7 @@ export const HeaderContent = ({ toExit }) => {
               sx={{
                 color: '#BDBDBD'
               }}
-              // src={logout} alt="logout"
+            // src={logout} alt="logout"
             />
             <LogoutExit>Exit</LogoutExit>
           </BtnLogout>

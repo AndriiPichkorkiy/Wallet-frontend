@@ -1,6 +1,4 @@
-/* eslint-disable no-useless-escape */
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import useForm from '../../helpers/useForm'
 import { Formik, Form } from 'formik'
@@ -22,13 +20,8 @@ import {
 } from './RegistrationForm.styled'
 import icon from '../../assets/images/icons/logo.svg'
 import icon_large from '../../assets/images/icons/logo-large.svg'
-import { useDispatch, useSelector } from 'react-redux'
-import Loader, { LoaderWrapper } from '../Loader/Loader'
-import { Navigate, useNavigate } from 'react-router-dom'
-import ModalRegistration from '../ModalLogout/ModalRegistration'
-import { useSignUpMutation } from '../../services/authApi'
+import { LoaderWrapper } from '../Loader/Loader'
 import { SignUpSchema } from '../../helpers/CommonSChemas'
-import { isRegister } from '../../redux/auth/authSlice'
 const initialState = {
     name: '',
     email: '',
@@ -36,31 +29,9 @@ const initialState = {
     confirmPassword: ''
 }
 
-const RegistrationForm = ({ onSubmit }) => {
+const RegistrationForm = ({ onSubmit, isLoading }) => {
     const [passwordHardness, setPasswordHardness] = useState(0)
-    const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
-    // const dispatch = useDispatch()
-
-    //из этого хука мы получаем функцию signUp, которая будет вызываться при отправке формы
-    const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
-
-    const isRegistrationSuccess = useSelector(state => state.user.user.name)
-    // const newUser = useSelector(state => state.user.newUser)
-    // console.log('newUser: ', newUser)
-    // console.log('isLoading: ', isLoading)
-    // const navigate = useNavigate()
-
-    useEffect(() => {
-        console.log(isLoading)
-    }, [isLoading])
-    // useEffect(() => {
-    //   if (isRegistrationSuccess && window.newUser !== 'EXIT') {
-    //     // redirect
-    //     navigate('/login?newUser=true', { replace: true })
-    //     window.newUser = true
-    //   }
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    // }, [isRegistrationSuccess])
+    const { handleSubmit } = useForm({ initialState, onSubmit })
 
     function increasePasswordHardness(event) {
         if (event.target.name === 'password') {
@@ -76,7 +47,7 @@ const RegistrationForm = ({ onSubmit }) => {
             let passed = 0
 
             //Validate for each Regular Expression.
-            for (var i = 0; i < regex.length; i++) {
+            for (let i = 0; i < regex.length; i++) {
                 if (new RegExp(regex[i]).test(event.target.value)) {
                     passed++
                 }

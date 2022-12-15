@@ -1,4 +1,4 @@
-import Loader from '../../Loader/Loader'
+import { LoaderWrapper } from '../../Loader/Loader'
 import React, { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 // import HomePage from '../../../pages/HomePage/HomePage'
@@ -24,7 +24,7 @@ const Currency = lazy(() => import('../../Currency'))
 const UserRouters = () => {
   return (
     <>
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<LoaderWrapper />}>
         <Routes>
           <Route element={<PublicRoute />}>
             <Route path='/register' element={<RegistrationPage />} />

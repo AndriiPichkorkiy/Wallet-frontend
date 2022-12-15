@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 // import {Container, Header,FormContainer, LabelContainer, UserInput, StyledBtn } from './RegisterForm.styled';
@@ -20,34 +19,19 @@ import {
 
 import icon from '../../assets/images/icons/logo.svg'
 import icon_large from '../../assets/images/icons/logo-large.svg'
-// import { useSearchParams } from 'react-router-dom';
 import ModalRegistration from '../ModalLogout/ModalRegistration'
 import { useSelector } from 'react-redux'
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-
-import { closeModal } from '../../redux/auth/auth-operations.js'
 import { LoaderWrapper } from '../Loader/Loader'
-import { useSignUpMutation } from '../../services/authApi'
-// const icon = require('./assets/images/icons/wallet30x30.svg')
 import { SignInSchema } from '../../helpers/CommonSChemas'
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit, isLoading }) => {
   const initialState = {
     email: '',
     password: ''
   }
-  const token = useSelector(state => state.token)
-  const { handleChange, handleSubmit } = useForm({ initialState, onSubmit })
-  const [signUp, { isLoading, isError, isSuccess, error }] = useSignUpMutation()
+  const { handleSubmit } = useForm({ initialState, onSubmit })
 
-  const [searchParams, setSearchParams] = useSearchParams()
-  const newUser = searchParams.get('newUser')
-  // const isRegistrationSuccess = useSelector(state => state.user.user.name)
-  const state = useSelector(state => state.user)
 
   const [isShowModal, SetIsShowModal] = useState(false)
-  // const navigate = useNavigate()
-  // const dispatch = useDispatch()
 
   const closeModalPortal = () => {
     SetIsShowModal(false)
@@ -59,12 +43,6 @@ const LoginForm = ({ onSubmit }) => {
     if (isNewUser) {
       SetIsShowModal(true)
     }
-    // if (window.newUser && window.newUser !== 'EXIT') {
-    //   // show modal
-    //   // dispatch(closeModal(false))
-    //   navigate('/login', { replace: false })
-    //   window.newUser = 'EXIT'
-    // }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

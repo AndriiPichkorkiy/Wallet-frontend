@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-import { HeaderContent } from '../HeaderContent/HeaderContent'
+import React, { useState } from 'react'
+import { HeaderContent } from './HeaderContent/HeaderContent'
 import ModalLogout from '../ModalLogout/ModalLogout.jsx'
 
 const Header = () => {

@@ -22,7 +22,7 @@ const RegistrationPage = () => {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
-  const [signUp, { isError, isSuccess, error }] = useSignUpMutation()
+  const [signUp, { isError, isSuccess, error, isLoading }] = useSignUpMutation()
 
   if (isError) {
     Notify.failure(error.data.message)
@@ -63,7 +63,7 @@ const RegistrationPage = () => {
       </StyledHeadContainer>
 
       <StyledFormContainer>
-        <RegistrationForm onSubmit={onHandleSubmit} />
+        <RegistrationForm onSubmit={onHandleSubmit} isLoading={isLoading} />
       </StyledFormContainer>
     </StyledRegistrationPageContainer>
   )

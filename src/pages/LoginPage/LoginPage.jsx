@@ -27,7 +27,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio'
 const LoginPage = () => {
   const dispatch = useDispatch()
 
-  const [login, { isError, error }] = useLoginMutation()
+  const [login, { isError, error, isLoading }] = useLoginMutation()
   const [currentUser] = useLazyCurrentUserQuery()
 
   if (isError) {
@@ -59,7 +59,7 @@ const LoginPage = () => {
         <StyledRegisterTitle>Finance App</StyledRegisterTitle>
       </StyledHeadContainer>
       <StyledFormContainer>
-        <LoginForm onSubmit={onLogin} />
+        <LoginForm onSubmit={onLogin} isLoading={isLoading} />
       </StyledFormContainer>
     </StyledRegistrationPageContainer>
   )

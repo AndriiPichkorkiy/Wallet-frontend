@@ -128,13 +128,14 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
     <>
       <ContainerTable>
         <Box
-          height='70vh'
+          height='100%'
           sx={{
             '& .MuiTypography-root': {
               fontFamily: 'Circe',
               fontSize: '16px',
               lineHeight: '1.5',
-              whiteSpace: 'normal'
+              whiteSpace: 'normal',
+              height: '75%'
             },
 
             '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
@@ -147,9 +148,9 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: 'var(--accentPrimary)'
+            },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -207,10 +208,10 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              },
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >

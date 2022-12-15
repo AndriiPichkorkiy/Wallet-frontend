@@ -45,7 +45,7 @@ const VerifyPage = () => {
     <>
       <CenterDiv>
         {!verify && (
-          <p>While you waiting then we verify your code:{verifyCode} </p>
+          <p>Please wait while we verify your code: {verifyCode} </p>
         )}
         {verify?.token && (
           <div>

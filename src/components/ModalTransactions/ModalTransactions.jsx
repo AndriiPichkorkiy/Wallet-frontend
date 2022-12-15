@@ -29,7 +29,7 @@ import {
   AddButton,
   CancelButton,
   StyledDateIcon,
-  WrapperInput,CloseModalBtn
+  WrapperInput, CloseModalBtn
 } from './ModalTransactions.styled'
 import { StyledErrorMsg } from '../RegistrationForm/RegistrationForm.styled'
 import ButtonExpense from './Buttons/buttonExpense'
@@ -41,8 +41,8 @@ import { setBalance } from '../../redux/finance/financeSlice'
 import CloseModal from '../../assets/images/icons/closeModal.svg'
 const portal = document.querySelector('#portal')
 
-const yesterday = moment().subtract(1, 'day')
-const validDate = current => current.isAfter(yesterday)
+const tomorrow = moment().subtract(0, 'day')
+const validDate = current => current.isBefore(tomorrow)
 
 const initialValue = {
   amount: '',
@@ -112,7 +112,7 @@ const ModalTransactions = ({ closeModal }) => {
 
   const onSubmit = async e => {
     const addBtn = document.getElementById('addBtn')
- 
+
 
     if (!amount || !category) {
       Notify.failure('Please fill in all fields')
@@ -129,7 +129,7 @@ const ModalTransactions = ({ closeModal }) => {
       type: transactionType,
       date: date
     }
-   addBtn.disabled = true
+    addBtn.disabled = true
     const result = await newTransaction(newTransactionData)
     if (result) {
       Notify.info('Transaction successful!')
@@ -175,7 +175,7 @@ const ModalTransactions = ({ closeModal }) => {
     >
       <ModalBox className={'modalLogout'}><CloseModalBtn src={CloseModal}
         width='16px'
-        alt='CloseModalBtn' onClick={()=>closeModal()} />
+        alt='CloseModalBtn' onClick={() => closeModal()} />
         <Title>Add transaction</Title>
         <StyledForm
           // key={'qwe'}
@@ -252,6 +252,7 @@ const ModalTransactions = ({ closeModal }) => {
                   }}
                 >
                   <StyledDatetime
+                    inputProps={{ readOnly: true }}
                     isValidDate={validDate}
                     onChange={date => setDate(date)}
                     dateFormat='DD.MM.YYYY'

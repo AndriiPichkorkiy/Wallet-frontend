@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom'
 import Currency from '../../components/Currency'
 import Balance from '../../components/Balance/Balance'
 import DashbordBtns from '../../components/DashbordBtns/DashbordBtns'
-import Header from '../../components/Header/Header'
+import Header from '../../components/Header'
 import Loader from '../../components/Loader/Loader'
 
 import {

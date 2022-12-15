@@ -32,7 +32,6 @@
 
 html,
 body {
-  overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
   font-style: normal;
@@ -66,6 +65,17 @@ body {
   html,
 body {
     background-color: #E5E5E5;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+}
+@media screen and (min-width: 1200px) {
+  html {
+    overflow-x: unset;
   }
 }
 
