@@ -59,5 +59,6 @@ export const ContainerTop = styled.div`
   justify-content: space-between;
 
   ${respondTo.sm`
-  align-items: center`}
+  align-items: center;
+  margin-top:25px`}
 `

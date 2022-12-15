@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import { respondTo } from '../../../helpers/respondTo'
 
 export const HeaderC = styled.header`
-  position: absolute;
+  position: fixed;
+  z-index: 50;
   width: 100%;
   display: flex;
   flex-direction: row;
