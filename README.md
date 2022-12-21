@@ -21,12 +21,12 @@ The saving of all transaction data to the database has been implemented.
 [product-screenshot]: public/imgs/pink.svg
 
 ### Built With
-* [![Netlify][Netlify]][Netlify-url]
-* [![Render][Render]][Render-url]
-* [![NodeJS][Node.JS]][Node-url]
-* [![MongoDB][MongoDB]][MongoDB-url]
-* [![React][React.js]][React-url]
-* [![Mui][Mui]][Mui-url]
+ [![Netlify][Netlify]][Netlify-url]
+ [![Render][Render]][Render-url]
+ [![NodeJS][Node.JS]][Node-url]
+ [![MongoDB][MongoDB]][MongoDB-url]
+ [![React][React.js]][React-url]
+ [![Mui][Mui]][Mui-url]
 
 [Netlify]: https://img.shields.io/badge/Netlify-0a1e8d?style=for-the-badge&logo=netlify&logoColor=30c8c9
 [Netlify-url]: https://www.netlify.com/
