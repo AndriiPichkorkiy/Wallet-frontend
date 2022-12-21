@@ -18,6 +18,7 @@ and providing analysis of expenditure statistics by months and years. <br/>
 The saving of all transaction data to the database has been implemented.
 
 [![Product Name Screen Shot][product-screenshot]](https://luxury-klepon-24ab7b.netlify.app/login)
+
 [product-screenshot]: public/imgs/add.jpg
 
 ### Built With
