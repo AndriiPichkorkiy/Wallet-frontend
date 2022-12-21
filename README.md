@@ -18,7 +18,7 @@ and providing analysis of expenditure statistics by months and years. <br/>
 The saving of all transaction data to the database has been implemented.
 
 [![Product Name Screen Shot][product-screenshot]]
-[product-screenshot]: public/imgs/pink.svg
+[product-screenshot]: public/imgs/add.jpg
 
 ### Built With
  [![Netlify][Netlify]][Netlify-url]
