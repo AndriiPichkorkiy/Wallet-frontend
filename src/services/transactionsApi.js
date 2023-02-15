@@ -35,6 +35,14 @@ export const transactionsApi = createApi({
     getCategory: builder.query({
       query: () => ({ url: '/api/transactions/categories', method: 'GET' }),
       invalidatesTags: [{ type: 'Transactions' }]
+    }),
+    removeTransactions: builder.mutation({
+      query: id => ({
+        url: `/api/transactions`,
+        params: id,
+        method: 'DELETE'
+      }),
+      invalidatesTags: [{ type: 'Transactions' }]
     })
   })
 })
@@ -43,5 +51,6 @@ export const {
   useGetAllTransactionsQuery,
   useLazyGetAllTransactionsQuery,
   useAddTransactionsMutation,
-  useGetCategoryQuery
+  useGetCategoryQuery,
+  useRemoveTransactionsMutation
 } = transactionsApi
