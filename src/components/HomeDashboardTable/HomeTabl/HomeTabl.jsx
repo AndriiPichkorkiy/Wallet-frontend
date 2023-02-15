@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Typography } from '@mui/material'
+import { Box, Button, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import {
   ContainerTable,
@@ -7,10 +7,14 @@ import {
   StyledGridOverlay
 } from './HomeTabl.styled'
 import EllipsisText from 'react-ellipsis-text'
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
+import { useRemoveTransactionsMutation } from '../../../services/transactionsApi'
 
 const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(5)
+
+  const [removeTransactions] = useRemoveTransactionsMutation()
 
   const [rowCountState, setRowCountState] = useState(quantity || 0)
   React.useEffect(() => {
@@ -42,7 +46,7 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       align: 'center',
       hideable: false,
       hideSortIcons: true,
-      flex: 0.7,
+      flex: 0.6,
       renderCell: ({ row: { type } }) => (
         <Typography>{type ? '+' : '-'}</Typography>
       )
@@ -53,9 +57,10 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       headerName: 'Category',
       flex: 1.1,
       headerAlign: 'center',
-      align: 'left',
+      align: 'center',
       hideSortIcons: true,
       hideable: false,
+      sortable: false,
       type: 'singleSelect',
       valueOptions: ['name'],
       renderCell: ({ row: { category } }) => (
@@ -66,8 +71,8 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       field: 'comment',
       headerName: 'Comment',
       headerAlign: 'center',
-      align: 'left',
-      flex: 1,
+      align: 'center',
+      flex: 0.8,
       hideSortIcons: true,
       hideable: false,
       renderCell: ({ row: { comment } }) => (
@@ -78,13 +83,12 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       field: 'amount',
       headerName: 'Sum',
       headerAlign: 'center',
-      align: 'right',
+      align: 'center',
       hideable: false,
       hideSortIcons: true,
       flex: 1,
       renderCell: ({ row: { amount, type } }) => (
         <Typography
-          sx={{ pr: '20px' }}
           color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
         >
           {amount.toFixed(2)}
@@ -95,13 +99,42 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       field: 'balance',
       headerName: 'Balance',
       headerAlign: 'center',
-      align: 'right',
+      align: 'center',
       hideable: false,
       hideSortIcons: true,
       flex: 1,
       renderCell: ({ row: { balance } }) => (
-        <Typography sx={{ pr: '20px' }}>{balance.toFixed(2)}</Typography>
+        <Typography>{balance.toFixed(2)}</Typography>
       )
+    },
+    {
+      field: 'action',
+      headerName: 'Action',
+      sortable: false,
+      flex: 0.7,
+      headerAlign: 'center',
+      align: 'center',
+
+      renderCell: id => {
+        return (
+          <Button
+            sx={{
+              borderRadius: '50%',
+              minWidth: '30px',
+              '&:hover': {
+                background: 'var(--text-header)'
+              }
+            }}
+          >
+            {
+              <DeleteOutlineOutlinedIcon
+                sx={{ color: 'var(--paleActiveColor)' }}
+                onClick={() => removeTransactions(id)}
+              />
+            }
+          </Button>
+        )
+      }
     }
   ]
 
@@ -137,6 +170,9 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               whiteSpace: 'normal',
               height: '75%'
             },
+            '& .MuiDataGrid-row': {
+              alignItems: 'center'
+            },
 
             '&::-webkit-scrollbar, & *::-webkit-scrollbar': {
               backgroundColor: 'transparent',
@@ -148,9 +184,9 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               backgroundColor: 'rgba(36,204,167, 0.6)'
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-            {
-              backgroundColor: 'var(--accentPrimary)'
-            },
+              {
+                backgroundColor: 'var(--accentPrimary)'
+              },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -167,19 +203,20 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
               fontSize: '16px',
               lineHeight: '1.5',
-              whiteSpace: 'normal'
+              whiteSpace: 'normal',
+              justifyContent: 'center',
+              alignItems: 'center'
             },
             '& .MuiDataGrid-cellContent': {
               whiteSpace: 'normal'
             },
-            '& .MuiDataGrid-columnHeader:first-of-type': {
-              paddingLeft: '30px'
+            '& .MuiDataGrid-columnHeader:last-of-type': {
+              paddingRight: '35px'
             },
-            '.MuiDataGrid-columnHeader:nth-of-type(5)': {
-              paddingLeft: '30px'
+
+            '& .MuiDataGrid-columnHeader': {
+              justifyContent: 'center'
             },
-            '& .MuiDataGrid-root .MuiDataGrid-columnHeader .MuiDataGrid-cell':
-              {},
             '& .MuiDataGrid-columnHeaderTitle': {
               fontWeight: '700',
               paddingRight: '10px'
@@ -208,10 +245,10 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-            {
-              outline: 'none !important',
-              outlineOffset: '0'
-            },
+              {
+                outline: 'none !important',
+                outlineOffset: '0'
+              },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >
