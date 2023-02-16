@@ -8,7 +8,6 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox'
 import { respondTo } from '../../helpers/respondTo'
 import { LinearProgress } from '@mui/material'
 
-
 export const ContainerLogo = styled.div`
   display: flex;
   align-items: center;
@@ -23,7 +22,7 @@ export const FormContainer = styled.div`
 
   position: relative;
   padding: 36px 20px;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   ${respondTo.sm`
         min-width:533px;
         height: 616px;
@@ -42,20 +41,20 @@ export const FieldStyled = styled(Field)`
   border: 1px solid transparent;
   border-bottom: 1px solid #e0e0e0;
   &::placeholder {
-    color: var(--text-header);
+    color: ${({ theme }) => theme.colors.textHeader};
     font-family: 'Circe';
   }
   &:hover,
   &:focus,
   &:focus-visible {
-    border: 1px solid var(--accentPrimary);
+    border: 1px solid ${({ theme }) => theme.colors.accentPrimary};
     border-radius: 10px;
     outline: none;
     &::placeholder {
-      color: var(--accentPrimary);
+      color: ${({ theme }) => theme.colors.accentPrimary};
     }
     & + svg {
-      color: var(--accentPrimary);
+      color: ${({ theme }) => theme.colors.accentPrimary};
     }
   }
 `
@@ -68,20 +67,20 @@ export const FieldLastStyled = styled(Field)`
   border: 1px solid transparent;
   border-bottom: 1px solid #e0e0e0;
   &::placeholder {
-    color: var(--text-header);
+    color: ${({ theme }) => theme.colors.textHeader};
     font-family: 'Circe';
   }
   &:hover,
   &:focus,
   &:focus-visible {
-    border: 1px solid var(--accentPrimary);
+    border: 1px solid ${({ theme }) => theme.colors.accentPrimary};
     border-radius: 10px;
     outline: none;
     &::placeholder {
-      color: (--accentPrimary);
+      color: ${({ theme }) => theme.colors.accentPrimary};
     }
     & + svg {
-      color: var(--accentPrimary);
+      color: ${({ theme }) => theme.colors.accentPrimary};
     }
   }
 `
@@ -96,7 +95,7 @@ export const StyledIconMail = styled(EmailIcon)`
   left: 10px;
   width: 24px !important;
   height: 24px !important;
-  color: var(--text-header);
+  color: ${({ theme }) => theme.colors.textHeader};
 `
 export const StyledImg = styled.img`
   ${respondTo.sm`
@@ -116,7 +115,7 @@ export const StyledIconPass = styled(LockIcon)`
   left: 10px;
   width: 24px !important;
   height: 24px !important;
-  color: var(--text-header);
+  color: ${({ theme }) => theme.colors.textHeader};
 `
 export const StyledIconUser = styled(AccountBoxIcon)`
   position: absolute;
@@ -124,19 +123,19 @@ export const StyledIconUser = styled(AccountBoxIcon)`
   left: 10px;
   width: 24px !important;
   height: 24px !important;
-  color: var(--text-header);
+  color: ${({ theme }) => theme.colors.textHeader};
 `
 export const StyledBtnMain = styled.button`
   display: block;
-  width:100%;
-  margin-left:auto;
-  margin-right:auto;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   max-height: 50px;
   padding: 13px 61px;
-  background: var(--accentPrimary);
+  background: ${({ theme }) => theme.colors.accentPrimary};
   border-radius: 20px;
   text-transform: uppercase;
-  color: var(--background);
+  color: ${({ theme }) => theme.colors.background};
   font-family: 'Circe';
   font-style: normal;
   font-weight: 400;
@@ -147,29 +146,29 @@ export const StyledBtnMain = styled.button`
   text-transform: uppercase;
   margin-bottom: 20px;
   &:focus {
-    background-color: var(--accentPrimary);
+    background-color: ${({ theme }) => theme.colors.accentPrimary};
     background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
   }
-  &:hover{
-    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
   }
-   ${respondTo.sm`
+  ${respondTo.sm`
                 width: 300px;
         `}
 `
 export const StyledBtn = styled(Link)`
   display: block;
   width: 100%;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
   max-height: 50px;
   padding: 13px 61px;
-background: transparent;
-  color: var(--activeColor);
-  border: 1px solid var(--activeColor);
+  background: transparent;
+  color: ${({ theme }) => theme.colors.activeColor};
+  border: 1px solid ${({ theme }) => theme.colors.activeColor};
   border-radius: 20px;
   text-transform: uppercase;
   font-family: 'Circe';
@@ -178,17 +177,17 @@ background: transparent;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   &:focus {
-    background: var(--activeColor);
-    color: var(--background);
-    background-image: linear-gradient(315deg,  #4a56e2 0%, #ffd8d0a6 74%);
+    background: ${({ theme }) => theme.colors.activeColor};
+    color: ${({ theme }) => theme.colors.background};
+    background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
   }
-  &:hover{
-    box-shadow:  -4px 4px 6px 0 rgba(255,255,255,.5),
-              -4px 4px 6px 0 rgba(116, 125, 139, .5), 
-    inset -4px -4px 6px 0 rgba(255,255,255,.5),
-    inset -4px -4px 6px 0 rgba(0, 0, 0, .4);
+  &:hover {
+    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
   }
-   ${respondTo.sm`
+  ${respondTo.sm`
                 width: 300px;
         `}
 `

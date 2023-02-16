@@ -33,7 +33,7 @@ export const LinkBtn = styled(NavLink)`
 
   &.active {
     & > svg {
-      background: var(--activeColor);
+      background: ${({ theme }) => theme.colors.activeColor};
     }
   }
   &:before {
@@ -138,7 +138,7 @@ export const CurrLinkBtn = styled(NavLink)`
 
   &.active {
     & > svg {
-      background: var(--activeColor);
+      background: ${({ theme }) => theme.colors.activeColor};
     }
   }
   &:before {
@@ -221,7 +221,7 @@ export const NewsLinkBtn = styled(NavLink)`
   text-decoration: none;
   &.active {
     & > svg {
-      background: var(--activeColor);
+      background: ${({ theme }) => theme.colors.activeColor};
     }
   }
   &:before {
@@ -336,19 +336,19 @@ export const BtnText = styled.span`
         pointer-events: 1;
         visibility: visible;
         margin-left: 20px;
-        color: var(--main-text);
+        color: ${({ theme }) => theme.colors.mainText};
     `}
   &:hover {
-    color: var(--paleActiveColor);
+    color: ${({ theme }) => theme.colors.paleActiveColor};
   }
 `
 
 export const NewsBtnText = styled.span`
   ${respondTo.sm`
         margin-left: 10px;
-        color: var(--main-text);
+        color: ${({ theme }) => theme.colors.mainText};
     `}
   &:hover {
-    color: var(--paleActiveColor);
+    color: ${({ theme }) => theme.colors.paleActiveColor};
   }
 `

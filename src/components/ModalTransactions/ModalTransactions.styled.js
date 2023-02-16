@@ -8,7 +8,7 @@ import { Formik, Form } from 'formik'
 import { Field } from 'formik'
 
 export const BackDrop = styled.div`
-  background-color: var(--overlay);
+  background-color: ${({ theme }) => theme.colors.overlay};
   position: fixed;
   top: 60px;
   left: 0;
@@ -25,14 +25,14 @@ export const BackDrop = styled.div`
 `
 
 export const ModalBox = styled.div`
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: 100%;
   padding: 20px;
-position: relative;
+  position: relative;
   // background-color: teal;
 
   ${respondTo.sm`
@@ -79,7 +79,7 @@ export const LabelIncome = styled.label`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
-  color: #24cca7;
+  color: ${({ theme }) => theme.colors.accentPrimary};
   margin-right: 20px;
 `
 export const SwitchInput = styled(Switch)`
@@ -92,7 +92,7 @@ export const LabelExpense = styled.label`
   font-size: 16px;
   line-height: 24px;
   margin-left: 20px;
-  color: #ff6596;
+  color: ${({ theme }) => theme.colors.accentSecondary};
 `
 export const WrapperInput = styled.div`
   display: flex;
@@ -105,12 +105,12 @@ export const StyledInput = styled(Field)`
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.colors.textHeader};
   padding-left: 20px;
   padding-bottom: 8px;
   outline: none;
   border: none;
-  border-bottom: #e0e0e0 1px solid;
+  border-bottom: ${({ theme }) => theme.colors.inputBorderBottom} 1px solid;
   background-color: transparent;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -127,7 +127,7 @@ export const StyledDatetime = styled(Datetime)`
   padding-left: 20px;
   padding-bottom: 8px;
   border: none;
-  border-bottom: #e0e0e0 1px solid;
+  border-bottom: ${({ theme }) => theme.colors.inputBorderBottom} 1px solid;
   margin-bottom: 40px;
   background-color: transparent;
 
@@ -161,11 +161,11 @@ export const StyledTextarea = styled.textarea`
   font-family: 'Circe';
   font-size: 18px;
   padding-left: 20px;
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.colors.textHeader};
   resize: none;
   outline: none;
   border: none;
-  border-bottom: #e0e0e0 1px solid;
+  border-bottom: ${({ theme }) => theme.colors.inputBorderBottom} 1px solid;
   margin-bottom: 40px;
   height: 84px;
   background-color: transparent;
@@ -192,21 +192,25 @@ export const AddButton = styled.button`
   letter-spacing: 0.1em;
   text-transform: uppercase;
 
-  background-color: #24cca7;
+  background-color: ${({ theme }) => theme.colors.accentPrimary};
   border: none;
   border-radius: 20px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.background};
   transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:focus {
-    background-color: var(--accentPrimary);
-    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+    background-color: ${({ theme }) => theme.colors.accentPrimary};
+    background-image: linear-gradient(
+      315deg,
+      ${({ theme }) => theme.colors.addBtnFocusGradientFirstColor} 0%,
+      ${({ theme }) => theme.colors.addBtnFocusGradientSecondColor} 74%
+    );
   }
   &:hover {
-    box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
-      -4px 4px 6px 0 rgba(116, 125, 139, 0.5),
-      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
-      inset -4px -4px 6px 0 rgba(0, 0, 0, 0.4);
+    box-shadow: -4px 4px 6px 0 ${({ theme }) => theme.colors.addBtnShadow1},
+      -4px 4px 6px 0 ${({ theme }) => theme.colors.addBtnShadow2},
+      inset -4px -4px 6px 0 ${({ theme }) => theme.colors.addBtnShadow3},
+      inset -4px -4px 6px 0 ${({ theme }) => theme.colors.addBtnShadow4};
   }
 `
 
@@ -229,15 +233,19 @@ export const CancelButton = styled.button`
   text-transform: uppercase;
 
   background-color: transparent;
-  color: #4a56e2;
-  border: 1px solid #4a56e2;
+  color: ${({ theme }) => theme.colors.activeColor};
+  border: 1px solid ${({ theme }) => theme.colors.activeColor};
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
 
   &:focus {
-    background: var(--activeColor);
-    color: var(--background);
-    background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
+    background: ${({ theme }) => theme.colors.activeColor};
+    color: ${({ theme }) => theme.colors.background};
+    background-image: linear-gradient(
+      315deg,
+      ${({ theme }) => theme.colors.activeColor} 0%,
+      ${({ theme }) => theme.colors.cancelBtnFocusGradientSecondColor} 74%
+    );
   }
   &:hover {
     box-shadow: -4px 4px 6px 0 rgba(255, 255, 255, 0.5),
@@ -247,7 +255,7 @@ export const CancelButton = styled.button`
   }
 `
 export const CloseModalBtn = styled.img`
-display:none;
+  display: none;
   ${respondTo.sm`
   display:block;
 cursor: pointer;
@@ -257,6 +265,4 @@ right: 0;
 margin:20px 20px 0 0 ;
 
   `}
-
-
 `

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
   BtnsCont,
   BtnText,
@@ -13,8 +13,11 @@ import TimelineIcon from '@mui/icons-material/Timeline'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import ArticleIcon from '@mui/icons-material/Article'
 import Media from 'react-media'
+import { ThemeContext } from 'styled-components'
 
 const DashbordBtns = () => {
+
+  const themeContext = useContext(ThemeContext)
   return (
     <Container>
       <BtnsCont>
@@ -24,8 +27,8 @@ const DashbordBtns = () => {
               matches.small ? (
                 <HomeSharpIcon
                   sx={{
-                    color: 'var(--background)',
-                    background: 'var(--paleActiveColor)',
+                    color: themeContext.colors.background,
+                    background: themeContext.colors.paleActiveColor,
                     borderRadius: '6px',
                     width: '44px',
                     height: '44px'
@@ -34,8 +37,8 @@ const DashbordBtns = () => {
               ) : (
                 <HomeSharpIcon
                   sx={{
-                    color: 'var(--background)',
-                    background: 'var(--paleActiveColor)',
+                    color: themeContext.colors.background,
+                    background: themeContext.colors.paleActiveColor,
                     borderRadius: '2px',
                     width: '18px',
                     height: '18px'
@@ -52,8 +55,8 @@ const DashbordBtns = () => {
               matches.small ? (
                 <TimelineIcon
                   sx={{
-                    color: 'var(--background)',
-                    background: 'var(--paleActiveColor)',
+                    color: themeContext.colors.background,
+                    background: themeContext.colors.paleActiveColor,
                     borderRadius: '6px',
                     width: '44px',
                     height: '44px'
@@ -62,8 +65,8 @@ const DashbordBtns = () => {
               ) : (
                 <TimelineIcon
                   sx={{
-                    color: 'var(--background)',
-                    background: 'var(--paleActiveColor)',
+                    color: themeContext.colors.background,
+                    background: themeContext.colors.paleActiveColor,
                     borderRadius: '2px',
                     width: '18px',
                     height: '18px'
@@ -77,8 +80,8 @@ const DashbordBtns = () => {
         <CurrLinkBtn to='/currency'>
           <AttachMoneyIcon
             sx={{
-              color: 'var(--background)',
-              background: 'var(--paleActiveColor)',
+              color: themeContext.colors.background,
+              background: themeContext.colors.paleActiveColor,
               borderRadius: '6px',
               width: '44px',
               height: '44px'
@@ -92,8 +95,8 @@ const DashbordBtns = () => {
             !matches.small && (
               <ArticleIcon
                 sx={{
-                  color: 'var(--background)',
-                  background: 'var(--paleActiveColor)',
+                  color: themeContext.colors.background,
+                  background: themeContext.colors.paleActiveColor,
                   borderRadius: '2px',
                   width: '18px',
                   height: '18px'

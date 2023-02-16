@@ -39,7 +39,7 @@ export const StyledHeadContainer = styled.div`
         flex-grow: 1;
         margin-bottom: 50px;
         `}
-  
+
   ${respondTo.lg`
         flex-direction: column;
         `}
@@ -56,16 +56,16 @@ export const StyledLargeImg = styled.img`
   animation-duration: 3s;
 
   @keyframes pulse {
-  from {
-    transform: scale3d(1, 1, 1);
+    from {
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+    to {
+      transform: scale3d(1, 1, 1);
+    }
   }
-  50% {
-    transform: scale3d(1.05, 1.05, 1.05);
-  }
-  to {
-    transform: scale3d(1, 1, 1);
-  }
-}
 `
 export const StyledRegisterImgContainer = styled.div`
   display: none;
@@ -110,31 +110,31 @@ export const StyledRegisterTitle = styled.h2`
   -webkit-background-clip: text;
   -webkit-text-fill-color: #0f1a9870;
 
-@keyframes animate {
-  0% {
-    background-position: -500%;
-    transform: scale3d(1, 1, 1);
+  @keyframes animate {
+    0% {
+      background-position: -500%;
+      transform: scale3d(1, 1, 1);
+    }
+    25% {
+      transform: scale3d(1.02, 1.02, 1.02);
+    }
+    50% {
+      transform: scale3d(1.04, 1.04, 1.04);
+    }
+    75% {
+      transform: scale3d(1.01, 1.01, 1.01);
+    }
+    100% {
+      background-position: 500%;
+      transform: scale3d(0.9, 0.9, 0.9);
+    }
   }
-  25% {
-    transform: scale3d(1.02, 1.02, 1.02);
-  }
-  50% {
-    transform: scale3d(1.04, 1.04, 1.04);
-  }
-  75% {
-    transform: scale3d(1.01, 1.01, 1.01);
-  }
-  100% {
-    background-position: 500%;
-    transform: scale3d(0.9, 0.9, 0.9);
-  }
-}
 
   ${respondTo.sm`
         display:inline-block;
         font-family: 'Poppins';
         
         font-size: 30px;
-        color: var(--main-text);
+        color: ${({ theme }) => theme.colors.mainText};
         `}
 `

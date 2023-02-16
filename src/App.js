@@ -1,21 +1,18 @@
 import React, { useEffect } from 'react'
-// import RegistrationPage from './pages/RegistrationPage/RegistrationPage'
-// import LoginPage from './pages/LoginPage/LoginPage'
 import UserRoutes from './components/routes/UserRoutes/UserRoutes'
-// import { Routes, Route } from 'react-router-dom'
-// import DashboardPage from './pages/DashboardPage'
-
-// import NavBarTemp from './components/temp/NavBarTemp'
-// import DashbordBtns from './components/DashbordBtns/DashbordBtns'
-// import DiagramTab from './components/DiagramTab/DiagramTab'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useLazyCurrentUserQuery } from './services/authApi'
 import { newCurrentUser, isAuth } from './redux/auth/authSlice'
 
+import { ThemeProvider } from 'styled-components'
+import { ThemeContext } from './components/ThemeSwitching/ThemeContextProvider'
+import { useContext } from 'react'
+
 function App() {
   const dispatch = useDispatch()
   const [currentUser] = useLazyCurrentUserQuery()
+  const { currentTheme } = useContext(ThemeContext)
   const token = useSelector(state => state.token)
 
   useEffect(() => {
@@ -32,11 +29,9 @@ function App() {
   }, [dispatch])
 
   return (
-    <>
-      <div>
-        <UserRoutes />
-      </div>
-    </>
+    <ThemeProvider theme={currentTheme}>
+      <UserRoutes />
+    </ThemeProvider>
   )
 }
 

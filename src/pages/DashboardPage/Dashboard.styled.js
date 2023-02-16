@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { respondTo } from '../../helpers/respondTo'
 
 export const Wrapper = styled.div`
-  background: rgba(255, 255, 255, 0.4);
+  background: ${({ theme }) => theme.colors.overlay};
   height: 100%;
   min-height: 100vh;
   ${respondTo.sm`
@@ -49,7 +49,8 @@ export const ContainerLeft = styled.div`
   height: 100%;
   padding-top:40px;
   padding-right:70px;
-    border-right: 1px solid #E7E5F2;
+    border-right: 1px solid ${({ theme }) =>
+      theme.colors.dashboardLineSeparationColor};
     box-shadow: inset -1px 0px 0px rgba(0, 0, 0, 0.05), 1px 0px 0px rgba(255, 255, 255, 0.6);
     `};
 `

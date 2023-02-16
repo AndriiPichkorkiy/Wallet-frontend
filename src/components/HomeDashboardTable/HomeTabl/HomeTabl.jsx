@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { DataGrid } from '@mui/x-data-grid'
 import {
@@ -9,14 +9,19 @@ import {
 import EllipsisText from 'react-ellipsis-text'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import { useRemoveTransactionsMutation } from '../../../services/transactionsApi'
+import { ThemeContext } from 'styled-components'
 
 const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
   const [page, setPage] = useState(0)
   const [pageSize, setPageSize] = useState(5)
+  const themeContext = useContext(ThemeContext)
 
   const [removeTransactions] = useRemoveTransactionsMutation()
 
   const [rowCountState, setRowCountState] = useState(quantity || 0)
+
+
+
   React.useEffect(() => {
     setRowCountState(prevRowCountState =>
       quantity !== undefined ? quantity : prevRowCountState
@@ -89,7 +94,7 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
       flex: 1,
       renderCell: ({ row: { amount, type } }) => (
         <Typography
-          color={type ? 'var(--accentPrimary)' : 'var(--accentSecondary)'}
+          color={type ? themeContext.colors.accentPrimary : themeContext.colors.accentSecondary}
         >
           {amount.toFixed(2)}
         </Typography>
@@ -122,13 +127,13 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               borderRadius: '50%',
               minWidth: '30px',
               '&:hover': {
-                background: 'var(--text-header)'
+                background: themeContext.colors.textHeader
               }
             }}
           >
             {
               <DeleteOutlineOutlinedIcon
-                sx={{ color: 'var(--paleActiveColor)' }}
+                sx={{ color: themeContext.colors.paleActiveColor }}
                 onClick={() => removeTransactions(id)}
               />
             }
@@ -150,7 +155,7 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
           }}
         >
           There are no recorded transactions. Click the{' '}
-          <span style={{ color: 'var(--accentPrimary' }}>green button</span> in
+          <span style={{ color: themeContext.colors.accentPrimary }}>green button</span> in
           the lower right corner ↓ and make the first entry!
         </Typography>
       </StyledGridOverlay>
@@ -181,12 +186,12 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
             },
             '&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb': {
               borderRadius: 8,
-              backgroundColor: 'rgba(36,204,167, 0.6)'
+              backgroundColor: themeContext.colors.accentPrimary.muiScrollbar
             },
             '&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover':
-              {
-                backgroundColor: 'var(--accentPrimary)'
-              },
+            {
+              backgroundColor: themeContext.colors.accentPrimary
+            },
             '& .MuiDataGrid-columnHeaderDraggableContainer': {
               width: 'fit-content !important'
             },
@@ -195,12 +200,12 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               fontFamily: 'Circe',
               fontSize: '18px',
               lineHeight: '1.5',
-              color: 'var(--main-text)'
+              color: themeContext.colors.mainText
             },
             '& .MuiDataGrid-cell': {
               borderTop: 'none',
-              borderBottom: '1px solid #DCDCDF',
-              boxShadow: '0px 1px 0px rgba(255, 255, 255, 0.6)',
+              borderBottom: '1px solid ' + themeContext.colors.muiBorderBottom,
+              boxShadow: '0px 1px 0px ' + themeContext.colors.muiBoxShadow,
               fontSize: '16px',
               lineHeight: '1.5',
               whiteSpace: 'normal',
@@ -225,7 +230,7 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
               color: 'transparent'
             },
             '& .MuiDataGrid-columnHeaders': {
-              backgroundColor: 'var(--background)',
+              backgroundColor: themeContext.colors.background,
               borderRadius: '30px'
             },
             '& .MuiDataGrid-virtualScroller': {
@@ -233,22 +238,22 @@ const HomeTabl = ({ transactions, quantity, functionChangePage }) => {
             },
             '& .MuiDataGrid-footerContainer': {
               border: 'none',
-              backgroundColor: 'rgba(255, 255, 255, 0.3)',
+              backgroundColor: themeContext.colors.muiFooterBgColor,
               borderRadius: '30px'
             },
             '& .MuiIconButton-root': {
-              color: 'var(--paleActiveColor)'
+              color: themeContext.colors.paleActiveColor
             },
-            '& .Mui-disabled': { color: 'var(--text-header)' },
+            '& .Mui-disabled': { color: themeContext.colors.textHeader },
             '& .MuiIconButton-root:hover': {
-              color: 'var(--activeColor)'
+              color: themeContext.colors.activeColor
             },
             '& .MuiDataGrid-menuIconButton': { visibility: 'visible' },
             '& .MuiDataGrid-columnHeader:focus-within, .MuiDataGrid-columnHeader:focus, .MuiDataGrid-cell:focus':
-              {
-                outline: 'none !important',
-                outlineOffset: '0'
-              },
+            {
+              outline: 'none !important',
+              outlineOffset: '0'
+            },
             '& .MuiDataGrid-selectedRowCount': { visibility: 'hidden' }
           }}
         >

@@ -5,7 +5,7 @@ import { ReactComponent as DropDownIcon } from '../../../assets/images/icons/dro
 
 export const SelectWrapper = styled.div`
   position: relative;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   width: 100%;
 
   .rotateOpen {
@@ -40,7 +40,7 @@ export const Title = styled.p`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #000;
+  color: ${({ theme }) => theme.colors.mainText};
 `
 
 export const Svg = styled(DropDownIcon)`
@@ -59,6 +59,7 @@ export const Selector = styled.input`
   border: 1px solid #000;
   border-radius: 30px;
   background-color: transparent;
+  border-color: ${({ theme }) => theme.colors.chartInputBorderColor};
 
   font-family: 'Circe';
   font-style: normal;
@@ -69,7 +70,7 @@ export const Selector = styled.input`
   cursor: pointer;
   :hover,
   :focus-visible {
-    border-color: #4a56e2;
+    border-color: ${({ theme }) => theme.colors.activeColor};
   }
 `
 export const List = styled.ul`
@@ -83,7 +84,7 @@ export const List = styled.ul`
   margin: 0;
   padding: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.7);
+  background: ${({ theme }) => theme.colors.chartSelectBg};
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(25px);
   border-radius: 20px;
@@ -116,10 +117,12 @@ export const ListOption = styled.li`
   padding: 5px 20px;
   cursor: pointer;
   border-radius: 20px;
-  rgba(255, 255, 255, 0.7);
+  color: ${({ theme }) => theme.colors.mainText};
+
+  ${({ theme }) => theme.colors.chartSelectBg};
   :hover {
-    background: rgba(255, 255, 255, 0.7);
-    color: rgba(255, 101, 150, 1);
+    background: ${({ theme }) => theme.colors.chartSelectBg};
+    color: ${({ theme }) => theme.colors.accentSecondary};
   }
 
   `
@@ -136,7 +139,7 @@ export const CategoryTitle = styled.p`
   font-size: 18px;
   line-height: 27px;
 
-  color: #bdbdbd;
+  color: ${({ theme }) => theme.colors.textHeader};
 `
 export const CategorySvg = styled(DropDownIcon)`
   position: absolute;
@@ -165,7 +168,7 @@ export const CategorySelect = styled.input`
   cursor: pointer;
   :hover,
   :focus-visible {
-    border-color: #4a56e2;
+    border-color: ${({ theme }) => theme.colors.activeColor};
     background-color: transparent;
   }
   ${respondTo.sm`

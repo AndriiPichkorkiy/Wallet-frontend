@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Button = styled.button`
-  color: var(--main-text);
+  color: ${({ theme }) => theme.colors.mainText};
   min-width: 100px;
   font-family: 'Circe';
   margin-top: 15px;
@@ -9,7 +9,7 @@ export const Button = styled.button`
   padding: 5px 15px;
   font-size: 16px;
   font-weight: 700;
-  border: 1px solid var(--activeColor);
+  border: 1px solid ${({ theme }) => theme.colors.activeColor};
   border-radius: 20px;
   background: linear-gradient(90deg, #000, #fff, #000);
   background-repeat: no-repeat;
@@ -36,8 +36,8 @@ export const Button = styled.button`
 
   &:hover,
   &:focus {
-    background: var(--activeColor);
-    color: var(--background);
+    background: ${({ theme }) => theme.colors.activeColor};
+    color: ${({ theme }) => theme.colors.background};
     background-image: linear-gradient(315deg, #4a56e2 0%, #ffd8d0a6 74%);
   }
 `

@@ -9,7 +9,7 @@ export const Head = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.background};
   border-radius: 30px;
   width: 100%;
   height: 58px;
@@ -22,6 +22,7 @@ export const Title = styled.span`
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
+  color: ${({ theme }) => theme.colors.mainText};
 `
 export const List = styled.ul`
   list-style: none;
@@ -53,8 +54,8 @@ export const Category = styled.div`
     left: 0;
     width: 100%;
     height: 1px;
-    border-top: 1px solid #dcdcdf;
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    border-top: 1px solid ${({ theme }) => theme.colors.muiBorderBottom};
+    box-shadow: 0px 1px 0px ${({ theme }) => theme.colors.muiBoxShadow};
   }
 `
 
@@ -88,6 +89,7 @@ export const TotalItem = styled.li`
   align-items: center;
   padding: 0 20px;
   margin-top: 16px;
+  color: ${({ theme }) => theme.colors.mainText};
 `
 export const TotalTitle = styled.span`
   font-family: 'Circe';
@@ -95,6 +97,7 @@ export const TotalTitle = styled.span`
   font-weight: 700;
   font-size: 16px;
   line-height: 24px;
+  color: ${({ theme }) => theme.colors.mainText};
 `
 export const TotalExpenses = styled.span`
   font-family: 'Circe';
@@ -103,7 +106,7 @@ export const TotalExpenses = styled.span`
   font-size: 16px;
   line-height: 24px;
 
-  color: #ff6596;
+  color: ${({ theme }) => theme.colors.accentSecondary};
 `
 export const TotalIncome = styled.span`
   font-family: 'Circe';
@@ -112,5 +115,5 @@ export const TotalIncome = styled.span`
   font-size: 16px;
   line-height: 24px;
 
-  color: #24cca7;
+  color: ${({ theme }) => theme.colors.accentPrimary};
 `

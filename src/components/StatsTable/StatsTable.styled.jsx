@@ -18,6 +18,7 @@ export const Container = styled.div`
 `
 export const SelectionWrapper = styled.div`
   width: 100%;
+  padding-bottom: 20px;
   ${respondTo.sm`
   margin-top: 0;
     display: flex;

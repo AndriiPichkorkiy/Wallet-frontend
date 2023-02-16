@@ -15,6 +15,7 @@ import {
 import LogoutIcon from '@mui/icons-material/Logout'
 import { useSelector } from 'react-redux'
 import Media from 'react-media'
+import ThemeSwitchingTab from '../../ThemeSwitching/ThemeSwitchingTab'
 
 export const HeaderContent = ({ toExit }) => {
   const nameAll = useSelector(store => store.user.user.name)
@@ -33,6 +34,7 @@ export const HeaderContent = ({ toExit }) => {
           {/* <LogoutExitNameCircle className={'name'}>
             {name}
           </LogoutExitNameCircle> */}
+          <ThemeSwitchingTab />
           <Media
             queries={{
               medium: '(min-width: 768px)'

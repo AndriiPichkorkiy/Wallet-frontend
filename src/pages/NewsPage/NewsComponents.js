@@ -21,6 +21,7 @@ export const NewsHeader = styled.h2`
   justify-self: center;
   font-weight: 600;
   font-size: 25px;
+  color: ${({ theme }) => theme.colors.accentPrimary};
 `
 
 export const NewsItem = styled.li`
@@ -30,8 +31,7 @@ export const NewsItem = styled.li`
   /* padding-left: 35px; */
   /* border: 0.5px gray solid; */
   border-bottom: 1px solid #e7e5f2;
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05),
-    0px 5px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.05), 0px 5px 5px rgba(0, 0, 0, 0.3);
   padding: 0px 20px;
   /* border-radius: 40px; */
   /* :not(:last-child) { */
@@ -43,20 +43,22 @@ export const NewsItemHead = styled.h3`
   padding-top: 10px;
   padding-left: 50px;
   padding-bottom: 10px;
+  color: ${({ theme }) => theme.colors.accentSecondary};
 `
 
 export const NewsText = styled.p`
   padding-left: 10px;
   font-size: 18px;
+  color: ${({ theme }) => theme.colors.mainText};
 `
 
 export const NewsLink = styled.a`
-  color: var(--paleActiveColor);
+  color: ${({ theme }) => theme.colors.paleActiveColor};
   text-decoration: underline;
   padding-left: 10px;
   padding-bottom: 5px;
   :hover {
-    color: var(--activeColor);
+    color: ${({ theme }) => theme.colors.activeColor};
   }
   align-self: end;
 `

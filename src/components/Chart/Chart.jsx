@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Chart as ChartJS, ArcElement } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 
 import { ChartWrapper, BalanceWrapper } from './Chart.styled'
+import { ThemeContext } from 'styled-components'
 
 const Chart = ({ statistics, totalData }) => {
+  const themeContext = useContext(ThemeContext)
+
   ChartJS.register(ArcElement)
 
   const names = statistics.map(obj => obj.name)
@@ -29,7 +32,7 @@ const Chart = ({ statistics, totalData }) => {
         enabled: true,
         callbacks: {
           labelTextColor: function (context) {
-            return '#fff'
+            return themeContext.colors.background
           }
         }
       }
@@ -57,7 +60,7 @@ const Chart = ({ statistics, totalData }) => {
         {
           label: '# of Votes',
           data: ['50', '50'],
-          backgroundColor: ['#bdbdbd', '#e0e0e0'],
+          backgroundColor: [themeContext.colors.chartArchColor1, themeContext.colors.chartArchColor2],
           borderWidth: 0,
           cutout: '70%'
         }

@@ -11,18 +11,18 @@ export const TableWrapper = styled.div`
   border-radius: 30px;
   overflow: hidden;
   ${respondTo.sm`
-margin-bottom: 20px;
-width: 336px;
-height: 182px;
-    `}
+    margin-bottom: 20px;
+    width: 336px;
+    height: 182px;
+  `}
   ${respondTo.lg`
-width: 393px;
-height: 331px;
+      width: 393px;
+      height: 331px;
     `}
 `
 
 export const TableCurrency = styled.table`
-  background: #4a56e2;
+  background: ${({ theme }) => theme.colors.activeColor};
   text-align: center;
   width: 100%;
   table-layout: fixed;
@@ -30,7 +30,7 @@ export const TableCurrency = styled.table`
   font-family: arial;
   width: 280px;
   height: 174px;
-  background: #4a56e2;
+  background: ${({ theme }) => theme.colors.activeColor};
   border-radius: 30px;
   overflow: hidden;
   ${respondTo.sm`
@@ -44,17 +44,17 @@ export const TableCurrency = styled.table`
 `
 
 export const ImgCurrency = styled.img`
-    width: 280px;
-    height: 93px;
-    left: 0;
-    bottom: 0;
-    position: absolute;
-}
- ${respondTo.sm`
- width: 336px;
-        height: 119px;
+  width: 280px;
+  height: 93px;
+  left: 0;
+  bottom: 0;
+  position: absolute;
+
+  ${respondTo.sm`
+     width: 336px;
+    height: 119px;
     `}
-    ${respondTo.lg`    
+  ${respondTo.lg`    
     bottom: 0px;
         width: 393px;
         height: 134px;
@@ -64,10 +64,10 @@ export const ImgCurrency = styled.img`
 export const TableHeader = styled.thead`
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.2) -8.67%,
-    rgba(255, 255, 255, 0.2) 116.22%
+    ${({ theme }) => theme.colors.overlay} -8.67%,
+    ${({ theme }) => theme.colors.overlay} 116.22%
   );
-  color: white;
+  color: ${({ theme }) => theme.colors.background};
 `
 
 export const TableHeaderCell = styled.th`
@@ -78,7 +78,7 @@ export const TableHeaderCell = styled.th`
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
-  color: #ffffff;
+  color: ${({ theme }) => theme.colors.background};
   ${respondTo.sm`
      padding-top: 11px;
     padding-bottom: 12px;
@@ -103,7 +103,7 @@ export const TableBody = styled.tbody`
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #fff;
+  color: ${({ theme }) => theme.colors.background};
   ${respondTo.lg`
         height: 120px;
         :first-of-type td {
@@ -117,5 +117,5 @@ export const TableBody = styled.tbody`
 export const TableLoader = styled.div`
   position: absolute;
   transform: translate(-50%, -50%);
-  color: white;
+  color: ${({ theme }) => theme.colors.background};
 `

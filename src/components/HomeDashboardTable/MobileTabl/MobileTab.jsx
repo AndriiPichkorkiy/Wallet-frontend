@@ -7,8 +7,11 @@ import {
 } from './MobileTabl.styled'
 import { nanoid } from '@reduxjs/toolkit'
 import EllipsisText from 'react-ellipsis-text'
+import { useContext } from 'react'
+import { ThemeContext } from '../../ThemeSwitching/ThemeContextProvider'
 
 const MobileTabl = ({ transactions }) => {
+  const themeContext = useContext(ThemeContext)
   if (transactions.length > 0) {
     const card = transactions.map(
       ({ type, category, comment, amount, balance, date }) => {
@@ -54,7 +57,7 @@ const MobileTabl = ({ transactions }) => {
     return (
       <ContainerEmpty sx={{ minWidth: 280 }}>
         There are no recorded transactions. Click the{' '}
-        <span style={{ color: 'var(--accentPrimary' }}>green button </span> in
+        <span style={{ color: themeContext.colors.accentPrimary }}>green button </span> in
         the lower right corner ↓ and make the first entry!
       </ContainerEmpty>
     )

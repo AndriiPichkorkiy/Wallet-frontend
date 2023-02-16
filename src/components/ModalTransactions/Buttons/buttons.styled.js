@@ -7,7 +7,7 @@ export const ContainerAddTransitionButton = styled.div`
   bottom: 20px;
   width: 44px;
   height: 44px;
-  background-color: var(--accentPrimary);
+  background-color: ${({ theme }) => theme.colors.accentPrimary};
   border-radius: 50%;
   border: none;
   outline: none;
@@ -17,7 +17,11 @@ export const ContainerAddTransitionButton = styled.div`
   z-index: 10;
   &:hover,
   &:focus {
-    background-image: linear-gradient(315deg, #89d891 0%, #03c8a8 74%);
+    background-image: linear-gradient(
+      315deg,
+      ${({ theme }) => theme.colors.activeColor} 0%,
+      ${({ theme }) => theme.colors.cancelBtnFocusGradientSecondColor} 74%
+    );
     transform: scale(1.04);
   }
 `
@@ -34,10 +38,12 @@ export const ButtonPlus = styled.div`
   align-items: center;
   height: 100%;
   cursor: pointer;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  filter: drop-shadow(
+    0px 4px 4px ${({ theme }) => theme.colors.btnSwitcherShadowColor}
+  );
 `
 export const ButtonPlusCrist = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.background};
   height: 2px;
   width: 20px;
   display: flex;
@@ -45,7 +51,7 @@ export const ButtonPlusCrist = styled.div`
   align-items: center;
 `
 export const VerticalAlign = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.background};
   height: 20px;
   width: 2px;
   display: flex;

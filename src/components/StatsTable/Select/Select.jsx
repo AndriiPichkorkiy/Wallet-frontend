@@ -12,7 +12,7 @@ import {
   CategorySelect
 } from './Select.styled'
 
-const Select = ({ list, title, name, onChange, isModal, isLoading }) => {
+const Select = ({ list, title, name, onChange, isModal, isLoading, CustomComponent }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [value, setValue] = useState(null)
   const [selected, setSelected] = useState(null)
@@ -87,7 +87,9 @@ const Select = ({ list, title, name, onChange, isModal, isLoading }) => {
                 onPointerDown={e => onHandleSelect(e)}
                 key={item.id}
               >
-                {item.name}
+                {/* customComponent for theme select */}
+
+                {!CustomComponent ? item.name : <CustomComponent theme={item} />}
               </ListOption>
             ))}
           </List>

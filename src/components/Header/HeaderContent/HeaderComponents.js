@@ -10,7 +10,7 @@ export const HeaderC = styled.header`
   flex-direction: row;
   justify-content: space-between;
   padding: 15px 20px;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   ${respondTo.sm`
         padding: 20px 32px;
     `}
@@ -24,7 +24,7 @@ export const LogoCont = styled(NavLink)`
   flex-direction: row;
   align-items: center;
   text-decoration: none;
-  color: var(--main-text);
+  color: ${({ theme }) => theme.colors.mainText};
 
   overflow: hidden;
   background: linear-gradient(90deg, #000, #fff, #000);
@@ -65,14 +65,14 @@ export const LogoutCont = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  color: var(--text-header);
+  color: ${({ theme }) => theme.colors.textHeader};
 `
 
 export const BtnLogout = styled.button`
   padding: 0;
   font-family: 'Circe';
   margin-left: 8px;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   position: relative;
   display: flex;
   flex-direction: row;
@@ -82,11 +82,11 @@ export const BtnLogout = styled.button`
   &:focus {
     & > svg,
     & > span {
-      color: var(--activeColor);
+      color: ${({ theme }) => theme.colors.activeColor};
     }
   }
   ${respondTo.sm`
-        border-left: 1px var(--text-header) solid;
+        border-left: 1px ${({ theme }) => theme.colors.textHeader} solid;
         padding-left: 12px;
         
     `}
@@ -96,15 +96,15 @@ export const LogoutExitName = styled.h3`
   font-weight: 400;
   font-size: 18px;
   line-height: 27px;
-  color: var(--text-header);
+  color: ${({ theme }) => theme.colors.textHeader};
   margin-left: 5px;
 `
 
 export const LogoutExitNameCircle = styled.div`
   padding: 5px 10px;
-  background-color: var(--paleActiveColor);
+  background-color: ${({ theme }) => theme.colors.paleActiveColor};
   border-radius: 20px;
-  color: var(--background);
+  color: ${({ theme }) => theme.colors.background};
   font-weight: 400;
   font-size: 24px;
   line-height: 27px;
@@ -114,7 +114,7 @@ export const LogoutExit = styled.span`
   position: absolute;
   color: transparent;
   ${respondTo.sm`
-        color: var(--text-header);
+        color: ${({ theme }) => theme.colors.textHeader};
         padding-top: 3px;
         margin-left: 8px;
         position: relative;

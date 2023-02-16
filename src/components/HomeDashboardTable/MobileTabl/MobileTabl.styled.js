@@ -3,16 +3,16 @@ import styled from 'styled-components'
 export const ContainerMobileTabl = styled.div`
   width: 100%;
   max-width: 280px;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   margin: 0 auto 8px auto;
   border-radius: 10px;
   border-left: 5px solid
     ${p => {
       switch (p.isType) {
         case '+':
-          return 'var(--accentPrimary)'
+          return p.theme.colors.accentPrimary
         case '-':
-          return 'var(--accentSecondary)'
+          return p.theme.colors.accentSecondary
         default:
           return ''
       }
@@ -26,11 +26,11 @@ export const ContainerEmpty = styled.div`
   font-size: 16px;
   line-height: 1.474;
   text-align: center;
-  background-color: var(--background);
+  background-color: ${({ theme }) => theme.colors.background};
   margin-bottom: 8px;
   border-radius: 10px;
   border-radius: 10px;
-  border-left: 5px solid var(--paleActiveColor);
+  border-left: 5px solid ${({ theme }) => theme.colors.paleActiveColor};
 `
 
 export const CardBox = styled.div`
@@ -53,7 +53,7 @@ export const TypographyCard = styled.p`
     left: -25px;
     width: 100%;
     min-width: 280px;
-    border-bottom: 1px solid var(--text-header);
+    border-bottom: 1px solid ${({ theme }) => theme.colors.textHeader};
   }
   &:last-child {
     margin-bottom: 0;
@@ -70,9 +70,9 @@ export const Span = styled.span`
   color: ${p => {
     switch (p.isType) {
       case '+':
-        return 'var(--accentPrimary)'
+        return p.theme.colors.accentPrimary
       case '-':
-        return 'var(--accentSecondary)'
+        return p.theme.colors.accentSecondary
       default:
         return ''
     }
