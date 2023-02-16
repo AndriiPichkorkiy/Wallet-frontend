@@ -17,10 +17,10 @@ const ThemeButton = ({ theme, onClick }) => {
 
   const functionAction = onClick ? onClick : () => { }
   return (
-    <li onClick={functionAction} style={!onClick ? { pointerEvents: "none" } : {}}>
+    <div onClick={functionAction} style={!onClick ? { pointerEvents: "none" } : {}}>
       <h3>{theme.name}</h3>
       <div style={{ background: colorThemeStyle, height: "32px", border: "black 1px solid", borderRadius: 8 }}></div>
-    </li>
+    </div>
   );
 }
 
